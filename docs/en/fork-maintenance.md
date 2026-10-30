@@ -26,3 +26,7 @@ The bundled compose file uses `ghcr.io/sakura520222/astrbot:latest`; the first s
 `astrbot.__version__` and project metadata keep the upstream-aligned version, currently 4.29.3. Plugin version requirements use the normal framework version without a separate fork compatibility layer. Core and WebUI updates still use this personal fork's releases.
 
 Push a reviewed `v<version>` tag from the merged master commit to build release packages and the GHCR image. Website source is in `site/`; documentation is in `docs/`, with Cloudflare Pages Git deployments. Historical pages describing upstream hosted services or desktop clients do not imply that those services distribute this fork.
+
+## Upstream tag namespace
+
+The fork and upstream share version numbers, but their release commits and tags are independent. Fetch upstream branches with `git fetch --no-tags upstream`; archive upstream tags with `git fetch --no-tags upstream "refs/tags/*:refs/tags/upstream/*"`. The original upstream tag is preserved locally as `upstream/v4.29.3`. Never force-update a published fork tag to an upstream tag with the same name.
