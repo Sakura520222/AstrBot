@@ -299,6 +299,8 @@ def run_validation(args: argparse.Namespace) -> None:
     Raises:
         ReleaseError: A validation command fails.
     """
+    run_command(["uv", "lock"])
+
     if args.generate_api_client:
         run_command(["pnpm", "generate:api"], cwd=REPO_ROOT / "dashboard")
 
@@ -332,6 +334,7 @@ def commit_and_maybe_push(
         [
             "add",
             "pyproject.toml",
+            "uv.lock",
             "astrbot/__init__.py",
             str(changelog_path.relative_to(REPO_ROOT)),
         ]
@@ -369,7 +372,7 @@ def print_next_steps(
     else:
         print("Next:")
         print(f"1. Review and polish {changelog_rel}")
-        print(f"2. git add pyproject.toml astrbot/__init__.py {changelog_rel}")
+        print(f"2. git add pyproject.toml uv.lock astrbot/__init__.py {changelog_rel}")
         print(f'3. git commit -m "chore: bump version to {version}"')
         print(f"4. git push -u {args.remote} {branch}")
 
