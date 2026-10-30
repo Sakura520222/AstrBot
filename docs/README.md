@@ -33,6 +33,8 @@ cd docs && pnpm install --frozen-lockfile && pnpm docs:build && cd .. && node sc
 
 ## 域名与部署授权
 
-仓库 Settings → Pages 的构建源选择 **GitHub Actions**，自定义域名为 `astrbot.pyabunny.com`。Cloudflare DNS 中该子域名的 CNAME 指向 `sakura520222.github.io`，等待证书签发后启用强制 HTTPS。官网首页位于 `/`，文档位于 `/docs/`。
+仓库 Settings → Pages 的构建源选择 **GitHub Actions**，自定义域名为 `astrbot.pyabunny.com`。Cloudflare DNS 中该子域名的 CNAME 指向 `sakura520222.github.io` 并开启代理（橙云），SSL/TLS 模式保持 **Full (strict)**，开启 **Always Use HTTPS**。Cloudflare 提供站点入口证书，并严格验证 GitHub Pages 目标主机的源站证书。官网首页位于 `/`，文档位于 `/docs/`。
+
+源站证书验证要求见 [Cloudflare Full (strict) 文档](https://developers.cloudflare.com/ssl/origin-configuration/ssl-modes/full-strict/)。维护时不要降低 TLS 模式或关闭证书校验。
 
 部署作业使用 GitHub 自带的 `GITHUB_TOKEN` 与 OIDC 临时授权，仅授予 `pages: write` 和 `id-token: write`，部署环境为 `github-pages`。无需额外 Actions Secrets 或长期 API 令牌。
