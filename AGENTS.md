@@ -74,6 +74,8 @@ uv run --no-sync pytest <受影响的测试>
 
 `release.yml` 发布 GitHub Release、核心/WebUI ZIP、Python 分发包、SHA256 校验文件及 GHCR 镜像，仅使用本仓库的 `GITHUB_TOKEN`，不向上游 PyPI、Docker Hub、R2 或 release-harbour 发布。
 
-官网源位于 `site/`，中文文档位于 `docs/zh/`，通过本账号 Cloudflare Pages Git 集成自动部署。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
+官网源位于 `site/`，中文文档位于 `docs/zh/`，由 GitHub Actions 构建验证后自动部署到本仓库 GitHub Pages。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
 
 PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。
+
+站点部署使用 `GITHUB_TOKEN` 与 OIDC 临时授权，部署作业仅授予 `pages: write` 和 `id-token: write`，无需长期部署密钥。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证。仓库 Pages 构建源为 GitHub Actions，自定义域名为 `astrbot.pyabunny.com`，Cloudflare DNS 的 CNAME 指向 `sakura520222.github.io`。

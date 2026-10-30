@@ -3,9 +3,9 @@ name: Website and Docs CI
 on:
   push:
     branches: [master]
-    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
   pull_request:
-    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
   workflow_dispatch:
 
 permissions:
@@ -43,8 +43,23 @@ jobs:
           test -s site/index.html
           test -s site/styles.css
           test -s site/favicon.svg
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-pages-artifact@v5
         with:
-          name: documentation
           path: site-dist
           retention-days: 7
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: docs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
