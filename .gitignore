@@ -3,7 +3,6 @@ __pycache__
 .mypy_cache
 .venv*
 .conda/
-uv.lock
 .coverage
 
 # IDE and editors
@@ -66,3 +65,6 @@ GenieData/
 .worktrees/
 
 dashboard/bun.lock
+.codegraph/
+
+site-dist/

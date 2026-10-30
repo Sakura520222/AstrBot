@@ -3,8 +3,9 @@ import { head } from "./config/head";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "AstrBot",
-  description: "AstrBot",
+  base: "/docs/",
+  title: "AstrBot 个人 Fork",
+  description: "Sakura520222 独立维护的 AstrBot 个人 Fork 中文文档",
   head: head,
 
   rewrites: {
@@ -12,7 +13,7 @@ export default defineConfig({
   },
 
   sitemap: {
-    hostname: "https://docs.astrbot.app",
+    hostname: "https://astrbot.pyabunny.com/docs/",
   },
 
   lastUpdated: true,
@@ -24,15 +25,16 @@ export default defineConfig({
       lang: "zh-Hans",
       themeConfig: {
         nav: [
-          { text: "主页", link: "https://astrbot.app" },
-          { text: "博客", link: "https://blog.astrbot.app" },
-          { text: "路线图", link: "https://astrbot.featurebase.app/roadmap" },
-          { text: "HTTP API", link: "https://docs.astrbot.app/scalar.html" },
+          { text: "主页", link: "https://astrbot.pyabunny.com" },
+          { text: "维护指南", link: "/fork-maintenance" },
+          { text: "版本发布", link: "https://github.com/Sakura520222/AstrBot/releases" },
+          { text: "HTTP API", link: "https://astrbot.pyabunny.com/docs/scalar.html" },
         ],
         sidebar: [
           {
             text: "简介",
             items: [
+              { text: "个人 Fork 部署与维护", link: "/fork-maintenance" },
               { text: "关于 AstrBot", link: "/what-is-astrbot" },
               { text: "社区", link: "/community" },
               { text: "常见问题", link: "/faq" },
@@ -282,19 +284,14 @@ export default defineConfig({
           next: '下一篇'
         },
         editLink: {
-          pattern: 'https://github.com/AstrBotdevs/AstrBot/edit/master/docs/:path',
+          pattern: 'https://github.com/Sakura520222/AstrBot/edit/master/docs/:path',
           text: '发现文档有问题？在 GitHub 上编辑此页',
         },
         logo: '/favicon.svg',
         socialLinks: [
-          { icon: "github", link: "https://github.com/AstrBotDevs/AstrBot" },
+          { icon: "github", link: "https://github.com/Sakura520222/AstrBot" },
         ],
-        footer: {
-          message: 'Deployed on&nbsp' +
-            '<a href="https://www.rainyun.com/NjY3OTQ5_" class="deployment-link" style="display: inline-flex; align-items: center;">' +
-            '<img src="https://www.rainyun.com/img/logo.d193755d.png" width="50" alt="Rainyun Logo">' +
-            '</a>',
-        }
+        footer: { message: 'Sakura520222 独立维护 · 基于 <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later' }
       }
     },
     en: {
@@ -302,10 +299,10 @@ export default defineConfig({
       lang: "en-US",
       themeConfig: {
         nav: [
-          { text: "Home", link: "https://astrbot.app" },
-          { text: "Blog", link: "https://blog.astrbot.app" },
-          { text: "Roadmap", link: "https://astrbot.featurebase.app/roadmap" },
-          { text: "HTTP API", link: "https://docs.astrbot.app/scalar.html" },
+          { text: "Home", link: "https://astrbot.pyabunny.com" },
+          { text: "Fork Guide", link: "/en/fork-maintenance" },
+          { text: "Releases", link: "https://github.com/Sakura520222/AstrBot/releases" },
+          { text: "HTTP API", link: "https://astrbot.pyabunny.com/docs/scalar.html" },
         ],
         sidebar: [
           {
@@ -556,24 +553,20 @@ export default defineConfig({
           next: 'Next'
         },
         editLink: {
-          pattern: 'https://github.com/AstrBotdevs/AstrBot/edit/master/docs/:path',
+          pattern: 'https://github.com/Sakura520222/AstrBot/edit/master/docs/:path',
           text: 'Edit this page on GitHub',
         },
         logo: '/favicon.svg',
         socialLinks: [
-          { icon: "github", link: "https://github.com/AstrBotDevs/AstrBot" },
+          { icon: "github", link: "https://github.com/Sakura520222/AstrBot" },
         ],
-        footer: {
-          message: 'Deployed on&nbsp' +
-            '<a href="https://www.rainyun.com/NjY3OTQ5_" class="deployment-link" style="display: inline-flex; align-items: center;">' +
-            '<img src="https://www.rainyun.com/img/logo.d193755d.png" width="50" alt="Rainyun Logo">' +
-            '</a>',
-        }
+        footer: { message: 'Sakura520222 独立维护 · 基于 <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later' }
       }
     },
   },
 
   themeConfig: {
+    siteTitle: "AstrBot",
     search: {
       provider: "local",
       options: {

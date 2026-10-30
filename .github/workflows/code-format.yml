@@ -6,6 +6,10 @@ on:
   push:
     branches: [ master ]
 
+concurrency:
+  group: code-format-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   format-check:
     runs-on: ubuntu-latest
@@ -23,7 +27,7 @@ jobs:
       run: pip install uv
       
     - name: Install dependencies
-      run: uv sync
+      run: uv sync --locked
       
     - name: Check code formatting with ruff
       run: |

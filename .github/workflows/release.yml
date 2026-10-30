@@ -1,265 +1,139 @@
-name: Release AstrBot
+name: Release AstrBot Fork
 
 on:
   push:
-    tags:
-      - "v*"
+    tags: ['v*']
   workflow_dispatch:
     inputs:
-      ref:
-        description: "Git ref to build (branch/tag/SHA)"
-        required: false
-        default: "master"
       tag:
-        description: "Release tag to publish assets to (for example: v4.14.6)"
-        required: false
+        description: 'Existing release tag, for example v4.29.3'
+        required: true
+        type: string
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
 
 jobs:
-  build-dashboard:
-    name: Build Dashboard
-    if: github.repository == 'AstrBotDevs/AstrBot'
+  release:
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
     env:
-      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
+          ref: ${{ inputs.tag || github.ref }}
           fetch-depth: 0
-          ref: ${{ inputs.ref || github.ref }}
-
-      - name: Resolve tag
-        id: tag
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate release version
+        id: version
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            tag="${GITHUB_REF_NAME}"
-          elif [ -n "${{ inputs.tag }}" ]; then
-            tag="${{ inputs.tag }}"
-          else
-            tag="$(git describe --tags --abbrev=0)"
-          fi
-          if [ -z "$tag" ]; then
-            echo "Failed to resolve tag." >&2
-            exit 1
-          fi
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6.1.0
+          python - <<'PY'
+          import ast
+          import os
+          import re
+          import tomllib
+          from pathlib import Path
+          tag = os.environ['RELEASE_TAG']
+          if not re.fullmatch(r'v\d+\.\d+\.\d+(?:-(?:alpha|beta|rc)\.\d+)?', tag):
+              raise SystemExit('Invalid release tag')
+          version = tag.removeprefix('v')
+          project = tomllib.loads(Path('pyproject.toml').read_text())['project']['version']
+          tree = ast.parse(Path('astrbot/__init__.py').read_text())
+          package = next(ast.literal_eval(node.value) for node in tree.body if isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == '__version__' for target in node.targets))
+          if project != version or package != version:
+              raise SystemExit(f'Tag, project and package versions disagree: {tag}, {project}, {package}')
+          if not Path(f'changelogs/{tag}.md').is_file():
+              raise SystemExit('A reviewed release changelog is required')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'tag={tag}\n')
+          PY
+      - uses: pnpm/action-setup@v6.1.0
         with:
           version: 10.28.2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: '24.13.0'
-          cache: "pnpm"
+          node-version: '24'
+          cache: pnpm
           cache-dependency-path: dashboard/pnpm-lock.yaml
-
-      - name: Build dashboard dist
-        shell: bash
+      - name: Build and verify WebUI
         working-directory: dashboard
         run: |
           pnpm install --frozen-lockfile
-          pnpm run build
-          echo "${{ steps.tag.outputs.tag }}" > dist/assets/version
-          zip -r "AstrBot-${{ steps.tag.outputs.tag }}-dashboard.zip" dist
-
-      - name: Build core package
+          pnpm run i18n:check
+          node --test tests/*.test.mjs
+          pnpm build
+          echo "$RELEASE_TAG" > dist/assets/version
+      - name: Build source and WebUI archives
         shell: bash
         run: |
-          git archive \
-            --format=zip \
-            --prefix="AstrBot-${{ steps.tag.outputs.tag }}/" \
-            --output="AstrBot-${{ steps.tag.outputs.tag }}-core.zip" \
-            HEAD
-
-      - name: Upload dashboard artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: Dashboard-${{ steps.tag.outputs.tag }}
-          if-no-files-found: error
-          path: dashboard/AstrBot-${{ steps.tag.outputs.tag }}-dashboard.zip
-
-      - name: Upload release packages to Cloudflare R2
-        if: ${{ env.R2_ACCOUNT_ID != '' && env.R2_ACCESS_KEY_ID != '' && env.R2_SECRET_ACCESS_KEY != '' }}
-        env:
-          R2_BUCKET_NAME: "astrbot"
-          DASHBOARD_LATEST_OBJECT_NAME: "astrbot-webui-latest.zip"
-          CORE_LATEST_OBJECT_NAME: "astrbot-core-latest.zip"
-          VERSION_TAG: ${{ steps.tag.outputs.tag }}
-        shell: bash
-        run: |
-          curl https://rclone.org/install.sh | sudo bash
-
-          mkdir -p ~/.config/rclone
-          cat <<EOF > ~/.config/rclone/rclone.conf
-          [r2]
-          type = s3
-          provider = Cloudflare
-          access_key_id = $R2_ACCESS_KEY_ID
-          secret_access_key = $R2_SECRET_ACCESS_KEY
-          endpoint = https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com
-          EOF
-
-          cp "dashboard/AstrBot-${VERSION_TAG}-dashboard.zip" "dashboard/${DASHBOARD_LATEST_OBJECT_NAME}"
-          rclone copy "dashboard/${DASHBOARD_LATEST_OBJECT_NAME}" "r2:${R2_BUCKET_NAME}" --progress
-          cp "dashboard/AstrBot-${VERSION_TAG}-dashboard.zip" "dashboard/astrbot-webui-${VERSION_TAG}.zip"
-          rclone copy "dashboard/astrbot-webui-${VERSION_TAG}.zip" "r2:${R2_BUCKET_NAME}" --progress
-
-          cp "AstrBot-${VERSION_TAG}-core.zip" "${CORE_LATEST_OBJECT_NAME}"
-          rclone copy "${CORE_LATEST_OBJECT_NAME}" "r2:${R2_BUCKET_NAME}" --progress
-          cp "AstrBot-${VERSION_TAG}-core.zip" "astrbot-core-${VERSION_TAG}.zip"
-          rclone copy "astrbot-core-${VERSION_TAG}.zip" "r2:${R2_BUCKET_NAME}" --progress
-          rclone copyto "AstrBot-${VERSION_TAG}-core.zip" "r2:${R2_BUCKET_NAME}/astrbot-core/${VERSION_TAG}/source.zip" --progress
-          rclone copyto "AstrBot-${VERSION_TAG}-core.zip" "r2:${R2_BUCKET_NAME}/download/astrbot-core/${VERSION_TAG}/source.zip" --progress
-
-  publish-release:
-    name: Publish GitHub Release
-    if: github.repository == 'AstrBotDevs/AstrBot'
-    runs-on: ubuntu-24.04
-    needs:
-      - build-dashboard
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.ref || github.ref }}
-
-      - name: Resolve tag
-        id: tag
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            tag="${GITHUB_REF_NAME}"
-          elif [ -n "${{ inputs.tag }}" ]; then
-            tag="${{ inputs.tag }}"
-          else
-            tag="$(git describe --tags --abbrev=0)"
-          fi
-          if [ -z "$tag" ]; then
-            echo "Failed to resolve tag." >&2
-            exit 1
-          fi
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
-
-      - name: Download dashboard artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: Dashboard-${{ steps.tag.outputs.tag }}
-          path: release-assets
-
-
-      - name: Resolve release notes
-        id: notes
-        shell: bash
-        run: |
-          note_file="changelogs/${{ steps.tag.outputs.tag }}.md"
-          if [ ! -f "$note_file" ]; then
-            note_file="$(mktemp)"
-            echo "Release ${{ steps.tag.outputs.tag }}" > "$note_file"
-          fi
-          echo "file=$note_file" >> "$GITHUB_OUTPUT"
-
-      - name: Ensure release exists
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          tag="${{ steps.tag.outputs.tag }}"
-          if ! gh release view "$tag" >/dev/null 2>&1; then
-            gh release create "$tag" --title "$tag" --notes-file "${{ steps.notes.outputs.file }}"
-          fi
-
-      - name: Remove stale assets from release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          tag="${{ steps.tag.outputs.tag }}"
-          while IFS= read -r asset; do
-            case "$asset" in
-              *.AppImage|*.dmg|*.zip|*.exe|*.blockmap)
-                gh release delete-asset "$tag" "$asset" -y || true
-                ;;
-            esac
-          done < <(gh release view "$tag" --json assets --jq '.assets[].name')
-
-      - name: Upload assets to release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          tag="${{ steps.tag.outputs.tag }}"
-          gh release upload "$tag" release-assets/* --clobber
-
-  publish-pypi:
-    name: Publish PyPI
-    if: github.repository == 'AstrBotDevs/AstrBot'
-    runs-on: ubuntu-24.04
-    needs:
-      - publish-release
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.ref || github.ref }}
-
-      - name: Resolve tag
-        id: tag
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            tag="${GITHUB_REF_NAME}"
-          elif [ -n "${{ inputs.tag }}" ]; then
-            tag="${{ inputs.tag }}"
-          else
-            tag="$(git describe --tags --abbrev=0)"
-          fi
-          if [ -z "$tag" ]; then
-            echo "Failed to resolve tag." >&2
-            exit 1
-          fi
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
-
-      - name: Download dashboard artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: Dashboard-${{ steps.tag.outputs.tag }}
-          path: ${{ runner.temp }}/dashboard-artifact
-
-      - name: Unpack dashboard dist into package tree
-        shell: bash
-        run: |
+          mkdir -p release-assets
+          git archive --format=zip --prefix="AstrBot-${RELEASE_TAG}/" --output="release-assets/AstrBot-${RELEASE_TAG}-core.zip" HEAD
+          (cd dashboard && zip -qr "../release-assets/AstrBot-${RELEASE_TAG}-dashboard.zip" dist)
           mkdir -p astrbot/dashboard/dist
-          unzip -q "${RUNNER_TEMP}/dashboard-artifact/AstrBot-${{ steps.tag.outputs.tag }}-dashboard.zip" -d "${RUNNER_TEMP}/dashboard-artifact/unpacked"
-          cp -r "${RUNNER_TEMP}/dashboard-artifact/unpacked/dist/." astrbot/dashboard/dist/
-
-      - name: Set up Python
-        uses: actions/setup-python@v7
+          cp -a dashboard/dist/. astrbot/dashboard/dist/
+      - name: Build Python distributions
+        run: |
+          python -m pip install uv
+          uv build --out-dir release-assets
+      - name: Verify packages and write checksums
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import os
+          import zipfile
+          from pathlib import Path
+          assets = Path('release-assets')
+          wheel = next(assets.glob('*.whl'))
+          with zipfile.ZipFile(wheel) as archive:
+              assert 'astrbot/dashboard/dist/index.html' in archive.namelist()
+              assert archive.read('astrbot/dashboard/dist/assets/version').decode().strip() == os.environ['RELEASE_TAG']
+              assert archive.read('astrbot/dashboard/dist/assets/distribution').decode().strip() == os.environ['GITHUB_REPOSITORY']
+          core = assets / f"AstrBot-{os.environ['RELEASE_TAG']}-core.zip"
+          with zipfile.ZipFile(core) as archive:
+              assert not any(name.split('/', 1)[-1].split('/', 1)[0] in {'data', '.venv', '.codegraph', '.env'} for name in archive.namelist())
+          lines = [f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}' for path in sorted(assets.iterdir()) if path.is_file()]
+          (assets / 'SHA256SUMS').write_text('\n'.join(lines) + '\n')
+          PY
+      - uses: actions/upload-artifact@v7
         with:
-          python-version: "3.10"
-
-      - name: Install uv
-        shell: bash
-        run: python -m pip install uv
-
-      - name: Build package
-        shell: bash
-        # Dashboard assets are already in astrbot/dashboard/dist/;
-        # ASTRBOT_BUILD_DASHBOARD is intentionally unset so the hatch hook skips npm.
-        run: uv build
-
-      - name: Publish to PyPI
+          name: release-${{ steps.version.outputs.tag }}
+          path: release-assets/*
+          if-no-files-found: error
+          retention-days: 14
+      - name: Publish GitHub Release
         env:
-          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
         shell: bash
-        run: uv publish
+        run: |
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" --verify-tag --draft --title "AstrBot 个人 Fork ${RELEASE_TAG}" --notes-file "changelogs/${RELEASE_TAG}.md"
+          fi
+          gh release upload "$RELEASE_TAG" release-assets/* --clobber
+          if [[ "$RELEASE_TAG" == *-* ]]; then
+            gh release edit "$RELEASE_TAG" --draft=false --prerelease
+          else
+            gh release edit "$RELEASE_TAG" --draft=false --latest
+          fi
+
+  docker:
+    needs: release
+    permissions:
+      contents: read
+      packages: write
+    uses: ./.github/workflows/docker-image.yml
+    with:
+      tag: ${{ needs.release.outputs.tag }}

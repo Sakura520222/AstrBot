@@ -75,5 +75,6 @@
     "vue-cli-plugin-vuetify": "2.5.8",
     "vue-tsc": "1.8.8",
     "vuetify-loader": "^2.0.0-alpha.9"
-  }
+  },
+  "packageManager": "pnpm@10.28.2"
 }

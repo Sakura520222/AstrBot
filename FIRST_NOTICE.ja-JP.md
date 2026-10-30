@@ -1,16 +1,12 @@
-## AstrBot へようこそ
+## Welcome to this personal AstrBot fork
 
-🌟 AstrBot をご利用いただきありがとうございます！
+This fork is independently maintained by **Sakura520222**. It keeps the AstrBot name and logo and uses the upstream-aligned version **4.29.3**. It is not an official AstrBotDevs release.
 
-AstrBot は、個人チャットやグループチャット向けのエージェント型 AI アシスタントです。複数の IM プラットフォームと豊富な組み込み機能に対応しています。快適で効率的な体験をお楽しみいただければ幸いです。❤️
+- [Website](https://astrbot.pyabunny.com)
+- [Documentation and maintenance](https://astrbot.pyabunny.com/docs/en/fork-maintenance)
+- [Source and releases](https://github.com/Sakura520222/AstrBot)
+- [Issue tracker](https://github.com/Sakura520222/AstrBot/issues)
 
-重要なお知らせ：
+Back up and preserve the complete `data/` directory before migrating or updating. It contains configuration, plugins, plugin configuration, databases and plugin data.
 
-AstrBot は、AGPLv3 ライセンスの下で公開されている**無料のオープンソースソフトウェアプロジェクト**です。ソースコードと関連リソースは、[**公式サイト**](https://astrbot.app)および[**GitHub**](https://github.com/astrbotdevs/astrbot)で公開されています。
-現在、AstrBot は**いかなる商用サービスも提供しておらず**、公式チームが名目を問わずユーザーに料金を請求することは**一切ありません**。
-
-AstrBot の利用に際して支払いを求められた場合は、**詐欺の可能性があります**。直ちに返金を求め、メールでご報告ください。
-
-📊 本プロジェクトをご利用になる前に、[エンドユーザー使用許諾契約](https://github.com/AstrBotDevs/AstrBot/blob/master/EULA.md)をよくお読みください。インストールした時点で、そのすべての内容に同意したものとみなされます。
-
-📮 公式メールアドレス：[community@astrbot.app](mailto:community@astrbot.app)
+Derived from [AstrBot](https://github.com/AstrBotDevs/AstrBot), with original attribution, history and the [AGPL-3.0-or-later license](https://github.com/Sakura520222/AstrBot/blob/master/LICENSE) retained. Core and WebUI updates use this fork; the public plugin ecosystem remains available.

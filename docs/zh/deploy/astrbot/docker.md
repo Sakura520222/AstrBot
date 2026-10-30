@@ -12,7 +12,7 @@
 首先，需要 Clone AstrBot 仓库到本地：
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 cd AstrBot
 ```
 
@@ -23,7 +23,7 @@ sudo docker compose up -d
 ```
 
 > [!TIP]
-> 如果您的网络环境在中国大陆境内，上述命令将无法正常拉取。您可能需要修改 compose.yml 文件，将其中的 `image: soulter/astrbot:latest` 替换为 `image: m.daocloud.io/docker.io/soulter/astrbot:latest`。
+> 如果您的网络环境在中国大陆境内，上述命令将无法正常拉取。您可能需要修改 compose.yml 文件，将其中的 `image: ghcr.io/sakura520222/astrbot:latest` 替换为 `image: m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest`。
 :::
 
 ::: details 带 Agent 沙盒环境的部署
@@ -33,7 +33,7 @@ sudo docker compose up -d
 部署方式如下：
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 cd AstrBot
 # 修改 compose-with-shipyard.yml 文件中的环境变量配置，例如 Shipyard 的 access token 等
 docker compose -f compose-with-shipyard.yml up -d
@@ -62,14 +62,14 @@ sudo docker compose -f astrbot.yml up -d
 ```bash
 mkdir astrbot
 cd astrbot
-sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot soulter/astrbot:latest
+sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 
 > [!TIP]
 > 如果您的网络环境在中国大陆境内，上述命令将无法正常拉取。请使用以下命令拉取镜像：
 >
 > ```bash
-> sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (感谢 DaoCloud ❤️)
@@ -96,13 +96,13 @@ sudo docker logs -f astrbot
 `TZ` 的值请设置为 **IANA 时区标准格式**（地区/城市），例如中国为 `Asia/Shanghai`
 
 ```bash
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot soulter/astrbot:latest
+docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 > [!TIP]
 > 如果您的网络环境在中国大陆境内，上述命令将无法正常拉取。请使用以下命令拉取镜像：
 >
 > ```bash
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (感谢 DaoCloud ❤️)
@@ -112,13 +112,13 @@ docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/Ast
 `TZ` 的值请设置为 **IANA 时区标准格式**（地区/城市），例如中国为 `Asia/Shanghai`
 
 ```powershell
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot soulter/astrbot:latest
+docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 > [!TIP]
 > 如果您的网络环境在中国大陆境内，上述命令将无法正常拉取。请使用以下命令拉取镜像：
 >
 > ```powershell
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (感谢 DaoCloud ❤️)

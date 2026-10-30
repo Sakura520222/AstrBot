@@ -222,7 +222,7 @@ class ShellInstallerTests(unittest.TestCase):
                 "install",
                 "--python",
                 "3.12",
-                "astrbot",
+                "git+https://github.com/Sakura520222/AstrBot.git",
                 "--default-index",
                 index,
             ],

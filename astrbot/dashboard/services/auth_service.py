@@ -88,17 +88,17 @@ DEFAULT_PASSWORD_LOGIN_FAILURE_MESSAGE = (
     "Login failed. If this is your first time using AstrBot, the old default "
     "astrbot password has been replaced by a random strong password printed in "
     "the startup logs. Check the initial password in the logs and try again. "
-    "Learn more: https://docs.astrbot.app/en/faq.html\n\n"
+    "Learn more: https://astrbot.pyabunny.com/docs/en/faq.html\n\n"
     "登录失败。如果您是初次使用，旧版默认 astrbot 密码已改为启动日志中输出的"
     "随机强密码。请使用日志中提供的的初始密码来登录。了解更多："
-    "https://docs.astrbot.app/faq.html"
+    "https://astrbot.pyabunny.com/docs/faq.html"
 )
 MD5_PASSWORD_LOGIN_FAILURE_MESSAGE = (
     "Incorrect username or password. If you cannot log in after upgrading "
     "AstrBot even though the password is correct, see "
-    "https://docs.astrbot.app/en/faq.html\n\n"
+    "https://astrbot.pyabunny.com/docs/en/faq.html\n\n"
     "用户名或密码错误。如果你在升级 AstrBot 后遇到了密码正确但无法登录的情况，"
-    "请参考 https://docs.astrbot.app/faq.html"
+    "请参考 https://astrbot.pyabunny.com/docs/faq.html"
 )
 TOTP_TRUSTED_DEVICE_COOKIE_NAME = _TOTP_TRUSTED_DEVICE_COOKIE_NAME
 TOTP_TRUSTED_DEVICE_MAX_AGE = _TOTP_TRUSTED_DEVICE_MAX_AGE

@@ -23,16 +23,18 @@ watch(() => route.path, closeSidebar)
 
 useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 
-const { frontmatter } = useData()
+const { frontmatter, site } = useData()
 
 const sidebarScopeClass = computed(() => {
-  const path = route.path
+  const path = route.path.startsWith(site.value.base)
+    ? '/' + route.path.slice(site.value.base.length)
+    : route.path
   const normalizedPath = path
     .replace(/\.html$/, '')
     .replace(/\/$/, '') || '/'
 
   if (
-    normalizedPath === '/what-is-astrbot' || normalizedPath === '/community' || normalizedPath === '/faq'
+    normalizedPath === '/fork-maintenance' || normalizedPath === '/what-is-astrbot' || normalizedPath === '/community' || normalizedPath === '/faq'
     || path.startsWith('/deploy/') || path.startsWith('/others/') || path.startsWith('/ospp/')
     || normalizedPath === '/en/what-is-astrbot' || normalizedPath === '/en/community' || normalizedPath === '/en/faq'
     || path.startsWith('/en/deploy/') || path.startsWith('/en/others/') || path.startsWith('/en/ospp/')

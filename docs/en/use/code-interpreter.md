@@ -18,7 +18,7 @@ If you've deployed AstrBot using Docker, some additional setup is required.
 1. When starting the Docker container, mount `/var/run/docker.sock` inside the container. This allows AstrBot to launch sandbox containers.
 
 ```bash
-sudo docker run -itd -p 6180-6200:6180-6200 -p 11451:11451 -v $PWD/data:/AstrBot/data -v /var/run/docker.sock:/var/run/docker.sock --name astrbot soulter/astrbot:latest
+sudo docker run -itd -p 6180-6200:6180-6200 -p 11451:11451 -v $PWD/data:/AstrBot/data -v /var/run/docker.sock:/var/run/docker.sock --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 
 2. Use the `/pi absdir <absolute-path>` command during chat to set the absolute path of AstrBot's data directory on your host machine.
@@ -37,7 +37,7 @@ sudo -E python3 main.py
 
 ## Usage
 
-This feature uses the `soulter/astrbot-code-interpreter-sandbox` image. You can view detailed information about the image on [Docker Hub](https://hub.docker.com/r/soulter/astrbot-code-interpreter-sandbox).
+This feature uses the `ghcr.io/sakura520222/astrbot-code-interpreter-sandbox` image. You can view detailed information about the image on [Docker Hub](https://hub.docker.com/r/ghcr.io/sakura520222/astrbot-code-interpreter-sandbox).
 
 The image includes commonly used Python libraries:
 

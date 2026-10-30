@@ -77,7 +77,7 @@
 
       <footer v-if="visibleSections.length > 0" class="config-workspace__help">
         {{ tm('help.helpPrefix') }}
-        <a href="https://docs.astrbot.app/" target="_blank" rel="noopener noreferrer">
+        <a href="https://astrbot.pyabunny.com/docs/" target="_blank" rel="noopener noreferrer">
           {{ tm('help.documentation') }}
         </a>
         {{ tm('help.helpMiddle') }}

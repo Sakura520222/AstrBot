@@ -744,7 +744,7 @@
         <p>{{ tm("dialog.securityWarning.aiocqhttpTokenMissing") }}</p>
         <span
           ><a
-            href="https://docs.astrbot.app/platform/aiocqhttp.html"
+            href="https://astrbot.pyabunny.com/docs/platform/aiocqhttp.html"
             target="_blank"
             >{{ tm("dialog.securityWarning.learnMore") }}</a
           ></span

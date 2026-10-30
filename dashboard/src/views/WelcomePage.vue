@@ -105,7 +105,7 @@
               <v-col cols="12" sm="4">
                 <!-- GitHub Card -->
                 <v-card variant="outlined" class="h-100 pa-4 d-flex flex-column"
-                  href="https://github.com/AstrBotDevs/AstrBot/" target="_blank">
+                  href="https://github.com/Sakura520222/AstrBot/" target="_blank">
                   <div class="d-flex align-center mb-3">
                     <v-icon size="32" class="mr-3">mdi-github</v-icon>
                     <span class="text-h6 font-weight-bold">GitHub</span>
@@ -118,7 +118,7 @@
 
               <v-col cols="12" sm="4">
                 <!-- Docs Card -->
-                <v-card variant="outlined" class="h-100 pa-4 d-flex flex-column" href="https://docs.astrbot.app"
+                <v-card variant="outlined" class="h-100 pa-4 d-flex flex-column" href="https://astrbot.pyabunny.com/docs"
                   target="_blank">
                   <div class="d-flex align-center mb-3">
                     <v-icon size="32" class="mr-3">mdi-book-open-variant</v-icon>
@@ -133,7 +133,7 @@
               <v-col cols="12" sm="4">
                 <!-- Afdian Card -->
                 <v-card variant="outlined" class="h-100 pa-4 d-flex flex-column"
-                  href="https://afdian.com/a/astrbot_team" target="_blank">
+                  href="https://github.com/Sakura520222/AstrBot" target="_blank">
                   <div class="d-flex align-center mb-3">
                     <v-icon size="32" class="mr-3">mdi-hand-heart</v-icon>
                     <span class="text-h6 font-weight-bold">{{ tm('resources.afdianTitle') }}</span>
@@ -193,7 +193,6 @@
 
 <script setup lang="ts">
 import { computed, ref, watch, onMounted } from 'vue';
-import axios from 'axios';
 import AddNewPlatform from '@/components/platform/AddNewPlatform.vue';
 import ProviderConfigDialog from '@/components/chat/ProviderConfigDialog.vue';
 import { configProfileApi, providerApi, systemConfigApi } from '@/api/v1';
@@ -452,13 +451,7 @@ async function saveComputerAccessRuntime() {
 }
 
 async function loadWelcomeAnnouncement() {
-  try {
-    const res = await axios.get('https://cloud.astrbot.app/api/v1/announcement');
-    welcomeAnnouncementRaw.value = res?.data?.data?.notice?.welcome_page ?? null;
-  } catch (e) {
-    welcomeAnnouncementRaw.value = null;
-    console.error(e);
-  }
+  welcomeAnnouncementRaw.value = null;
 }
 
 onMounted(async () => {

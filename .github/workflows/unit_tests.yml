@@ -11,6 +11,14 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: utf-8
+
+concurrency:
+  group: unit_tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   unit-tests:
     name: Run pytest suite (${{ matrix.os }})
@@ -20,11 +28,6 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-
-    # The Windows lane stays best-effort for now: the suite still has
-    # pre-existing Windows-specific failures there. Promote to blocking
-    # once those tests are fixed.
-    continue-on-error: ${{ matrix.os == 'windows-latest' }}
 
     defaults:
       run:

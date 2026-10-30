@@ -1,3 +1,5 @@
+> 此文件保留上游翻译内容。个人 Fork 的使用、版本和部署入口以[中文 README](README.md)为准。
+
 ![AstrBot-Logo-Simplified](https://github.com/user-attachments/assets/36fb04e4-cc75-4454-bd8b-049d11aa86f9)
 
 <div align="center">

@@ -103,9 +103,17 @@ def _is_dist_compatible(dist_dir: str | Path, current_version: str) -> bool:
         current_version: Current AstrBot Core version.
 
     Returns:
-        Whether the dist contains an index and a matching version.
+        Whether the dist belongs to this fork and matches the running Core.
     """
     dist_path = Path(dist_dir)
+    try:
+        distribution = (dist_path / "assets" / "distribution").read_text(
+            encoding="utf-8"
+        )
+    except (OSError, UnicodeError):
+        return False
+    if distribution.strip() != "Sakura520222/AstrBot":
+        return False
     return _is_dist_complete(dist_path) and _is_version_compatible(
         _read_dashboard_version(dist_path), current_version
     )
@@ -305,7 +313,7 @@ async def _download_package(
             TLS verification disabled.
 
     Raises:
-        RuntimeError: If neither source provides a valid ZIP package.
+        RuntimeError: If the fork release does not provide a valid ZIP package.
     """
     zip_path = (
         Path(path).absolute()
@@ -314,55 +322,20 @@ async def _download_package(
     )
     ensure_dir(zip_path.parent)
 
-    if len(version) != 40:
-        hosted_url = (
-            "https://astrbot-registry.soulter.top/download/"
-            f"astrbot-dashboard/{version}/dist.zip"
-        )
-        logger.info("Downloading AstrBot WebUI from %s", hosted_url)
-        try:
-            await download_file(
-                hosted_url,
-                str(zip_path),
-                show_progress=True,
-                progress_callback=progress_callback,
-                allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-            )
-            if not zipfile.is_zipfile(zip_path):
-                raise RuntimeError("Downloaded Dashboard package is not a valid ZIP")
-        except Exception as exc:
-            logger.warning(
-                "Hosted Dashboard package failed: %s. Falling back to GitHub.",
-                exc,
-            )
-            fallback_url = (
-                "https://github.com/AstrBotDevs/AstrBot/releases/download/"
-                f"{version}/AstrBot-{version}-dashboard.zip"
-            )
-            if proxy:
-                fallback_url = f"{proxy.rstrip('/')}/{fallback_url}"
-            await download_file(
-                fallback_url,
-                str(zip_path),
-                show_progress=True,
-                progress_callback=progress_callback,
-                allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-            )
-    else:
-        fallback_url = (
-            "https://github.com/AstrBotDevs/astrbot-release-harbour/releases/"
-            f"download/release-{version}/dist.zip"
-        )
-        if proxy:
-            fallback_url = f"{proxy.rstrip('/')}/{fallback_url}"
-        logger.info("Downloading AstrBot WebUI from %s", fallback_url)
-        await download_file(
-            fallback_url,
-            str(zip_path),
-            show_progress=True,
-            progress_callback=progress_callback,
-            allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-        )
+    package_url = (
+        "https://github.com/Sakura520222/AstrBot/releases/download/"
+        f"{version}/AstrBot-{version}-dashboard.zip"
+    )
+    if proxy:
+        package_url = f"{proxy.rstrip('/')}/{package_url}"
+    logger.info("Downloading AstrBot Fork WebUI from %s", package_url)
+    await download_file(
+        package_url,
+        str(zip_path),
+        show_progress=True,
+        progress_callback=progress_callback,
+        allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
+    )
 
     if not zipfile.is_zipfile(zip_path):
         raise RuntimeError("Downloaded Dashboard package is not a valid ZIP")
@@ -412,11 +385,11 @@ def _extract_package(
         staged_dist = staging_root / "dist"
         if not _is_dist_complete(staged_dist):
             raise RuntimeError("Downloaded Dashboard package is incomplete")
-        if expected_version is not None and not _is_version_compatible(
-            _read_dashboard_version(staged_dist), expected_version
+        if expected_version is not None and not _is_dist_compatible(
+            staged_dist, expected_version
         ):
             raise RuntimeError(
-                "Downloaded Dashboard version does not match "
+                "Downloaded Dashboard distribution or version does not match "
                 f"AstrBot {expected_version}"
             )
 

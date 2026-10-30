@@ -81,13 +81,13 @@ body:
     attributes:
       label: 检查清单
       options:
-        - label: 我已在 [Issue 列表](https://github.com/AstrBotDevs/AstrBot/issues)中搜索过相关问题仍无法解决，或该问题从未被报告过。
+        - label: 我已在 [Issue 列表](https://github.com/Sakura520222/AstrBot/issues)中搜索过相关问题仍无法解决，或该问题从未被报告过。
           required: true
         - label: 我已尝试过禁用所有插件，排除了可能是因插件导致的问题。
           required: true
         - label: 我报告的问题与 AstrBot 本体相关，而非在报告某一插件的问题。
           required: true
-        - label: 我已阅读并同意本项目的[贡献者行为准则](https://github.com/AstrBotDevs/AstrBot/blob/master/CODE_OF_CONDUCT_zh.md)。
+        - label: 我已阅读并同意本项目的[贡献者行为准则](https://github.com/Sakura520222/AstrBot/blob/master/CODE_OF_CONDUCT_zh.md)。
           required: true
         - label: (可选)我愿意提交 PR 以帮助修复该问题。
           required: false

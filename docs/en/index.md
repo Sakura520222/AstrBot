@@ -1,31 +1,24 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
-  name: >-
-    <a href="https://trendshift.io/repositories/21369" target="_blank"><img src="https://trendshift.io/api/badge/repositories/21369" alt="AstrBotDevs%2FAstrBot | Trendshift" style="width: 250px; height: 55px; margin-bottom: 16px;" width="250" height="55"/></a>
-  text: "Agentic AI assistant for personal and group chats"
-  tagline: Connect any IM / 1000+ plugins / General Agent Orchestration
+  name: AstrBot · Personal Fork
+  text: Documentation and maintenance
+  tagline: Independently maintained by Sakura520222 · Based on upstream 4.29.3
+  image:
+    src: /favicon.svg
+    alt: AstrBot
   actions:
     - theme: brand
-      text: Quick Start
-      link: /en/what-is-astrbot
+      text: Install this fork
+      link: /en/fork-maintenance
     - theme: alt
-      text: GitHub Repository
-      link: https://github.com/AstrBotDevs/AstrBot
-
+      text: GitHub
+      link: https://github.com/Sakura520222/AstrBot
 features:
-  - icon: ✨
-    title: Multi-Platform Support
-    details: Seamlessly supports multiple messaging platforms including QQ, WeCom, Telegram, Discord, and more with multi-instance deployment.
-  - icon: 😌
-    title: User-Friendly
-    details: Easy deployment via Docker or Windows one-click installer with no complex configuration required. Features a highly visual management dashboard.
-  - icon: 🧩
-    title: Highly Extensible
-    details: Built on event bus and pipeline architecture with full modularity. All features can be enabled or disabled, with comprehensive plugin development support.
-  - icon: 🌟
-    title: Large Language Models
-    details: Compatible with multiple model providers including OpenAI, Anthropic, Google, Ollama, Deepseek, and more, supporting diverse LLM integrations.
+  - title: Familiar AstrBot capabilities
+    details: Keep platform integrations, models, agents, plugins and WebUI.
+  - title: Personal releases and updates
+    details: Source, releases, images and documentation belong to this fork.
 ---
+
+Derived from [AstrBot](https://github.com/AstrBotDevs/AstrBot), with thanks to the original authors and contributors. This is a personal fork, not an official AstrBotDevs release.

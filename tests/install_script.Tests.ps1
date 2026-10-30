@@ -119,7 +119,7 @@ try {
         $_[1] -eq 'install' -and
         $_[2] -eq '--python' -and
         $_[3] -eq '3.12' -and
-        $_[4] -eq 'astrbot' -and
+        $_[4] -eq 'git+https://github.com/Sakura520222/AstrBot.git' -and
         $_[5] -eq '--default-index' -and
         $_[6] -eq 'https://pypi.org/simple/'
     })

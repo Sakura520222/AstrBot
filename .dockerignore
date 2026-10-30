@@ -25,3 +25,10 @@ tests/
 .astrbot
 .astrbot-tmp
 astrbot.lock
+
+release-assets/
+site/
+docs/
+.codegraph/
+
+site-dist/

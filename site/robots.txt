@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://astrbot.pyabunny.com/sitemap.xml
+Sitemap: https://astrbot.pyabunny.com/docs/sitemap.xml

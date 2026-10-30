@@ -5,7 +5,7 @@ AstrBot CLI 用于初始化实例、启动 AstrBot、修改常用配置和管理
 如果你使用 `uv` 安装：
 
 ```bash
-uv tool install astrbot --python 3.12
+uv tool install git+https://github.com/Sakura520222/AstrBot.git --python 3.12
 ```
 
 `uv` 会生成 `astrbot` 可执行文件，并把它放到 `PATH` 中。可以用下面的命令确认路径：

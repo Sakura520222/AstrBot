@@ -1,16 +1,12 @@
-## Welcome to AstrBot
+## Welcome to this personal AstrBot fork
 
-🌟 Thank you for using AstrBot!
+This fork is independently maintained by **Sakura520222**. It keeps the AstrBot name and logo and uses the upstream-aligned version **4.29.3**. It is not an official AstrBotDevs release.
 
-AstrBot is an Agentic AI assistant for personal and group chats, with support for multiple IM platforms and a wide range of built-in features. We hope it brings you an efficient and enjoyable experience. ❤️
+- [Website](https://astrbot.pyabunny.com)
+- [Documentation and maintenance](https://astrbot.pyabunny.com/docs/en/fork-maintenance)
+- [Source and releases](https://github.com/Sakura520222/AstrBot)
+- [Issue tracker](https://github.com/Sakura520222/AstrBot/issues)
 
-Important notice:
+Back up and preserve the complete `data/` directory before migrating or updating. It contains configuration, plugins, plugin configuration, databases and plugin data.
 
-AstrBot is a **free and open-source software project** protected by the AGPLv3 license. You can find the full source code and related resources on our [**official website**](https://astrbot.app) and [**GitHub**](https://github.com/astrbotdevs/astrbot).
-As of now, AstrBot has **no commercial services of any kind**, and the official team **will never charge users any fees** under any name.
-
-If anyone asks you to pay while using AstrBot, **you are likely being scammed**. Please request a refund immediately and report it to us by email.
-
-📊 Please read the [End User License Agreement](https://github.com/AstrBotDevs/AstrBot/blob/master/EULA.md) carefully before using this project. By installing, you agree to all its contents.
-
-📮 Official email: [community@astrbot.app](mailto:community@astrbot.app)
+Derived from [AstrBot](https://github.com/AstrBotDevs/AstrBot), with original attribution, history and the [AGPL-3.0-or-later license](https://github.com/Sakura520222/AstrBot/blob/master/LICENSE) retained. Core and WebUI updates use this fork; the public plugin ecosystem remains available.

@@ -18,7 +18,7 @@
 1. 您需要在启动 Docker 容器时，请将 `/var/run/docker.sock` 挂载到容器内部。这样 AstrBot 才能够启动沙箱容器。
 
 ```bash
-sudo docker run -itd -p 6180-6200:6180-6200 -p 11451:11451 -v $PWD/data:/AstrBot/data -v /var/run/docker.sock:/var/run/docker.sock --name astrbot soulter/astrbot:latest
+sudo docker run -itd -p 6180-6200:6180-6200 -p 11451:11451 -v $PWD/data:/AstrBot/data -v /var/run/docker.sock:/var/run/docker.sock --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 
 2. 在聊天时使用 `/pi absdir <绝对路径地址>` 设置您宿主机上 AstrBot 的 data 目录的所在目录的绝对路径。
@@ -37,7 +37,7 @@ sudo —E python3 main.py
 
 ## 使用
 
-本功能使用的镜像是 `soulter/astrbot-code-interpreter-sandbox`，您可以在 [Docker Hub](https://hub.docker.com/r/soulter/astrbot-code-interpreter-sandbox) 上查看镜像的详细信息。
+本功能使用的镜像是 `ghcr.io/sakura520222/astrbot-code-interpreter-sandbox`，您可以在 [Docker Hub](https://hub.docker.com/r/ghcr.io/sakura520222/astrbot-code-interpreter-sandbox) 上查看镜像的详细信息。
 
 镜像中提供了常用的 Python 库：
 

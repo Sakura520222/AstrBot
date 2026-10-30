@@ -15,7 +15,7 @@ https://t2i.rcfortress.site/text2img
 您可以选择自行部署文转图服务，以提升响应速度。
 
 ```bash
-docker run -itd -p 8999:8999 soulter/astrbot-t2i-service:latest
+docker run -itd -p 8999:8999 ghcr.io/sakura520222/astrbot-t2i-service:latest
 ```
 
 部署完成后，前往 AstrBot 仪表盘 -> 配置文件 -> 扩展功能。在“文本转图像”中，将 `文本转图像策略` 设为 `remote`；随后会显示 `文本转图像服务 API 地址`，将其修改为你部署好的 URL。
