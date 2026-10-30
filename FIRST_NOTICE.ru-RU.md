@@ -1,16 +1,12 @@
-## Добро пожаловать в AstrBot
+## Welcome to this personal AstrBot fork
 
-🌟 Спасибо, что используете AstrBot!
+This fork is independently maintained by **Sakura520222**. It keeps the AstrBot name and logo and uses the upstream-aligned version **4.29.3**. It is not an official AstrBotDevs release.
 
-AstrBot — это Agentic AI-ассистент для личных и групповых чатов с поддержкой множества IM-платформ и широким набором встроенных функций. Надеемся, что он сделает ваше общение эффективным и приятным. ❤️
+- [Website](https://astrbot.pyabunny.com)
+- [Documentation and maintenance](https://astrbot.pyabunny.com/docs/en/fork-maintenance)
+- [Source and releases](https://github.com/Sakura520222/AstrBot)
+- [Issue tracker](https://github.com/Sakura520222/AstrBot/issues)
 
-Важное уведомление:
+Back up and preserve the complete `data/` directory before migrating or updating. It contains configuration, plugins, plugin configuration, databases and plugin data.
 
-AstrBot — это **бесплатный проект с открытым исходным кодом**, защищённый лицензией AGPLv3. Полный исходный код и связанные ресурсы доступны на [**официальном сайте**](https://astrbot.app) и [**GitHub**](https://github.com/astrbotdevs/astrbot).
-На данный момент AstrBot **не предоставляет никаких коммерческих услуг**, и официальная команда **никогда не будет взимать плату с пользователей** под каким-либо названием.
-
-Если кто-то просит вас заплатить при использовании AstrBot, **вас, скорее всего, пытаются обмануть**. Немедленно запросите возврат средств и сообщите нам по электронной почте.
-
-📊 Пожалуйста, внимательно прочитайте [Лицензионное соглашение](https://github.com/AstrBotDevs/AstrBot/blob/master/EULA.md) перед использованием. Устанавливая программу, вы соглашаетесь со всеми его условиями.
-
-📮 Официальная почта: [community@astrbot.app](mailto:community@astrbot.app)
+Derived from [AstrBot](https://github.com/AstrBotDevs/AstrBot), with original attribution, history and the [AGPL-3.0-or-later license](https://github.com/Sakura520222/AstrBot/blob/master/LICENSE) retained. Core and WebUI updates use this fork; the public plugin ecosystem remains available.

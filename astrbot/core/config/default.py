@@ -4129,7 +4129,7 @@ CONFIG_METADATA_3 = {
             # },
             "proactive_capability": {
                 "description": "主动型 Agent",
-                "hint": "https://docs.astrbot.app/use/proactive-agent.html",
+                "hint": "https://astrbot.pyabunny.com/docs/use/proactive-agent.html",
                 "type": "object",
                 "items": {
                     "provider_settings.proactive_capability.add_cron_tools": {

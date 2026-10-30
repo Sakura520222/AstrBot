@@ -572,7 +572,7 @@ class WecomAIBotAdapter(Platform):
         if not self.webhook_client:
             raise RuntimeError(
                 "主动消息发送失败: 未配置企业微信消息推送 Webhook URL，请前往配置添加。"
-                "详见文档: https://docs.astrbot.app/platform/wecom_ai_bot.html#%E9%85%8D%E7%BD%AE-astrbot。"
+                "详见文档: https://astrbot.pyabunny.com/docs/platform/wecom_ai_bot.html#%E9%85%8D%E7%BD%AE-astrbot。"
                 f"session_id={session.session_id}"
             )
 

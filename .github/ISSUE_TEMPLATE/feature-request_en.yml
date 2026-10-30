@@ -17,11 +17,11 @@ body:
     attributes:
       label: Checklist
       options:
-        - label: I have searched the [Issue list](https://github.com/AstrBotDevs/AstrBot/issues) for related features and confirmed this feature idea has never been proposed.
+        - label: I have searched the [Issue list](https://github.com/Sakura520222/AstrBot/issues) for related features and confirmed this feature idea has never been proposed.
           required: true
         - label: The feature I am suggesting is related to AstrBot itself, not to a specific plugin.
           required: true
-        - label: I have read and agree to the project's [Code of Conduct](https://github.com/AstrBotDevs/AstrBot/blob/master/CODE_OF_CONDUCT.md).
+        - label: I have read and agree to the project's [Code of Conduct](https://github.com/Sakura520222/AstrBot/blob/master/CODE_OF_CONDUCT.md).
           required: true
         - label: (Optional) I am willing to submit a PR to help implement this feature.
           required: false

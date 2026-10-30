@@ -15,6 +15,10 @@ env:
   PYTHONUTF8: "1"
   PYTHONIOENCODING: utf-8
 
+concurrency:
+  group: smoke_test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   smoke-test:
     name: Smoke test (${{ matrix.os }}, Python ${{ matrix.python-version }})

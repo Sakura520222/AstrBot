@@ -23,6 +23,10 @@ env:
   PYTHONUTF8: "1"
   PYTHONIOENCODING: utf-8
 
+concurrency:
+  group: install_script_test-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: Windows PowerShell compatibility
