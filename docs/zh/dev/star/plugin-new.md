@@ -30,7 +30,7 @@ outline: deep
 克隆 AstrBot 项目本体和刚刚创建的插件仓库到本地。
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 mkdir -p AstrBot/data/plugins
 cd AstrBot/data/plugins
 git clone 插件仓库地址

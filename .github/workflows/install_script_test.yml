@@ -19,6 +19,10 @@ on:
       - '.github/workflows/install_script_test.yml'
   workflow_dispatch:
 
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: utf-8
+
 jobs:
   test:
     name: Windows PowerShell compatibility

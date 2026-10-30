@@ -267,7 +267,7 @@
                                                     variant="text"
                                                     class="ml-2"
                                                     :aria-label="tm('apiKey.docsLink')"
-                                                    href="https://docs.astrbot.app/dev/openapi.html"
+                                                    href="https://astrbot.pyabunny.com/docs/dev/openapi.html"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
@@ -657,8 +657,8 @@ const openExternalLink = (url) => {
 
 const openFaqLink = () => {
     openExternalLink(locale.value.startsWith('zh-')
-        ? 'https://docs.astrbot.app/faq.html'
-        : 'https://docs.astrbot.app/en/faq.html');
+        ? 'https://astrbot.pyabunny.com/docs/faq.html'
+        : 'https://astrbot.pyabunny.com/docs/en/faq.html');
 };
 
 const resourceItems = computed(() => [
@@ -674,7 +674,7 @@ const resourceItems = computed(() => [
         title: t('core.navigation.documentation'),
         subtitle: tm('resources.documentation.subtitle'),
         icon: 'mdi-book-open-variant',
-        action: () => openExternalLink('https://docs.astrbot.app')
+        action: () => openExternalLink('https://astrbot.pyabunny.com/docs')
     },
     {
         key: 'faq',
@@ -688,7 +688,7 @@ const resourceItems = computed(() => [
         title: t('core.navigation.github'),
         subtitle: tm('resources.github.subtitle'),
         icon: 'mdi-github',
-        action: () => openExternalLink('https://github.com/AstrBotDevs/AstrBot')
+        action: () => openExternalLink('https://github.com/Sakura520222/AstrBot')
     }
 ]);
 

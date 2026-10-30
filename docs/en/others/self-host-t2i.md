@@ -15,7 +15,7 @@ This interface can ensure normal response for most of the time. However, due to 
 You can choose to self-host the text-to-image service to improve response speed.
 
 ```bash
-docker run -itd -p 8999:8999 soulter/astrbot-t2i-service:latest
+docker run -itd -p 8999:8999 ghcr.io/sakura520222/astrbot-t2i-service:latest
 ```
 
 After deployment, go to AstrBot Dashboard -> Config -> Ext. Under "Text-to-Image," set `Text-to-Image Strategy` to `remote`. The `Text-to-Image Service API Endpoint` field will then appear; set it to the URL of your deployed service.

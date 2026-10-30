@@ -73,10 +73,10 @@ class AstrBotUpdater(_RepoZipUpdater):
         """
         super().__init__(verify=verify)
         self._main_path = get_astrbot_path()
-        self._release_api = "https://api.soulter.top/releases"
-        self._repository_url = "https://github.com/AstrBotDevs/AstrBot"
+        self._release_api = "https://api.github.com/repos/Sakura520222/AstrBot/releases"
+        self._repository_url = "https://github.com/Sakura520222/AstrBot"
         self._core_package_base_url = (
-            "https://astrbot-registry.soulter.top/download/astrbot-core"
+            "https://github.com/Sakura520222/AstrBot/releases/download"
         )
 
     def _build_core_package_url(self, version: str | None) -> str | None:
@@ -98,7 +98,7 @@ class AstrBotUpdater(_RepoZipUpdater):
         ).strip()
         if not base_url:
             return None
-        return f"{base_url.rstrip('/')}/{version}/source.zip"
+        return f"{base_url.rstrip('/')}/{version}/AstrBot-{version}-core.zip"
 
     async def check_update(
         self,

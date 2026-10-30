@@ -1,49 +1,50 @@
-name: Build and Deploy AstrBot Docs
+name: Website and Docs CI
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [master]
+    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
+  pull_request:
+    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build:
-    runs-on: ubuntu-latest # 运行环境
+  docs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
-      - name: checkout
-        uses: actions/checkout@v7
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6.1.0
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v6.1.0
         with:
           version: 10.28.2
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: "24.13.0"
-          cache: "pnpm"
+          node-version: '24'
+          cache: pnpm
           cache-dependency-path: docs/pnpm-lock.yaml
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-        working-directory: './docs'
-      - name: Build docs
-        run: pnpm run docs:build
-        working-directory: './docs'
-      - name: scp
-        uses: appleboy/scp-action@v1.0.0
+      - name: Build Chinese documentation
+        working-directory: docs
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm docs:build
+      - name: Stage unified website
+        run: node scripts/build_site.mjs
+      - name: Check website entry files
+        run: |
+          test -s site/index.html
+          test -s site/styles.css
+          test -s site/favicon.svg
+      - uses: actions/upload-artifact@v7
         with:
-          host: ${{ secrets.HOST_NEKO }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORDNEKO }}
-          source: 'docs/.vitepress/dist/*'
-          target: '/tmp/'
-      - name: script
-        uses: appleboy/ssh-action@v1.2.5
-        with:
-          host: ${{ secrets.HOST_NEKO }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORDNEKO }}
-          script: |
-            mkdir -p /root/docker_data/caddy/caddy_data/static_site/abv4/
-            rm -rf /root/docker_data/caddy/caddy_data/static_site/abv4/*
-            mv /tmp/docs/.vitepress/dist/* /root/docker_data/caddy/caddy_data/static_site/abv4/
-            rm -rf /tmp/docs/
+          name: documentation
+          path: site-dist
+          retention-days: 7

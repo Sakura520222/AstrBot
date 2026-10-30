@@ -64,7 +64,7 @@ _PIP_USER_AGENT = "pip/24.3.1"
 # A real repository asset the dashboard downloads (the t2i runtime bundle),
 # large enough to produce a meaningful throughput number.
 _GITHUB_SPEED_TARGET_URL = (
-    "https://github.com/AstrBotDevs/AstrBot/raw/refs/heads/master/"
+    "https://github.com/Sakura520222/AstrBot/raw/refs/heads/master/"
     "astrbot/core/utils/t2i/template/shiki_runtime.iife.js"
 )
 
@@ -542,7 +542,7 @@ class StatService:
 
     async def test_ghproxy_connection(self, proxy_url: str | None) -> dict:
         try:
-            target_url = "https://github.com/AstrBotDevs/AstrBot/raw/refs/heads/master/.python-version"
+            target_url = "https://github.com/Sakura520222/AstrBot/raw/refs/heads/master/.python-version"
             # An empty proxy_url means "no acceleration", so GitHub is tested directly.
             normalized_proxy = (proxy_url or "").strip().rstrip("/")
             test_url = (

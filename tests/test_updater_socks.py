@@ -1036,7 +1036,7 @@ async def test_astrbot_updater_prefers_hosted_core_package(
 
     assert zip_path == tmp_path / "core.zip"
     assert zipfile.is_zipfile(zip_path)
-    assert calls == ["https://cdn.example/core/v99.0.0/source.zip"]
+    assert calls == ["https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip"]
 
 
 @pytest.mark.asyncio
@@ -1081,7 +1081,7 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_fails(
     assert zip_path == tmp_path / "core.zip"
     assert zip_path.read_bytes() == b"github-core"
     assert calls == [
-        "https://cdn.example/core/v99.0.0/source.zip",
+        "https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip",
         "https://github.example/archive.zip",
     ]
 
@@ -1130,13 +1130,13 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_is_not_zip(
     assert zip_path == tmp_path / "core.zip"
     assert zipfile.is_zipfile(zip_path)
     assert calls == [
-        "https://cdn.example/core/v99.0.0/source.zip",
+        "https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip",
         "https://github.example/archive.zip",
     ]
 
 
 @pytest.mark.asyncio
-async def test_download_dashboard_falls_back_when_hosted_package_is_not_zip(
+async def test_download_dashboard_only_uses_the_personal_fork_release(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
@@ -1150,13 +1150,6 @@ async def test_download_dashboard_falls_back_when_hosted_package_is_not_zip(
         allow_insecure_ssl_fallback: bool = True,  # noqa: ARG001
     ) -> None:
         calls.append(url)
-        parsed = urlparse(url)
-        if (
-            parsed.scheme == "https"
-            and parsed.hostname == "astrbot-registry.soulter.top"
-        ):
-            Path(path).write_bytes(b"not a zip")
-            return
         with zipfile.ZipFile(path, "w") as archive:
             archive.writestr("dist/index.html", "dashboard")
 
@@ -1171,8 +1164,7 @@ async def test_download_dashboard_falls_back_when_hosted_package_is_not_zip(
 
     assert zipfile.is_zipfile(zip_path)
     assert calls == [
-        "https://astrbot-registry.soulter.top/download/astrbot-dashboard/v99.0.0/dist.zip",
-        "https://github.com/AstrBotDevs/AstrBot/releases/download/v99.0.0/AstrBot-v99.0.0-dashboard.zip",
+        "https://github.com/Sakura520222/AstrBot/releases/download/v99.0.0/AstrBot-v99.0.0-dashboard.zip",
     ]
 
 

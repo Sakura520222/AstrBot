@@ -84,7 +84,7 @@ spec:
               readOnly: true
         
         - name: astrbot
-          image: soulter/astrbot:latest
+          image: ghcr.io/sakura520222/astrbot:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ

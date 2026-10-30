@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "AstrBot",
-    "subtitle": "A project out of interests and loves ❤️",
+    "title": "AstrBot · 个人 Fork",
+    "subtitle": "由 Sakura520222 独立维护，基于 AstrBot 上游项目",
     "starButton": "Star 这个项目! 🌟",
     "issueButton": "提交 Issue"
   },
@@ -14,4 +14,4 @@
     "title": "全球部署",
     "license": "AstrBot 采用 AGPL v3 协议开源"
   }
-} 
+}

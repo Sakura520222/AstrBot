@@ -1,17 +1,20 @@
 <script setup>
 import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { useData, useRoute, withBase } from 'vitepress'
 
 const route = useRoute()
-const { frontmatter } = useData()
+const { frontmatter, site } = useData()
+const documentPath = computed(() => route.path.startsWith(site.value.base)
+  ? '/' + route.path.slice(site.value.base.length)
+  : route.path)
 
-const isEnglish = computed(() => route.path.startsWith('/en/'))
+const isEnglish = computed(() => documentPath.value.startsWith('/en/'))
 
 const zhTabs = [
   {
     text: '简介和部署',
-    link: '/what-is-astrbot',
-    matchers: ['/what-is-astrbot', '/community', '/faq', '/deploy/', '/others/', '/ospp/']
+    link: '/fork-maintenance',
+    matchers: ['/fork-maintenance', '/what-is-astrbot', '/community', '/faq', '/deploy/', '/others/', '/ospp/']
   },
   { text: '接入消息平台', link: '/platform/start', matchers: ['/platform/'] },
   { text: '接入 AI', link: '/providers/start', matchers: ['/providers/'] },
@@ -33,12 +36,12 @@ const enTabs = [
 
 const tabs = computed(() => (isEnglish.value ? enTabs : zhTabs))
 
-const isHome = computed(() => route.path === '/' || route.path === '/en/')
+const isHome = computed(() => documentPath.value === '/' || documentPath.value === '/en/')
 
 const shouldShow = computed(() => frontmatter.value.layout !== false && frontmatter.value.layout !== 'home' && !isHome.value)
 
 function isActive(tab) {
-  return tab.matchers.some(prefix => route.path.startsWith(prefix))
+  return tab.matchers.some(prefix => documentPath.value.startsWith(prefix))
 }
 </script>
 
@@ -52,7 +55,7 @@ function isActive(tab) {
           :key="tab.link"
           class="tab"
           :class="{ active: isActive(tab) }"
-          :href="tab.link"
+          :href="withBase(tab.link)"
         >
           {{ tab.text }}
         </a>

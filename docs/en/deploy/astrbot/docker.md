@@ -12,7 +12,7 @@
 First, clone the AstrBot repository to your local machine:
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 cd AstrBot
 ```
 
@@ -23,7 +23,7 @@ sudo docker compose up -d
 ```
 
 > [!TIP]
-> If your network environment is in mainland China, the above command will not pull properly. You may need to modify the compose.yml file and replace `image: soulter/astrbot:latest` with `image: m.daocloud.io/docker.io/soulter/astrbot:latest`.
+> If your network environment is in mainland China, the above command will not pull properly. You may need to modify the compose.yml file and replace `image: ghcr.io/sakura520222/astrbot:latest` with `image: m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest`.
 :::
 
 ::: details Deploy with Agent Sandbox Environment
@@ -33,7 +33,7 @@ Supports native Python code execution, Shell code execution, and other features.
 Deployment method:
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 cd AstrBot
 # Modify the environment variable configuration in the compose-with-shipyard.yml file, such as Shipyard's access token, etc.
 docker compose -f compose-with-shipyard.yml up -d
@@ -49,14 +49,14 @@ For configuration and usage details, see the [Agent Sandbox Environment](/en/use
 ```bash
 mkdir astrbot
 cd astrbot
-sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot soulter/astrbot:latest
+sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 
 > [!TIP]
 > If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
 >
 > ```bash
-> sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (Thanks to DaoCloud ❤️)
@@ -83,13 +83,13 @@ sudo docker logs -f astrbot
 Set `TZ` to the standard IANA time zone format (Region/City). Use `Asia/Shanghai` for China.
 
 ```bash
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot soulter/astrbot:latest
+docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 > [!TIP]
 > If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
 >
 > ```bash
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (Thanks to DaoCloud ❤️)
@@ -99,13 +99,13 @@ docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/Ast
 Set `TZ` to the standard IANA time zone format (Region/City). Use `Asia/Shanghai` for China.
 
 ```powershell
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot soulter/astrbot:latest
+docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
 ```
 > [!TIP]
 > If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
 >
 > ```powershell
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/soulter/astrbot:latest
+> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 > ```
 >
 > (Thanks to DaoCloud ❤️)

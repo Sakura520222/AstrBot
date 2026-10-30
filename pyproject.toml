@@ -1,7 +1,7 @@
 [project]
 name = "AstrBot"
 version = "4.29.3"
-description = "Easy-to-use multi-platform LLM chatbot and development framework"
+description = "由 Sakura520222 独立维护的 AstrBot 个人 Fork，版本号对齐上游"
 readme = "README.md"
 license = { text = "AGPL-3.0-or-later" }
 requires-python = ">=3.12"
@@ -89,7 +89,11 @@ dev = [
 astrbot = "astrbot.cli.__main__:cli"
 
 [project.urls]
-Repository = "https://github.com/AstrBotDevs/AstrBot"
+Repository = "https://github.com/Sakura520222/AstrBot"
+Homepage = "https://astrbot.pyabunny.com"
+Documentation = "https://astrbot.pyabunny.com/docs/"
+Issues = "https://github.com/Sakura520222/AstrBot/issues"
+Changelog = "https://github.com/Sakura520222/AstrBot/releases"
 
 [tool.ruff]
 exclude = ["astrbot/core/utils/t2i/local_strategy.py", "astrbot/api/all.py", "tests"]

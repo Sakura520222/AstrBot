@@ -586,7 +586,7 @@ The following content describes the older `Shipyard` driver. It is kept for comp
 If you have not deployed AstrBot yet, or want to use the older recommended deployment method with sandbox support, you can still deploy AstrBot with Docker Compose using the following commands:
 
 ```bash
-git clone https://github.com/AstrBotDevs/AstrBot
+git clone https://github.com/Sakura520222/AstrBot
 cd AstrBot
 # Modify the environment variables in compose-with-shipyard.yml, such as the Shipyard access token
 docker compose -f compose-with-shipyard.yml up -d

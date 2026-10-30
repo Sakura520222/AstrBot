@@ -1,16 +1,10 @@
 import asyncio
 import os
-import platform
-import socket
-import sys
 import uuid
 from contextlib import suppress
 from typing import Any
 
-import aiohttp
-
 from astrbot.core import db_helper, logger
-from astrbot.core.config import VERSION
 
 
 class Metric:
@@ -186,31 +180,12 @@ class Metric:
 
     @staticmethod
     async def _post_metrics(metrics_data: dict[str, Any]) -> None:
-        if Metric._is_disabled():
-            return
+        """Keep fork metrics local instead of submitting them to upstream.
 
-        base_url = "https://tickstats.soulter.top/api/metric/90a6c2a1"
-        payload_metrics = dict(metrics_data)
-        payload_metrics["v"] = VERSION
-        payload_metrics["os"] = sys.platform
-        payload_metrics["python_version"] = platform.python_version()
-        try:
-            payload_metrics["hn"] = socket.gethostname()
-        except Exception:
-            pass
-        try:
-            payload_metrics["iid"] = Metric.get_installation_id()
-        except Exception:
-            pass
-        payload = {"metrics_data": payload_metrics}
-
-        try:
-            async with aiohttp.ClientSession(trust_env=True) as session:
-                async with session.post(base_url, json=payload, timeout=3) as response:
-                    if response.status != 200:
-                        pass
-        except Exception:
-            pass
+        Args:
+            metrics_data: Aggregated counters already persisted locally.
+        """
+        return None
 
     @staticmethod
     async def upload(**kwargs) -> None:

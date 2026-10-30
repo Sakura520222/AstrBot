@@ -419,11 +419,12 @@ fi
 info "$(message InstallingAstrBot)"
 # Use a valid working directory even if the caller's directory has been removed.
 # The subshell scopes Python mirror settings to this installation only.
+has git || { err "Git is required to install this personal fork."; exit 1; }
 tool_install_exit_code=0
 (
   cd "${TMPDIR:-/tmp}" || exit 1
   UV_PYTHON_INSTALL_MIRROR="$python_install_mirror" \
-    uv tool install --python 3.12 astrbot --default-index "$pypi_index_url"
+    uv tool install --python 3.12 git+https://github.com/Sakura520222/AstrBot.git --default-index "$pypi_index_url"
 ) || tool_install_exit_code=$?
 if [ "$tool_install_exit_code" -ne 0 ] && [ -n "$python_install_mirror" ]; then
   warn "$(message PythonFallback)"
@@ -431,7 +432,7 @@ if [ "$tool_install_exit_code" -ne 0 ] && [ -n "$python_install_mirror" ]; then
   (
     cd "${TMPDIR:-/tmp}" || exit 1
     unset UV_PYTHON_INSTALL_MIRROR
-    uv tool install --python 3.12 astrbot --default-index "$pypi_index_url"
+    uv tool install --python 3.12 git+https://github.com/Sakura520222/AstrBot.git --default-index "$pypi_index_url"
   ) || tool_install_exit_code=$?
 fi
 if [ "$tool_install_exit_code" -ne 0 ]; then

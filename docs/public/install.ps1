@@ -443,12 +443,16 @@ if ($PythonInstallMirror) {
     Info $Text.PythonDefault
 }
 
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    throw "Git is required to install this personal fork."
+}
+
 $previousPythonMirror = $env:UV_PYTHON_INSTALL_MIRROR
 try {
     if ($PythonInstallMirror) { $env:UV_PYTHON_INSTALL_MIRROR = $PythonInstallMirror }
     Info $Text.InstallingAstrBot
     $toolInstallExitCode = Invoke-UvToolInstall -ArgumentList @(
-        'tool', 'install', '--python', '3.12', 'astrbot', '--default-index', $PypiIndexUrl
+        'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/AstrBot.git', '--default-index', $PypiIndexUrl
     )
     if ($toolInstallExitCode -ne 0 -and $PythonInstallMirror) {
         $pythonFallback = switch ($Language) {
@@ -459,7 +463,7 @@ try {
         Warn $pythonFallback
         $env:UV_PYTHON_INSTALL_MIRROR = $null
         $toolInstallExitCode = Invoke-UvToolInstall -ArgumentList @(
-            'tool', 'install', '--python', '3.12', 'astrbot', '--default-index', $PypiIndexUrl
+            'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/AstrBot.git', '--default-index', $PypiIndexUrl
         )
     }
     if ($toolInstallExitCode -ne 0) {

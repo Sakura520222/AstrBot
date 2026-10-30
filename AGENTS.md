@@ -1,137 +1,75 @@
-## Setup commands
+# AstrBot 个人 Fork 开发约定
 
-### Core
+## 项目归属
 
-```
-uv sync
-uv run main.py
-```
+仓库为 `https://github.com/Sakura520222/AstrBot`。`origin` 指向个人 Fork，`upstream` 仅供显式同步，不得将二改推送到上游。暂时保留 AstrBot 名称、标识、包名和命令，保留上游版权、许可证及历史记录。
 
-Exposed an API server on `http://localhost:6185` by default.
+README、维护说明和 Release 说明优先使用中文；代码注释、日志、PR 标题和描述使用英文。提交和 PR 标题遵循 Conventional Commits。不得新增 `*_SUMMARY.md` 等任务报告，不提交密钥、运行数据、日志、数据库或 `.codegraph/`。
 
-### Dashboard(WebUI)
+<!-- CODEGRAPH_START -->
+## CodeGraph
 
-```
-cd dashboard
-pnpm install # First time only. Use npm install -g pnpm if pnpm is not installed.
+根目录存在 `.codegraph/` 时，理解或定位代码必须先使用 `codegraph_explore` 或 `codegraph explore` 查询相关符号及调用关系，再作必要补充搜索。没有索引的独立工作树使用常规工具；不得自动建立索引。
+<!-- CODEGRAPH_END -->
+
+## 环境与运行
+
+Python 版本以 `pyproject.toml` 为准，当前为 3.12+；前端及文档使用 Node.js 24、pnpm 10.28.2。
+
+```bash
+uv sync --locked --inexact
+uv run --no-sync main.py
+
+# dashboard/ 内
+pnpm install --frozen-lockfile
 pnpm dev
+pnpm build
+
+# docs/ 内
+pnpm install --frozen-lockfile
+pnpm docs:dev
+pnpm docs:build
 ```
 
-Runs on `http://localhost:3000` by default.
+后端默认端口 6185，WebUI 开发服务默认端口 3000。`data/` 保存框架配置、插件及配置、历史数据库和插件数据。更新、测试、发布不得清空或覆盖它；测试设置独立的 `ASTRBOT_ROOT`。使用 `uv sync --inexact` 保留插件额外依赖。
 
-## Pre-commit setup
+## 实现规则
 
-AstrBot uses [pre-commit](https://pre-commit.com/) hooks to automatically format and lint Python code before each commit. The hooks run `ruff check`, `ruff format`, and `pyupgrade` (see [`.pre-commit-config.yaml`](.pre-commit-config.yaml) for details).
+- 遵循 KISS，从实际需求和最小正确改动出发，不增加无关功能、开关、依赖、抽象或兼容层。
+- 优先内联。仅在相同逻辑重复至少三处，或内联超过约 50 行并明显破坏流程可读性时提取辅助函数；不随意重构现有函数结构。
+- 非显然行为、函数和参数需要英文说明。所有新增 docstring 使用 Google 格式，包含适用的 `Args:`、`Returns:`、`Raises:`。
+- 路径使用 `pathlib.Path`；运行路径通过 `astrbot.core.utils.astrbot_path` 获取，不硬编码用户目录。
+- 保持 Windows、macOS、Linux 及 Arm64/x86 兼容。
+- WebUI 保持组件化，避免重复代码。对话框标题以 `text-h3 pa-4 pb-0 pl-6` 为基础，按钮使用 `text` 或 `tonal`。
+- 后端路由、请求/响应模型、OpenAPI 契约改变后，运行 `cd dashboard && pnpm generate:api` 并提交客户端更新。
+- WebUI 导航、页面或术语改变时，同一 PR 更新 `docs/zh`、`docs/en` 的相关说明和截图；入口移动或重命名提供旧到新映射。尽量将布局调整与功能增加分开。
 
-To set it up:
+## 版本与兼容
+
+`pyproject.toml` 的 `[project].version` 与 `astrbot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从后者派生。个人 Fork 的版本号与所基于的上游正式版本对齐，首版为 4.29.3。
+
+插件声明的 `astrbot_version` 直接使用与上游对齐的框架版本检查，不引入独立 Fork 版本或额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
+
+核心/WebUI 更新和下载必须使用此 Fork。公共插件市场及真正的第三方服务保留原始来源；不恢复上游专属更新源、统计脚本、部署凭据或发布令牌。
+
+## 检查
 
 ```bash
-pip install pre-commit
-pre-commit install
+uv run --no-sync ruff format .
+uv run --no-sync ruff check .
+uv run --no-sync pytest <受影响的测试>
 ```
 
-After installation, the hooks will run automatically on `git commit`. You can also run them manually at any time:
+前端变更执行类型检查、相关 `dashboard/tests/*.test.mjs` 和构建；文档变更执行 `pnpm docs:build`。测试通过后不无理由重复或扩大范围。发布还需验证版本一致性、更新源、插件兼容和资产内容，不得把运行数据或密钥打入包内。
 
-```bash
-ruff format .
-ruff check .
-```
+## 工作流与发布
 
-> **Note:** If you use VSCode, install the `Ruff` extension for real-time formatting and linting in the editor.
+日常开发使用短期 `feature/*` 分支和 PR。首次 Fork 迁移包含发布链路和站点归属调整；后续使用 `release/<版本>` 分支，仅做版本、变更说明、发布阻断修复和验证。
 
-## Dev environment tips
+后续发布可使用 `uv run --no-sync python scripts/prepare_release.py <版本>`。审核中文变更说明和 `uv.lock` 后合并到 `master`，再创建 `v<版本>` 标签，确保指向已合并提交。
 
-### Basic
+`release.yml` 发布 GitHub Release、核心/WebUI ZIP、Python 分发包、SHA256 校验文件及 GHCR 镜像，仅使用本仓库的 `GITHUB_TOKEN`，不向上游 PyPI、Docker Hub、R2 或 release-harbour 发布。
 
-1. When modifying the WebUI, be sure to maintain componentization and clean code. Avoid duplicate code.
-2. Do not add any report files such as xxx_SUMMARY.md.
-3. After finishing, use `ruff format .` and `ruff check .` to format and check the code.
-4. When committing, ensure to use conventional commits messages, such as `feat: add new agent for data analysis` or `fix: resolve bug in provider manager`.
-5. Use **English** for all comments and logs.
-6. For path handling, use `pathlib.Path` instead of string paths, and use `astrbot.core.utils.path_utils` to get the AstrBot data and temp directory.
-7. When backend API routes, request/response schemas, or OpenAPI definitions change, regenerate the frontend API client by running `cd dashboard && pnpm generate:api`.
-8. When updating the project version, keep `[project].version` in `pyproject.toml` and `__version__` in `astrbot/__init__.py` in sync. `VERSION` in `astrbot/core/config/default.py` should derive from `astrbot.__version__` instead of hardcoding a separate version string.
-9. When designing WebUI dialogs, use `text-h3 pa-4 pb-0 pl-6` as the base class for dialog titles, and use `variant="text"` or `variant="tonal"` for dialog buttons.
-10. Consider cross-platform compatibility (e.g., Windows, macOS, and Linux, as well as Arm64 and x86 CPU architectures) and compatibility with Python 3.10+.
-11. When changing WebUI navigation, page structure, or terminology, update the affected instructions and screenshots in `docs/zh` and `docs/en` in the same PR. For renamed, moved, or merged entry points, include an old-to-new mapping in the relevant docs and changelog. Keep layout redesigns separate from feature additions where practical, and explain necessary navigation changes in the PR. See `CONTRIBUTING.md` for the review checklist.
+官网源位于 `site/`，中文文档位于 `docs/zh/`，通过本账号 Cloudflare Pages Git 集成自动部署。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
 
-### KISS and First Principles
-
-Follow the KISS principle and reason from first principles during development. Start by identifying the real problem, required behavior, and smallest useful change before adding code. Do not pile on features, configuration switches, abstractions, dependencies, or compatibility layers unless they directly solve the current problem and have clear evidence of need.
-
-Prefer the simplest implementation that is correct, maintainable, and consistent with the existing codebase. If a broader design seems attractive, reduce it to the essential behavior needed now and leave optional expansion for a later, explicit requirement.
-
-### No Unnecessary Helpers
-
-Prioritize inline implementation over abstraction. Avoid over-engineering and do not create helper functions unless absolutely necessary.
-
-1. **Inline-First Rule**: If a logic block can be implemented directly within the main function without breaking overall readability, **do not** extract it into a new helper function.
-2. **Strict Justification for Helpers**: You may only create a separate helper function if it meets at least one of these criteria:
-   - **High Reuse**: The exact same logic is repeated across **3 or more** different locations.
-   - **Extreme Complexity**: Inlining the logic makes the main function too long (e.g., >50 lines) or severely derails the main execution flow.
-3. **No Fragmentation**: Do not split continuous linear logic (e.g., a single API call, simple form validation, or one-time data formatting) into tiny functions just for the sake of "clean code."
-4. **Keep Context Compact**: Handle edge cases, error catching, and logging directly inside the main function block instead of offloading them.
-5. **Refactoring Constraint**: When modifying existing code, do not alter the current function structure or extract code into new helpers unless the existing code already violates the complexity or reuse rules above.
-
-### Mandatory Google-Style Docstrings
-* **Comment the complex**: Add clear comments to any non-obvious function, method, or parameter.
-* **Google Format**: All docstrings must strictly use the Google format (`Args:`, `Returns:`, `Raises:`).
-
-#### Example:
-
-```py
-def calculate_metrics(user_id: int, force_refresh: bool = False) -> dict:
-    """Brief description of the function.
-
-    Args:
-        user_id: Description of the ID.
-        force_refresh: Description of the flag.
-
-    Returns:
-        Description of the returned dict.
-
-    Raises:
-        ValueError: Description of when this occurs.
-    """
-    # Inline implementation here...
-```
-
-
-## PR instructions
-
-1. Title format: use conventional commit messages
-2. Use English to write PR title and descriptions.
-
-## Release versions
-
-Use a short-lived `release/*` branch for each release. The release branch is the stabilization area for version bumps, changelog updates, release-blocking fixes, and final validation only. Do not add unrelated features or broad refactors to a release branch.
-
-Prepare a release from a clean worktree with:
-
-```bash
-uv run python scripts/prepare_release.py 4.25.0
-```
-
-The script updates `pyproject.toml` and `astrbot/__init__.py`, creates `changelogs/v4.25.0.md`, runs the required Python checks, and prints the remaining steps. Use these flags when needed:
-
-```bash
-uv run python scripts/prepare_release.py 4.25.0 --generate-api-client
-uv run python scripts/prepare_release.py 4.25.0 --dashboard-build
-uv run python scripts/prepare_release.py 4.25.0 --commit --push
-```
-
-Open a PR from `release/4.25.0` to `master`. The PR title must use the conventional commit format, for example `chore: bump version to 4.25.0`. After the release PR is merged, create and push the tag from the updated `master` branch so the tag points to the exact code that was merged:
-
-```bash
-git checkout master
-git pull --ff-only origin master
-git tag v4.25.0
-git push origin v4.25.0
-```
-
-For one-off release candidate branches, delete the release branch after the tag is pushed and verified. For maintained release lines, use a branch such as `release/4.25` and keep it until that line reaches EOL.
-
-```bash
-git branch -d release/4.25.0
-git push origin --delete release/4.25.0
-```
+PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。

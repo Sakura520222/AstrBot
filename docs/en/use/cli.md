@@ -5,7 +5,7 @@ The AstrBot CLI initializes instances, starts AstrBot, updates common config val
 If you install AstrBot with `uv`:
 
 ```bash
-uv tool install astrbot --python 3.12
+uv tool install git+https://github.com/Sakura520222/AstrBot.git --python 3.12
 ```
 
 `uv` creates the `astrbot` executable and puts it on `PATH`. You can inspect the path with:

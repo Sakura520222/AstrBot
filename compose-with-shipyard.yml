@@ -4,7 +4,7 @@ version: '3.8'
 
 services:
   astrbot:
-    image: soulter/astrbot:latest
+    image: ghcr.io/sakura520222/astrbot:latest
     container_name: astrbot
     restart: always
     ports: # mappings description: https://github.com/AstrBotDevs/AstrBot/issues/497

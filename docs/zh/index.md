@@ -1,31 +1,29 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
-  name: >-
-    <a href="https://trendshift.io/repositories/21369" target="_blank"><img src="https://trendshift.io/api/badge/repositories/21369" alt="AstrBotDevs%2FAstrBot | Trendshift" style="width: 250px; height: 55px; margin-bottom: 16px;" width="250" height="55"/></a>
-  text: "Agentic AI 助手，服务个人与群聊"
-  tagline: 连接 IM / 1000+ 插件扩展 / 通用 Agent 能力编排
+  name: AstrBot · 个人 Fork
+  text: 中文使用与维护文档
+  tagline: Sakura520222 独立维护 · Fork v4.29.3 · 基于上游 4.29.3
+  image:
+    src: /favicon.svg
+    alt: AstrBot
   actions:
     - theme: brand
-      text: 快速开始
+      text: 部署个人 Fork
+      link: /fork-maintenance
+    - theme: alt
+      text: 使用指南
       link: /what-is-astrbot
     - theme: alt
-      text: GitHub 仓库
-      link: https://github.com/AstrBotDevs/AstrBot
-
+      text: GitHub
+      link: https://github.com/Sakura520222/AstrBot
 features:
-  - icon: ✨
-    title: 多平台支持
-    details: 可集成到 QQ、企业微信、飞书、Telegram、Discord 等多个聊天平台
-  - icon: 😌
-    title: 方便易用
-    details: 支持多种方式部署，无需复杂的配置，配备高度可视化的管理面板
-  - icon: 🧩
-    title: 高扩展性
-    details: 灵活易用的插件系统。
-  - icon: 🌟
-    title: AI
-    details: 支持 OpenAI、Anthropic、Gemini 等多种大模型接入，内置知识库和 Agent 智能体
+  - title: 保留熟悉的 AstrBot
+    details: 沿用平台适配、模型、Agent、插件及 WebUI，暂时保留 AstrBot 名称与标识。
+  - title: 独立发布与更新
+    details: 使用个人仓库的 GitHub Releases 和 GHCR 镜像，核心及 WebUI 不回退到官方更新源。
+  - title: 保留运行数据
+    details: 迁移和升级保留 data 目录，包括框架配置、插件及其配置、历史和插件数据。
 ---
+
+本项目基于 [AstrBot 上游项目](https://github.com/AstrBotDevs/AstrBot)，感谢所有原作者和贡献者。此站为个人 Fork 文档，首次安装或迁移请先阅读维护指南。

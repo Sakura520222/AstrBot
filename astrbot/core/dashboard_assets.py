@@ -305,7 +305,7 @@ async def _download_package(
             TLS verification disabled.
 
     Raises:
-        RuntimeError: If neither source provides a valid ZIP package.
+        RuntimeError: If the fork release does not provide a valid ZIP package.
     """
     zip_path = (
         Path(path).absolute()
@@ -314,55 +314,20 @@ async def _download_package(
     )
     ensure_dir(zip_path.parent)
 
-    if len(version) != 40:
-        hosted_url = (
-            "https://astrbot-registry.soulter.top/download/"
-            f"astrbot-dashboard/{version}/dist.zip"
-        )
-        logger.info("Downloading AstrBot WebUI from %s", hosted_url)
-        try:
-            await download_file(
-                hosted_url,
-                str(zip_path),
-                show_progress=True,
-                progress_callback=progress_callback,
-                allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-            )
-            if not zipfile.is_zipfile(zip_path):
-                raise RuntimeError("Downloaded Dashboard package is not a valid ZIP")
-        except Exception as exc:
-            logger.warning(
-                "Hosted Dashboard package failed: %s. Falling back to GitHub.",
-                exc,
-            )
-            fallback_url = (
-                "https://github.com/AstrBotDevs/AstrBot/releases/download/"
-                f"{version}/AstrBot-{version}-dashboard.zip"
-            )
-            if proxy:
-                fallback_url = f"{proxy.rstrip('/')}/{fallback_url}"
-            await download_file(
-                fallback_url,
-                str(zip_path),
-                show_progress=True,
-                progress_callback=progress_callback,
-                allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-            )
-    else:
-        fallback_url = (
-            "https://github.com/AstrBotDevs/astrbot-release-harbour/releases/"
-            f"download/release-{version}/dist.zip"
-        )
-        if proxy:
-            fallback_url = f"{proxy.rstrip('/')}/{fallback_url}"
-        logger.info("Downloading AstrBot WebUI from %s", fallback_url)
-        await download_file(
-            fallback_url,
-            str(zip_path),
-            show_progress=True,
-            progress_callback=progress_callback,
-            allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
-        )
+    package_url = (
+        "https://github.com/Sakura520222/AstrBot/releases/download/"
+        f"{version}/AstrBot-{version}-dashboard.zip"
+    )
+    if proxy:
+        package_url = f"{proxy.rstrip('/')}/{package_url}"
+    logger.info("Downloading AstrBot Fork WebUI from %s", package_url)
+    await download_file(
+        package_url,
+        str(zip_path),
+        show_progress=True,
+        progress_callback=progress_callback,
+        allow_insecure_ssl_fallback=allow_insecure_ssl_fallback,
+    )
 
     if not zipfile.is_zipfile(zip_path):
         raise RuntimeError("Downloaded Dashboard package is not a valid ZIP")

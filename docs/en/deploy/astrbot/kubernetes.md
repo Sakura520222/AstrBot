@@ -138,13 +138,13 @@ kubectl apply -f k8s/astrbot/02-deployment.yaml
 
 ### Image Mirror (for users in mainland China)
 
-If you have difficulty pulling the `soulter/astrbot:latest` or `mlikiowa/napcat-docker:latest` images, you can manually edit the corresponding `02-deployment.yaml` file and replace the `image` field with a domestic mirror address, for example:
+If you have difficulty pulling the `ghcr.io/sakura520222/astrbot:latest` or `mlikiowa/napcat-docker:latest` images, you can manually edit the corresponding `02-deployment.yaml` file and replace the `image` field with a domestic mirror address, for example:
 
 ```yaml
 # Example:
-# image: soulter/astrbot:latest
+# image: ghcr.io/sakura520222/astrbot:latest
 # Replace with:
-image: m.daocloud.io/docker.io/soulter/astrbot:latest
+image: m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
 ```
 
 ### Enable Docker Sandbox Code Executor

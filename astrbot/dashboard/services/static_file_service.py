@@ -68,7 +68,7 @@ class StaticFileService:
         "<p>如果问题仍然存在，请前往 Releases 下载与当前 AstrBot 版本匹配的 "
         "<code>AstrBot-vx.x.x-dashboard.zip</code>，解压后将 "
         "<code>dist</code> 文件夹放入 <code>AstrBot/data/</code>。</p>"
-        '<a class="action" href="https://github.com/AstrBotDevs/AstrBot/releases">'
+        '<a class="action" href="https://github.com/Sakura520222/AstrBot/releases">'
         "前往 Releases 下载</a>"
         '<section class="english" lang="en">'
         "<h2>WebUI files are missing</h2>"
@@ -80,7 +80,7 @@ class StaticFileService:
         "<code>AstrBot-vx.x.x-dashboard.zip</code> matching your current AstrBot version. "
         "Extract it and place the <code>dist</code> folder under "
         "<code>AstrBot/data/</code>.</p>"
-        '<a class="action" href="https://github.com/AstrBotDevs/AstrBot/releases">'
+        '<a class="action" href="https://github.com/Sakura520222/AstrBot/releases">'
         "Open Releases</a>"
         "</section>"
         '<p class="label">目录结构 / Directory structure</p>'

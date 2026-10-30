@@ -1,16 +1,16 @@
 <script setup>
-import { useRouter } from 'vitepress'
+import { useRouter, withBase } from 'vitepress'
 
 const router = useRouter()
 
 const goHome = () => {
-  router.go('/')
+  router.go(withBase('/'))
 }
 </script>
 
 <template>
     <div class="NotFound">
-        <img src="/404-seio.png" alt="404 Not Found" class="not-found-image" />
+        <img :src="withBase('/404-seio.png')" alt="404 Not Found" class="not-found-image" />
         <h1 class="not-found-title">😢 你来到了未知的领域，页面不存在！</h1>
         <p class="not-found-desc">请点击左上角 Logo 返回首页，或点击下方按钮。</p>
         <button @click="goHome" class="not-found-button">返回首页</button>
