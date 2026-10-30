@@ -66,7 +66,7 @@ WebUI 开发服务默认使用 3000 端口。使用自行构建的前端时执�
 - 版本号对齐上游基线，插件声明的 `astrbot_version` 按正常框架版本检查，无需额外兼容版本。
 - 合并发布变更后，在 `master` 对应提交创建并推送 `v*` 标签。GitHub Actions 自动构建核心/WebUI ZIP、Python wheel/sdist、SHA256 校验和与 GHCR 镜像，并创建中文 Release。
 - 内置更新只查询此 Fork 的 GitHub Releases，日常二改通过 Git 分支和 PR 维护。
-- `master` 的站点相关变更通过 GitHub Actions 构建验证后，直接部署 `site/` 官网和 `docs/` 文档到 Cloudflare Pages。Actions Secrets 需要 `CLOUDFLARE_ACCOUNT_ID` 与仅授予 Pages 编辑权限的 `CLOUDFLARE_API_TOKEN`，不依赖上游私有凭据。
+- `master` 的站点相关变更通过 GitHub Actions 构建验证后，将 `site/` 官网和 `docs/` 文档的同一份产物自动部署到 GitHub Pages。使用 Actions 临时授权，无需配置部署密钥；域名 DNS 由 Cloudflare 管理。
 
 查看 [v4.29.3 更新说明](changelogs/v4.29.3.md) 和[中文维护文档](docs/zh/fork-maintenance.md)。
 

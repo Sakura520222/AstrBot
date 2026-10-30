@@ -55,7 +55,7 @@ Fork 版本通过 `astrbot.__version__` 与 `pyproject.toml` 保持一致，并�
 
 发布变更经验证合并后，从对应 `master` 提交推送 `v<版本>` 标签。GitHub Actions 自动发布核心/WebUI ZIP、Python 分发包、校验文件和 GHCR 镜像。Python 分发包仅作为 GitHub Release 资产，不自动推送到官方 PyPI 包。
 
-官网位于 `site/`，中文文档位于 `docs/zh/`，通过 GitHub Actions 构建验证后部署到 Cloudflare Pages。发布与站点都不依赖上游的 R2、Docker Hub、服务器或 harbour 凭据。
+官网位于 `site/`，中文文档位于 `docs/zh/`，通过 GitHub Actions 构建验证后自动部署到 GitHub Pages。官网使用 `astrbot.pyabunny.com/`，文档使用 `/docs/`；Cloudflare 负责域名 DNS。站点部署使用 Actions 临时授权，无需长期部署令牌。发布与站点都不依赖上游的 R2、Docker Hub、服务器或 harbour 凭据。
 
 ## 同步上游与标签
 

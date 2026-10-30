@@ -43,17 +43,23 @@ jobs:
           test -s site/index.html
           test -s site/styles.css
           test -s site/favicon.svg
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-pages-artifact@v5
         with:
-          name: documentation
           path: site-dist
           retention-days: 7
-      - name: Deploy website to Cloudflare Pages
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
-        uses: cloudflare/wrangler-action@v4
-        env:
-          WRANGLER_SEND_METRICS: 'false'
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy site-dist --project-name=astrbot-pyabunny --branch=master --commit-hash=${{ github.sha }}
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: docs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

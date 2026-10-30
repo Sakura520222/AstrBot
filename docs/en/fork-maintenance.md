@@ -25,7 +25,7 @@ The bundled compose file uses `ghcr.io/sakura520222/astrbot:latest`; the first s
 
 `astrbot.__version__` and project metadata keep the upstream-aligned version, currently 4.29.3. Plugin version requirements use the normal framework version without a separate fork compatibility layer. Core and WebUI updates still use this personal fork's releases.
 
-Push a reviewed `v<version>` tag from the merged master commit to build release packages and the GHCR image. Website source is in `site/`; documentation is in `docs/`, with GitHub Actions deployments to Cloudflare Pages. Historical pages describing upstream hosted services or desktop clients do not imply that those services distribute this fork.
+Push a reviewed `v<version>` tag from the merged master commit to build release packages and the GHCR image. Website source is in `site/`; documentation is in `docs/`. GitHub Actions builds and deploys the same artifact to GitHub Pages using temporary GitHub authorization, with no persistent deployment token. Cloudflare manages DNS for `astrbot.pyabunny.com`; the website is at `/` and documentation at `/docs/`. Historical pages describing upstream hosted services or desktop clients do not imply that those services distribute this fork.
 
 ## Upstream tag namespace
 
