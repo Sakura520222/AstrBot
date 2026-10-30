@@ -3,9 +3,9 @@ name: Website and Docs CI
 on:
   push:
     branches: [master]
-    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
   pull_request:
-    paths: ['docs/**', 'site/**', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
   workflow_dispatch:
 
 permissions:
@@ -48,3 +48,12 @@ jobs:
           name: documentation
           path: site-dist
           retention-days: 7
+      - name: Deploy website to Cloudflare Pages
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: cloudflare/wrangler-action@v4
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site-dist --project-name=astrbot-pyabunny --branch=master --commit-hash=${{ github.sha }}

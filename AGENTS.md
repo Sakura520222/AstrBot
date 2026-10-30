@@ -74,6 +74,8 @@ uv run --no-sync pytest <受影响的测试>
 
 `release.yml` 发布 GitHub Release、核心/WebUI ZIP、Python 分发包、SHA256 校验文件及 GHCR 镜像，仅使用本仓库的 `GITHUB_TOKEN`，不向上游 PyPI、Docker Hub、R2 或 release-harbour 发布。
 
-官网源位于 `site/`，中文文档位于 `docs/zh/`，通过本账号 Cloudflare Pages Git 集成自动部署。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
+官网源位于 `site/`，中文文档位于 `docs/zh/`，由 GitHub Actions 构建验证后直接部署到本账号 Cloudflare Pages。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
 
 PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。
+
+站点部署凭据使用仓库 Actions Secrets：`CLOUDFLARE_ACCOUNT_ID`、`CLOUDFLARE_API_TOKEN`。令牌只授予目标账户 Cloudflare Pages 编辑权限，不能写入代码、文档或构建产物。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证，不读取部署凭据。

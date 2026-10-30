@@ -27,6 +27,10 @@ pnpm docs:build
 cd docs && pnpm install --frozen-lockfile && pnpm docs:build && cd .. && node scripts/build_site.mjs
 ```
 
-输出目录为 `site-dist`。构建环境使用 `NODE_VERSION=24`、`PNPM_VERSION=10.28.2` 和 `SKIP_DEPENDENCY_INSTALL=true`。域名为 `astrbot.pyabunny.com`，通过 Cloudflare Pages Git 集成在主分支更新后自动部署，不依赖上游的服务器凭据。
+输出目录为 `site-dist`。构建环境使用 `NODE_VERSION=24`、`PNPM_VERSION=10.28.2` 和 `SKIP_DEPENDENCY_INSTALL=true`。域名为 `astrbot.pyabunny.com`，由 GitHub Actions 在主分支站点变更通过构建后直接部署，不依赖上游的服务器凭据。
 
 导航入口、安装命令、域名和版本发生变化时，同步更新中英文维护指南与仓库 README。
+
+## Actions 部署凭据
+
+仓库需设置 `CLOUDFLARE_ACCOUNT_ID` 和 `CLOUDFLARE_API_TOKEN` 两个 Actions Secrets。API 令牌仅需目标账户的 **Cloudflare Pages → Edit** 权限，不需要 DNS、Workers 或账户管理权限。不要把令牌粘贴到聊天、代码或文档中。PR 不执行部署；`master` 的官网、文档或构建脚本变化在验证后部署相同产物。
