@@ -56,3 +56,14 @@ Fork 版本通过 `astrbot.__version__` 与 `pyproject.toml` 保持一致，并�
 发布变更经验证合并后，从对应 `master` 提交推送 `v<版本>` 标签。GitHub Actions 自动发布核心/WebUI ZIP、Python 分发包、校验文件和 GHCR 镜像。Python 分发包仅作为 GitHub Release 资产，不自动推送到官方 PyPI 包。
 
 官网位于 `site/`，中文文档位于 `docs/zh/`，通过 Cloudflare Pages Git 集成部署。发布与站点都不依赖上游的 R2、Docker Hub、服务器或 harbour 凭据。
+
+## 同步上游与标签
+
+本 Fork 与上游使用相同版本号，但发布提交和标签各自独立。上游分支与标签应使用不同命名空间：
+
+```bash
+git fetch --no-tags upstream
+git fetch --no-tags upstream "refs/tags/*:refs/tags/upstream/*"
+```
+
+本工作区原官方标签保留为 `upstream/v4.29.3`；`v4.29.3` 指向个人 Fork 的发布提交。不要用上游同名标签覆盖已发布的 Fork 标签，也不要强推重写公开标签。

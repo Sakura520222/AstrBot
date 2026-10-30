@@ -12,6 +12,10 @@ README、维护说明和 Release 说明优先使用中文；代码注释、日�
 根目录存在 `.codegraph/` 时，理解或定位代码必须先使用 `codegraph_explore` 或 `codegraph explore` 查询相关符号及调用关系，再作必要补充搜索。没有索引的独立工作树使用常规工具；不得自动建立索引。
 <!-- CODEGRAPH_END -->
 
+## 上游标签命名空间
+
+个人 Fork 的 `v*` 标签只指向本仓库已合并的发布提交。拉取上游分支使用 `git fetch --no-tags upstream`，避免自动导入同名官方标签；需要保留上游标签时使用 `git fetch --no-tags upstream "refs/tags/*:refs/tags/upstream/*"`。本工作区原官方 `v4.29.3` 已保存在 `upstream/v4.29.3`，不得强推覆盖已公开的 Fork 标签。
+
 ## 环境与运行
 
 Python 版本以 `pyproject.toml` 为准，当前为 3.12+；前端及文档使用 Node.js 24、pnpm 10.28.2。
