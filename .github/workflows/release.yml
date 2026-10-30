@@ -104,7 +104,7 @@ jobs:
           core = assets / f"AstrBot-{os.environ['RELEASE_TAG']}-core.zip"
           with zipfile.ZipFile(core) as archive:
               assert not any(name.split('/', 1)[-1].split('/', 1)[0] in {'data', '.venv', '.codegraph', '.env'} for name in archive.namelist())
-          lines = [f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}' for path in sorted(assets.iterdir()) if path.is_file()]
+          lines = [f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}' for path in sorted(assets.iterdir()) if path.is_file() and not path.name.startswith('.') and path.name != 'SHA256SUMS']
           (assets / 'SHA256SUMS').write_text('\n'.join(lines) + '\n')
           PY
       - uses: actions/upload-artifact@v7
