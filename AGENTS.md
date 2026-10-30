@@ -78,4 +78,4 @@ uv run --no-sync pytest <受影响的测试>
 
 PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。
 
-站点部署使用 `GITHUB_TOKEN` 与 OIDC 临时授权，部署作业仅授予 `pages: write` 和 `id-token: write`，无需长期部署密钥。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证。仓库 Pages 构建源为 GitHub Actions，自定义域名为 `astrbot.pyabunny.com`，Cloudflare DNS 的 CNAME 指向 `sakura520222.github.io`。
+站点部署使用 `GITHUB_TOKEN` 与 OIDC 临时授权，部署作业仅授予 `pages: write` 和 `id-token: write`，无需长期部署密钥。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证。仓库 Pages 构建源为 GitHub Actions，自定义域名为 `astrbot.pyabunny.com`，Cloudflare DNS 的 CNAME 指向 `sakura520222.github.io` 并开启代理，保持 `Full (strict)` 和强制 HTTPS。

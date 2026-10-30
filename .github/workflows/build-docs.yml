@@ -58,7 +58,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://astrbot.pyabunny.com
     steps:
       - name: Deploy website to GitHub Pages
         id: deployment
