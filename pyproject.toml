@@ -134,6 +134,25 @@ allow-direct-references = true
 # Include bundled dashboard dist even though it is not tracked by VCS.
 [tool.hatch.build]
 artifacts = ["astrbot/dashboard/dist/**"]
+exclude = ["**/node_modules/**", "**/__pycache__/**", "/data/**", "/.venv*/**", "/site-dist/**"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["astrbot"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/astrbot",
+  "/scripts/hatch_build.py",
+  "/main.py",
+  "/runtime_bootstrap.py",
+  "/pyproject.toml",
+  "/uv.lock",
+  "/requirements.txt",
+  "/README.md",
+  "/LICENSE",
+  "/EULA.md",
+  "/FIRST_NOTICE*.md",
+]
 
 # Custom build hook: builds the Vue dashboard and copies dist into the package.
 [tool.hatch.build.hooks.custom]

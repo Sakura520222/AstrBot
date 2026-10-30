@@ -566,6 +566,7 @@ export default defineConfig({
   },
 
   themeConfig: {
+    siteTitle: "AstrBot",
     search: {
       provider: "local",
       options: {

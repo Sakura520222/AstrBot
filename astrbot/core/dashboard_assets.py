@@ -103,9 +103,17 @@ def _is_dist_compatible(dist_dir: str | Path, current_version: str) -> bool:
         current_version: Current AstrBot Core version.
 
     Returns:
-        Whether the dist contains an index and a matching version.
+        Whether the dist belongs to this fork and matches the running Core.
     """
     dist_path = Path(dist_dir)
+    try:
+        distribution = (dist_path / "assets" / "distribution").read_text(
+            encoding="utf-8"
+        )
+    except (OSError, UnicodeError):
+        return False
+    if distribution.strip() != "Sakura520222/AstrBot":
+        return False
     return _is_dist_complete(dist_path) and _is_version_compatible(
         _read_dashboard_version(dist_path), current_version
     )
@@ -377,11 +385,11 @@ def _extract_package(
         staged_dist = staging_root / "dist"
         if not _is_dist_complete(staged_dist):
             raise RuntimeError("Downloaded Dashboard package is incomplete")
-        if expected_version is not None and not _is_version_compatible(
-            _read_dashboard_version(staged_dist), expected_version
+        if expected_version is not None and not _is_dist_compatible(
+            staged_dist, expected_version
         ):
             raise RuntimeError(
-                "Downloaded Dashboard version does not match "
+                "Downloaded Dashboard distribution or version does not match "
                 f"AstrBot {expected_version}"
             )
 

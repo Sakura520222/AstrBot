@@ -100,6 +100,7 @@ jobs:
           with zipfile.ZipFile(wheel) as archive:
               assert 'astrbot/dashboard/dist/index.html' in archive.namelist()
               assert archive.read('astrbot/dashboard/dist/assets/version').decode().strip() == os.environ['RELEASE_TAG']
+              assert archive.read('astrbot/dashboard/dist/assets/distribution').decode().strip() == os.environ['GITHUB_REPOSITORY']
           core = assets / f"AstrBot-{os.environ['RELEASE_TAG']}-core.zip"
           with zipfile.ZipFile(core) as archive:
               assert not any(name.split('/', 1)[-1].split('/', 1)[0] in {'data', '.venv', '.codegraph', '.env'} for name in archive.namelist())

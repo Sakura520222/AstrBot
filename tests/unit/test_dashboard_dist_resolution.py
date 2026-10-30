@@ -18,6 +18,7 @@ def _make_dist(root, version: str | None) -> str:
         encoding="utf-8",
     )
     (assets / "app.js").write_text("export {};", encoding="utf-8")
+    (assets / "distribution").write_text("Sakura520222/AstrBot", encoding="utf-8")
     if version is not None:
         (assets / "version").write_text(version, encoding="utf-8")
     return str(root)
