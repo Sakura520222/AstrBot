@@ -3044,6 +3044,19 @@ async def test_update_source_failure_returns_a_safe_error_envelope(
     assert "private diagnostic" not in data["message"]
 
 
+def test_update_source_error_does_not_reflect_exception_details():
+    """The public error remains generic even if a caller supplies private text."""
+    from astrbot.dashboard.api.updates import _service_error
+    from astrbot.dashboard.services.update_service import UpdateServiceError
+
+    response = _service_error(
+        UpdateServiceError("private diagnostic path", code="release_source_unavailable")
+    )
+    assert response.status_code == 200
+    assert b"private diagnostic" not in response.body
+    assert b"Please try again later" in response.body
+
+
 @pytest.mark.asyncio
 async def test_get_releases_serializes_release_info_at_api_boundary(
     app: FastAPIAppAdapter,
