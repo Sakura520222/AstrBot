@@ -3,8 +3,10 @@ name: Dashboard CI
 on:
   push:
     branches: [master]
+    paths: ['dashboard/**', 'astrbot/__init__.py', 'openspec/**', '.github/workflows/dashboard_ci.yml']
   pull_request:
     branches: [master]
+    paths: ['dashboard/**', 'astrbot/__init__.py', 'openspec/**', '.github/workflows/dashboard_ci.yml']
   workflow_dispatch:
 
 permissions:
