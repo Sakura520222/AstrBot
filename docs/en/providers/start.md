@@ -13,7 +13,7 @@ AstrBot supports the native API formats of OpenAI, Google GenAI, and Anthropic. 
 >
 > These providers support the OpenAI API format. You can find the API Base URL and API Key from their documentation and fill them into AstrBot provider settings.
 >
-> Please note that using non-compliant third-party model services may introduce availability, privacy, or legal risks. For details, see the [EULA](https://github.com/AstrBotDevs/AstrBot/blob/master/EULA.md).
+> Please note that using non-compliant third-party model services may introduce availability, privacy, or legal risks. For details, see the [EULA](https://github.com/Sakura520222/AstrBot/blob/master/EULA.md).
 
 For example, you may choose to connect model services provided by (but not limited to):
 

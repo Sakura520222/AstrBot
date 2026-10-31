@@ -232,7 +232,7 @@ Multi-Agent systems decompose complex applications into multiple specialized age
 
 In the example below, we define a Main Agent responsible for delegating tasks to different Sub-Agents based on user queries. Each Sub-Agent focuses on specific tasks, such as retrieving weather information.
 
-![multi-agent-example-1](https://files.astrbot.app/docs/en/dev/star/guides/multi-agent-example-1.svg)
+![multi-agent-example-1](/images/dd37d278d50d2e9b.svg)
 
 Define Tools:
 

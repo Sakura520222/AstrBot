@@ -3018,6 +3018,33 @@ async def test_check_update(
 
 
 @pytest.mark.asyncio
+@pytest.mark.parametrize("endpoint,method", [("check", "check_update"), ("releases", "get_releases")])
+async def test_update_source_failure_returns_a_safe_error_envelope(
+    app: FastAPIAppAdapter,
+    authenticated_header: dict,
+    core_lifecycle_td: AstrBotCoreLifecycle,
+    monkeypatch,
+    endpoint: str,
+    method: str,
+):
+    """Release failures must not leak raw upstream errors to the WebUI."""
+    monkeypatch.setattr(
+        core_lifecycle_td.astrbot_updater,
+        method,
+        AsyncMock(side_effect=RuntimeError("Upstream request failed with private diagnostic details")),
+    )
+    response = await app.test_client().get(
+        f"/api/update/{endpoint}", headers=authenticated_header
+    )
+    data = await response.get_json()
+    assert response.status_code == 200
+    assert data["status"] == "error"
+    assert data["data"] is None
+    assert "Please try again later" in data["message"]
+    assert "private diagnostic" not in data["message"]
+
+
+@pytest.mark.asyncio
 async def test_get_releases_serializes_release_info_at_api_boundary(
     app: FastAPIAppAdapter,
     authenticated_header: dict,

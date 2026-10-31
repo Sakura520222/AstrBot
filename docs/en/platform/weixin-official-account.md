@@ -25,7 +25,7 @@ Open [WeChat Official Account Platform](https://mp.weixin.qq.com/).
 
 Open `Settings & Development` -> `Development Interface Management`.
 
-![Development Interface Management](https://files.astrbot.app/docs/source/images/weixin-official-account/image.png)
+![Development Interface Management](/images/81e5b89c0d6eaf5c.png)
 
 Copy AppID and AppSecret from WeChat platform to AstrBot fields `appid` and `secret`.
 

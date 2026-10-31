@@ -1,5 +1,3 @@
-import aiohttp
-
 from astrbot.api import star
 from astrbot.api.event import AstrMessageEvent, MessageEventResult
 from astrbot.core.config.default import VERSION
@@ -10,17 +8,6 @@ from astrbot.core.star import command_management
 class HelpCommand:
     def __init__(self, context: star.Context) -> None:
         self.context = context
-
-    async def _query_astrbot_notice(self):
-        try:
-            async with aiohttp.ClientSession(trust_env=True) as session:
-                async with session.get(
-                    "https://astrbot.pyabunny.com/notice.json",
-                    timeout=2,
-                ) as resp:
-                    return (await resp.json())["notice"]
-        except BaseException:
-            return ""
 
     async def _build_reserved_command_lines(self) -> list[str]:
         """
@@ -65,12 +52,11 @@ class HelpCommand:
         return lines
 
     async def help(self, event: AstrMessageEvent) -> None:
-        """查看帮助"""
-        notice = ""
-        try:
-            notice = await self._query_astrbot_notice()
-        except BaseException:
-            pass
+        """Show enabled built-in commands and the documentation entry point.
+
+        Args:
+            event: Incoming event receiving the help result.
+        """
 
         dashboard_version = await get_dashboard_version()
         command_lines = await self._build_reserved_command_lines()
@@ -83,9 +69,8 @@ class HelpCommand:
         msg_parts = [
             f"AstrBot v{VERSION}(WebUI: {dashboard_version})",
             commands_section,
+            "文档：https://astrbot.pyabunny.com/docs/",
         ]
-        if notice:
-            msg_parts.append(notice)
         msg = "\n".join(msg_parts)
 
         event.set_result(MessageEventResult().message(msg).use_t2i(False))

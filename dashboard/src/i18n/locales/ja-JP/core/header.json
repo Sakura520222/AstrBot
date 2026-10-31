@@ -16,12 +16,17 @@
     }
   },
   "updateDialog": {
+    "retry": "再試行",
     "title": "AstrBot を更新",
     "currentVersion": "現在のバージョン",
     "status": {
+      "checkFailed": "更新の確認に失敗しました",
+      "sourceUnavailable": "バージョン情報を取得できません。しばらくしてから再試行してください。",
+      "releasesFailed": "リリース一覧を取得できません。しばらくしてから再試行してください。",
       "checking": "更新を確認しています…",
       "switching": "バージョンを切り替えています…",
-      "updating": "更新しています…"
+      "updating": "更新しています…",
+      "upToDate": "最新バージョンです"
     },
     "tabs": {
       "release": "😊 正式版"

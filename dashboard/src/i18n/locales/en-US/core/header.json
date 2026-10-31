@@ -16,12 +16,17 @@
     }
   },
   "updateDialog": {
+    "retry": "Retry",
     "title": "Update AstrBot",
     "currentVersion": "Current Version",
     "status": {
+      "checkFailed": "Update check failed",
+      "sourceUnavailable": "Release information is unavailable. Please try again later.",
+      "releasesFailed": "The release list is unavailable. Please try again later.",
       "checking": "Checking for updates...",
       "switching": "Switching version...",
-      "updating": "Updating..."
+      "updating": "Updating...",
+      "upToDate": "You are up to date"
     },
     "tabs": {
       "release": "😊 Release"

@@ -25,7 +25,7 @@ Message receiving mode: WebSocket
 5. Under the "Bot" page in the left sidebar, click "Invite Link" and set the role permissions (full permissions are recommended to ensure all features work).
 6. Copy the invite link, open it in your browser, and add the bot to your desired server.
 
-   ![image](https://files.astrbot.app/docs/source/images/kook/image-1.png)
+   ![image](/images/57f1768b625dfd7b.png)
 
 ## Configure in AstrBot
 

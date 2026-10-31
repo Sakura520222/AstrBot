@@ -20,7 +20,7 @@ If not, follow official docs first:
 
 After enabling, `server-satori` serves Satori API under `/satori`.
 
-![image](https://files.astrbot.app/docs/source/images/satori/2025-09-07_17-14-55.png)
+![image](/images/adaf8645477acaa5.png)
 
 ## Configure Satori Adapter in AstrBot
 
@@ -43,7 +43,7 @@ Fill in:
 > - So the full API base is `http://localhost:5140/satori/v1`.
 > - If your Koishi runs on different host/port/path, change accordingly.
 
-![image](https://files.astrbot.app/docs/source/images/satori/2025-10-10_16-16-25.png)
+![image](/images/2329e815a5d3206e.png)
 
 Click `Save`.
 
@@ -53,7 +53,7 @@ AstrBot should now be connected to Koishi via `server-satori`.
 
 Test by sending an AstrBot command (for example `/help`) in Koishi sandbox.
 
-![image](https://files.astrbot.app/docs/source/images/satori/2025-09-07_17-19-04.png)
+![image](/images/fe1b2832a6c0279d.png)
 
 ## Troubleshooting
 

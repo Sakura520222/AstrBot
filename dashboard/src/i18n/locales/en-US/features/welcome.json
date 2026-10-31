@@ -42,10 +42,10 @@
   },
   "resources": {
     "title": "Resources",
-    "githubDesc": "Give us a Star!",
+    "githubDesc": "Browse source, releases, and contribution information.",
     "docsTitle": "Documentation",
-    "docsDesc": "Read the official AstrBot documentation.",
-    "afdianTitle": "Afdian",
-    "afdianDesc": "Support the AstrBot team on Afdian."
+    "docsDesc": "Read deployment, configuration, usage, and plugin guides.",
+    "feedbackTitle": "Feedback",
+    "feedbackDesc": "Report a problem or browse existing issues."
   }
 }

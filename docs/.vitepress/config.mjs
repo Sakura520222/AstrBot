@@ -1,43 +1,58 @@
 import { defineConfig } from "vitepress";
 import { head } from "./config/head";
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/docs/",
-  title: "AstrBot 个人 Fork",
-  description: "Sakura520222 独立维护的 AstrBot 个人 Fork 中文文档",
-  head: head,
-
+  title: "AstrBot 文档",
+  description: "AstrBot 部署、消息平台接入、模型配置、插件开发与使用文档",
+  head,
   rewrites: {
-    'zh/:rest*': ':rest*'
+    "zh/:rest*": ":rest*",
   },
-
   sitemap: {
     hostname: "https://astrbot.pyabunny.com/docs/",
   },
-
   lastUpdated: true,
-  ignoreDeadLinks: true,
-
+  ignoreDeadLinks: false,
   locales: {
     root: {
       label: "简体中文",
       lang: "zh-Hans",
       themeConfig: {
         nav: [
-          { text: "主页", link: "https://astrbot.pyabunny.com" },
-          { text: "维护指南", link: "/fork-maintenance" },
-          { text: "版本发布", link: "https://github.com/Sakura520222/AstrBot/releases" },
-          { text: "HTTP API", link: "https://astrbot.pyabunny.com/docs/scalar.html" },
+          {
+            text: "主页",
+            link: "https://astrbot.pyabunny.com",
+          },
+          {
+            text: "开始使用",
+            link: "/deploy/astrbot/cli",
+          },
+          {
+            text: "版本发布",
+            link: "https://github.com/Sakura520222/AstrBot/releases",
+          },
+          {
+            text: "HTTP API",
+            link: "https://astrbot.pyabunny.com/docs/scalar.html",
+          },
         ],
         sidebar: [
           {
             text: "简介",
             items: [
-              { text: "个人 Fork 部署与维护", link: "/fork-maintenance" },
-              { text: "关于 AstrBot", link: "/what-is-astrbot" },
-              { text: "社区", link: "/community" },
-              { text: "常见问题", link: "/faq" },
+              {
+                text: "关于 AstrBot",
+                link: "/what-is-astrbot",
+              },
+              {
+                text: "交流与反馈",
+                link: "/community",
+              },
+              {
+                text: "常见问题",
+                link: "/faq",
+              },
             ],
           },
           {
@@ -45,28 +60,39 @@ export default defineConfig({
             base: "/deploy",
             collapsed: false,
             items: [
-              { text: "脚本部署", link: "/astrbot/package" },
-              { text: "雨云一键云部署", link: "/astrbot/rainyun" },
-              { text: "桌面客户端部署", link: "/astrbot/desktop" },
-              { text: "启动器一键部署", link: "/astrbot/launcher" },
-              { text: "Docker 部署", link: "/astrbot/docker" },
-              { text: "Kubernetes 部署", link: "/astrbot/kubernetes" },
-              { text: "宝塔面板部署", link: "/astrbot/btpanel" },
-              { text: "1Panel 部署", link: "/astrbot/1panel" },
-              { text: "源码部署", link: "/astrbot/cli" },
               {
-                text: "其他部署方式",
-                link: "/astrbot/other-deployments",
-                collapsed: true,
-                items: [
-                  { text: "CasaOS 部署", link: "/astrbot/casaos" },
-                  { text: "优云智算 GPU 部署", link: "/astrbot/compshare" },
-                  { text: "社区提供的部署方式", link: "/astrbot/community-deployment" },
-                ],
+                text: "脚本安装",
+                link: "/astrbot/package",
               },
               {
-                text: "支持我们",
-                link: "/when-deployed",
+                text: "Docker 部署",
+                link: "/astrbot/docker",
+              },
+              {
+                text: "Kubernetes 部署",
+                link: "/astrbot/kubernetes",
+              },
+              {
+                text: "宝塔面板部署",
+                link: "/astrbot/btpanel",
+              },
+              {
+                text: "1Panel 部署",
+                link: "/astrbot/1panel",
+              },
+              {
+                text: "源码部署",
+                link: "/astrbot/cli",
+              },
+              {
+                text: "其他部署方式",
+                collapsed: true,
+                items: [
+                  {
+                    text: "CasaOS 部署",
+                    link: "/astrbot/casaos",
+                  },
+                ],
               },
             ],
           },
@@ -83,42 +109,99 @@ export default defineConfig({
                 link: "/qqofficial",
                 collapsed: true,
                 items: [
-                  { text: "Websockets 方式(推荐)", link: "/qqofficial/websockets" },
-                  { text: "Webhook 方式", link: "/qqofficial/webhook" },
+                  {
+                    text: "Websockets 方式(推荐)",
+                    link: "/qqofficial/websockets",
+                  },
+                  {
+                    text: "Webhook 方式",
+                    link: "/qqofficial/webhook",
+                  },
                 ],
               },
               {
                 text: "OneBot v11",
-                link: "/aiocqhttp"
+                link: "/aiocqhttp",
               },
-              { text: "企微应用", link: "/wecom" },
-              { text: "企微智能机器人", link: "/wecom_ai_bot" },
-              { text: "微信公众号", link: "/weixin-official-account" },
-              { text: "个人微信", link: "/weixin_oc" },
-              { text: "飞书", link: "/lark" },
-              { text: "钉钉", link: "/dingtalk" },
-              { text: "Telegram", link: "/telegram" },
-              { text: "LINE", link: "/line" },
-              { text: "Slack", link: "/slack" },
-              { text: "Mattermost", link: "/mattermost" },
-              { text: "Misskey", link: "/misskey" },
-              { text: "Discord", link: "/discord" },
-              { text: "KOOK", link: "/kook" },
+              {
+                text: "企微应用",
+                link: "/wecom",
+              },
+              {
+                text: "企微智能机器人",
+                link: "/wecom_ai_bot",
+              },
+              {
+                text: "微信公众号",
+                link: "/weixin-official-account",
+              },
+              {
+                text: "个人微信",
+                link: "/weixin_oc",
+              },
+              {
+                text: "飞书",
+                link: "/lark",
+              },
+              {
+                text: "钉钉",
+                link: "/dingtalk",
+              },
+              {
+                text: "Telegram",
+                link: "/telegram",
+              },
+              {
+                text: "LINE",
+                link: "/line",
+              },
+              {
+                text: "Slack",
+                link: "/slack",
+              },
+              {
+                text: "Mattermost",
+                link: "/mattermost",
+              },
+              {
+                text: "Misskey",
+                link: "/misskey",
+              },
+              {
+                text: "Discord",
+                link: "/discord",
+              },
+              {
+                text: "KOOK",
+                link: "/kook",
+              },
               {
                 text: "Satori",
                 base: "/platform/satori",
                 collapsed: true,
                 items: [
-                  { text: "接入 Satori", link: "/guide" },
-                  { text: "使用 server-satori", link: "/server-satori" },
+                  {
+                    text: "接入 Satori",
+                    link: "/guide",
+                  },
+                  {
+                    text: "使用 server-satori",
+                    link: "/server-satori",
+                  },
                 ],
               },
               {
                 text: "社区提供",
                 collapsed: false,
                 items: [
-                  { text: "Matrix", link: "/matrix" },
-                  { text: "VoceChat", link: "/vocechat" },
+                  {
+                    text: "Matrix",
+                    link: "/matrix",
+                  },
+                  {
+                    text: "VoceChat",
+                    link: "/vocechat",
+                  },
                 ],
               },
             ],
@@ -128,33 +211,78 @@ export default defineConfig({
             base: "/providers",
             items: [
               {
-                text: "✨ 接入模型服务",
+                text: "模型服务",
                 link: "/start",
                 collapsed: true,
                 items: [
-                  { text: "MiraRouter", link: "/mirarouter" },
-                  { text: "NewAPI", link: "/newapi" },
-                  { text: "胜算云", link: "/shengsuanyun" },
-                  { text: "AIHubMix", link: "/aihubmix" },
-                  { text: "PPIO 派欧云", link: "/ppio" },
-                  { text: "硅基流动", link: "/siliconflow" },
-                  { text: "小马算力", link: "/tokenpony" },
-                  { text: "302.AI", link: "/302ai" },
-                  { text: "Ollama", link: "/provider-ollama" },
-                  { text: "LMStudio", link: "/provider-lmstudio" },
-                ]
+                  {
+                    text: "MiraRouter",
+                    link: "/mirarouter",
+                  },
+                  {
+                    text: "NewAPI",
+                    link: "/newapi",
+                  },
+                  {
+                    text: "胜算云",
+                    link: "/shengsuanyun",
+                  },
+                  {
+                    text: "AIHubMix",
+                    link: "/aihubmix",
+                  },
+                  {
+                    text: "PPIO 派欧云",
+                    link: "/ppio",
+                  },
+                  {
+                    text: "硅基流动",
+                    link: "/siliconflow",
+                  },
+                  {
+                    text: "小马算力",
+                    link: "/tokenpony",
+                  },
+                  {
+                    text: "302.AI",
+                    link: "/302ai",
+                  },
+                  {
+                    text: "Ollama",
+                    link: "/provider-ollama",
+                  },
+                  {
+                    text: "LMStudio",
+                    link: "/provider-lmstudio",
+                  },
+                ],
               },
               {
-                text: "⚙️ Agent 执行器",
+                text: "Agent 执行器",
                 link: "/agent-runners",
                 collapsed: false,
                 items: [
-                  { text: "内置 Agent 执行器", link: "/agent-runners/astrbot-agent-runner" },
-                  { text: "Dify", link: "/agent-runners/dify" },
-                  { text: "扣子 Coze", link: "/agent-runners/coze" },
-                  { text: "阿里云百炼应用", link: "/agent-runners/dashscope" },
-                  { text: "DeerFlow", link: "/agent-runners/deerflow" },
-                ]
+                  {
+                    text: "内置 Agent 执行器",
+                    link: "/agent-runners/astrbot-agent-runner",
+                  },
+                  {
+                    text: "Dify",
+                    link: "/agent-runners/dify",
+                  },
+                  {
+                    text: "扣子 Coze",
+                    link: "/agent-runners/coze",
+                  },
+                  {
+                    text: "阿里云百炼应用",
+                    link: "/agent-runners/dashscope",
+                  },
+                  {
+                    text: "DeerFlow",
+                    link: "/agent-runners/deerflow",
+                  },
+                ],
               },
             ],
           },
@@ -162,41 +290,89 @@ export default defineConfig({
             text: "使用",
             base: "/use",
             items: [
-              { text: "WebUI", link: "/webui" },
-              { text: "AstrBot CLI", link: "/cli" },
-              { text: "内置指令", link: "/command" },
+              {
+                text: "WebUI",
+                link: "/webui",
+              },
+              {
+                text: "AstrBot CLI",
+                link: "/cli",
+              },
+              {
+                text: "内置指令",
+                link: "/command",
+              },
               {
                 text: "插件",
                 collapsed: false,
                 items: [
-                  { text: "插件", link: "/plugin" },
-                  { text: "MCP", link: "/mcp" },
-                  { text: "技能 Skills", link: "/skills" },
+                  {
+                    text: "插件",
+                    link: "/plugin",
+                  },
+                  {
+                    text: "MCP",
+                    link: "/mcp",
+                  },
+                  {
+                    text: "技能 Skills",
+                    link: "/skills",
+                  },
                 ],
               },
               {
                 text: "AstrBot 内置 AI",
                 collapsed: false,
                 items: [
-                  { text: "Agent 沙盒环境", link: "/astrbot-agent-sandbox" },
-                  { text: "SubAgent 编排", link: "/subagent" },
-                  { text: "主动型能力", link: "/proactive-agent" },
+                  {
+                    text: "Agent 沙盒环境",
+                    link: "/astrbot-agent-sandbox",
+                  },
+                  {
+                    text: "SubAgent 编排",
+                    link: "/subagent",
+                  },
+                  {
+                    text: "主动型能力",
+                    link: "/proactive-agent",
+                  },
                   {
                     text: "网页搜索",
                     link: "/websearch",
                     collapsed: true,
                     items: [
-                      { text: "SerpApi", link: "/websearch/serpapi" },
-                      { text: "DeepSeek Search API", link: "/websearch/deepseek" },
+                      {
+                        text: "SerpApi",
+                        link: "/websearch/serpapi",
+                      },
+                      {
+                        text: "DeepSeek Search API",
+                        link: "/websearch/deepseek",
+                      },
                     ],
                   },
-                  { text: "知识库", link: "/knowledge-base" },
-                  { text: "上下文压缩", link: "/context-compress" },
+                  {
+                    text: "知识库",
+                    link: "/knowledge-base",
+                  },
+                  {
+                    text: "上下文压缩",
+                    link: "/context-compress",
+                  },
                 ],
               },
-              { text: "自定义规则", link: "/custom-rules" },
-              { text: "Agent 执行方式", link: "/agent-runner" },
-              { text: "统一 Webhook 模式", link: "/unified-webhook" },
+              {
+                text: "自定义规则",
+                link: "/custom-rules",
+              },
+              {
+                text: "Agent 执行方式",
+                link: "/agent-runner",
+              },
+              {
+                text: "统一 Webhook 模式",
+                link: "/unified-webhook",
+              },
             ],
           },
           {
@@ -209,20 +385,58 @@ export default defineConfig({
                 base: "/dev/star",
                 collapsed: true,
                 items: [
-                  { text: "🌠 从这里开始", link: "/plugin-new" },
-                  { text: "最小实例", link: "/guides/simple" },
-                  { text: "接收消息事件", link: "/guides/listen-message-event" },
-                  { text: "发送消息", link: "/guides/send-message" },
-                  { text: "插件配置", link: "/guides/plugin-config" },
-                  { text: "插件可视化视图", link: "/guides/plugin-pages" },
-                  { text: "插件国际化", link: "/guides/plugin-i18n" },
-                  { text: "调用 AI", link: "/guides/ai" },
-                  { text: "存储", link: "/guides/storage" },
-                  { text: "文转图", link: "/guides/html-to-pic" },
-                  { text: "会话控制器", link: "/guides/session-control" },
-                  { text: "杂项", link: "/guides/other" },
-                  { text: "发布插件", link: "/plugin-publish" },
-                  { text: "插件指南（旧）", link: "/plugin" },
+                  {
+                    text: "🌠 从这里开始",
+                    link: "/plugin-new",
+                  },
+                  {
+                    text: "最小实例",
+                    link: "/guides/simple",
+                  },
+                  {
+                    text: "接收消息事件",
+                    link: "/guides/listen-message-event",
+                  },
+                  {
+                    text: "发送消息",
+                    link: "/guides/send-message",
+                  },
+                  {
+                    text: "插件配置",
+                    link: "/guides/plugin-config",
+                  },
+                  {
+                    text: "插件可视化视图",
+                    link: "/guides/plugin-pages",
+                  },
+                  {
+                    text: "插件国际化",
+                    link: "/guides/plugin-i18n",
+                  },
+                  {
+                    text: "调用 AI",
+                    link: "/guides/ai",
+                  },
+                  {
+                    text: "存储",
+                    link: "/guides/storage",
+                  },
+                  {
+                    text: "文转图",
+                    link: "/guides/html-to-pic",
+                  },
+                  {
+                    text: "会话控制器",
+                    link: "/guides/session-control",
+                  },
+                  {
+                    text: "杂项",
+                    link: "/guides/other",
+                  },
+                  {
+                    text: "发布插件",
+                    link: "/plugin-publish",
+                  },
                 ],
               },
               {
@@ -230,8 +444,14 @@ export default defineConfig({
                 base: "/dev/plugin-market",
                 collapsed: true,
                 items: [
-                  { text: "版本列表", link: "/" },
-                  { text: "2026-06-27", link: "/2026-06-27" },
+                  {
+                    text: "版本列表",
+                    link: "/",
+                  },
+                  {
+                    text: "2026-06-27",
+                    link: "/2026-06-27",
+                  },
                 ],
               },
               {
@@ -257,60 +477,88 @@ export default defineConfig({
             base: "/others",
             collapsed: true,
             items: [
-              { text: "异常诊断", link: "/diagnostics" },
-              { text: "自部署文转图", link: "/self-host-t2i" },
-              { text: "插件下载不了?试试自建 GitHub 加速服务", link: "/github-proxy" },
-            ],
-          },
-          {
-            text: "社区活动",
-            base: "/community-events",
-            collapsed: false,
-            items: [
-              { text: "开源之夏 2025", link: "/ospp-2025" },
-              { text: "桐谷霁屿 x AstrBot 插件奖励活动", link: "/tonggujiyu-astrbot-plugin-reward-program" },
+              {
+                text: "异常诊断",
+                link: "/diagnostics",
+              },
+              {
+                text: "自部署文转图",
+                link: "/self-host-t2i",
+              },
+              {
+                text: "插件下载不了?试试自建 GitHub 加速服务",
+                link: "/github-proxy",
+              },
             ],
           },
         ],
         outline: {
-          level: 'deep',
-          label: '目录',
+          level: "deep",
+          label: "目录",
         },
-        darkModeSwitchLabel: '切换日光/暗黑模式',
-        sidebarMenuLabel: '文章',
-        returnToTopLabel: '返回顶部',
+        darkModeSwitchLabel: "切换日光/暗黑模式",
+        sidebarMenuLabel: "文章",
+        returnToTopLabel: "返回顶部",
         docFooter: {
-          prev: '上一篇',
-          next: '下一篇'
+          prev: "上一篇",
+          next: "下一篇",
         },
         editLink: {
-          pattern: 'https://github.com/Sakura520222/AstrBot/edit/master/docs/:path',
-          text: '发现文档有问题？在 GitHub 上编辑此页',
+          pattern:
+            "https://github.com/Sakura520222/AstrBot/edit/master/docs/:path",
+          text: "发现文档有问题？在 GitHub 上编辑此页",
         },
-        logo: '/favicon.svg',
+        logo: "/favicon.svg",
         socialLinks: [
-          { icon: "github", link: "https://github.com/Sakura520222/AstrBot" },
+          {
+            icon: "github",
+            link: "https://github.com/Sakura520222/AstrBot",
+          },
         ],
-        footer: { message: 'Sakura520222 独立维护 · 基于 <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later' }
-      }
+        footer: {
+          message:
+            'Sakura520222 维护 · 基于 <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later',
+        },
+      },
     },
     en: {
       label: "English",
       lang: "en-US",
       themeConfig: {
         nav: [
-          { text: "Home", link: "https://astrbot.pyabunny.com" },
-          { text: "Fork Guide", link: "/en/fork-maintenance" },
-          { text: "Releases", link: "https://github.com/Sakura520222/AstrBot/releases" },
-          { text: "HTTP API", link: "https://astrbot.pyabunny.com/docs/scalar.html" },
+          {
+            text: "Home",
+            link: "https://astrbot.pyabunny.com",
+          },
+          {
+            text: "Get started",
+            link: "/en/deploy/astrbot/cli",
+          },
+          {
+            text: "Releases",
+            link: "https://github.com/Sakura520222/AstrBot/releases",
+          },
+          {
+            text: "HTTP API",
+            link: "https://astrbot.pyabunny.com/docs/scalar.html",
+          },
         ],
         sidebar: [
           {
             text: "Introduction",
             items: [
-              { text: "What is AstrBot", link: "/en/what-is-astrbot" },
-              { text: "Community", link: "/en/community" },
-              { text: "FAQ", link: "/en/faq" },
+              {
+                text: "What is AstrBot",
+                link: "/en/what-is-astrbot",
+              },
+              {
+                text: "Feedback",
+                link: "/en/community",
+              },
+              {
+                text: "FAQ",
+                link: "/en/faq",
+              },
             ],
           },
           {
@@ -318,27 +566,39 @@ export default defineConfig({
             base: "/en/deploy",
             collapsed: false,
             items: [
-              { text: "Script Deployment", link: "/astrbot/package" },
-              { text: "Desktop Client", link: "/astrbot/desktop" },
-              { text: "One-click Launcher", link: "/astrbot/launcher" },
-              { text: "Docker", link: "/astrbot/docker" },
-              { text: "Kubernetes", link: "/astrbot/kubernetes" },
-              { text: "BT Panel", link: "/astrbot/btpanel" },
-              { text: "1Panel", link: "/astrbot/1panel" },
-              { text: "Source Deployment", link: "/astrbot/cli" },
               {
-                text: "Other Deployments",
-                link: "/astrbot/other-deployments",
-                collapsed: true,
-                items: [
-                  { text: "CasaOS", link: "/astrbot/casaos" },
-                  { text: "Compshare GPU", link: "/astrbot/compshare" },
-                  { text: "Community-provided Deployment", link: "/astrbot/community-deployment" },
-                ],
+                text: "Script installation",
+                link: "/astrbot/package",
               },
               {
-                text: "Support Us",
-                link: "/when-deployed",
+                text: "Docker",
+                link: "/astrbot/docker",
+              },
+              {
+                text: "Kubernetes",
+                link: "/astrbot/kubernetes",
+              },
+              {
+                text: "BT Panel",
+                link: "/astrbot/btpanel",
+              },
+              {
+                text: "1Panel",
+                link: "/astrbot/1panel",
+              },
+              {
+                text: "Source Deployment",
+                link: "/astrbot/cli",
+              },
+              {
+                text: "Other Deployments",
+                collapsed: true,
+                items: [
+                  {
+                    text: "CasaOS",
+                    link: "/astrbot/casaos",
+                  },
+                ],
               },
             ],
           },
@@ -356,42 +616,99 @@ export default defineConfig({
                 link: "/qqofficial",
                 collapsed: true,
                 items: [
-                  { text: "Websockets", link: "/qqofficial/websockets" },
-                  { text: "Webhook", link: "/qqofficial/webhook" },
+                  {
+                    text: "Websockets",
+                    link: "/qqofficial/websockets",
+                  },
+                  {
+                    text: "Webhook",
+                    link: "/qqofficial/webhook",
+                  },
                 ],
               },
               {
                 text: "OneBot v11",
                 link: "/aiocqhttp",
               },
-              { text: "WeCom Application", link: "/wecom" },
-              { text: "WeCom AI Bot", link: "/wecom_ai_bot" },
-              { text: "WeChat Official Account", link: "/weixin-official-account" },
-              { text: "Personal WeChat", link: "/weixin_oc" },
-              { text: "Lark", link: "/lark" },
-              { text: "DingTalk", link: "/dingtalk" },
-              { text: "Telegram", link: "/telegram" },
-              { text: "LINE", link: "/line" },
-              { text: "Slack", link: "/slack" },
-              { text: "Mattermost", link: "/mattermost" },
-              { text: "Misskey", link: "/misskey" },
-              { text: "Discord", link: "/discord" },
-              { text: "KOOK", link: "/kook" },
+              {
+                text: "WeCom Application",
+                link: "/wecom",
+              },
+              {
+                text: "WeCom AI Bot",
+                link: "/wecom_ai_bot",
+              },
+              {
+                text: "WeChat Official Account",
+                link: "/weixin-official-account",
+              },
+              {
+                text: "Personal WeChat",
+                link: "/weixin_oc",
+              },
+              {
+                text: "Lark",
+                link: "/lark",
+              },
+              {
+                text: "DingTalk",
+                link: "/dingtalk",
+              },
+              {
+                text: "Telegram",
+                link: "/telegram",
+              },
+              {
+                text: "LINE",
+                link: "/line",
+              },
+              {
+                text: "Slack",
+                link: "/slack",
+              },
+              {
+                text: "Mattermost",
+                link: "/mattermost",
+              },
+              {
+                text: "Misskey",
+                link: "/misskey",
+              },
+              {
+                text: "Discord",
+                link: "/discord",
+              },
+              {
+                text: "KOOK",
+                link: "/kook",
+              },
               {
                 text: "Satori",
                 base: "/en/platform/satori",
                 collapsed: true,
                 items: [
-                  { text: "Connect Satori", link: "/guide" },
-                  { text: "Using server-satori", link: "/server-satori" },
+                  {
+                    text: "Connect Satori",
+                    link: "/guide",
+                  },
+                  {
+                    text: "Using server-satori",
+                    link: "/server-satori",
+                  },
                 ],
               },
               {
                 text: "Community-provided",
                 collapsed: false,
                 items: [
-                  { text: "Matrix", link: "/matrix" },
-                  { text: "VoceChat", link: "/vocechat" },
+                  {
+                    text: "Matrix",
+                    link: "/matrix",
+                  },
+                  {
+                    text: "VoceChat",
+                    link: "/vocechat",
+                  },
                 ],
               },
             ],
@@ -406,16 +723,46 @@ export default defineConfig({
                 link: "/start",
                 collapsed: true,
                 items: [
-                  { text: "MiraRouter", link: "/mirarouter" },
-                  { text: "NewAPI", link: "/newapi" },
-                  { text: "ShengSuanYun", link: "/shengsuanyun" },
-                  { text: "AIHubMix", link: "/aihubmix" },
-                  { text: "PPIO Cloud", link: "/ppio" },
-                  { text: "SiliconFlow", link: "/siliconflow" },
-                  { text: "TokenPony", link: "/tokenpony" },
-                  { text: "302.AI", link: "/302ai" },
-                  { text: "Ollama", link: "/provider-ollama" },
-                  { text: "LMStudio", link: "/provider-lmstudio" },
+                  {
+                    text: "MiraRouter",
+                    link: "/mirarouter",
+                  },
+                  {
+                    text: "NewAPI",
+                    link: "/newapi",
+                  },
+                  {
+                    text: "ShengSuanYun",
+                    link: "/shengsuanyun",
+                  },
+                  {
+                    text: "AIHubMix",
+                    link: "/aihubmix",
+                  },
+                  {
+                    text: "PPIO Cloud",
+                    link: "/ppio",
+                  },
+                  {
+                    text: "SiliconFlow",
+                    link: "/siliconflow",
+                  },
+                  {
+                    text: "TokenPony",
+                    link: "/tokenpony",
+                  },
+                  {
+                    text: "302.AI",
+                    link: "/302ai",
+                  },
+                  {
+                    text: "Ollama",
+                    link: "/provider-ollama",
+                  },
+                  {
+                    text: "LMStudio",
+                    link: "/provider-lmstudio",
+                  },
                 ],
               },
               {
@@ -423,11 +770,26 @@ export default defineConfig({
                 link: "/agent-runners",
                 collapsed: false,
                 items: [
-                  { text: "Built-in Agent Runner", link: "/agent-runners/astrbot-agent-runner" },
-                  { text: "Dify", link: "/agent-runners/dify" },
-                  { text: "Coze", link: "/agent-runners/coze" },
-                  { text: "Alibaba Bailian", link: "/agent-runners/dashscope" },
-                  { text: "DeerFlow", link: "/agent-runners/deerflow" },
+                  {
+                    text: "Built-in Agent Runner",
+                    link: "/agent-runners/astrbot-agent-runner",
+                  },
+                  {
+                    text: "Dify",
+                    link: "/agent-runners/dify",
+                  },
+                  {
+                    text: "Coze",
+                    link: "/agent-runners/coze",
+                  },
+                  {
+                    text: "Alibaba Bailian",
+                    link: "/agent-runners/dashscope",
+                  },
+                  {
+                    text: "DeerFlow",
+                    link: "/agent-runners/deerflow",
+                  },
                 ],
               },
             ],
@@ -437,41 +799,89 @@ export default defineConfig({
             base: "/en/use",
             collapsed: true,
             items: [
-              { text: "WebUI", link: "/webui" },
-              { text: "AstrBot CLI", link: "/cli" },
-              { text: "Built-in Commands", link: "/command" },
+              {
+                text: "WebUI",
+                link: "/webui",
+              },
+              {
+                text: "AstrBot CLI",
+                link: "/cli",
+              },
+              {
+                text: "Built-in Commands",
+                link: "/command",
+              },
               {
                 text: "Plugins",
                 collapsed: false,
                 items: [
-                  { text: "Plugins", link: "/plugin" },
-                  { text: "MCP", link: "/mcp" },
-                  { text: "Skills", link: "/skills" },
+                  {
+                    text: "Plugins",
+                    link: "/plugin",
+                  },
+                  {
+                    text: "MCP",
+                    link: "/mcp",
+                  },
+                  {
+                    text: "Skills",
+                    link: "/skills",
+                  },
                 ],
               },
               {
                 text: "AstrBot Built-in AI",
                 collapsed: false,
                 items: [
-                  { text: "Agent Sandbox", link: "/astrbot-agent-sandbox" },
-                  { text: "SubAgent Orchestration", link: "/subagent" },
-                  { text: "Proactive Capabilities", link: "/proactive-agent" },
+                  {
+                    text: "Agent Sandbox",
+                    link: "/astrbot-agent-sandbox",
+                  },
+                  {
+                    text: "SubAgent Orchestration",
+                    link: "/subagent",
+                  },
+                  {
+                    text: "Proactive Capabilities",
+                    link: "/proactive-agent",
+                  },
                   {
                     text: "Web Search",
                     link: "/websearch",
                     collapsed: true,
                     items: [
-                      { text: "SerpApi", link: "/websearch/serpapi" },
-                      { text: "DeepSeek Search API", link: "/websearch/deepseek" },
+                      {
+                        text: "SerpApi",
+                        link: "/websearch/serpapi",
+                      },
+                      {
+                        text: "DeepSeek Search API",
+                        link: "/websearch/deepseek",
+                      },
                     ],
                   },
-                  { text: "Knowledge Base", link: "/knowledge-base" },
-                  { text: "Context Compression", link: "/context-compress" },
+                  {
+                    text: "Knowledge Base",
+                    link: "/knowledge-base",
+                  },
+                  {
+                    text: "Context Compression",
+                    link: "/context-compress",
+                  },
                 ],
               },
-              { text: "Custom Rules", link: "/custom-rules" },
-              { text: "Agent Execution Mode", link: "/agent-runner" },
-              { text: "Unified Webhook Mode", link: "/unified-webhook" },
+              {
+                text: "Custom Rules",
+                link: "/custom-rules",
+              },
+              {
+                text: "Agent Execution Mode",
+                link: "/agent-runner",
+              },
+              {
+                text: "Unified Webhook Mode",
+                link: "/unified-webhook",
+              },
             ],
           },
           {
@@ -484,18 +894,54 @@ export default defineConfig({
                 base: "/en/dev/star",
                 collapsed: true,
                 items: [
-                  { text: "🌠 Getting Started", link: "/plugin-new" },
-                  { text: "Minimal Example", link: "/guides/simple" },
-                  { text: "Listen to Message Events", link: "/guides/listen-message-event" },
-                  { text: "Send Messages", link: "/guides/send-message" },
-                  { text: "Plugin Configuration", link: "/guides/plugin-config" },
-                  { text: "Plugin Views", link: "/guides/plugin-pages" },
-                  { text: "Plugin Internationalization", link: "/guides/plugin-i18n" },
-                  { text: "AI", link: "/guides/ai" },
-                  { text: "Storage", link: "/guides/storage" },
-                  { text: "HTML to Image", link: "/guides/html-to-pic" },
-                  { text: "Session Control", link: "/guides/session-control" },
-                  { text: "Publish Plugin", link: "/plugin-publish" },
+                  {
+                    text: "🌠 Getting Started",
+                    link: "/plugin-new",
+                  },
+                  {
+                    text: "Minimal Example",
+                    link: "/guides/simple",
+                  },
+                  {
+                    text: "Listen to Message Events",
+                    link: "/guides/listen-message-event",
+                  },
+                  {
+                    text: "Send Messages",
+                    link: "/guides/send-message",
+                  },
+                  {
+                    text: "Plugin Configuration",
+                    link: "/guides/plugin-config",
+                  },
+                  {
+                    text: "Plugin Views",
+                    link: "/guides/plugin-pages",
+                  },
+                  {
+                    text: "Plugin Internationalization",
+                    link: "/guides/plugin-i18n",
+                  },
+                  {
+                    text: "AI",
+                    link: "/guides/ai",
+                  },
+                  {
+                    text: "Storage",
+                    link: "/guides/storage",
+                  },
+                  {
+                    text: "HTML to Image",
+                    link: "/guides/html-to-pic",
+                  },
+                  {
+                    text: "Session Control",
+                    link: "/guides/session-control",
+                  },
+                  {
+                    text: "Publish Plugin",
+                    link: "/plugin-publish",
+                  },
                 ],
               },
               {
@@ -503,8 +949,14 @@ export default defineConfig({
                 base: "/en/dev/plugin-market",
                 collapsed: true,
                 items: [
-                  { text: "Versions", link: "/" },
-                  { text: "2026-06-27", link: "/2026-06-27" },
+                  {
+                    text: "Versions",
+                    link: "/",
+                  },
+                  {
+                    text: "2026-06-27",
+                    link: "/2026-06-27",
+                  },
                 ],
               },
               {
@@ -530,41 +982,50 @@ export default defineConfig({
             base: "/en/others",
             collapsed: true,
             items: [
-              { text: "Diagnostics", link: "/diagnostics" },
-              { text: "Self-hosted HTML to Image", link: "/self-host-t2i" },
+              {
+                text: "Diagnostics",
+                link: "/diagnostics",
+              },
+              {
+                text: "Self-hosted HTML to Image",
+                link: "/self-host-t2i",
+              },
             ],
-          },
-          {
-            text: "Open Source Summer",
-            base: "/en/ospp",
-            collapsed: true,
-            items: [{ text: "OSPP 2025", link: "/2025" }],
           },
         ],
         outline: {
-          level: 'deep',
-          label: 'On this page',
+          level: "deep",
+          label: "On this page",
         },
-        darkModeSwitchLabel: 'Toggle dark mode',
-        sidebarMenuLabel: 'Menu',
-        returnToTopLabel: 'Return to top',
+        darkModeSwitchLabel: "Toggle dark mode",
+        sidebarMenuLabel: "Menu",
+        returnToTopLabel: "Return to top",
         docFooter: {
-          prev: 'Previous',
-          next: 'Next'
+          prev: "Previous",
+          next: "Next",
         },
         editLink: {
-          pattern: 'https://github.com/Sakura520222/AstrBot/edit/master/docs/:path',
-          text: 'Edit this page on GitHub',
+          pattern:
+            "https://github.com/Sakura520222/AstrBot/edit/master/docs/:path",
+          text: "Edit this page on GitHub",
         },
-        logo: '/favicon.svg',
+        logo: "/favicon.svg",
         socialLinks: [
-          { icon: "github", link: "https://github.com/Sakura520222/AstrBot" },
+          {
+            icon: "github",
+            link: "https://github.com/Sakura520222/AstrBot",
+          },
         ],
-        footer: { message: 'Sakura520222 独立维护 · 基于 <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later' }
-      }
+        footer: {
+          message:
+            'Maintained by Sakura520222 · Based on <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later',
+        },
+      },
+      title: "AstrBot documentation",
+      description:
+        "AstrBot deployment, configuration, messaging platforms, models, plugins, and tools.",
     },
   },
-
   themeConfig: {
     siteTitle: "AstrBot",
     search: {
@@ -591,5 +1052,6 @@ export default defineConfig({
         },
       },
     },
-  }
+  },
+  srcExclude: ["README.md", "scripts/**"],
 });

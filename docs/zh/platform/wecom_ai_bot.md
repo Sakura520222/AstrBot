@@ -22,11 +22,11 @@
 
 2. 在左侧导航栏中，点击 `管理工具`，找到 `智能机器人`，点击进入，然后点击创建机器人。
 
-![管理工具-智能机器人](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image-1.png)
+![管理工具-智能机器人](/images/a0a3f517add37970.png)
 
 3. 在创建智能机器人页面下方找到并点击 `API模式创建`。填写机器人名称、头像等基本信息。Token、EncodingAESKey 请点击 `随机获取` 按钮生成。生成之后，先不要点击创建，接下来将配置 AstrBot。
 
-![创建智能机器人账号](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image.png)
+![创建智能机器人账号](/images/3d285bb6f4b27a04.png)
 
 ## 配置 AstrBot
 
@@ -44,7 +44,7 @@
 
 4. 点击 `创建` 按钮，如果一切无误，将进入智能机器人详情页面。如果报错 `服务没有正确响应，请确认后重试`，请检查 AstrBot 的配置、服务器防火墙端口放行规则等。
 
-![创建智能机器人详情页面](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image-3.png)
+![创建智能机器人详情页面](/images/2cbc1207e4485629.png)
 
 5. [可选，推荐] 配置企业微信消息推送 Webhook URL。默认情况下，企业微信智能机器人只能在用户主动发送消息时被动回复消息。如果希望实现机器人主动消息推送功能，可以配置企业微信的消息推送 Webhook URL。只需要在企业微信内部群中，点击群设置 -消息推送，创建一个推送机器人，然后将下方生成的 Webhook URL 填入配置中即可。要求 AstrBot 版本不低于 v4.15.0。企业微信智能机器人之支持图片和文本消息类型，如果配置了该选项，在发送其他类型消息（如视频、音频、文件）时，AstrBot 将会调用消息推送的接口去发送消息。**强烈建议配置该选项以获得更完整的消息类型支持。**
 
@@ -56,9 +56,9 @@
 
 在企业微信客户端的企业内部群中，点击添加成员，点击智能机器人，找到刚刚创建的智能机器人，点击添加即可。
 
-![点击添加成员](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image-4.png)
+![点击添加成员](/images/df90e64e4fa51f76.png)
 
-![添加成功](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image-5.png)
+![添加成功](/images/c8f54da30a523a8a.png)
 
 ### 使用机器人
 
@@ -66,8 +66,8 @@
 
 如果您需要类似实时打字机的效果，请确保在 AstrBot 中开启了 `流式回复` 功能。
 
-![流式回复](https://files.astrbot.app/docs/source/images/wecom_ai_bot/image-6.png)
+![流式回复](/images/c309653b07c26a7b.png)
 
 ## 帮助与支持
 
-如您在配置或使用过程中遇到问题，或需要其他企业支持服务，可发送邮件至 [community@astrbot.app](mailto://community@astrbot.app)。
+配置或使用问题可在 [GitHub Issues](https://github.com/Sakura520222/AstrBot/issues) 提交，请附上脱敏后的日志。

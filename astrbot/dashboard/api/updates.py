@@ -68,6 +68,11 @@ def _service_error(exc: UpdateServiceError) -> JSONResponse:
             },
             status_code=200,
         )
+    if exc.code == "release_source_unavailable":
+        return JSONResponse(
+            {"status": "error", "message": str(exc), "data": None},
+            status_code=200,
+        )
     return JSONResponse(
         {"status": "error", "message": "An internal error has occurred.", "data": None},
         status_code=200,

@@ -101,8 +101,11 @@ class UpdateService:
                 },
             )
         except Exception as exc:
-            logger.warning(f"检查更新失败: {exc!s} (不影响除项目更新外的正常使用)")
-            raise UpdateServiceError(exc.__str__()) from exc
+            logger.warning("Failed to check for updates: %s", exc)
+            raise UpdateServiceError(
+                "Unable to fetch release information. Please try again later.",
+                code="release_source_unavailable",
+            ) from exc
 
     async def get_releases(self) -> UpdateServiceResult:
         try:
@@ -119,7 +122,10 @@ class UpdateService:
             )
         except Exception as exc:
             logger.error(f"/api/update/releases: {traceback.format_exc()}")
-            raise UpdateServiceError(exc.__str__()) from exc
+            raise UpdateServiceError(
+                "Unable to fetch release information. Please try again later.",
+                code="release_source_unavailable",
+            ) from exc
 
     async def update_project(self, data: object) -> UpdateServiceResult:
         if is_desktop_managed_backend():

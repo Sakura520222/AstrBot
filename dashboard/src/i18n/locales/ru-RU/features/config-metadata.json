@@ -346,7 +346,7 @@
         },
         "agent_computer_use": {
             "description": "Использование компьютера (Agent Computer Use)",
-            "hint": "Позволяет AstrBot получать доступ к вашему компьютеру или песочнице для выполнения сложных задач. Подробнее: [Среда песочницы Agent](https://docs.astrbot.app/en/use/astrbot-agent-sandbox.html).",
+            "hint": "Позволяет AstrBot получать доступ к вашему компьютеру или песочнице для выполнения сложных задач. Подробнее: [Среда песочницы Agent](https://astrbot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html).",
             "provider_settings": {
                 "computer_use_runtime": {
                     "description": "Среда выполнения (Runtime)",
@@ -494,7 +494,7 @@
         },
         "proactive_capability": {
             "description": "Проактивный агент",
-            "hint": "AstrBot будет просыпаться, выполнять ваши задачи и сообщать о результатах. См. [Проактивный агент](https://docs.astrbot.app/en/use/proactive-agent.html)",
+            "hint": "AstrBot будет просыпаться, выполнять ваши задачи и сообщать о результатах. См. [Проактивный агент](https://astrbot.pyabunny.com/docs/en/use/proactive-agent.html)",
             "provider_settings": {
                 "proactive_capability": {
                     "add_cron_tools": {
@@ -505,7 +505,7 @@
             }
         },
         "truncate_and_compress": {
-            "hint": "[Управление контекстом](https://docs.astrbot.app/en/use/context-compress.html)",
+            "hint": "[Управление контекстом](https://astrbot.pyabunny.com/docs/en/use/context-compress.html)",
             "description": "Стратегия управления контекстом",
             "agent_runner": {
                 "config": {

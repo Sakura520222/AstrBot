@@ -36,6 +36,6 @@ VoceChat 是一个开源的支持多平台、搭建简单的即时通讯平台�
 
 ## 问题提交
 
-如有疑问，请提交 issue 至[插件仓库](https://github.com/HikariFroya/astrbot_plugin_vocechat/issues) 以及 [AstrBot 仓库](https://github.com/AstrBotDevs/AstrBot/issues/new?template=bug-report.yml)。
+如有疑问，请提交 issue 至[插件仓库](https://github.com/HikariFroya/astrbot_plugin_vocechat/issues) 以及 [AstrBot 仓库](https://github.com/Sakura520222/AstrBot/issues/new?template=bug-report.yml)。
 
 **如果您觉得有帮助，请支持开发者，给 [astrbot_plugin_vocechat](https://github.com/HikariFroya/astrbot_plugin_vocechat) 仓库点一个 Star。**

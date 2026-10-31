@@ -168,7 +168,7 @@ Third-party sandboxes are an optional AstrBot capability. They let the Agent exe
 - **Shipyard**: The legacy driver, retained for compatibility with existing deployments. Bay provides the control-plane API, and Ship provides Python/Shell/filesystem capabilities.
 
 > [!TIP]
-> Third-party sandbox capabilities remain in technical preview. Report problems on [GitHub](https://github.com/AstrBotDevs/AstrBot/issues).
+> Third-party sandbox capabilities remain in technical preview. Report problems on [GitHub](https://github.com/Sakura520222/AstrBot/issues).
 
 <span id="configuring-astrbot-to-use-the-sandbox-environment"></span>
 

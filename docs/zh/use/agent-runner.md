@@ -29,7 +29,7 @@ Chat Provider 本质上是一个 `单轮补全接口`，输入 prompt + 历史�
 
 而 Agent Runner 通常是一个 `循环（Loop）`，接收用户意图、上下文与环境状态，基于策略 / 模型做出规划（Plan），选择并调用工具（Act），从环境中读取结果（Observe），再次理解结果、更新内部状态，决定下一步动作，重复上述过程，直到任务完成或超时。
 
-![image](https://files.astrbot.app/docs/source/images/use/agent-runner/agent-arch.svg)
+![image](/images/5dd07cb0abf3ba54.svg)
 
 Dify、Coze、百炼应用、DeerFlow 等平台已经内置了这个循环，如果把它们当成普通 Chat Provider，会和 AstrBot 的内置 Agent 执行器功能冲突。
 

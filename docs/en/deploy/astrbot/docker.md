@@ -1,158 +1,55 @@
-# Deploy AstrBot with Docker
+# Docker deployment
 
-> [!WARNING]
-> Docker provides a convenient way to deploy AstrBot on Windows, Mac, and Linux.
->
-> This tutorial assumes you have Docker installed in your environment. If not, please refer to the [Docker official documentation](https://docs.docker.com/get-docker/) for installation.
+Install [Docker Engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://docs.docker.com/desktop/) with Docker Compose.
 
-## Deploy with Docker Compose
+## Compose
 
-::: details Deploy AstrBot Only (General Method)
-
-First, clone the AstrBot repository to your local machine:
-
-```bash
-git clone https://github.com/Sakura520222/AstrBot
+~~~bash
+git clone https://github.com/Sakura520222/AstrBot.git
 cd AstrBot
-```
+docker compose up -d
+~~~
 
-Then, run Compose:
+Open `http://localhost:6185`, create an administrator account, and configure your bot. For remote access, replace `localhost` with the server address and configure the firewall and HTTPS.
 
-```bash
-sudo docker compose up -d
-```
+`compose.yml` uses `ghcr.io/sakura520222/astrbot:latest` and mounts the local `data/` directory at `/AstrBot/data`. Pin the image tag to `4.29.3` when needed. Images support Linux amd64 and arm64.
 
-> [!TIP]
-> If your network environment is in mainland China, the above command will not pull properly. You may need to modify the compose.yml file and replace `image: ghcr.io/sakura520222/astrbot:latest` with `image: m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest`.
-:::
+## Run a container directly
 
-::: details Deploy with Agent Sandbox Environment
+Linux and macOS:
 
-Supports native Python code execution, Shell code execution, and other features.
+~~~bash
+docker run -d --name astrbot --restart unless-stopped \
+  -p 6185:6185 -e TZ=Asia/Shanghai \
+  -v "$PWD/data:/AstrBot/data" \
+  ghcr.io/sakura520222/astrbot:latest
+~~~
 
-Deployment method:
+Windows PowerShell:
 
-```bash
-git clone https://github.com/Sakura520222/AstrBot
-cd AstrBot
-# Modify the environment variable configuration in the compose-with-shipyard.yml file, such as Shipyard's access token, etc.
-docker compose -f compose-with-shipyard.yml up -d
-docker pull soulter/shipyard-ship:latest
-```
+~~~powershell
+docker run -d --name astrbot --restart unless-stopped -p 6185:6185 -e TZ=Asia/Shanghai -v "${PWD}/data:/AstrBot/data" ghcr.io/sakura520222/astrbot:latest
+~~~
 
-For configuration and usage details, see the [Agent Sandbox Environment](/en/use/astrbot-agent-sandbox.md) documentation.
-:::
+Add adapter or sandbox ports as documented in their setup guides.
 
+## Logs
 
-## Deploy with Docker
+~~~bash
+docker logs -f astrbot
+~~~
 
-```bash
-mkdir astrbot
-cd astrbot
-sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot ghcr.io/sakura520222/astrbot:latest
-```
+## Update
 
-> [!TIP]
-> If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
->
-> ```bash
-> sudo docker run -itd -p 6185:6185 -p 6199:6199 -v $PWD/data:/AstrBot/data -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
-> ```
->
-> (Thanks to DaoCloud ❤️)
+Back up the host `data/` directory, then run in the Compose project directory:
 
-> No need to add sudo on Windows, same below
-> Sync Host Time on Windows (requires WSL2)
+~~~bash
+docker compose pull
+docker compose up -d
+~~~
 
-```
--v \\wsl.localhost\(your-wsl-os)\etc\timezone:/etc/timezone:ro
--v \\wsl.localhost\(your-wsl-os)\etc\localtime:/etc/localtime:ro
-```
+Container updates replace the image. Keep the existing data mount to preserve configuration, plugins, and history.
 
-View AstrBot logs with the following command:
+## Sandboxes
 
-```bash
-sudo docker logs -f astrbot
-```
-
-
-## Deploy via Docker Desktop on Windows
-
-### For Windows CMD
-
-Set `TZ` to the standard IANA time zone format (Region/City). Use `Asia/Shanghai` for China.
-
-```bash
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
-```
-> [!TIP]
-> If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
->
-> ```bash
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "%cd%\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
-> ```
->
-> (Thanks to DaoCloud ❤️)
-
-### For PowerShell
-
-Set `TZ` to the standard IANA time zone format (Region/City). Use `Asia/Shanghai` for China.
-
-```powershell
-docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot ghcr.io/sakura520222/astrbot:latest
-```
-> [!TIP]
-> If your network environment is in mainland China, the above command will not pull properly. Please use the following command to pull the image:
->
-> ```powershell
-> docker run -itd -p 6185:6185 -p 6199:6199 -e TZ=Asia/Shanghai -v "${PWD}\data:/AstrBot/data" --name astrbot m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
-> ```
->
-> (Thanks to DaoCloud ❤️)
-
-## 🎉 All Done
-
-If everything goes well, you will see logs printed by AstrBot.
-
-If there are no errors, you will see a log message similar to `🌈 Dashboard started, accessible at` with several links. Open one of the links to access the AstrBot dashboard.
-
-> [!TIP]
-> Since Docker isolates the network environment, you cannot use `localhost` to access the dashboard.
->
-> New users must use the random password printed in the startup logs to log in for the first time. Use the username shown in the logs (usually `astrbot`) and change the password after first login.
->
-> If deployed on a cloud server, you need to open ports `6180-6200` and `11451` in the cloud provider's console.
-
-Next, you need to deploy any messaging platform to use AstrBot on that platform.
-
-## Reset the Dashboard Password
-
-If you forget the dashboard password, you can reset it with the built-in AstrBot CLI inside the container:
-
-```bash
-sudo docker exec -it astrbot astrbot password
-```
-
-The first `astrbot` is the container name; replace it with your actual container name (check with `sudo docker ps`).
-
-Follow the prompt to enter a new password. To also change the username:
-
-```bash
-sudo docker exec -it astrbot astrbot password --username <new-username>
-```
-
-> [!TIP]
-> The new password takes effect after restarting the container: `sudo docker restart astrbot`.
-
-## Configure an HTTP proxy in Docker
-
-Set the HTTP proxy in the WebUI under `Settings → Network → Proxy & Dependency Sources → HTTP Proxy`. AstrBot reaches that address **from inside its own container**, so `http://127.0.0.1:7890` points at the AstrBot container itself rather than the host or another container.
-
-If the proxy runs on the host, or in another container with the port published to the host:
-
-- Mac / Windows (Docker Desktop): `http://host.docker.internal:7890`
-- Linux: `http://172.17.0.1:7890` (replace `172.17.0.1` with your docker0 gateway if it differs)
-
-If AstrBot and the proxy share a Docker network, use the proxy container name, for example `http://clash:7890`.
-
-Clash-style clients commonly use HTTP on `7890` and SOCKS on `7891`. Use `http://` or `socks5://` to match the protocol. For a host-installed proxy, it must listen on a host interface reachable from Docker, such as `0.0.0.0` or the Docker gateway interface, rather than only `127.0.0.1`; publish the proxy port to the host.
+Follow [Agent sandbox setup](/en/use/astrbot-agent-sandbox) for code execution. The repository's `compose-with-shipyard.yml` uses the same AstrBot image with a separately configured Shipyard service.

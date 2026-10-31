@@ -8,11 +8,11 @@
 
 记录应用ID：
 
-![image](https://files.astrbot.app/docs/source/images/dashscope/image-1.png)
+![image](/images/f9f6e4b7f599bd1a.png)
 
 点击进入应用，点击发布渠道->API 调用->API KEY，创建并且复制 API KEY：
 
-![alt text](https://files.astrbot.app/docs/source/images/dashscope/image-2.png)
+![alt text](/images/4620f1156b3ae436.png)
 
 在 WebUI 中打开「配置文件」，选择要修改的配置文件，进入「AI」。点击标题右侧「更多操作」（`…`）→「更换执行方式」，选择「阿里云百炼」，阅读并勾选配置重置提示后点击「使用此方式」。确保「启用 AI」已打开，然后在本页填写连接参数。切换会重置当前执行方式的配置，详情见 [Agent 执行器](../../use/agent-runner.md)。
 
@@ -42,7 +42,7 @@
 
 使用 `/set` 指令可以动态设置输入变量，如下图所示：
 
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-5.png)
+![alt text](/images/c70dea73d7be08b2.png)
 
 当设置变量后，AstrBot 会在下次向阿里云百炼应用请求时附上您设置的变量，以灵活适配您的 Workflow。
 

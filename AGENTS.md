@@ -1,8 +1,8 @@
-# AstrBot 个人 Fork 开发约定
+# AstrBot 开发约定
 
 ## 项目归属
 
-仓库为 `https://github.com/Sakura520222/AstrBot`。`origin` 指向个人 Fork，`upstream` 仅供显式同步，不得将二改推送到上游。暂时保留 AstrBot 名称、标识、包名和命令，保留上游版权、许可证及历史记录。
+仓库为 `https://github.com/Sakura520222/AstrBot`。`origin` 指向本仓库，`upstream` 仅供显式同步，不得将本仓库改动推送到上游。保留 AstrBot 名称、标识、包名、命令、上游版权、许可证及历史记录。
 
 README、维护说明和 Release 说明优先使用中文；代码注释、日志、PR 标题和描述使用英文。提交和 PR 标题遵循 Conventional Commits。不得新增 `*_SUMMARY.md` 等任务报告，不提交密钥、运行数据、日志、数据库或 `.codegraph/`。
 
@@ -14,7 +14,7 @@ README、维护说明和 Release 说明优先使用中文；代码注释、日�
 
 ## 上游标签命名空间
 
-个人 Fork 的 `v*` 标签只指向本仓库已合并的发布提交。拉取上游分支使用 `git fetch --no-tags upstream`，避免自动导入同名官方标签；需要保留上游标签时使用 `git fetch --no-tags upstream "refs/tags/*:refs/tags/upstream/*"`。本工作区原官方 `v4.29.3` 已保存在 `upstream/v4.29.3`，不得强推覆盖已公开的 Fork 标签。
+`v*` 标签只指向本仓库已合并的发布提交。拉取上游分支使用 `git fetch --no-tags upstream`，避免自动导入同名标签；归档上游标签时使用 `git fetch --no-tags upstream "refs/tags/*:refs/tags/upstream/*"`。不得强推覆盖已公开的标签或替换公开版本的下载资产。
 
 ## 环境与运行
 
@@ -50,11 +50,11 @@ pnpm docs:build
 
 ## 版本与兼容
 
-`pyproject.toml` 的 `[project].version` 与 `astrbot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从后者派生。个人 Fork 的版本号与所基于的上游正式版本对齐，首版为 4.29.3。
+`pyproject.toml` 的 `[project].version` 与 `astrbot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从后者派生。版本号与上游基线对齐，当前为 4.29.3。WebUI 构建从 `astrbot.__version__` 写入版本标记。
 
-插件声明的 `astrbot_version` 直接使用与上游对齐的框架版本检查，不引入独立 Fork 版本或额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
+插件声明的 `astrbot_version` 直接使用框架版本检查，不增加额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
 
-核心/WebUI 更新和下载必须使用此 Fork。公共插件市场及真正的第三方服务保留原始来源；不恢复上游专属更新源、统计脚本、部署凭据或发布令牌。
+核心/WebUI 更新和下载使用本仓库。版本查询使用 `https://astrbot.pyabunny.com/releases.json`，由站点工作流从本仓库公开 Releases 生成。公共插件市场及第三方服务保留真实来源；历史 Issue、PR 等出处保留原始地址。前端处理更新错误时必须检查响应状态和数据，不能把 `data: null` 当成功响应。
 
 ## 检查
 
@@ -68,13 +68,15 @@ uv run --no-sync pytest <受影响的测试>
 
 ## 工作流与发布
 
-日常开发使用短期 `feature/*` 分支和 PR。首次 Fork 迁移包含发布链路和站点归属调整；后续使用 `release/<版本>` 分支，仅做版本、变更说明、发布阻断修复和验证。
+日常开发使用短期 `feature/*` 分支和 PR。发布使用 `release/<版本>` 分支，仅做版本、变更说明、发布阻断修复和验证。
 
 后续发布可使用 `uv run --no-sync python scripts/prepare_release.py <版本>`。审核中文变更说明和 `uv.lock` 后合并到 `master`，再创建 `v<版本>` 标签，确保指向已合并提交。
 
 `release.yml` 发布 GitHub Release、核心/WebUI ZIP、Python 分发包、SHA256 校验文件及 GHCR 镜像，仅使用本仓库的 `GITHUB_TOKEN`，不向上游 PyPI、Docker Hub、R2 或 release-harbour 发布。
 
 官网源位于 `site/`，中文文档位于 `docs/zh/`，由 GitHub Actions 构建验证后自动部署到本仓库 GitHub Pages。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
+
+官网和文档直接介绍功能与操作，不写“个人 Fork”“首个版本”等迁移过程文案。文档必须通过站内死链检查，图片优先使用站内资源。删除页面时同步清理导航、正文链接和搜索入口。
 
 PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。
 

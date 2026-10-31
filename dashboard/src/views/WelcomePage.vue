@@ -131,15 +131,15 @@
               </v-col>
 
               <v-col cols="12" sm="4">
-                <!-- Afdian Card -->
+                <!-- Feedback Card -->
                 <v-card variant="outlined" class="h-100 pa-4 d-flex flex-column"
-                  href="https://github.com/Sakura520222/AstrBot" target="_blank">
+                  href="https://github.com/Sakura520222/AstrBot/issues" target="_blank">
                   <div class="d-flex align-center mb-3">
-                    <v-icon size="32" class="mr-3">mdi-hand-heart</v-icon>
-                    <span class="text-h6 font-weight-bold">{{ tm('resources.afdianTitle') }}</span>
+                    <v-icon size="32" class="mr-3">mdi-message-alert-outline</v-icon>
+                    <span class="text-h6 font-weight-bold">{{ tm('resources.feedbackTitle') }}</span>
                   </div>
                   <p class="text-body-2 text-medium-emphasis mb-0">
-                    {{ tm('resources.afdianDesc') }}
+                    {{ tm('resources.feedbackDesc') }}
                   </p>
                 </v-card>
               </v-col>

@@ -260,15 +260,15 @@ class MyPlugin(Star):
 
 Once set up, run AstrBot:
 
-![image](https://files.astrbot.app/docs/source/images/plugin-platform-adapter/QQ_1738155926221.png)
+![image](/images/1c12ad7be69afb35.png)
 
 The `fake` adapter we created now appears here.
 
-![image](https://files.astrbot.app/docs/source/images/plugin-platform-adapter/QQ_1738155982211.png)
+![image](/images/f9d7d7181f87d017.png)
 
 After starting, you can see it working correctly:
 
-![image](https://files.astrbot.app/docs/source/images/plugin-platform-adapter/QQ_1738156166893.png)
+![image](/images/33431ff6ec02c45c.png)
 
 
 If you have any questions, feel free to join the community group and ask~

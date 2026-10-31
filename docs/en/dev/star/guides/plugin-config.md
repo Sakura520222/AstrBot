@@ -89,9 +89,9 @@ Configuration `description`, `hint`, and select `labels` and `subtitles` can fol
 
 When the code editor is enabled, it looks like this:
 
-![editor_mode](https://files.astrbot.app/docs/source/images/plugin/image-6.png)
+![editor_mode](/images/6b00642362d2fae9.png)
 
-![editor_mode_fullscreen](https://files.astrbot.app/docs/source/images/plugin/image-7.png)
+![editor_mode_fullscreen](/images/d29ad560128b2390.png)
 
 The **_special** field is only available after v4.0.0. Common values include `select_provider`, `select_provider_tts`, `select_provider_stt`, `select_persona`, and `select_knowledgebase`, allowing users to quickly select model providers, personas, knowledge bases, and other data already configured in the WebUI.
 
@@ -126,7 +126,7 @@ User suggestions are deduplicated by platform instance and sender ID, retaining 
 
 Using `select_provider` as an example, it will display as follows:
 
-![image](https://files.astrbot.app/docs/source/images/plugin/image-select-provider.png)
+![image](/images/6cba738aa943107d.png)
 
 ### `file` type schema
 

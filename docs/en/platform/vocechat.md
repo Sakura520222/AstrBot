@@ -39,4 +39,4 @@ After configuration, click Save and test in VoceChat.
 If needed, report issues to:
 
 - Plugin repo: <https://github.com/HikariFroya/astrbot_plugin_vocechat/issues>
-- AstrBot repo: <https://github.com/AstrBotDevs/AstrBot/issues/new?template=bug-report.yml>
+- AstrBot repo: <https://github.com/Sakura520222/AstrBot/issues/new?template=bug-report.yml>

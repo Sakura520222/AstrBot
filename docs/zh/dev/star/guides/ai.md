@@ -4,7 +4,7 @@ AstrBot 内置了对多种大语言模型（LLM）提供商的支持，并且提
 
 您可以使用 AstrBot 提供的 LLM / Agent 接口来实现自己的智能体。
 
-我们在 `v4.5.7` 版本之后对 LLM 提供商的调用方式进行了较大调整，推荐使用新的调用方式。新的调用方式更加简洁，并且支持更多的功能。当然，您仍然可以使用[旧的调用方式](/dev/star/plugin#ai)。
+使用当前会话的模型配置调用 LLM 或运行 Agent。以下示例使用当前的提供商调用接口。
 
 ## 获取当前会话使用的聊天模型 ID
 
@@ -229,7 +229,7 @@ Multi-Agent（多智能体）系统将复杂应用分解为多个专业化智能
 
 在下面的例子中，我们定义了一个主智能体（Main Agent），它负责根据用户查询将任务分配给不同的子智能体（Sub-Agents）。每个子智能体专注于特定任务，例如获取天气信息。
 
-![multi-agent-example-1](https://files.astrbot.app/docs/zh/dev/star/guides/multi-agent-example-1.svg)
+![multi-agent-example-1](/images/36e9b1482d716a1d.svg)
 
 定义 Tools:
 

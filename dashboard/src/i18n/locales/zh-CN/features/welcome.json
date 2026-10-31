@@ -42,10 +42,10 @@
   },
   "resources": {
     "title": "相关资源",
-    "githubDesc": "给 AstrBot 点个 Star 吧！",
+    "githubDesc": "查看源码、发行版本和贡献说明。",
     "docsTitle": "文档",
-    "docsDesc": "查阅 AstrBot 的官方文档。",
-    "afdianTitle": "爱发电",
-    "afdianDesc": "通过爱发电支持 AstrBot 团队。"
+    "docsDesc": "查阅部署、配置、使用和插件开发文档。",
+    "feedbackTitle": "问题反馈",
+    "feedbackDesc": "提交问题或查看已有反馈。"
   }
 }

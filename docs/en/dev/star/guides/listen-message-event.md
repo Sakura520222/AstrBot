@@ -12,7 +12,7 @@ from astrbot.api.event import filter, AstrMessageEvent
 
 AstrBot receives messages delivered by messaging platforms and encapsulates them as `AstrMessageEvent` objects, which are then passed to plugins for processing.
 
-![message-event](https://files.astrbot.app/docs/en/dev/star/guides/message-event.svg)
+![message-event](/images/864304bc7b5726ee.svg)
 
 ### Message Events
 
@@ -44,7 +44,7 @@ Here, `raw_message` is the **raw message object** from the messaging platform ad
 
 ### Message Chain
 
-![message-chain](https://files.astrbot.app/docs/en/dev/star/guides/message-chain.svg)
+![message-chain](/images/81c02712ff0c94bf.svg)
 
 A `message chain` describes the structure of a message. It's an ordered list where each element is called a `message segment`.
 
@@ -70,7 +70,7 @@ In AstrBot, message chains are represented as lists of type `List[BaseMessageCom
 
 ## Commands
 
-![message-event-simple-command](https://files.astrbot.app/docs/en/dev/star/guides/message-event-simple-command.svg)
+![message-event-simple-command](/images/598d2b743ba05ada.svg)
 
 ```python
 from astrbot.api.event import filter, AstrMessageEvent
@@ -94,7 +94,7 @@ class MyPlugin(Star):
 
 ## Commands with Parameters
 
-![command-with-param](https://files.astrbot.app/docs/en/dev/star/guides/command-with-param.svg)
+![command-with-param](/images/8ba4ef0e7b445574.svg)
 
 AstrBot will automatically parse command parameters for you.
 
@@ -131,11 +131,11 @@ The command group function doesn't need to implement any logic; just use `pass` 
 
 When a user doesn't input a subcommand, an error will be reported and the tree structure of the command group will be rendered.
 
-![image](https://files.astrbot.app/docs/source/images/plugin/image-1.png)
+![image](/images/c7ef81d9bc1ee05c.png)
 
-![image](https://files.astrbot.app/docs/source/images/plugin/898a169ae7ed0478f41c0a7d14cb4d64.png)
+![image](/images/95108b7d66aaccf9.png)
 
-![image](https://files.astrbot.app/docs/source/images/plugin/image-2.png)
+![image](/images/482907853b32594e.png)
 
 Theoretically, command groups can be nested infinitely!
 

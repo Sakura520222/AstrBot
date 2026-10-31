@@ -419,7 +419,7 @@ fi
 info "$(message InstallingAstrBot)"
 # Use a valid working directory even if the caller's directory has been removed.
 # The subshell scopes Python mirror settings to this installation only.
-has git || { err "Git is required to install this personal fork."; exit 1; }
+has git || { err "Git is required to install AstrBot."; exit 1; }
 tool_install_exit_code=0
 (
   cd "${TMPDIR:-/tmp}" || exit 1

@@ -39,7 +39,7 @@ A configuration dialog will appear. Keep it open and continue with the steps bel
 - If this is your first customer service bot, open `Development Configuration`, click `Start` next to internal access.
 - If you used it before, open `Callback Configuration` directly and click edit.
 
-![image](https://files.astrbot.app/docs/source/images/wecom/8287fd9fec5823847e6b590dc3f0f545.png)
+![image](/images/1196c6d07cbac0ae.png)
 
 5. Click random generation buttons to get `Token` and `EncodingAESKey`, then fill AstrBot `token` and `encoding_aes_key`.
 6. Keep `Unified Webhook Mode (unified_webhook_mode)` enabled, click `Save`, and wait for adapter reload.
@@ -64,7 +64,7 @@ Then open `Data & Logs` -> `Logs` in AstrBot, where you should see logs asking y
 Please open the following link and scan with WeChat ...
 ```
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-13.png)
+![image](/images/23926437b7717a8d.png)
 
 Open the link, scan with WeChat, then send `help` in the customer service chat to test connectivity.
 
@@ -77,18 +77,18 @@ Open: <https://work.weixin.qq.com/wework_admin/frame#apps>
 > [!TIP]
 > For newly registered enterprises, `corp_id` may take time to become valid. See [#571](https://github.com/Soulter/AstrBot/issues/571).
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-5.png)
+![image](/images/c0672bb804ebd27d.png)
 
 2. Create a custom app (`Custom App`) and fill name/avatar/visibility scope.
 3. Open the app, copy `Secret`, and fill AstrBot `secret`.
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-4.png)
+![image](/images/de46623f3719b134.png)
 
 4. In app settings, find `Receive Messages`, click `Set API Receive`.
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-6.png)
+![image](/images/e723be4d2c58f906.png)
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-9.png)
+![image](/images/123482b7a91cdaa8.png)
 
 5. Generate `Token` and `EncodingAESKey`, fill AstrBot `token` and `encoding_aes_key`.
 6. Keep `Unified Webhook Mode (unified_webhook_mode)` enabled (recommended), then click `Save` in the creation dialog (or `Save changes` for an existing bot) and wait for the adapter to reload.
@@ -102,11 +102,11 @@ For callback URL:
 
 7. Configure trusted enterprise IP in WeCom.
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-10.png)
+![image](/images/da3254b14a773732.png)
 
 Add your public IP and confirm.
 
-![image](https://files.astrbot.app/docs/source/images/wecom/image-12.png)
+
 
 After the adapter reloads, return to API receive page and click save. If you see callback verification errors, re-check all required fields.
 

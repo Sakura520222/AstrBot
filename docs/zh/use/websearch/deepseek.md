@@ -60,7 +60,7 @@
 ### 提取网页正文
 
 ```text
-请阅读这个网页并总结安装步骤：https://docs.astrbot.app/deploy/astrbot/docker.html
+请阅读这个网页并总结安装步骤：https://astrbot.pyabunny.com/docs/deploy/astrbot/docker.html
 ```
 
 Fetch 每次读取一个 HTTP 或 HTTPS 链接。登录限制、付费内容、网站访问策略和无法提取的页面都可能导致读取失败。

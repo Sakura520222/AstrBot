@@ -14,14 +14,14 @@
 
 1. 前往 [Discord](https://discord.com/developers/applications)，点击右上角蓝色按钮，输入应用名字，创建应用。
 
-![创建bot（输入名字）](https://files.astrbot.app/docs/source/images/discord/image-1.png)
+![创建bot（输入名字）](/images/ba520ca1269fee3a.png)
 
 2. 点击左边栏的 Bot，点击 Reset Token 按钮，创建好 Token 后，点击 Copy 按钮，将 Token 填入配置中的 Discord Bot Token 处。
 
-![token选项](https://files.astrbot.app/docs/source/images/discord/image-4.png)
+![token选项](/images/15245b008db1a97f.png)
 3. 下滑找到这三个选项全开启
 
-![Presence Intent,Server Members Intent,Message Content Intent截图](https://files.astrbot.app/docs/source/images/discord/image-2.png)
+![Presence Intent,Server Members Intent,Message Content Intent截图](/images/f7ed4351f662a580.png)
 
 - Presence Intent：允许机器人获取用户在线状态
 - Server Members Intent：允许机器人获取服务器成员信息
@@ -29,7 +29,7 @@
 
 4. 点击左边栏的 OAuth2，在 OAuth2 URL Generator 中选中 `Bot`
 也就是这样
-![OAuth2 URL Generator](https://files.astrbot.app/docs/source/images/discord/image-6.png)
+![OAuth2 URL Generator](/images/c0df39d358b3bc8c.png)
 然后在下方出现的 Bot Permissions 处选择允许的权限。一般来说，建议添加如下权限：
     - Send Messages
     - Create Public Threads
@@ -45,11 +45,11 @@
 > 记住，权限越高，风险越大。
 
 5. 复制下方出现的 Generated URL。打开这个 URL，将 Bot 添加到所需要的服务器。
-![Generated URL位置](https://files.astrbot.app/docs/source/images/discord/image-5.png)
+![Generated URL位置](/images/5d993bbfaab707ce.png)
 
 6. 进入 Discord 服务器，你的机器人应该已经提示在线了
 
-![机器人在线](https://files.astrbot.app/docs/source/images/discord/image-7.png)
+![机器人在线](/images/68b98cab47d30f3b.png)
 
 @ 刚刚创建的机器人（也可以不 @），输入 `/help`，如果成功返回，则测试成功。
 
@@ -66,4 +66,4 @@ Discord 支持预回应表情功能。启用后，机器人在处理消息时会
 
 - 如果卡在最后的步骤，机器人不在线请确定自己的服务器可以直接连接discord
 
-如果有疑问，请[提交 Issue](https://github.com/AstrBotDevs/AstrBot/issues)。
+如果有疑问，请[提交 Issue](https://github.com/Sakura520222/AstrBot/issues)。

@@ -346,7 +346,7 @@
     },
     "agent_computer_use": {
       "description": "コンピューター操作機能",
-      "hint": "AstrBot がローカル環境または隔離されたサンドボックス環境へアクセスし、より複雑なタスクを実行できるようにします。詳細：[Agent サンドボックス環境](https://docs.astrbot.app/en/use/astrbot-agent-sandbox.html)。",
+      "hint": "AstrBot がローカル環境または隔離されたサンドボックス環境へアクセスし、より複雑なタスクを実行できるようにします。詳細：[Agent サンドボックス環境](https://astrbot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html)。",
       "provider_settings": {
         "computer_use_runtime": {
           "description": "実行環境",
@@ -490,7 +490,7 @@
     },
     "proactive_capability": {
       "description": "プロアクティブ機能",
-      "hint": "AstrBot が指定時刻にタスクを自動実行し、結果を届けられるようにします。詳細：[プロアクティブエージェント](https://docs.astrbot.app/en/use/proactive-agent.html)。",
+      "hint": "AstrBot が指定時刻にタスクを自動実行し、結果を届けられるようにします。詳細：[プロアクティブエージェント](https://astrbot.pyabunny.com/docs/en/use/proactive-agent.html)。",
       "provider_settings": {
         "proactive_capability": {
           "add_cron_tools": {
@@ -501,7 +501,7 @@
       }
     },
     "truncate_and_compress": {
-      "hint": "AstrBot が作業メモリを管理する方法を設定します。詳細：[コンテキスト管理方式](https://docs.astrbot.app/en/use/context-compress.html)。",
+      "hint": "AstrBot が作業メモリを管理する方法を設定します。詳細：[コンテキスト管理方式](https://astrbot.pyabunny.com/docs/en/use/context-compress.html)。",
       "description": "コンテキスト管理方式",
       "agent_runner": {
         "config": {

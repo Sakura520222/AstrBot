@@ -8,11 +8,11 @@ PPIO 派欧云是中国领先的独立分布式云计算服务商，您可以在
 
 进入 [模型 API 服务](https://ppio.cn/model-api/console)，找到你想接入的模型。你可以通过筛选器选择不同厂商或者免费的模型。
 
-![image](https://files.astrbot.app/docs/source/images/ppio/image-1.png)
+![image](/images/dd0534ce63f3bb78.png)
 
 找到你想要接入的模型后，点击模型卡片，侧边会展开一个模型详情卡片，找到下方的 API 接入指南，如果您还没创建过 Key 可以点击创建。
 
-![image](https://files.astrbot.app/docs/source/images/ppio/image-3.png)
+![image](/images/179a23df78f93d02.png)
 
 进入 AstrBot WebUI 的「模型提供商」→「对话」，点击「新增」，选择 `PPIO`。
 

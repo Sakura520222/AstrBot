@@ -104,7 +104,7 @@ async def test(self, event: AstrMessageEvent):
     yield event.chain_result([video])
 ```
 
-![发送视频消息](https://files.astrbot.app/docs/source/images/plugin/db93a2bb-671c-4332-b8ba-9a91c35623c2.png)
+![发送视频消息](/images/8f504f838f7c8eea.png)
 
 ## 发送群合并转发消息
 
@@ -128,4 +128,4 @@ async def test(self, event: AstrMessageEvent):
     yield event.chain_result([node])
 ```
 
-![发送群合并转发消息](https://files.astrbot.app/docs/source/images/plugin/image-4.png)
+![发送群合并转发消息](/images/23b3e03fe4a4fc68.png)

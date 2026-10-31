@@ -328,7 +328,7 @@ async def _download_package(
     )
     if proxy:
         package_url = f"{proxy.rstrip('/')}/{package_url}"
-    logger.info("Downloading AstrBot Fork WebUI from %s", package_url)
+    logger.info("Downloading AstrBot WebUI from %s", package_url)
     await download_file(
         package_url,
         str(zip_path),

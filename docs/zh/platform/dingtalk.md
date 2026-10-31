@@ -32,15 +32,15 @@
 
 前往 [钉钉开放平台](https://open-dev.dingtalk.com/fe/app)，点击创建应用：
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-4.png)
+![image](/images/a545dd121a160844.png)
 
 创建好之后，添加应用能力，选择机器人：
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-5.png)
+![image](/images/76361b842e58a6df.png)
 
 点击机器人配置，填写填写机器人相关信息：
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-7.png)
+![image](/images/1a3c5d56ce2190f1.png)
 
 确认无误后，点击下面的发布按钮。
 
@@ -54,7 +54,7 @@
 
 回到钉钉开放平台，点击事件订阅，选择 `Stream 模式推送`，点击保存，如果没有意外情况，将会看到 连接接入成功 字样。
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-8.png)
+![image](/images/e4e38dbb531983db.png)
 
 点击保存即可。
 
@@ -64,15 +64,15 @@
 
 填写应用版本号、版本描述、应用可见范围（选择全部员工或者按照您的需求），点击保存，确认发布。
 
-![alt text](https://files.astrbot.app/docs/source/images/dingtalk/image-11.png)
+![alt text](/images/098ec2b04f9caebb.png)
 
 找到一个钉钉群聊，点击右上角的设置：
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-12.png)
+![image](/images/72d37a552900331f.png)
 
 下拉找到添加机器人，然后找到刚刚创建的机器人，点击添加即可：
 
-![image](https://files.astrbot.app/docs/source/images/dingtalk/image-9.png)
+![image](/images/1dd4cf2f7d4eeacc.png)
 
 ## 🎉 大功告成
 

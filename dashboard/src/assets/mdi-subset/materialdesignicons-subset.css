@@ -532,10 +532,6 @@
   content: "\F02A4";
 }
 
-.mdi-hand-heart::before {
-  content: "\F10F1";
-}
-
 .mdi-help-circle-outline::before {
   content: "\F0625";
 }
@@ -686,6 +682,10 @@
 
 .mdi-menu-right::before {
   content: "\F035F";
+}
+
+.mdi-message-alert-outline::before {
+  content: "\F0A04";
 }
 
 .mdi-message-outline::before {

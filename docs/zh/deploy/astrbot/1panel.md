@@ -1,27 +1,23 @@
-# 在 1Panel 部署 AstrBot
+# 在 1Panel 部署
 
-[1Panel](https://1panel.cn/) 是开源的新一代 Linux 服务器运维管理面板。
+在面板的容器或 Compose 管理页面创建项目，使用以下配置。将数据目录设置为主机上的固定路径。
 
-AstrBot 已经由 1Panel 团队上架至 [1Panel 应用商店](https://apps.fit2cloud.com/1panel)，用户可以直接通过 1Panel 快速部署使用。
+~~~yaml
+services:
+  astrbot:
+    image: ghcr.io/sakura520222/astrbot:latest
+    container_name: astrbot
+    restart: unless-stopped
+    ports:
+      - "6185:6185"
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./data:/AstrBot/data
+~~~
 
-## 安装 1Panel
+启动项目后，访问 `http://服务器地址:6185` 完成账号和机器人配置。需要外部访问时，检查防火墙和安全组，并通过反向代理配置 HTTPS。
 
-如果您还没有安装 1Panel 面板，请参考 [1Panel 官网](https://1panel.cn/) 一键安装。
+更新时先备份原数据目录，再拉取镜像并重新创建容器。保留 `/AstrBot/data` 的原挂载路径。
 
-> International users can refer to the [1Panel official site](https://github.com/1Panel-dev/1Panel) for tutorials.
-
-## 安装 AstrBot
-
-打开 1Panel 面板，进入 1Panel 应用商店，搜索 `AstrBot`，如下图所示。
-
-![image](https://files.astrbot.app/docs/source/images/1panel/image.png)
-
-点击 `安装`，等待安装成功。
-
-安装成功后，在 1Panel 系统-防火墙页面放行对应的 AstrBot 端口（默认是 6185 端口）。
-
-如果您正在使用 AWS、阿里云、腾讯云等厂商的云服务器，请确保其安全组也放行了 6185 端口。
-
-## 访问 AstrBot
-
-访问 `http://IP:6185` 即可访问 AstrBot 的管理面板。
+镜像和运行参数见 [Docker 部署](/deploy/astrbot/docker)。
