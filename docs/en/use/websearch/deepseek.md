@@ -60,7 +60,7 @@ You can combine `site:`, `-site:`, `lang:`, `after:`, `before:`, exact phrases i
 ### Extract page content
 
 ```text
-Read this page and summarize its installation steps: https://docs.astrbot.app/en/deploy/astrbot/docker.html
+Read this page and summarize its installation steps: https://astrbot.pyabunny.com/docs/en/deploy/astrbot/docker.html
 ```
 
 Fetch reads one HTTP or HTTPS URL at a time. Login requirements, paywalls, site access policies, and pages without extractable content can prevent extraction.

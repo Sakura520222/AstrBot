@@ -2,9 +2,6 @@ from pathlib import Path
 
 import click
 
-# Static assets bundled inside the installed wheel (built by hatch_build.py).
-_BUNDLED_DIST = Path(__file__).parent.parent.parent / "dashboard" / "dist"
-
 
 def check_astrbot_root(path: str | Path) -> bool:
     """Check if the path is an AstrBot root directory"""
@@ -23,13 +20,13 @@ def get_astrbot_root() -> Path:
 
 
 async def check_dashboard(astrbot_root: Path) -> None:
-    """Check if the dashboard is installed"""
-    from astrbot.core.updater import AstrBotUpdater
+    """Prepare version-matched WebUI assets for CLI startup.
 
-    # If the wheel ships bundled dashboard assets, no network download is needed.
-    if _BUNDLED_DIST.exists():
-        click.echo("Dashboard is bundled with the package – skipping download.")
-        return
+    Args:
+        astrbot_root: Instance data directory supplied by the CLI. Asset paths
+            are resolved from the active runtime context.
+    """
+    from astrbot.core.updater import AstrBotUpdater
 
     try:
         dashboard_path = await AstrBotUpdater().ensure_dashboard()

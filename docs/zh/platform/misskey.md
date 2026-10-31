@@ -26,11 +26,11 @@
 
 1. 首先打开 Misskey Web 前端页面，在前端页面侧边栏找到并打开`设置 > 连接服务`页面。
 
-![打开 Misskey 连接服务页面](https://files.astrbot.app/docs/source/images/misskey/pat-1.png)
+![打开 Misskey 连接服务页面](/images/231488cdf98c526e.png)
 
 2. 单击“生成访问令牌”以生成账号接入访问令牌。
 
-![生成 Misskey 账号令牌](https://files.astrbot.app/docs/source/images/misskey/pat-2.png)
+![生成 Misskey 账号令牌](/images/53df4c7df5dca069.png)
 
 3. 在弹出的访问令牌配置页面，我们为令牌起一个名字，比如`AstrBot`。
 
@@ -40,7 +40,7 @@
 如果你使用的 AstrBot 第三方插件需要额外权限，请参考其文档增加相应权限。若你完全信任 Bot 的部署环境，也可以临时开启全部权限以简化调试，但仍建议您在生产环境使用时限制 Bot 的相关权限。
 :::
 
-![配置访问令牌权限](https://files.astrbot.app/docs/source/images/misskey/pat-3.png)
+![配置访问令牌权限](/images/1bce67e608acc3d8.png)
 
 **默认需要开启的权限**
 
@@ -55,7 +55,7 @@
 
 5. 权限配置完成后，单击“完成”以查看账号访问令牌。把获取到的令牌复制并粘贴到 AstrBot 配置页面 Access Token 输入框内。
 
-![查看账号令牌](https://files.astrbot.app/docs/source/images/misskey/pat-4.png)
+![查看账号令牌](/images/4df95484020fe5c4.png)
 
 ## 默认帖文可见性
 
@@ -89,13 +89,13 @@ Misskey 在`v2025.4.0`及以后的版本中为加入“聊天”组件支持，�
 位于用户个人页面部分的`Raw`页面内可以查询，UserID 是单个实例中 Misskey 用户唯一的关键身份标识。
 :::
 
-![UserID](https://files.astrbot.app/docs/source/images/misskey/userid.png)
+![UserID](/images/5840aa8a88337eec.png)
 
 ## 测试成功性
 
 配置完成并启用后，前往 Misskey 新建帖文并在发送中引用 Bot （@mention）测试效果。如果 Bot 账号能够成功触发回复，说明配置成功。
 
-![效果示例](https://files.astrbot.app/docs/source/images/misskey/demo.png)
+![效果示例](/images/9192b51888e42345.png)
 
 ## 杂谈
 
@@ -105,4 +105,4 @@ Misskey 在`v2025.4.0`及以后的版本中为加入“聊天”组件支持，�
 
 在 Bot 账号个人资料页面的高级设置中开启“这是一个机器人账号”即可。
 
-![这是一个机器人账号](https://files.astrbot.app/docs/source/images/misskey/botset.png)
+![这是一个机器人账号](/images/31e7ebff703202f9.png)

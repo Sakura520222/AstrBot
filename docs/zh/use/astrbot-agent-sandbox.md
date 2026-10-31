@@ -158,7 +158,7 @@ Docker 已提供容器级的隔离。在容器内，AstrBot 默认只能访问�
 - **Shipyard**：旧版沙箱环境驱动器，仍然保留，供兼容旧部署方案时参考。它由 Bay、Ship 两部分组成，分别负责控制面 API 和 Python/Shell/文件系统能力。
 
 > [!TIP]
-> 第三方沙箱能力仍处于技术预览阶段。遇到问题可在 [GitHub](https://github.com/AstrBotDevs/AstrBot/issues) 提交 issue。
+> 第三方沙箱能力仍处于技术预览阶段。遇到问题可在 [GitHub](https://github.com/Sakura520222/AstrBot/issues) 提交 issue。
 
 <span id="配置-astrbot-使用沙盒环境"></span>
 

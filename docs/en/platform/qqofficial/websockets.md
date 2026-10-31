@@ -52,7 +52,7 @@ Create a bot, fill in name/description/avatar, then submit for review. After sec
 
 Open the created bot to enter its management page:
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image.png)
+![image](/images/fbefdec5bd42611b.png)
 
 ### Allow Bot in Channel / Group / Private Chat
 
@@ -60,7 +60,7 @@ Open `Sandbox Configuration` to set a sandbox channel / QQ group / QQ private ch
 
 Then configure QQ groups, private chat QQ accounts, and QQ channels as needed.
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image-1.png)
+![image](/images/91d6a94c8a6451ec.png)
 
 ### Get `appid` and `secret`
 
@@ -72,7 +72,7 @@ If you use AstrBot WebUI's `One-click QR setup`, you can skip this step. AstrBot
 
 Open `Development -> Development Settings`, find IP whitelist, and add your server IP.
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image-3.png)
+![image](/images/c268604be54260b3.png)
 
 > [!TIP]
 > If you do not know your server IP, run `curl ifconfig.me` or check [ip138.com](https://ip138.com/).

@@ -444,7 +444,7 @@ if ($PythonInstallMirror) {
 }
 
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    throw "Git is required to install this personal fork."
+    throw "Git is required to install AstrBot."
 }
 
 $previousPythonMirror = $env:UV_PYTHON_INSTALL_MIRROR

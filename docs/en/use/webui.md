@@ -8,6 +8,7 @@ These paths use the current default sidebar with a fixed menu order. Extension i
 
 | Previous entry point or name | Current entry point |
 | --- | --- |
+| Welcome → Afdian | Welcome → Feedback, opening this repository's Issues |
 | Providers → Add Provider → Agent Runner | Config → Select a profile → AI → `…` beside the AI heading → Change execution mode |
 | Providers → Decision (after Chat Completion) | Providers → Decision (balance-scale icon, between Text to Speech and Embedding) |
 | Data / Dashboard | Data & Logs → Statistics |
@@ -23,6 +24,8 @@ These paths use the current default sidebar with a fixed menu order. Extension i
 | Custom Rules / Future Tasks / SubAgents | Custom Rules is under the sidebar `System` group; Future Tasks and SubAgents are under the `Extensions` group |
 
 Old log, trace, conversation, and statistics URLs still redirect to the corresponding tabs. Agent runners are now saved in each profile; they are no longer created as model providers. See [Agent Execution Mode](./agent-runner.md) for the setup steps.
+
+![Welcome page resources](/images/welcome-resources.png)
 
 ## Documentation Navigation
 
@@ -241,15 +244,19 @@ Filter by plugin, type (command / command group / subcommand), permission, and s
 
 You can enable/disable and rename each command.
 
-## Updating the Admin Panel
+## Check updates and browse releases
 
-When AstrBot starts, it automatically checks if the admin panel needs updating. If it does, the first log entry (in yellow) will prompt you.
+Open the update dialog in System Settings to see the current version and available releases. Enable Show pre-release versions to include prerelease tags. Selecting a release downloads the matching core and WebUI; follow the restart or reload prompt after installation.
 
-In the browser WebUI, open `⋮ → Update AstrBot` in the upper-right corner, expand `Advanced settings`, and click `Download and Update` under `Update Dashboard to Latest Version Only`. The page refreshes automatically after a successful update. In the desktop app, the update entry opens the desktop application updater.
+![Update check and release list](/images/update-check.png)
 
-You can also use the `/dashboard_update` command to manually update the admin panel (admin command).
+If release information is unavailable, the dialog shows an error with a Retry button. A failed request is not reported as being up to date. Update container installations by pulling the image and recreating the container; see [Docker updates](/en/deploy/astrbot/docker#update).
 
-Admin panel files are located in the data/dist directory. If you need to manually replace them, download `dist.zip` from https://github.com/AstrBotDevs/AstrBot/releases/ and extract it to the data directory.
+![Retrying an unavailable release source](/images/update-retry.png)
+
+## Replace the WebUI manually
+
+Download `AstrBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/AstrBot/releases). Stop the instance normally, place the archive's `dist/` under `data/`, preserve the remaining data, and restart. The `assets/version` and `assets/distribution` files identify the package version and source.
 
 ## Customizing WebUI Port
 
@@ -257,7 +264,7 @@ Modify the `port` in the `dashboard` configuration in the data/cmd_config.json f
 
 ## Forgot Password
 
-Modify the `password` in the `dashboard` configuration in the data/cmd_config.json file and delete the entire password key-value pair.
+Reset the administrator password using the command line; see the [FAQ](/en/faq#forgot-dashboard-password).
 
 > [!TIP]
 > For more details, see [FAQ - Forgot Dashboard Password](/en/faq.md#forgot-dashboard-password).

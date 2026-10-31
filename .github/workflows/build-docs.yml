@@ -3,9 +3,9 @@ name: Website and Docs CI
 on:
   push:
     branches: [master]
-    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
   pull_request:
-    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
   workflow_dispatch:
 
 permissions:
@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: docs-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   docs:
@@ -38,11 +38,42 @@ jobs:
           pnpm docs:build
       - name: Stage unified website
         run: node scripts/build_site.mjs
+      - name: Generate public release feed
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh api --paginate --slurp "repos/$GH_REPO/releases?per_page=100" > release-pages.json
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from urllib.parse import quote
+
+          pages = json.loads(Path('release-pages.json').read_text(encoding='utf-8'))
+          feed = []
+          for page in pages:
+              for release in page:
+                  if release['draft']:
+                      continue
+                  tag = release['tag_name']
+                  feed.append({
+                      'name': release.get('name') or tag,
+                      'tag_name': tag,
+                      'published_at': release['published_at'],
+                      'body': release.get('body') or '',
+                      'zipball_url': f"https://github.com/{os.environ['GH_REPO']}/archive/refs/tags/{quote(tag, safe='')}.zip",
+                      'prerelease': release['prerelease'],
+                  })
+          Path('site-dist/releases.json').write_text(json.dumps(feed, ensure_ascii=False) + '\n', encoding='utf-8')
+          PY
       - name: Check website entry files
         run: |
           test -s site/index.html
           test -s site/styles.css
           test -s site/favicon.svg
+          python scripts/check_site_links.py
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site-dist

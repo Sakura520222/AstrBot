@@ -19,15 +19,15 @@ AstrBot provides these **Application Type** options:
 
 >[!TIP]
 >Please ensure that the APP type you set in AstrBot matches the application type created in Dify.
->![image](https://files.astrbot.app/docs/source/images/dify/image-3.png)
+>![image](/images/9f1e633878207ce6.png)
 
 ### Chat and Agent Applications
 
 Create your Dify Chat and Agent application keys as shown in the figure below:
 
-![image](https://files.astrbot.app/docs/source/images/dify/chat-agent-api-key.png)
+![image](/images/417d36c39a11d5b4.png)
 
-![image](https://files.astrbot.app/docs/source/images/dify/chat-agent-api-key-2.png)
+![image](/images/83983711ead39605.png)
 
 Copy the key and paste it into the `API Key` field in the configuration, then click **Save Configuration**.
 
@@ -37,7 +37,7 @@ Copy the key and paste it into the `API Key` field in the configuration, then cl
 
 Workflow applications receive input variables, execute the workflow, and output the results.
 
-![image](https://files.astrbot.app/docs/source/images/dify/workflow-io-key.png)
+![image](/images/a83e8df68322edf5.png)
 
 For Workflow applications, AstrBot will attach two variables with each request:
 
@@ -56,7 +56,7 @@ Create your Dify Workflow application's API Key as shown in the figure below:
 
 Click the Publish button in the upper right corner -> Access API -> click API Key in the upper right corner -> Create Key, then copy the API Key.
 
-![image](https://files.astrbot.app/docs/source/images/dify/workflow-api-key.png)
+![image](/images/46450b8c94d9a8e2.png)
 
 Copy the key and paste it into the `API Key` field in the configuration, then click **Save Configuration**.
 
@@ -68,11 +68,11 @@ When all fields are complete, click **Save Configuration** at the bottom right. 
 
 You can use the `/set` command to dynamically set input variables, as shown in the figure below:
 
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-5.png)
+![alt text](/images/c70dea73d7be08b2.png)
 
 After setting variables, AstrBot will attach the variables you set in the next request to Dify, flexibly adapting to your Workflow.
 
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-4.png)
+![alt text](/images/9eb2213fa4cc044e.png)
 
 Of course, you can use the `/unset` command to cancel the variables you set.
 

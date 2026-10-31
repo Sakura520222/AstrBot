@@ -89,9 +89,9 @@ API Key、访问令牌和密码等敏感字符串应设置 `"secret": true`。�
 
 其中，如果启用了代码编辑器，效果如下图所示:
 
-![editor_mode](https://files.astrbot.app/docs/source/images/plugin/image-6.png)
+![editor_mode](/images/6b00642362d2fae9.png)
 
-![editor_mode_fullscreen](https://files.astrbot.app/docs/source/images/plugin/image-7.png)
+![editor_mode_fullscreen](/images/d29ad560128b2390.png)
 
 **_special** 字段仅 v4.0.0 之后可用。常用可填写值包括 `select_provider`, `select_provider_tts`, `select_provider_stt`, `select_persona`, `select_knowledgebase`，用于让用户快速选择在 WebUI 上已经配置好的模型提供商、人设、知识库等数据。
 
@@ -126,7 +126,7 @@ API Key、访问令牌和密码等敏感字符串应设置 `"secret": true`。�
 
 以 `select_provider` 为例，将呈现以下效果:
 
-![image](https://files.astrbot.app/docs/source/images/plugin/image-select-provider.png)
+![image](/images/6cba738aa943107d.png)
 
 ### file 类型的 schema
 

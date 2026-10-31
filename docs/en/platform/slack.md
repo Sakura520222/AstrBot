@@ -14,11 +14,11 @@ Slack supports two connection methods: `Webhook` and `Socket`. If you don't have
 2. Go to [Apps Management](https://api.slack.com/apps), click "Create New App" -> "Blank app" -> "Continue". Enter the `App Name`, select the workspace to add it to, then click "Create".
 3. (Webhook only) Obtain the `Signing Secret`. In the Basic Information page on the left sidebar, find `Signing Secret` under App Credentials, click Show and copy it to the signing_secret field in the platform adapter configuration.
 
-![image](https://files.astrbot.app/docs/source/images/slack/image.png)
+![image](/images/edc0d2fface48f83.png)
 
 4. In the Basic Information page on the left sidebar, find App-Level Tokens and click "Generate Token and Scopes". Enter any Token Name, click Add Scope, select `connections:write`, then click "Generate". Click Copy and paste the result into the app_token field on the AstrBot configuration page.
 
-![image](https://files.astrbot.app/docs/source/images/slack/image-2.png)
+![image](/images/9eb574b948e079a8.png)
 
 5. In the OAuth & Permissions page on the left sidebar, add the following permissions under Bot Token Scopes:
    - channels:history
@@ -46,7 +46,7 @@ Slack supports two connection methods: `Webhook` and `Socket`. If you don't have
 
 7. (Socket only) In the Socket Mode page on the left sidebar, enable Socket Mode.
 
-![image](https://files.astrbot.app/docs/source/images/slack/image-3.png)
+![image](/images/8d39392feafbd4bc.png)
 
 ## Start the Platform Adapter
 
@@ -92,4 +92,4 @@ After adding the events, click `Save Changes` at the bottom of the page to save 
 
 Enter the Slack workspace you just added, navigate to the channel where you want to use the bot, then @ mention the app you just created. Click the Add button in the message subsequently sent by Slackbot to add it to the workspace. Then, @ mention the app and type `/help`. If it responds successfully, the test is successful.
 
-If you have any questions, please [submit an Issue](https://github.com/AstrBotDevs/AstrBot/issues).
+If you have any questions, please [submit an Issue](https://github.com/Sakura520222/AstrBot/issues).

@@ -49,7 +49,7 @@ Always reference these instructions first and fallback to search or bash command
 - Pre-commit hooks enforce ruff formatting and linting
 
 ## Docker Support
-- Primary deployment method: `docker run soulter/astrbot:latest`
+- Primary deployment method: `docker run -p 6185:6185 -v ./data:/AstrBot/data ghcr.io/sakura520222/astrbot:latest`
 - Compose file available: `compose.yml`
 - Exposes ports: 6185 (WebUI), 6195 (WeChat), 6199 (QQ), etc.
 - Volume mount required: `./data:/AstrBot/data`

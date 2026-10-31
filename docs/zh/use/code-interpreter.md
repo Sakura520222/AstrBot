@@ -6,7 +6,7 @@
 在 `v3.4.2` 版本及之后，AstrBot 支持代码执行器以强化 LLM 的能力，并实现一些自动化的操作。
 
 > [!TIP]
-> 此功能目前处于实验阶段，可能会有一些问题。如果您遇到了问题，请在 [GitHub](https://github.com/AstrBotDevs/AstrBot/issues) 上提交 issue。欢迎加群讨论：[322154837](https://qm.qq.com/cgi-bin/qm/qr?k=EYGsuUTfe00_iOu9JTXS7_TEpMkXOvwv&jump_from=webapi&authKey=uUEMKCROfsseS+8IzqPjzV3y1tzy4AkykwTib2jNkOFdzezF9s9XknqnIaf3CDft)。
+> 此功能目前处于实验阶段，可能会有一些问题。如果您遇到了问题，请在 [GitHub](https://github.com/Sakura520222/AstrBot/issues) 上提交 issue。欢迎加群讨论：[322154837](https://qm.qq.com/cgi-bin/qm/qr?k=EYGsuUTfe00_iOu9JTXS7_TEpMkXOvwv&jump_from=webapi&authKey=uUEMKCROfsseS+8IzqPjzV3y1tzy4AkykwTib2jNkOFdzezF9s9XknqnIaf3CDft)。
 
 如果您要使用此功能，请确保您的机器安装了 `Docker`。因为此功能需要启动专用的 Docker 沙箱环境以执行代码，以防止 LLM 生成恶意代码对您的机器造成损害。
 
@@ -25,7 +25,7 @@ sudo docker run -itd -p 6180-6200:6180-6200 -p 11451:11451 -v $PWD/data:/AstrBot
 
 例子：
 
-![image](https://files.astrbot.app/docs/source/images/code-interpreter/image-4.png)
+![image](/images/d792dea4554c57ae.png)
 
 ## Linux 手动源码 启动 AstrBot
 
@@ -73,7 +73,7 @@ sudo —E python3 main.py
 > 如果一开始没有正常启动此功能，在启动成功之后，需要执行 `/tool on python_interpreter` 来开启此功能。
 > 您可以通过 `/tool ls` 查看所有的工具以及它们的启用状态。
 
-![image](https://files.astrbot.app/docs/source/images/code-interpreter/image-3.png)
+![image](/images/2463e5320f9564dc.png)
 
 ## 图片和文件的输入
 
@@ -87,10 +87,10 @@ v3.4.34 后，使用 `/pi file` 指令开始上传文件。上传文件后，您
 
 ## Demo
 
-![image](https://files.astrbot.app/docs/source/images/code-interpreter/a3cd3a0e-aca5-41b2-aa52-66b568bd955b.png)
+![image](/images/b7bac25815340a3c.png)
 
-![alt text](https://files.astrbot.app/docs/source/images/code-interpreter/image.png)
+![alt text](/images/329e14fd12b89f2a.png)
 
-![image](https://files.astrbot.app/docs/source/images/code-interpreter/image-1.png)
+![image](/images/0bfef5e6e983b953.png)
 
-![image](https://files.astrbot.app/docs/source/images/code-interpreter/image-2.png)
+![image](/images/8b59846d5f7edddf.png)

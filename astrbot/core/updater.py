@@ -73,7 +73,7 @@ class AstrBotUpdater(_RepoZipUpdater):
         """
         super().__init__(verify=verify)
         self._main_path = get_astrbot_path()
-        self._release_api = "https://api.github.com/repos/Sakura520222/AstrBot/releases"
+        self._release_api = "https://astrbot.pyabunny.com/releases.json"
         self._repository_url = "https://github.com/Sakura520222/AstrBot"
         self._core_package_base_url = (
             "https://github.com/Sakura520222/AstrBot/releases/download"

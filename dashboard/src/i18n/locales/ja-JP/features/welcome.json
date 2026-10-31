@@ -42,10 +42,10 @@
   },
   "resources": {
     "title": "関連リソース",
-    "githubDesc": "AstrBot に Star を付けてください！",
+    "githubDesc": "ソースコード、リリース、貢献方法を確認できます。",
     "docsTitle": "ドキュメント",
-    "docsDesc": "AstrBot の公式ドキュメントをご覧ください。",
-    "afdianTitle": "Afdian",
-    "afdianDesc": "Afdian で AstrBot チームを支援できます。"
+    "docsDesc": "導入、設定、使い方、プラグイン開発のドキュメント。",
+    "feedbackTitle": "問題の報告",
+    "feedbackDesc": "不具合を報告し、既存の Issue を確認できます。"
   }
 }

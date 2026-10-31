@@ -14,8 +14,11 @@ name: "CodeQL"
 on:
   push:
     branches: [ "master" ]
+    paths: ['astrbot/**', 'scripts/**', 'docs/scripts/**', 'main.py', 'runtime_bootstrap.py', 'pyproject.toml', 'uv.lock', 'tests/**', '.github/workflows/codeql.yml']
   pull_request:
     branches: [ "master" ]
+    paths: ['astrbot/**', 'scripts/**', 'docs/scripts/**', 'main.py', 'runtime_bootstrap.py', 'pyproject.toml', 'uv.lock', 'tests/**', '.github/workflows/codeql.yml']
+  workflow_dispatch:
   schedule:
     - cron: '21 15 * * 5'
 

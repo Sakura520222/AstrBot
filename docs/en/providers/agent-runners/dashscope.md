@@ -8,11 +8,11 @@ On the [Alibaba Cloud Bailian Application](https://bailian.console.aliyun.com/ap
 
 Record the Application ID:
 
-![image](https://files.astrbot.app/docs/source/images/dashscope/image-1.png)
+![image](/images/f9f6e4b7f599bd1a.png)
 
 Click to enter the application, click Publishing Channel -> API Call -> API KEY, create and copy the API KEY:
 
-![alt text](https://files.astrbot.app/docs/source/images/dashscope/image-2.png)
+![alt text](/images/4620f1156b3ae436.png)
 
 In the WebUI, open **Config**, select the profile to edit, and open **AI**. Click **More actions** (`…`) beside the heading → **Change Execution Mode**, select **Alibaba Cloud Bailian**, read and check the reset acknowledgement, then click **Use This Mode**. Make sure **Enable AI** is on, then enter the connection settings on this page. Switching resets the current mode's configuration; see [Agent Runner](../../use/agent-runner.md).
 
@@ -42,7 +42,7 @@ For the two workflow applications, you can dynamically set input variables in th
 
 Use the `/set` command to dynamically set input variables, as shown in the figure below:
 
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-5.png)
+![alt text](/images/c70dea73d7be08b2.png)
 
 After setting variables, AstrBot will attach the variables you set in the next request to Alibaba Cloud Bailian Application, flexibly adapting to your Workflow.
 

@@ -26,7 +26,7 @@
 5. 在左边栏「机器人」页面下点击「邀请链接」，设置角色权限（建议赋予全权限，确保功能完整）。
 6. 设置好角色权限后，点击上方邀请链接的复制按钮复制链接，在浏览器中打开复制出来的邀请链接，将机器人加入到所需的服务器。
 
-  ![image](https://files.astrbot.app/docs/source/images/kook/image-1.png)
+  ![image](/images/57f1768b625dfd7b.png)
 
 ## 在 AstrBot 配置
 

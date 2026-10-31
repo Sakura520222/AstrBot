@@ -60,6 +60,8 @@ let confirmPassword = ref("");
 let newUsername = ref("");
 let status = ref("");
 let updateStatus = ref("");
+const updateError = ref("");
+const releasesError = ref("");
 let releaseMessage = ref("");
 let hasNewVersion = ref(false);
 let botCurrVersion = ref("");
@@ -550,9 +552,19 @@ function initPasswordWarningFromStorage() {
 
 function checkUpdate() {
   updateStatus.value = t("core.header.updateDialog.status.checking");
-  updatesApi
+  updateError.value = "";
+  hasNewVersion.value = false;
+  dashboardHasNewVersion.value = false;
+  return updatesApi
     .check()
     .then((res) => {
+      if (
+        res.data.status === "error" ||
+        !res.data.data ||
+        typeof res.data.data.has_new_version !== "boolean"
+      ) {
+        throw new Error(res.data.message || "Invalid update response.");
+      }
       const backendHasNewVersion = !isDesktopReleaseMode.value && res.data.data.has_new_version;
       hasNewVersion.value = backendHasNewVersion;
 
@@ -560,39 +572,44 @@ function checkUpdate() {
         releaseMessage.value = res.data.message || "";
         updateStatus.value = t("core.header.version.hasNewVersion");
       } else {
-        updateStatus.value = res.data.message || "";
+        updateStatus.value = t("core.header.updateDialog.status.upToDate");
       }
       dashboardHasNewVersion.value = isDesktopReleaseMode.value
         ? false
-        : res.data.data.dashboard_has_new_version;
+        : Boolean(res.data.data.dashboard_has_new_version);
     })
     .catch((err) => {
-      if (isLegacyFallbackError(err)) {
-        console.log(err);
-        return;
-      }
       if (err.response && err.response.status == 401) {
         console.log("401");
         authStore.logout();
         return;
       }
       console.log(err);
-      updateStatus.value = err;
+      updateStatus.value = t("core.header.updateDialog.status.checkFailed");
+      updateError.value = t("core.header.updateDialog.status.sourceUnavailable");
     });
 }
 
 function getReleases() {
   releasesLoading.value = true;
+  releasesError.value = "";
   return updatesApi
     .releases()
     .then((res) => {
+      if (res.data.status === "error" || !Array.isArray(res.data.data)) {
+        throw new Error(res.data.message || "Invalid release list response.");
+      }
       releases.value = res.data.data.map((item: any) => {
-        item.published_at = new Date(item.published_at).toLocaleString();
-        return item;
+        return {
+          ...item,
+          published_at: new Date(item.published_at).toLocaleString(),
+        };
       });
     })
     .catch((err) => {
       console.log(err);
+      releases.value = [];
+      releasesError.value = t("core.header.updateDialog.status.releasesFailed");
     })
     .finally(() => {
       releasesLoading.value = false;
@@ -1450,7 +1467,7 @@ onMounted(async () => {
                 <div class="text-h2 font-weight-bold">{{ botCurrVersion }}</div>
               </div>
               <v-chip
-                :color="hasNewVersion ? 'primary' : 'success'"
+                :color="updateError ? 'error' : hasNewVersion ? 'primary' : 'success'"
                 variant="tonal"
                 size="small"
               >
@@ -1461,6 +1478,21 @@ onMounted(async () => {
                 }}
               </v-chip>
             </div>
+
+            <v-alert
+              v-if="updateError || releasesError"
+              type="error"
+              variant="tonal"
+              class="mt-4"
+              role="alert"
+            >
+              {{ updateError || releasesError }}
+              <template #append>
+                <v-btn variant="text" @click="checkUpdate(); getReleases()">
+                  {{ t("core.header.updateDialog.retry") }}
+                </v-btn>
+              </template>
+            </v-alert>
 
             <div
               v-if="installLoading || updateProgress.status !== 'idle'"

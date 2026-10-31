@@ -6,7 +6,7 @@ AstrBot uses GitHub to host plugins, so you'll need to push your plugin code to 
 
 You can publish your plugin by visiting the [AstrBot Plugin Publish Page](https://cloud.astrbot.app/publish), You need to register an AstrBot Cloud account to publish plugins.
 
-<!-- ![fill out the form](https://files.astrbot.app/docs/source/images/plugin-publish/image.png) -->
+<!-- ![fill out the form](/images/942890168de8bf5a.png) -->
 
 Here is a complete plugin metadata example (`metadata.yaml`) that the system will automatically parse:
 

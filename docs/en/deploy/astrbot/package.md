@@ -1,65 +1,40 @@
-# Script Deployment
+# Script installation
 
-AstrBot provides installation scripts for Linux, macOS, WSL, and Windows. The scripts install `uv`, AstrBot, and Python 3.12.
+Install Git first. The installer uses uv with Python 3.12 and installs AstrBot from this repository.
 
-## Linux / macOS / WSL
+## Linux and macOS
 
-Interactive installation:
+Download and review the script, then run it:
 
-```bash
-curl -fsSL https://docs.astrbot.app/install.sh | bash
-```
+~~~bash
+curl -fsSL https://astrbot.pyabunny.com/docs/install.sh -o install.sh
+bash install.sh
+~~~
 
-Unattended installation:
+Follow the terminal prompts to select download sources. Check startup logs for the WebUI URL and initial login information.
 
-```bash
-curl -fsSL https://docs.astrbot.app/install.sh -o install.sh
-bash install.sh --language en-US --download-source official --non-interactive
-```
+## Windows PowerShell
 
-`--download-source` accepts `china`, `official`, or `custom`. The default language is English. If the source is omitted, Chinese uses the mainland China mirrors; English and Japanese use official sources.
+~~~powershell
+Invoke-WebRequest https://astrbot.pyabunny.com/docs/install.ps1 -OutFile install.ps1
+.\install.ps1
+~~~
 
-## Windows
+Follow the installation prompts. You can also create an environment manually using [source deployment](/en/deploy/astrbot/cli).
 
-Run these commands in PowerShell 5.1 or PowerShell 7+.
+## Initialize and start
 
-Interactive installation:
-
-```powershell
-irm https://docs.astrbot.app/install.ps1 | iex
-```
-
-Unattended installation:
-
-```powershell
-Invoke-WebRequest https://docs.astrbot.app/install.ps1 -OutFile install.ps1 -UseBasicParsing
-.\install.ps1 -Language en-US -DownloadSource official -NonInteractive
-```
-
-`-DownloadSource` accepts `china`, `official`, or `custom`. The default language is English. If the source is omitted, Chinese uses the mainland China mirrors; English and Japanese use official sources.
-
-The mainland China option also configures the USTC mirror for Python 3.12 and retries with the official Python source on failure. Existing Python mirror environment variables or explicit options take priority.
-
-## After Installation
-
-The installer runs `uv tool update-shell`. Reload the environment for your shell:
-
-```bash
-# Bash
-source ~/.bashrc
-# Zsh
-source ~/.zshrc
-# Fish
-source ~/.config/fish/config.fish
-# PowerShell
-. $PROFILE
-```
-
-Then run these commands manually:
+After installation, run these commands in the instance directory:
 
 ```bash
 astrbot init
 astrbot run
 ```
 
-> AstrBot installed by script does not support upgrades through the WebUI. Run `uv tool upgrade astrbot --python 3.12` to update it.
+`astrbot init` creates the instance data directories and `astrbot run` starts the service. Follow the page or startup log prompts to complete account setup.
+
+## Data and updates
+
+Keep the startup directory's `data/` folder. Stop the instance normally and back it up before updating. The script installs repository source in a uv tool environment; see the [uv tools guide](https://docs.astral.sh/uv/guides/tools/).
+
+Use [source deployment](/en/deploy/astrbot/cli) when modifying application code or the WebUI.

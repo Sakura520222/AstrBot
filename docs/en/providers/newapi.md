@@ -10,11 +10,11 @@ AstrBot can integrate with NewAPI as a model provider, so you can access those m
 
 After registering and signing in to NewAPI, open `Console` in the top navigation bar, go to `Token Management`, then click `Add Token` to create a new API key with appropriate permissions.
 
-![create-api-key](https://files.astrbot.app/docs/source/images/newapi/image.png)
+![create-api-key](/images/cdca7f9520acbf02.png)
 
 After creation, copy the generated API key.
 
-![copy-api-key](https://files.astrbot.app/docs/source/images/newapi/image-1.png)
+![copy-api-key](/images/0a26d81d4edfd7b8.png)
 
 ### 2. Configure NewAPI in AstrBot
 

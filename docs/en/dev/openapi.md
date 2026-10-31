@@ -162,4 +162,4 @@ curl -N 'http://localhost:6185/api/v1/chat' \
 
 Use the interactive docs:
 
-- https://docs.astrbot.app/scalar.html
+- https://astrbot.pyabunny.com/docs/scalar.html

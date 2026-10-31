@@ -24,7 +24,7 @@ AstrBot 支持接入微信公众平台（版本 >= v3.5.8），并以微信公�
 
 点击 `设置与开发` -> `开发接口管理`。界面如下：
 
-![开发接口管理](https://files.astrbot.app/docs/source/images/weixin-official-account/image.png)
+![开发接口管理](/images/81e5b89c0d6eaf5c.png)
 
 记录开发者 ID(AppID) 和开发者密码(AppSecret)，分别填入 AstrBot 配置的 `appid` 和 `secret` 处。
 

@@ -29,7 +29,7 @@ A Chat Provider is essentially a `single-turn completion interface`, taking prom
 
 An Agent Runner is typically a `loop` that receives user intent, context, and environment state, makes plans based on strategy/model (Plan), selects and invokes tools (Act), reads results from the environment (Observe), understands the results again, updates internal state, decides the next action, and repeats this process until the task is completed or times out.
 
-![image](https://files.astrbot.app/docs/source/images/use/agent-runner/agent-arch.svg)
+![image](/images/5dd07cb0abf3ba54.svg)
 
 Platforms like Dify, Coze, Bailian Application, and DeerFlow have this loop built-in. If you treat them as regular Chat Providers, it will conflict with AstrBot's built-in Agent Runner functionality.
 

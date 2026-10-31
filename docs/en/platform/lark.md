@@ -51,15 +51,15 @@ After QR creation succeeds, continue checking the event subscription, permission
 
 Navigate to the [Developer Console](https://open.feishu.cn/app) and create a custom enterprise application.
 
-![Create Custom Enterprise Application](https://files.astrbot.app/docs/source/images/lark/image.png)
+![Create Custom Enterprise Application](/images/b91e2f2c3844d88c.png)
 
 Add the Bot capability to your application.
 
-![Add Bot Capability](https://files.astrbot.app/docs/source/images/lark/image-1.png)
+![Add Bot Capability](/images/0c58dbfdbfeeb611.png)
 
 Click on "Credentials & Basic Info" to obtain your app_id and app_secret.
 
-![Get app_id and app_secret](https://files.astrbot.app/docs/source/images/lark/image-4.png)
+![Get app_id and app_secret](/images/6457ee34e614b8e5.png)
 
 ## Configuring AstrBot
 
@@ -92,7 +92,7 @@ The following steps vary depending on the subscription method you selected above
 
 Next, click on "Events & Callbacks," select "Receive events using long connection," and click Save. **If the previous step didn't start successfully, you won't be able to save here.**
 
-![Configure Events & Callbacks](https://files.astrbot.app/docs/source/images/lark/image-6.png)
+![Configure Events & Callbacks](/images/e16b5998ca9872e1.png)
 
 ### `webhook` Send Events to Developer Server Method
 
@@ -107,11 +107,11 @@ Next, return to Lark's Events & Callbacks page, click "Event Configuration," sel
 
 After completing the event configuration in the previous step, click "Add Event," navigate to "Messages & Groups," scroll down to find `Receive Message`, and add it.
 
-![Add Event](https://files.astrbot.app/docs/source/images/lark/image-7.png)
+![Add Event](/images/73748dda63707245.png)
 
 Click to enable the following permissions.
 
-![Enable Permissions](https://files.astrbot.app/docs/source/images/lark/image-8.png)
+![Enable Permissions](/images/395466a4ac6940e8.png)
 
 Then click the `Save` button at the top.
 
@@ -130,13 +130,13 @@ If you want to use streaming output, additionally enable `Create and update card
 
 The final set of permissions should look like this:
 
-![Final Permissions](https://files.astrbot.app/docs/source/images/lark/image-11.png)
+![Final Permissions](/images/e010fd36bfa5d51a.png)
 
 ## Creating a Version
 
 Create a new version.
 
-![Create Version](https://files.astrbot.app/docs/source/images/lark/image-2.png)
+![Create Version](/images/db67c2a79bf9d287.png)
 
 Fill in the version number, update notes, and visibility scope, then click Save and confirm the release.
 
@@ -146,10 +146,10 @@ Open the Lark app (the web version doesn't support adding bots), enter a group c
 
 Search for the bot you just created. For example, if you created the `AstrBot` bot as shown in this tutorial:
 
-![Add Bot](https://files.astrbot.app/docs/source/images/lark/image-9.png)
+![Add Bot](/images/4ce7d519d181c166.png)
 
 ## 🎉 All Done!
 
 Mention the bot in the group and send a `/help` command, and the bot will respond.
 
-![Success](https://files.astrbot.app/docs/source/images/lark/image-13.png)
+![Success](/images/a7bbaab754c8cbf6.png)

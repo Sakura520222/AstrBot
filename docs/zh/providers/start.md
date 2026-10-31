@@ -13,7 +13,7 @@ AstrBot 适配了 OpenAI、Google GenAI、Anthropic 三种原生 API 格式。�
 >
 > 上述提供商均支持 OpenAI API 格式，您可以通过其文档中有关 “OpenAI 格式接入” 的说明，找到 API Base URL 及 API Key，然后将其填入 AstrBot 的提供商配置中。
 > 
-> 请注意，使用未经备案的第三方模型服务提供商可能会导致服务不可用、信息泄露或其他法律风险，请谨慎选择。更多内容，请阅读我们的最终用户许可协议（[EULA](https://github.com/AstrBotDevs/AstrBot/blob/master/EULA.md)）。
+> 请注意，使用未经备案的第三方模型服务提供商可能会导致服务不可用、信息泄露或其他法律风险，请谨慎选择。更多内容，请阅读我们的最终用户许可协议（[EULA](https://github.com/Sakura520222/AstrBot/blob/master/EULA.md)）。
 
 例如，您可以选择接入如下（但不限于）模型提供商提供的模型服务：
 

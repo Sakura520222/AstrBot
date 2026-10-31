@@ -51,15 +51,15 @@
 
 前往 [开发者后台](https://open.feishu.cn/app) ，创建企业自建应用。
 
-![创建企业自建应用](https://files.astrbot.app/docs/source/images/lark/image.png)
+![创建企业自建应用](/images/b91e2f2c3844d88c.png)
 
 添加应用能力——机器人。
 
-![添加应用能力](https://files.astrbot.app/docs/source/images/lark/image-1.png)
+![添加应用能力](/images/0c58dbfdbfeeb611.png)
 
 点击凭证与基础信息，获取 app_id 和 app_secret。
 
-![获取 app_id 和 app_secret](https://files.astrbot.app/docs/source/images/lark/image-4.png)
+![获取 app_id 和 app_secret](/images/6457ee34e614b8e5.png)
 
 ## 配置 AstrBot
 
@@ -92,7 +92,7 @@
 
 接下来，点击事件与回调，使用长连接接收事件，点击保存。**如果上一步没有成功启动，那么这里将无法保存。**
 
-![设置事件与回调](https://files.astrbot.app/docs/source/images/lark/image-6.png)
+![设置事件与回调](/images/e16b5998ca9872e1.png)
 
 ### `webhook` 将事件发送至开发者服务器方式
 
@@ -107,11 +107,11 @@
 
 上一步事件配置完成后，点击添加事件，消息与群组，下拉找到 `接收消息`，添加。
 
-![添加事件](https://files.astrbot.app/docs/source/images/lark/image-7.png)
+![添加事件](/images/73748dda63707245.png)
 
 点击开通以下权限。
 
-![开通权限](https://files.astrbot.app/docs/source/images/lark/image-8.png)
+![开通权限](/images/395466a4ac6940e8.png)
 
 再点击上面的`保存`按钮。
 
@@ -130,13 +130,13 @@
 
 最终开通的权限如下图：
 
-![最终开通的权限](https://files.astrbot.app/docs/source/images/lark/image-11.png)
+![最终开通的权限](/images/e010fd36bfa5d51a.png)
 
 ## 创建版本
 
 创建版本。
 
-![创建版本](https://files.astrbot.app/docs/source/images/lark/image-2.png)
+![创建版本](/images/db67c2a79bf9d287.png)
 
 填写版本号，更新说明，可见范围后点击保存，确认发布。
 
@@ -146,10 +146,10 @@
 
 搜索刚刚创建的机器人的名字。比如教程创建了 `AstrBot` 机器人：
 
-![添加机器人](https://files.astrbot.app/docs/source/images/lark/image-9.png)
+![添加机器人](/images/4ce7d519d181c166.png)
 
 ## 🎉 大功告成
 
 在群内 @ 机器人并发送一个 `/help` 指令，机器人将做出响应。
 
-![成功](https://files.astrbot.app/docs/source/images/lark/image-13.png)
+![成功](/images/a7bbaab754c8cbf6.png)

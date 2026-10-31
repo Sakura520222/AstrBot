@@ -258,7 +258,7 @@
     },
     "agent_computer_use": {
       "description": "Agent Computer Use",
-      "hint": "Allows the AstrBot to access and use your computer or an sandbox environment to perform more complex tasks. See: [Agent Sandbox Environment](https://docs.astrbot.app/en/use/astrbot-agent-sandbox.html).",
+      "hint": "Allows the AstrBot to access and use your computer or an sandbox environment to perform more complex tasks. See: [Agent Sandbox Environment](https://astrbot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html).",
       "provider_settings": {
         "computer_use_runtime": {
           "description": "Computer Use Runtime",
@@ -402,7 +402,7 @@
     },
     "proactive_capability": {
       "description": "Proactive Agent",
-      "hint": "AstrBot will wake up, run your tasks, and deliver the results to you. See [Proactive Agent](https://docs.astrbot.app/en/use/proactive-agent.html)",
+      "hint": "AstrBot will wake up, run your tasks, and deliver the results to you. See [Proactive Agent](https://astrbot.pyabunny.com/docs/en/use/proactive-agent.html)",
       "provider_settings": {
         "proactive_capability": {
           "add_cron_tools": {
@@ -413,7 +413,7 @@
       }
     },
     "truncate_and_compress": {
-      "hint": "[Context Management](https://docs.astrbot.app/en/use/context-compress.html)",
+      "hint": "[Context Management](https://astrbot.pyabunny.com/docs/en/use/context-compress.html)",
       "description": "Context Management Strategy",
       "agent_runner": { "config": { "compression": {
         "max_turns": {

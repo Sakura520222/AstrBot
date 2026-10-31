@@ -1,65 +1,40 @@
-# 脚本部署
+# 脚本安装
 
-AstrBot 提供 Linux、macOS、WSL 和 Windows 安装脚本。脚本会安装 `uv`、AstrBot 及 Python 3.12。
+需要先安装 Git。安装脚本使用 uv 创建 Python 3.12 环境，并从本仓库安装 AstrBot。
 
-## Linux / macOS / WSL
+## Linux 与 macOS
 
-交互式安装：
+下载并查看脚本，然后执行：
 
-```bash
-curl -fsSL https://docs.astrbot.app/install.sh | bash
-```
+~~~bash
+curl -fsSL https://astrbot.pyabunny.com/docs/install.sh -o install.sh
+bash install.sh
+~~~
 
-无人值守安装：
+按终端提示选择依赖下载源。启动后查看日志中的 WebUI 地址及初始登录信息。
 
-```bash
-curl -fsSL https://docs.astrbot.app/install.sh -o install.sh
-bash install.sh --language zh-CN --download-source china --non-interactive
-```
+## Windows PowerShell
 
-`--download-source` 可选 `china`、`official` 或 `custom`。省略语言参数时默认使用 English；未指定下载源时，中文使用中国大陆加速下载镜像源，英文和日文使用官方源。
+~~~powershell
+Invoke-WebRequest https://astrbot.pyabunny.com/docs/install.ps1 -OutFile install.ps1
+.\install.ps1
+~~~
 
-## Windows
+按照终端提示完成安装。也可以按[源码部署](/deploy/astrbot/cli)手动创建环境和运行。
 
-在 PowerShell 5.1 或 PowerShell 7+ 中运行：
+## 初始化与启动
 
-交互式安装：
-
-```powershell
-irm https://docs.astrbot.app/install.ps1 | iex
-```
-
-无人值守安装：
-
-```powershell
-Invoke-WebRequest https://docs.astrbot.app/install.ps1 -OutFile install.ps1 -UseBasicParsing
-.\install.ps1 -Language zh-CN -DownloadSource china -NonInteractive
-```
-
-`-DownloadSource` 可选 `china`、`official` 或 `custom`；省略语言参数时默认使用 English；未指定下载源时，中文使用中国大陆加速下载镜像源，英文和日文使用官方源。
-
-选择中国大陆源时，脚本也会为 Python 3.12 配置 USTC 镜像，失败后使用官方 Python 源重试。已有的 Python 镜像环境变量或显式参数优先。
-
-## 安装完成后
-
-安装脚本会自动执行 `uv tool update-shell`。请根据你使用的终端重新加载环境：
-
-```bash
-# Bash
-source ~/.bashrc
-# Zsh
-source ~/.zshrc
-# Fish
-source ~/.config/fish/config.fish
-# PowerShell
-. $PROFILE
-```
-
-重新加载后，手动运行：
+安装完成后，在运行目录执行：
 
 ```bash
 astrbot init
 astrbot run
 ```
 
-> 通过脚本部署的 AstrBot 不支持在 WebUI 中升级。更新请执行 `uv tool upgrade astrbot --python 3.12`。
+`astrbot init` 创建实例的数据目录，`astrbot run` 启动服务。按页面或日志中的提示完成账号设置。
+
+## 数据与更新
+
+保留启动目录下的 `data/`，更新前正常停止实例并备份数据。脚本安装的是仓库源码，使用 uv 工具环境；使用说明见 [uv 工具文档](https://docs.astral.sh/uv/guides/tools/)。
+
+需要修改项目源码或 WebUI 时，使用[源码部署](/deploy/astrbot/cli)。

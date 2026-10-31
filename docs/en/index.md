@@ -1,24 +1,27 @@
 ---
 layout: home
 hero:
-  name: AstrBot · Personal Fork
-  text: Documentation and maintenance
-  tagline: Independently maintained by Sakura520222 · Based on upstream 4.29.3
+  name: AstrBot
+  text: Documentation
+  tagline: Deploy a bot and connect messaging platforms, models, and tools.
   image:
     src: /favicon.svg
     alt: AstrBot
   actions:
     - theme: brand
-      text: Install this fork
-      link: /en/fork-maintenance
+      text: Get started
+      link: /en/deploy/astrbot/cli
+    - theme: alt
+      text: Docker deployment
+      link: /en/deploy/astrbot/docker
     - theme: alt
       text: GitHub
       link: https://github.com/Sakura520222/AstrBot
 features:
-  - title: Familiar AstrBot capabilities
-    details: Keep platform integrations, models, agents, plugins and WebUI.
-  - title: Personal releases and updates
-    details: Source, releases, images and documentation belong to this fork.
+  - title: Messaging platforms
+    details: Connect QQ, Telegram, Lark, WeCom, Discord, Slack, and other platforms.
+  - title: Models and tools
+    details: Configure models, plugins, Skills, MCP, and knowledge bases.
+  - title: WebUI
+    details: Manage chats, bots, configuration, plugins, and logs in your browser.
 ---
-
-Derived from [AstrBot](https://github.com/AstrBotDevs/AstrBot), with thanks to the original authors and contributors. This is a personal fork, not an official AstrBotDevs release.

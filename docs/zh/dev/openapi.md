@@ -163,4 +163,4 @@ curl -N 'http://localhost:6185/api/v1/chat' \
 
 交互式 API 文档请查看：
 
-- https://docs.astrbot.app/scalar.html
+- https://astrbot.pyabunny.com/docs/scalar.html

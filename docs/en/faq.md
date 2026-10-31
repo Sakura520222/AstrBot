@@ -1,103 +1,39 @@
 # FAQ
 
-## Dashboard Related
+## Dashboard
 
-### Encountering 404 Error When Opening the Dashboard
+### Dashboard returns 404
 
-Download `AstrBot-vxxxxx-dashboard.zip` from the [release](https://github.com/AstrBotDevs/AstrBot/releases) page, extract it, and move it to `AstrBot/data`. If it still doesn't work, try restarting your computer (based on community feedback).
+Check the startup logs for WebUI resource errors. To install the UI manually, download `AstrBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/AstrBot/releases). Stop the instance, place the archive's `dist/` under `data/`, preserve other data, and restart. You can also [build the WebUI from source](/en/deploy/astrbot/cli#build-the-webui).
 
-### First Login Account and Random Password
+### First login
 
-On first startup, the WebUI account is `astrbot` by default, and the default password is randomly generated (it is not a fixed hardcoded value). Check the startup logs and log in with the random initial password shown there:
-
-```text
-[00:27:40.590] [Core] [INFO] [dashboard.server:523]:
- ✨✨✨
-  AstrBot v4.24.3 WebUI is ready
-
-   ➜  Local: http://localhost:6185
-   ➜  Initial username: astrbot
-   ➜  Initial password: UiYVpZxnW8k22IWqf0ru5pOy
-   ➜  Change it after logging in
- ✨✨✨
-Set dashboard.host in data/cmd_config.json to enable remote access.
-```
-
-`UiYVpZxnW8k22IWqf0ru5pOy` is the default password.
+Follow the account setup prompt. If the page requires an initial login, the default username is `astrbot`; use the random initial password shown once in the startup log, then set your own account credentials. Existing accounts keep their current password.
 
 ### Forgot Dashboard Password
 
-If you forgot your AstrBot dashboard password, choose the reset method that matches your deployment method.
+Reset the password interactively from the command line, then restart the instance.
 
-#### Docker Deployment
-
-The image ships with the AstrBot CLI, so you can reset the password inside the container:
+Source deployment, from the project directory:
 
 ```bash
-sudo docker exec -it astrbot astrbot password
-sudo docker restart astrbot # the new password takes effect after a restart
+uv run --no-sync astrbot password
 ```
 
-The first `astrbot` is the container name; replace it with your actual container name (check with `sudo docker ps`).
-
-To also change the username, add the `--username` option: `sudo docker exec -it astrbot astrbot password --username <new-username>`.
-
-#### uv / pip Package Deployment
-
-Run the following in the AstrBot working directory (the one initialized with `astrbot init`):
+Docker:
 
 ```bash
-astrbot password
+docker exec -it astrbot astrbot password
+docker restart astrbot
 ```
 
-To also change the username, add the `--username` option: `astrbot password --username <new-username>`.
+Script-installed tool environment:
 
-Then restart AstrBot for the change to take effect.
-
-#### Other Deployment Methods
-
-For deployments without an available CLI (such as source or panel-based deployments), you can edit the config file directly. Find the `"dashboard"` field in `AstrBot/data/cmd_config.json`, for example:
-
-```json
-  "dashboard": {
-    "enable": true,
-    "username": "astrbot",
-    "password": "81e0c3dxxxxxxxxxxx78862e78",
-    "pbkdf2_password": "pbkdf2_sha256$600000$1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "password_storage_upgraded": true,
-    "password_change_required": true,
-    "jwt_secret": "5e1b0280bcxxxxxxxxxxxxxxxxf4a",
-    "host": "127.0.0.1",
-    "port": 6185,
-    "disable_access_log": true,
-    "ssl": {
-      "enable": false,
-      "cert_file": "",
-      "key_file": "",
-      "ca_certs": ""
-    }
-  },
+```bash
+uv tool run astrbot password
 ```
 
-Delete the `username`, `password`, `pbkdf2_password`, `password_storage_upgraded`, `password_change_required`, and `jwt_secret` fields (with their values), then save.
-The segment should look like:
-
-```json
-  "dashboard": {
-    "enable": true,
-    "host": "127.0.0.1",
-    "port": 6185,
-    "disable_access_log": true,
-    "ssl": {
-      "enable": false,
-      "cert_file": "",
-      "key_file": "",
-      "ca_certs": ""
-    }
-  },
-```
-
-After restart, AstrBot will automatically generate a random password with the fixed username `astrbot`; check the startup logs.
+Add `--username <NEW-USERNAME>` to change the username too. These commands preserve configuration, plugins, and history.
 
 ### Correct Password Cannot Log In After Upgrading AstrBot
 
@@ -157,7 +93,7 @@ This is because the provider's API returned empty text. Try the following steps:
 
 ### Error `No module named 'xxx'` After Installing Plugin
 
-![image](https://files.astrbot.app/docs/source/images/faq/image.png)
+![image](/images/3a147e44f3eb7d04.png)
 
 This is because the plugin's dependencies were not installed properly. Normally, AstrBot automatically installs plugin dependencies after installing the plugin, but installation may fail in the following situations:
 

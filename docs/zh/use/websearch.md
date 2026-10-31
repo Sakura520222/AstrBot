@@ -68,7 +68,7 @@ SerpApi 的详细说明与专属示例已移至 [网页搜索 → SerpApi](./web
 如果选择了支持正文提取的提供商，还可以发送：
 
 ```text
-请阅读这个网页并总结安装步骤：https://docs.astrbot.app/deploy/astrbot/docker.html
+请阅读这个网页并总结安装步骤：https://astrbot.pyabunny.com/docs/deploy/astrbot/docker.html
 ```
 
 是否调用搜索、使用什么关键词，以及是否继续读取网页，由模型决定。打开开关不代表每条消息都会联网。如果希望本次回答依据最新信息，可以在问题中明确要求“先搜索再回答”。

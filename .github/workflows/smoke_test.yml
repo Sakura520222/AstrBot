@@ -8,7 +8,25 @@ on:
       - 'README*.md'
       - 'changelogs/**'
       - 'dashboard/**'
+      - 'docs/**'
+      - 'site/**'
+      - 'AGENTS.md'
+      - '.github/copilot-instructions.md'
+      - '.github/workflows/build-docs.yml'
+      - 'scripts/build_site.mjs'
+      - 'scripts/check_site_links.py'
   pull_request:
+    paths-ignore:
+      - 'README*.md'
+      - 'changelogs/**'
+      - 'dashboard/**'
+      - 'docs/**'
+      - 'site/**'
+      - 'AGENTS.md'
+      - '.github/copilot-instructions.md'
+      - '.github/workflows/build-docs.yml'
+      - 'scripts/build_site.mjs'
+      - 'scripts/check_site_links.py'
   workflow_dispatch:
 
 env:

@@ -6,7 +6,7 @@ AstrBot 使用 GitHub 托管插件，因此你需要先将插件代码推送到�
 
 你可以前往 [AstrBot 插件发布页面](https://cloud.astrbot.app/publish) 发布你的插件，发布插件需要注册 AstrBot Cloud 账号。
 
-<!-- ![fill out the form](https://files.astrbot.app/docs/source/images/plugin-publish/image.png) -->
+<!-- ![fill out the form](/images/942890168de8bf5a.png) -->
 
 以下是一个完整的插件元数据示例（`metadata.yaml`），系统会自动解析这些信息：
 

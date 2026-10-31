@@ -10,11 +10,11 @@ AstrBot 支持接入 NewAPI 作为模型提供商，用户可以通过 NewAPI �
 
 在 NewAPI 注册并登录后，点击上方导航栏的「控制台」，点击「令牌管理」，然后点击「添加令牌」按钮，创建一个新的 API Key 密钥，选择适当的权限，然后点击「创建」。
 
-![create-api-key](https://files.astrbot.app/docs/source/images/newapi/image.png)
+![create-api-key](/images/cdca7f9520acbf02.png)
 
 创建成功后，点击复制密钥按钮，复制生成的 API Key 密钥。
 
-![copy-api-key](https://files.astrbot.app/docs/source/images/newapi/image-1.png)
+![copy-api-key](/images/0a26d81d4edfd7b8.png)
 ### 在 AstrBot 中配置 NewAPI 服务提供商
 
 打开 AstrBot 管理面板，进入「模型提供商」→「对话」，点击「新增」。

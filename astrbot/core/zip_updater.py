@@ -150,23 +150,36 @@ class _RepoZipUpdater:
             raise
 
     async def _fetch_release_info(self, url: str, latest: bool = True) -> list:
-        """请求版本信息。
-        返回一个列表，每个元素是一个字典，包含版本号、发布时间、更新内容、commit hash等信息。
+        """Fetch public release metadata.
+
+        Args:
+            url: URL of the public JSON release list.
+            latest: Retained for existing updater callers.
+
+        Returns:
+            Release tags, publication timestamps, notes, and source archive URLs.
+
+        Raises:
+            Exception: If the source cannot be reached or contains invalid data.
         """
         try:
             async with self._create_httpx_client() as client:
                 response = await client.get(url)
                 response.raise_for_status()
                 result = response.json()
+            if not isinstance(result, list):
+                raise ValueError("The release source must return a JSON array.")
             if not result:
                 return []
             ret = []
             for release in result:
+                if release.get("draft"):
+                    continue
                 ret.append(
                     {
-                        "version": release["name"],
+                        "version": release.get("name") or release["tag_name"],
                         "published_at": release["published_at"],
-                        "body": release["body"],
+                        "body": release.get("body") or "",
                         "tag_name": release["tag_name"],
                         "zipball_url": release["zipball_url"],
                     },
@@ -196,6 +209,8 @@ class _RepoZipUpdater:
         consider_prerelease: bool = True,
     ) -> ReleaseInfo | None:
         update_data = await self._fetch_release_info(url)
+        if not update_data:
+            return None
 
         sel_release_data = None
         if consider_prerelease:
@@ -203,7 +218,7 @@ class _RepoZipUpdater:
             sel_release_data = update_data[0]
         else:
             for data in update_data:
-                # 跳过带有 alpha、beta 等预发布标签的版本
+                # Skip prereleases when only stable versions are requested.
                 if re.search(
                     r"[\-_.]?(alpha|beta|rc|dev)[\-_.]?\d*$",
                     data["tag_name"],

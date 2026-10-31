@@ -136,16 +136,9 @@ kubectl apply -f k8s/astrbot/02-deployment.yaml
 
 ## 高级配置
 
-### 镜像加速 (中国大陆用户)
+### 镜像拉取
 
-如果拉取 `ghcr.io/sakura520222/astrbot:latest` 或 `mlikiowa/napcat-docker:latest` 镜像困难，可以手动修改对应的 `02-deployment.yaml` 文件，将 `image` 字段替换为国内的镜像加速地址，例如：
-
-```yaml
-# 示例：
-# image: ghcr.io/sakura520222/astrbot:latest
-# 替换为
-image: m.daocloud.io/docker.io/ghcr.io/sakura520222/astrbot:latest
-```
+AstrBot 镜像使用 `ghcr.io/sakura520222/astrbot:latest`。拉取失败时，检查节点到 GHCR 的网络连接，并根据集群环境配置镜像拉取代理。
 
 ### 启用 Docker 沙箱代码执行器
 

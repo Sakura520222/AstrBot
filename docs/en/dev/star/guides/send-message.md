@@ -106,7 +106,7 @@ async def test(self, event: AstrMessageEvent):
     yield event.chain_result([video])
 ```
 
-![Sending video messages](https://files.astrbot.app/docs/source/images/plugin/db93a2bb-671c-4332-b8ba-9a91c35623c2.png)
+![Sending video messages](/images/8f504f838f7c8eea.png)
 
 ## Sending Group Forward Messages
 
@@ -130,4 +130,4 @@ async def test(self, event: AstrMessageEvent):
     yield event.chain_result([node])
 ```
 
-![Sending group forward messages](https://files.astrbot.app/docs/source/images/plugin/image-4.png)
+![Sending group forward messages](/images/23b3e03fe4a4fc68.png)

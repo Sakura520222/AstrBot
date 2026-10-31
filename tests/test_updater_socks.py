@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import urlparse
+from unittest.mock import AsyncMock
 
 import certifi
 import httpx
@@ -1219,6 +1220,87 @@ async def test_download_dashboard_propagates_expected_version_to_extractor(
         "extract_path": extract_path,
         "expected_version": expected_version,
     }
+
+
+@pytest.mark.asyncio
+async def test_cli_dashboard_checks_distribution_even_when_legacy_bundle_exists(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """CLI startup must use the same ownership checks as source startup."""
+    from astrbot.cli.utils import basic
+
+    legacy_bundle = tmp_path / "legacy-official-dist"
+    legacy_bundle.mkdir()
+    monkeypatch.setattr(basic, "_BUNDLED_DIST", legacy_bundle, raising=False)
+    prepare = AsyncMock(return_value=tmp_path / "owned-dist")
+    monkeypatch.setattr(AstrBotUpdater, "ensure_dashboard", prepare)
+    await basic.check_dashboard(tmp_path)
+    prepare.assert_awaited_once_with()
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("consider_prerelease", [True, False])
+async def test_empty_release_feed_has_no_update(
+    monkeypatch: pytest.MonkeyPatch,
+    fake_async_client_state: _FakeAsyncClientState,
+    consider_prerelease: bool,
+) -> None:
+    """An unpublished repository must not fail when checking for updates."""
+    import astrbot.core.zip_updater as zip_updater_module
+
+    fake_async_client_state.json_payload = []
+    monkeypatch.setattr(
+        zip_updater_module, "httpx", _build_fake_httpx_module(fake_async_client_state)
+    )
+    updater = AstrBotUpdater()
+    assert await updater.check_update(consider_prerelease) is None
+    assert fake_async_client_state.requested_urls == [
+        "https://astrbot.pyabunny.com/releases.json"
+    ]
+
+
+@pytest.mark.asyncio
+async def test_release_feed_accepts_optional_github_names_and_notes(
+    monkeypatch: pytest.MonkeyPatch,
+    fake_async_client_state: _FakeAsyncClientState,
+) -> None:
+    """GitHub permits releases without a display name or release notes."""
+    import astrbot.core.zip_updater as zip_updater_module
+
+    fake_async_client_state.json_payload = [
+        {
+            "name": None,
+            "tag_name": "v99.0.0",
+            "published_at": "2026-10-31T00:00:00Z",
+            "body": None,
+            "zipball_url": "https://github.com/Sakura520222/AstrBot/archive/v99.0.0.zip",
+        }
+    ]
+    monkeypatch.setattr(
+        zip_updater_module, "httpx", _build_fake_httpx_module(fake_async_client_state)
+    )
+    release = await AstrBotUpdater().check_update(False)
+    assert release is not None
+    assert release.version == "v99.0.0"
+    assert release.body == ""
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize("payload", [{}, {"message": "Rate limit exceeded"}, None])
+async def test_invalid_release_feed_is_not_treated_as_up_to_date(
+    monkeypatch: pytest.MonkeyPatch,
+    fake_async_client_state: _FakeAsyncClientState,
+    payload,
+) -> None:
+    """Malformed responses must surface as an unavailable release source."""
+    import astrbot.core.zip_updater as zip_updater_module
+
+    fake_async_client_state.json_payload = payload
+    monkeypatch.setattr(
+        zip_updater_module, "httpx", _build_fake_httpx_module(fake_async_client_state)
+    )
+    with pytest.raises(Exception, match="Failed to parse release information"):
+        await AstrBotUpdater().check_update(False)
 
 
 @pytest.mark.asyncio

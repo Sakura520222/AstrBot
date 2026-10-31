@@ -68,7 +68,7 @@ Find the official bubblewrap documentation and explain what problems it helps so
 With a provider that supports page extraction, you can also ask:
 
 ```text
-Read this page and summarize its installation steps: https://docs.astrbot.app/en/deploy/astrbot/docker.html
+Read this page and summarize its installation steps: https://astrbot.pyabunny.com/docs/en/deploy/astrbot/docker.html
 ```
 
 The model decides whether to search, which keywords to use, and whether to read a page afterward. Enabling search does not make every message access the internet. Ask it to “search first, then answer” when you need current information.

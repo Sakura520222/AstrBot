@@ -19,15 +19,15 @@ AstrBot 的「应用类型」选项包括：
 
 >[!TIP]
 >请确保你在 AstrBot 里设置的 APP 类型和 Dify 里面创建的应用的类型一致。
->![image](https://files.astrbot.app/docs/source/images/dify/image-3.png)
+>![image](/images/9f1e633878207ce6.png)
 
 ### Chat 和 Agent 应用
 
 按下图所示创建你的 Dify Chat 和 Agent 应用的密钥：
 
-![image](https://files.astrbot.app/docs/source/images/dify/chat-agent-api-key.png)
+![image](/images/417d36c39a11d5b4.png)
 
-![image](https://files.astrbot.app/docs/source/images/dify/chat-agent-api-key-2.png)
+![image](/images/83983711ead39605.png)
 
 复制密钥并粘贴到配置中的 `API Key` 字段中，点击「保存配置」。
 
@@ -37,7 +37,7 @@ AstrBot 的「应用类型」选项包括：
 
 Workflow 应用接收输入变量，然后执行工作流，最后输出结果。
 
-![image](https://files.astrbot.app/docs/source/images/dify/workflow-io-key.png)
+![image](/images/a83e8df68322edf5.png)
 
 对于 Workflow 应用，AstrBot 在每次请求时会附上两个变量:
 
@@ -56,7 +56,7 @@ Workflow 应用接收输入变量，然后执行工作流，最后输出结果�
 
 点击右上角发布-访问 API-点击右上角 API 密钥-创建密钥，然后复制 API Key。
 
-![image](https://files.astrbot.app/docs/source/images/dify/workflow-api-key.png)
+![image](/images/46450b8c94d9a8e2.png)
 
 复制密钥并粘贴到配置中的 `API Key` 字段中，点击「保存配置」。
 
@@ -68,11 +68,11 @@ Workflow 应用接收输入变量，然后执行工作流，最后输出结果�
 
 可以使用 `/set` 指令动态设置输入变量，如下图所示：
 
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-5.png)
+![alt text](/images/c70dea73d7be08b2.png)
 
 当设置变量后，AstrBot 会在下次向 Dify 请求时附上您设置的变量，以灵活适配您的 Workflow。
     
-![alt text](https://files.astrbot.app/docs/source/images/dify/image-4.png)
+![alt text](/images/9eb2213fa4cc044e.png)
 
 当然，可以使用 `/unset` 指令来取消设置的变量。
 

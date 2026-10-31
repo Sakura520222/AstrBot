@@ -3,8 +3,11 @@ name: Code Format Check
 on:
   pull_request:
     branches: [ master ]
+    paths: ['**/*.py', 'pyproject.toml', 'uv.lock', '.pre-commit-config.yaml', '.github/workflows/code-format.yml']
   push:
     branches: [ master ]
+    paths: ['**/*.py', 'pyproject.toml', 'uv.lock', '.pre-commit-config.yaml', '.github/workflows/code-format.yml']
+  workflow_dispatch:
 
 concurrency:
   group: code-format-${{ github.ref }}

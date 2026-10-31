@@ -2,103 +2,38 @@
 
 ## 管理面板相关
 
-### 当管理面板打开时遇到 404 错误
+### 管理面板打开时遇到 404
 
-在 [release](https://github.com/AstrBotDevs/AstrBot/releases) 页面下载 `AstrBot-vxxxxx-dashboard.zip`，解压拖到 `AstrBot/data` 下。还不行请重启电脑（来自群里的反馈）
+先查看启动日志中的 WebUI 资源检查结果。需要手动安装时，从[版本发布页](https://github.com/Sakura520222/AstrBot/releases)下载与框架版本匹配的 `AstrBot-v<版本>-dashboard.zip`，正常停止实例，将包内 `dist/` 放入 `data/`，保留其他数据，再启动。也可以按[源码部署](/deploy/astrbot/cli#构建-webui)构建 WebUI。
 
+### 首次登录
 
-### 首次登录的默认账号和随机密码
-
-首次启动时，WebUI 的默认账号为 `astrbot`，默认密码会随机生成，不会写死为固定值。请在启动日志中查找以下内容并使用日志中的随机初始密码登录：
-
-```text
-[00:27:40.590] [Core] [INFO] [dashboard.server:523]:
- ✨✨✨
-  AstrBot v4.24.3 WebUI is ready
-
-   ➜  Local: http://localhost:6185
-   ➜  Initial username: astrbot
-   ➜  Initial password: UiYVpZxnW8k22IWqf0ru5pOy
-   ➜  Change it after logging in
- ✨✨✨
-Set dashboard.host in data/cmd_config.json to enable remote access.
-```
-
-其中的 `UiYVpZxnW8k22IWqf0ru5pOy` 就是默认密码。在使用默认密码登录后，会自动进入设置账户环节。
+按照页面提示完成账号设置。如果页面要求先登录，默认用户名为 `astrbot`，随机初始密码在首次启动日志中显示。登录后设置自己的账号密码。启动日志中的初始密码只显示一次，已有账号继续使用原密码。
 
 ### 管理面板的密码忘记了
 
-如果你忘记了 AstrBot 管理面板的密码，可以按照部署方式选择对应的方法重置。
+使用命令行交互重设密码，完成后重启实例。
 
-#### Docker 部署
-
-镜像内置了 AstrBot CLI，可以直接在容器内重置密码：
+源码部署，在项目目录执行：
 
 ```bash
-sudo docker exec -it astrbot astrbot password
-sudo docker restart astrbot # 修改后需要重启容器才能生效
+uv run --no-sync astrbot password
 ```
 
-其中第一个 `astrbot` 是容器名，如果你的容器名不同，请相应替换（可通过 `sudo docker ps` 查看容器名）。
-
-如需同时修改用户名，可以加 `--username` 参数：`sudo docker exec -it astrbot astrbot password --username <新用户名>`。
-
-#### uv / pip 软件包部署
-
-在 AstrBot 工作目录（即 `astrbot init` 初始化的目录）中执行：
+Docker 部署：
 
 ```bash
-astrbot password
+docker exec -it astrbot astrbot password
+docker restart astrbot
 ```
 
-如需同时修改用户名，可以加 `--username` 参数：`astrbot password --username <新用户名>`。
+脚本安装的工具环境：
 
-然后重启 AstrBot 生效。
-
-#### 其他部署方式
-
-对于源码、面板类等没有可用 CLI 的部署方式，可以直接修改配置文件。在 `AstrBot/data/cmd_config.json` 配置文件中找到 `"dashboard"` 字段，如下：
-
-```json
-  "dashboard": {
-    "enable": true,
-    "username": "astrbot",
-    "password": "81e0c3dxxxxxxxxxxx78862e78",
-    "pbkdf2_password": "pbkdf2_sha256$600000$1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "password_storage_upgraded": true,
-    "password_change_required": true,
-    "jwt_secret": "5e1b0280bcxxxxxxxxxxxxxxxxf4a",
-    "host": "127.0.0.1",
-    "port": 6185,
-    "disable_access_log": true,
-    "ssl": {
-      "enable": false,
-      "cert_file": "",
-      "key_file": "",
-      "ca_certs": ""
-    }
-  },
+```bash
+uv tool run astrbot password
 ```
 
-删除 `username`, `password`, `pbkdf2_password`, `password_storage_upgraded`, `password_change_required`, `jwt_secret` 六个字段（连同值一起），然后保存。上述片段修改类似如下：
-
-
-```json
-  "dashboard": {
-    "enable": true,
-    "host": "127.0.0.1",
-    "port": 6185,
-    "disable_access_log": true,
-    "ssl": {
-      "enable": false,
-      "cert_file": "",
-      "key_file": "",
-      "ca_certs": ""
-    }
-  },
-```
-
-重启后 AstrBot 将会自动生成随机的密码以及固定的用户名 `astrbot`，请在日志查看。
+需要同时修改用户名时，添加 `--username <新用户名>`。这些命令保留框架配置、插件和历史数据。
 
 ### 升级 AstrBot 后密码正确但无法登录
 
@@ -124,22 +59,6 @@ astrbot password
 > [!TIP]
 > AstrBot 为了安全起见，运行环境选择 `local` 时，默认仅允许 AstrBot 管理员使用电脑能力。
 > 运行环境可以选择 `sandbox`，此时所有用户都可以使用电脑能力（在一个隔离的沙箱中）。详情请看 [AstrBot 沙箱环境](/use/astrbot-agent-sandbox.md)
-
-### 通过 AstrBot 桌面客户端安装的 AstrBot，data 目录在哪？
-
-在家目录下的 `.astrbot` 目录下。
-
-- Windows: `C:\Users\你的用户名\.astrbot`
-- MacOS / Linux: `/Users/你的用户名/.astrbot` 或者 `/home/你的用户名/.astrbot`
-
-### 通过 AstrBot Launcher 安装的 AstrBot，data 目录在哪？
-
-如果是旧版本的 AstrBot Launcher（Powershell），data 目录就在 Launcher bat 脚本的同级目录下。
-
-如果是新版本的 AstrBot Launcher（可视化），data 目录在家目录下的 `.astrbot_launcher` 目录下。
-
-- Windows: `C:\Users\你的用户名\.astrbot_launcher`
-- MacOS / Linux: `/Users/你的用户名/.astrbot_launcher` 或者 `/home/你的用户名/.astrbot_launcher`
 
 ### 机器人在群聊无法聊天
 
@@ -174,7 +93,7 @@ astrbot password
 
 ### 安装插件后报错 `No module named 'xxx'`
 
-![image](https://files.astrbot.app/docs/source/images/faq/image.png)
+![image](/images/3a147e44f3eb7d04.png)
 
 这个是因为插件依赖的库没有被正常安装。一般情况下，AstrBot 会在安装好插件后自动为插件安装依赖库，如果出现了以下情况可能造成安装失败：
 

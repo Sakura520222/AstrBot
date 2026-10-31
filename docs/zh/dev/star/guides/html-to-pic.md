@@ -16,7 +16,7 @@ async def on_aiocqhttp(self, event: AstrMessageEvent, text: str):
     yield event.image_result(url)
 ```
 
-![image](https://files.astrbot.app/docs/source/images/plugin/image-3.png)
+![image](/images/34590afed479835f.png)
 
 ## 自定义(基于 HTML)
 
@@ -49,7 +49,7 @@ async def custom_t2i_tmpl(self, event: AstrMessageEvent):
 
 返回的结果:
 
-![image](https://files.astrbot.app/docs/source/images/plugin/fcc2dcb472a91b12899f617477adc5c7.png)
+![image](/images/62fde912efa91dca.png)
 
 这只是一个简单的例子。得益于 HTML 和 DOM 渲染器的强大性，你可以进行更复杂和更美观的的设计。除此之外，Jinja2 支持循环、条件等语法以适应列表、字典等数据结构。你可以从网上了解更多关于 Jinja2 的知识。
 

@@ -1,39 +1,17 @@
-# Deploy AstrBot on CasaOS
+# Deploy with CasaOS
 
-## Install CasaOS
+Use CasaOS custom application installation with these settings:
 
-```bash
-curl -fsSL https://get.casaos.io | sudo bash
-```
+| Setting | Value |
+| --- | --- |
+| Image | `ghcr.io/sakura520222/astrbot:latest` |
+| Container port | `6185/tcp` |
+| Host port | `6185` |
+| Container data path | `/AstrBot/data` |
+| Host data path | A persistent directory, such as `/DATA/AppData/astrbot` |
+| Environment | `TZ=Asia/Shanghai` |
+| Restart policy | `unless-stopped` |
 
-## Add CasaOS-AppStore-Play App Store Source
+Open `http://CASAOS-HOST:6185`, create an administrator account, and configure the bot. Back up the host data directory before updating and keep the same mount when replacing the container.
 
-![image](https://files.astrbot.app/docs/source/images/casaos/image.png)
-
-Click `More Apps`, then enter:
-
-```txt
-https://play.cuse.eu.org/Cp0204-AppStore-Play.zip
-```
-
-And add it, wait for the addition to complete.
-
-If your network environment is in mainland China, please search for and add `dkTurbo` first, otherwise you may not be able to pull the AstrBot image.
-
-![image](https://files.astrbot.app/docs/source/images/casaos/image-1.png)
-
-Enter `Astrbot` to find AstrBot.
-
-![image](https://files.astrbot.app/docs/source/images/casaos/image-2.png)
-
-Click the icon (not the install button), then hover over the `Install` button and click Custom Install.
-
-![image](https://files.astrbot.app/docs/source/images/casaos/image-3.png)
-
-In the Network section, select `host`.
-
-![image](https://files.astrbot.app/docs/source/images/casaos/image-4.png)
-
-Then click `Install` to start the installation.
-
-After installation is complete, the AstrBot APP will appear on the main interface. Click it to open the dashboard.
+Add adapter or sandbox ports as required by their guides. See [Docker deployment](/en/deploy/astrbot/docker) for Compose configuration.

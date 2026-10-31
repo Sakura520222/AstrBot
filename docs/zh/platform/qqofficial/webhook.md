@@ -62,7 +62,7 @@ Webhook 模式还需要在 QQ 开放平台的回调配置中勾选群事件 `GRO
 
 点击创建好的机器人，然后你将会被导航到机器人的管理页面。如下图所示：
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image.png)
+![image](/images/fbefdec5bd42611b.png)
 
 ### 允许机器人加入频道/群/私聊
 
@@ -70,7 +70,7 @@ Webhook 模式还需要在 QQ 开放平台的回调配置中勾选群事件 `GRO
 
 然后你将会看到 QQ 群配置、消息列表配置和 QQ 频道配置。根据你的需求来选择QQ群、允许私聊的QQ号、QQ频道。
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image-1.png)
+![image](/images/91d6a94c8a6451ec.png)
 
 ### 获取 appid、secret
 
@@ -84,7 +84,7 @@ Webhook 模式还需要在 QQ 开放平台的回调配置中勾选群事件 `GRO
 
 点击 `开发->开发设置`，找到 IP 白名单。添加你的服务器 IP 地址。
 
-![image](https://files.astrbot.app/docs/source/images/qqofficial/image-3.png)
+![image](/images/c268604be54260b3.png)
 
 > [!TIP]
 > 如果你不知道你的服务器 IP 地址，可以在终端中输入 `curl ifconfig.me` 来获取。或者登录 [ip138.com](https://ip138.com/) 查看。
@@ -131,7 +131,7 @@ Webhook 回调地址必须可以被 QQ 开放平台公网访问，并且需要�
 
 填写好之后，添加事件。需要接收群聊全量消息时，请勾选群事件 `GROUP_MESSAGE_CREATE`；同时按需勾选单聊事件、频道事件等。
 
-![image](https://files.astrbot.app/docs/source/images/webhook/image.png)
+![image](/images/4e7f8642f63eeeb5.png)
 
 输入完成后，将光标挪出输入框，将会发送一次验证请求。如果没问题，右边的确定配置按钮将可点击，点击即可。
 
