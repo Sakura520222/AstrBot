@@ -41,12 +41,16 @@ def run_command(
     print(f"$ {printable}")
     try:
         if capture_output:
+            # Git emits UTF-8 regardless of the platform locale; without an
+            # explicit encoding Windows decodes output as GBK and crashes on
+            # non-ASCII commit subjects.
             result = subprocess.run(
                 args,
                 cwd=cwd,
                 check=True,
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
             )
             return result.stdout.strip()
 
