@@ -289,7 +289,7 @@ wheels = [
 
 [[package]]
 name = "astrbot"
-version = "4.29.3"
+version = "4.29.4"
 source = { editable = "." }
 dependencies = [
     { name = "aiocqhttp" },
@@ -339,6 +339,7 @@ dependencies = [
     { name = "python-ripgrep", marker = "python_full_version < '3.14'" },
     { name = "python-socks" },
     { name = "python-telegram-bot" },
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
     { name = "qq-botpy" },
     { name = "qrcode" },
     { name = "quart", version = "0.22.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.13'" },
@@ -418,6 +419,7 @@ requires-dist = [
     { name = "python-ripgrep", marker = "python_full_version < '3.14'", specifier = "==0.0.8" },
     { name = "python-socks", specifier = ">=2.8.0" },
     { name = "python-telegram-bot", specifier = ">=22.6" },
+    { name = "pywin32", marker = "sys_platform == 'win32'", specifier = ">=306" },
     { name = "qq-botpy", specifier = "==1.2.1" },
     { name = "qrcode", specifier = ">=8.2" },
     { name = "quart", specifier = ">=0.20.0" },
