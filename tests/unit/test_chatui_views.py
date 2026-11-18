@@ -554,14 +554,16 @@ async def test_callback_commit_and_ack_precede_model_generation(views, fail):
     assert store.get(record["id"])["revision"] == (1 if fail else 2)
 
 
-def test_disabled_version_and_escaping_resources_rejected(views, tmp_path):
+def test_disabled_view_and_wrong_version_rejected(views):
     _, _, plugin, _ = views
     with pytest.raises(ViewError):
         resolve_view(__name__, "results", 2)
     plugin.activated = False
     with pytest.raises(ViewError):
         resolve_view(__name__, "results")
-    plugin.activated = True
+
+
+def test_view_resource_symlink_cannot_escape_plugin(views, tmp_path, require_symlink):
     entry = tmp_path / "views/results/index.html"
     entry.unlink()
     outside = tmp_path.parent / f"{tmp_path.name}-outside.html"
