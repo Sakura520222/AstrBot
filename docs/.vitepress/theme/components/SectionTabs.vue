@@ -1,12 +1,10 @@
 <script setup>
 import { computed } from 'vue'
-import { useData, useRoute, withBase } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
 
 const route = useRoute()
-const { frontmatter, site } = useData()
-const documentPath = computed(() => route.path.startsWith(site.value.base)
-  ? '/' + route.path.slice(site.value.base.length)
-  : route.path)
+const { frontmatter } = useData()
+const documentPath = computed(() => route.path.replace(/^\/docs(?=\/|$)/, ''))
 
 const isEnglish = computed(() => documentPath.value.startsWith('/en/'))
 
@@ -55,7 +53,7 @@ function isActive(tab) {
           :key="tab.link"
           class="tab"
           :class="{ active: isActive(tab) }"
-          :href="withBase(tab.link)"
+          :href="`/docs${tab.link}`"
         >
           {{ tab.text }}
         </a>

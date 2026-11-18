@@ -1,12 +1,7 @@
 <script setup>
-import { useData, useRouter, withBase } from "vitepress";
+import { useData, withBase } from "vitepress";
 
-const router = useRouter();
 const { lang } = useData();
-
-const goHome = () => {
-  router.go(withBase("/"));
-};
 </script>
 
 <template>
@@ -22,13 +17,13 @@ const goHome = () => {
     <p class="not-found-desc">
       {{
         lang.startsWith("en")
-          ? "Check the address or return to the documentation."
-          : "请检查地址，或返回文档首页。"
+          ? "Check the address or return to the homepage."
+          : "请检查地址，或返回首页。"
       }}
     </p>
-    <button @click="goHome" class="not-found-button">
-      {{ lang.startsWith("en") ? "Documentation" : "文档首页" }}
-    </button>
+    <a :href="withBase('/')" class="not-found-button">
+      {{ lang.startsWith("en") ? "Home" : "返回首页" }}
+    </a>
   </div>
 </template>
 
@@ -64,8 +59,8 @@ const goHome = () => {
 .not-found-button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  color: #fff;
-  background-color: var(--vp-c-brand-1);
+  color: var(--vp-button-brand-text);
+  background-color: var(--vp-button-brand-bg);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -73,7 +68,7 @@ const goHome = () => {
 }
 
 .not-found-button:hover {
-  background-color: var(--vp-c-brand-2);
+  background-color: var(--vp-button-brand-hover-bg);
 }
 
 @media (max-width: 768px) {

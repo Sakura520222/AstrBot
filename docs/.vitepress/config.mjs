@@ -2,31 +2,46 @@ import { defineConfig } from "vitepress";
 import { head } from "./config/head";
 
 export default defineConfig({
-  base: "/docs/",
-  title: "AstrBot 文档",
+  title: "AstrBot",
   description: "AstrBot 部署、消息平台接入、模型配置、插件开发与使用文档",
   head,
   rewrites: {
-    "zh/:rest*": ":rest*",
+    "zh/:rest*": "docs/:rest*",
+    "en/:rest*": "docs/en/:rest*",
   },
   sitemap: {
-    hostname: "https://astrbot.pyabunny.com/docs/",
+    hostname: "https://astrbot.pyabunny.com/",
   },
   lastUpdated: true,
   ignoreDeadLinks: false,
+  markdown: {
+    config(md) {
+      // Absolute links in guides previously inherited the /docs/ VitePress base.
+      const docRoute = /^\/(?:en(?:\/|$)|(?:config|deploy|dev|others|platform|providers|use)(?:\/|$)|(?:community|faq|what-is-astrbot)(?:[.#?]|$))/;
+      const renderLink = md.renderer.rules.link_open;
+      md.renderer.rules.link_open = (tokens, index, options, env, self) => {
+        const token = tokens[index];
+        const href = token.attrGet("href");
+        if (href && docRoute.test(href)) token.attrSet("href", `/docs${href}`);
+        return renderLink(tokens, index, options, env, self);
+      };
+    },
+  },
   locales: {
     root: {
       label: "简体中文",
       lang: "zh-Hans",
+      link: "/docs/",
       themeConfig: {
         nav: [
           {
-            text: "主页",
-            link: "https://astrbot.pyabunny.com",
+            text: "首页",
+            link: "/",
           },
           {
-            text: "开始使用",
-            link: "/deploy/astrbot/cli",
+            text: "文档",
+            link: "/docs/",
+            activeMatch: "^/docs/",
           },
           {
             text: "版本发布",
@@ -34,7 +49,8 @@ export default defineConfig({
           },
           {
             text: "HTTP API",
-            link: "https://astrbot.pyabunny.com/docs/scalar.html",
+            link: "/scalar.html",
+            target: "_blank",
           },
         ],
         sidebar: [
@@ -43,21 +59,21 @@ export default defineConfig({
             items: [
               {
                 text: "关于 AstrBot",
-                link: "/what-is-astrbot",
+                link: "/docs/what-is-astrbot",
               },
               {
                 text: "交流与反馈",
-                link: "/community",
+                link: "/docs/community",
               },
               {
                 text: "常见问题",
-                link: "/faq",
+                link: "/docs/faq",
               },
             ],
           },
           {
             text: "部署",
-            base: "/deploy",
+            base: "/docs/deploy",
             collapsed: false,
             items: [
               {
@@ -98,7 +114,7 @@ export default defineConfig({
           },
           {
             text: "接入消息平台",
-            base: "/platform",
+            base: "/docs/platform",
             items: [
               {
                 text: "快速接入指南",
@@ -177,7 +193,7 @@ export default defineConfig({
               },
               {
                 text: "Satori",
-                base: "/platform/satori",
+                base: "/docs/platform/satori",
                 collapsed: true,
                 items: [
                   {
@@ -208,7 +224,7 @@ export default defineConfig({
           },
           {
             text: "接入 AI",
-            base: "/providers",
+            base: "/docs/providers",
             items: [
               {
                 text: "模型服务",
@@ -290,7 +306,7 @@ export default defineConfig({
           },
           {
             text: "使用",
-            base: "/use",
+            base: "/docs/use",
             items: [
               {
                 text: "WebUI",
@@ -379,12 +395,12 @@ export default defineConfig({
           },
           {
             text: "开发",
-            base: "/dev",
+            base: "/docs/dev",
             collapsed: true,
             items: [
               {
                 text: "插件开发",
-                base: "/dev/star",
+                base: "/docs/dev/star",
                 collapsed: true,
                 items: [
                   {
@@ -459,7 +475,7 @@ export default defineConfig({
               },
               {
                 text: "插件市场规范",
-                base: "/dev/plugin-market",
+                base: "/docs/dev/plugin-market",
                 collapsed: true,
                 items: [
                   {
@@ -492,7 +508,7 @@ export default defineConfig({
           },
           {
             text: "其他",
-            base: "/others",
+            base: "/docs/others",
             collapsed: true,
             items: [
               {
@@ -539,18 +555,19 @@ export default defineConfig({
         },
       },
     },
-    en: {
+    "docs/en": {
       label: "English",
       lang: "en-US",
       themeConfig: {
         nav: [
           {
             text: "Home",
-            link: "https://astrbot.pyabunny.com",
+            link: "/",
           },
           {
-            text: "Get started",
-            link: "/en/deploy/astrbot/cli",
+            text: "Docs",
+            link: "/docs/en/",
+            activeMatch: "^/docs/en/",
           },
           {
             text: "Releases",
@@ -558,7 +575,8 @@ export default defineConfig({
           },
           {
             text: "HTTP API",
-            link: "https://astrbot.pyabunny.com/docs/scalar.html",
+            link: "/scalar.html",
+            target: "_blank",
           },
         ],
         sidebar: [
@@ -567,21 +585,21 @@ export default defineConfig({
             items: [
               {
                 text: "What is AstrBot",
-                link: "/en/what-is-astrbot",
+                link: "/docs/en/what-is-astrbot",
               },
               {
                 text: "Feedback",
-                link: "/en/community",
+                link: "/docs/en/community",
               },
               {
                 text: "FAQ",
-                link: "/en/faq",
+                link: "/docs/en/faq",
               },
             ],
           },
           {
             text: "Deployment",
-            base: "/en/deploy",
+            base: "/docs/en/deploy",
             collapsed: false,
             items: [
               {
@@ -622,7 +640,7 @@ export default defineConfig({
           },
           {
             text: "Messaging Platforms",
-            base: "/en/platform",
+            base: "/docs/en/platform",
             collapsed: false,
             items: [
               {
@@ -702,7 +720,7 @@ export default defineConfig({
               },
               {
                 text: "Satori",
-                base: "/en/platform/satori",
+                base: "/docs/en/platform/satori",
                 collapsed: true,
                 items: [
                   {
@@ -733,7 +751,7 @@ export default defineConfig({
           },
           {
             text: "AI Integration",
-            base: "/en/providers",
+            base: "/docs/en/providers",
             collapsed: false,
             items: [
               {
@@ -816,7 +834,7 @@ export default defineConfig({
           },
           {
             text: "Usage",
-            base: "/en/use",
+            base: "/docs/en/use",
             collapsed: true,
             items: [
               {
@@ -906,12 +924,12 @@ export default defineConfig({
           },
           {
             text: "Development",
-            base: "/en/dev",
+            base: "/docs/en/dev",
             collapsed: true,
             items: [
               {
                 text: "Plugin Development",
-                base: "/en/dev/star",
+                base: "/docs/en/dev/star",
                 collapsed: true,
                 items: [
                   {
@@ -982,7 +1000,7 @@ export default defineConfig({
               },
               {
                 text: "Plugin Market Specification",
-                base: "/en/dev/plugin-market",
+                base: "/docs/en/dev/plugin-market",
                 collapsed: true,
                 items: [
                   {
@@ -1015,7 +1033,7 @@ export default defineConfig({
           },
           {
             text: "Others",
-            base: "/en/others",
+            base: "/docs/en/others",
             collapsed: true,
             items: [
               {
@@ -1064,6 +1082,8 @@ export default defineConfig({
   },
   themeConfig: {
     siteTitle: "AstrBot",
+    logoLink: "/",
+    i18nRouting: false,
     search: {
       provider: "local",
       options: {

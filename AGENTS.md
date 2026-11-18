@@ -76,7 +76,7 @@ CI 按组件路径触发。文档和官网改动只运行相关构建与链接�
 
 `release.yml` 发布 GitHub Release、核心/WebUI ZIP、Python 分发包、SHA256 校验文件及 GHCR 镜像，仅使用本仓库的 `GITHUB_TOKEN`，不向上游 PyPI、Docker Hub、R2 或 release-harbour 发布。
 
-官网源位于 `site/`，中文文档位于 `docs/zh/`，由 GitHub Actions 构建验证后自动部署到本仓库 GitHub Pages。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
+官网首页由 `docs/index.md` 与 VitePress 主题中的 Vue 组件提供。中文文档位于 `docs/zh/`，英文文档位于 `docs/en/`，与官网共用构建和 GitHub Pages 部署。修改域名时同步 README、包元数据、WebUI 链接和站点配置。CI 不假定上游 Secrets 存在，不调用付费模型接口或向用户、群聊发送验证消息。
 
 官网和文档直接介绍功能与操作，不写“个人 Fork”“首个版本”等迁移过程文案。文档必须通过站内死链检查，图片优先使用站内资源。删除页面时同步清理导航、正文链接和搜索入口。
 
