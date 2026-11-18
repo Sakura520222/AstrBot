@@ -247,6 +247,8 @@ export default defineConfig({
                     text: "302.AI",
                     link: "/302ai",
                   },
+                  { text: "DeepSeek TTS", link: "/deepseek-tts" },
+                  { text: "DeepSeek STT", link: "/deepseek-stt" },
                   {
                     text: "Ollama",
                     link: "/provider-ollama",
@@ -407,15 +409,31 @@ export default defineConfig({
                   },
                   {
                     text: "插件可视化视图",
-                    link: "/guides/plugin-pages",
+                    collapsed: true,
+                    items: [
+                      { text: "概览", link: "/guides/plugin-views/" },
+                      { text: "独立插件页面", link: "/guides/plugin-views/plugin-page" },
+                      { text: "消息交互组件", link: "/guides/plugin-views/chat-message" },
+                      { text: "工作台页面", link: "/guides/plugin-views/workbench" },
+                      { text: "共享 Bridge API", link: "/guides/plugin-views/bridge" },
+                      { text: "后端 Web API", link: "/guides/plugin-views/web-api" },
+                    ],
                   },
                   {
                     text: "插件国际化",
                     link: "/guides/plugin-i18n",
                   },
                   {
-                    text: "调用 AI",
+                    text: "AI",
                     link: "/guides/ai",
+                    collapsed: true,
+                    items: [
+                      { text: "模型", link: "/guides/ai/models" },
+                      { text: "Agent", link: "/guides/ai/agent" },
+                      { text: "工具", link: "/guides/ai/tools" },
+                      { text: "会话与对话", link: "/guides/ai/conversations" },
+                      { text: "其他", link: "/guides/ai/other" },
+                    ],
                   },
                   {
                     text: "存储",
@@ -755,6 +773,8 @@ export default defineConfig({
                     text: "302.AI",
                     link: "/302ai",
                   },
+                  { text: "DeepSeek TTS", link: "/deepseek-tts" },
+                  { text: "DeepSeek STT", link: "/deepseek-stt" },
                   {
                     text: "Ollama",
                     link: "/provider-ollama",
@@ -916,7 +936,15 @@ export default defineConfig({
                   },
                   {
                     text: "Plugin Views",
-                    link: "/guides/plugin-pages",
+                    collapsed: true,
+                    items: [
+                      { text: "Overview", link: "/guides/plugin-views/" },
+                      { text: "Standalone Plugin Page", link: "/guides/plugin-views/plugin-page" },
+                      { text: "Interactive Message Component", link: "/guides/plugin-views/chat-message" },
+                      { text: "Workbench Page", link: "/guides/plugin-views/workbench" },
+                      { text: "Shared Bridge API", link: "/guides/plugin-views/bridge" },
+                      { text: "Backend Web APIs", link: "/guides/plugin-views/web-api" },
+                    ],
                   },
                   {
                     text: "Plugin Internationalization",
@@ -925,6 +953,14 @@ export default defineConfig({
                   {
                     text: "AI",
                     link: "/guides/ai",
+                    collapsed: true,
+                    items: [
+                      { text: "Models", link: "/guides/ai/models" },
+                      { text: "Agents", link: "/guides/ai/agent" },
+                      { text: "Tools", link: "/guides/ai/tools" },
+                      { text: "Sessions and Conversations", link: "/guides/ai/conversations" },
+                      { text: "Other APIs", link: "/guides/ai/other" },
+                    ],
                   },
                   {
                     text: "Storage",

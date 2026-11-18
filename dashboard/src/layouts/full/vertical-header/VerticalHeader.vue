@@ -167,6 +167,7 @@ const chatHeaderStyle = computed(() => {
     left: "0px",
     width: "100%",
     "--astrbot-chat-sidebar-width": `${sidebarWidth}px`,
+    "--astrbot-workbench-preferred-width": chatHeader.workbenchWidth ? `${chatHeader.workbenchWidth}px` : undefined,
   };
 });
 const getAppUpdaterBridge = (): AstrBotAppUpdaterBridge | null => {
@@ -1100,7 +1101,7 @@ onMounted(async () => {
 <template>
   <v-app-bar
     elevation="0"
-    height="40"
+    height="42"
     data-tauri-drag-region
     class="top-header"
     :class="{
@@ -1172,7 +1173,7 @@ onMounted(async () => {
 
       <!-- Bot/Chat mode switch - single button, hidden in chat mobile menu -->
       <v-btn
-        v-if="!isChatPath || !$vuetify.display.smAndDown"
+        v-if="!customizer.chatNavigationInSidebar && (!isChatPath || !$vuetify.display.smAndDown)"
         class="mode-switch-btn"
         :class="{ 'mr-4 hidden-xs': !isChatPath }"
         variant="text"
@@ -1213,8 +1214,10 @@ onMounted(async () => {
         <!-- Bot/Chat 模式切换 - 仅在手机端显示 -->
         <template
           v-if="
-            (isChatPath && $vuetify.display.smAndDown) ||
-            (!isChatPath && $vuetify.display.xs)
+            !customizer.chatNavigationInSidebar && (
+              (isChatPath && $vuetify.display.smAndDown) ||
+              (!isChatPath && $vuetify.display.xs)
+            )
           "
         >
           <div class="mobile-mode-switch-wrapper">
@@ -1405,6 +1408,8 @@ onMounted(async () => {
         </v-list-item-title>
       </v-list-item>
       </StyledMenu>
+      <!-- Keep the Teleport destination mounted while ChatUI leaves or re-enters. -->
+      <div v-show="isChatPath" id="chat-workbench-header" />
       <!-- Custom caption buttons on Windows, where the native title bar is disabled. -->
       <div v-if="isWindowsDesktop" class="header-caption-btns">
         <v-btn
@@ -1626,6 +1631,7 @@ onMounted(async () => {
               <div class="release-message-preview">
                 <MarkdownRender
                   :content="releaseMessage"
+                  :is-dark="isDarkTheme"
                   :typewriter="false"
                   class="markdown-content"
                 />
@@ -1822,6 +1828,7 @@ onMounted(async () => {
         >
           <MarkdownRender
             :content="selectedReleaseNotes"
+            :is-dark="isDarkTheme"
             :typewriter="false"
             class="markdown-content"
           />
@@ -2589,12 +2596,13 @@ onMounted(async () => {
 
 html {
   /* Keep in sync with the app bar height above. */
-  --astrbot-toolbar-height: 40px;
+  --astrbot-toolbar-height: 42px;
 }
 
 .top-header,
 .top-header.chat-mode-header,
 .top-header.chat-mode-header.chat-mode-header--dark {
+  background: var(--astrbot-chrome-bg, #f2f2f7) !important;
   border-bottom: 0 !important;
   box-shadow: none !important;
 }
@@ -2744,4 +2752,38 @@ html[data-astrbot-desktop-platform='macos'] .top-header.chat-mode-header.chat-mo
   color: #fff;
 }
 
+</style>
+
+<style>
+#chat-workbench-header:empty {
+  display: none;
+}
+#chat-workbench-header {
+  min-width: 0;
+  flex-shrink: 0;
+}
+#chat-workbench-header:has(.workbench-launcher) {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  height: var(--astrbot-toolbar-height);
+}
+#chat-workbench-header:has(.workbench-header) {
+  width: calc(var(--astrbot-workbench-width) - var(--workbench-caption-width, 0px));
+  border-left: 1px solid rgba(var(--v-theme-on-surface), 0.1);
+}
+.top-header:has(#chat-workbench-header .workbench-header) {
+  --astrbot-active-workbench-width: var(--astrbot-workbench-width);
+}
+.top-header:has(#chat-workbench-header:not(:empty)) .header-actions {
+  margin-right: -18px;
+}
+.top-header:has(.header-caption-btns) {
+  --workbench-caption-width: 132px;
+}
+@media (min-width: 960px) and (max-width: 1400px) {
+  .top-header:has(#chat-workbench-header .workbench-header) .chat-toolbar-context-title {
+    display: none;
+  }
+}
 </style>
