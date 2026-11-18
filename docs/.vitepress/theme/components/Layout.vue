@@ -23,12 +23,10 @@ watch(() => route.path, closeSidebar)
 
 useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
 
-const { frontmatter, site } = useData()
+const { frontmatter } = useData()
 
 const sidebarScopeClass = computed(() => {
-  const path = route.path.startsWith(site.value.base)
-    ? '/' + route.path.slice(site.value.base.length)
-    : route.path
+  const path = route.path.replace(/^\/docs(?=\/|$)/, '')
   const normalizedPath = path
     .replace(/\.html$/, '')
     .replace(/\/$/, '') || '/'

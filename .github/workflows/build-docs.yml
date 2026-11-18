@@ -3,9 +3,9 @@ name: Website and Docs CI
 on:
   push:
     branches: [master]
-    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
   pull_request:
-    paths: ['docs/**', 'site/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
+    paths: ['docs/**', 'scripts/build_site.mjs', 'scripts/check_site_links.py', '.github/workflows/build-docs.yml']
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,7 @@ jobs:
           node-version: '24'
           cache: pnpm
           cache-dependency-path: docs/pnpm-lock.yaml
-      - name: Build Chinese documentation
+      - name: Build website and documentation
         working-directory: docs
         run: |
           pnpm install --frozen-lockfile
@@ -70,9 +70,9 @@ jobs:
           PY
       - name: Check website entry files
         run: |
-          test -s site/index.html
-          test -s site/styles.css
-          test -s site/favicon.svg
+          test -s site-dist/index.html
+          test -s site-dist/docs/index.html
+          test -s site-dist/docs/en/index.html
           python scripts/check_site_links.py
       - uses: actions/upload-pages-artifact@v5
         with:
