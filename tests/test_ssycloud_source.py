@@ -28,14 +28,14 @@ def test_ssycloud_template_uses_expected_defaults():
     template = templates["SSYCloud(胜算云)"]
     assert template["type"] == "ssycloud_chat_completion"
     assert template["api_base"] == "https://router.shengsuanyun.com/api/v1"
-    assert template["custom_headers"] == {"X-Title": "AstrBot"}
+    assert template["custom_headers"] == {"X-Title": "PyaBot"}
 
 
 def test_ssycloud_provider_sets_endpoint_and_attribution_header():
     provider = _make_provider()
 
     assert str(provider.client.base_url) == "https://router.shengsuanyun.com/api/v1/"
-    assert provider.client._custom_headers["X-Title"] == "AstrBot"
+    assert provider.client._custom_headers["X-Title"] == "PyaBot"
 
 
 def test_ssycloud_provider_preserves_custom_attribution_header():
