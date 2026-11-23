@@ -25,7 +25,7 @@ class ProviderSSYCloud(ProviderOpenAIOfficial):
         if not isinstance(custom_headers, dict):
             custom_headers = {}
             provider_config["custom_headers"] = custom_headers
-        custom_headers.setdefault("X-Title", "AstrBot")
+        custom_headers.setdefault("X-Title", "PyaBot")
         super().__init__(provider_config, provider_settings)
 
     async def get_models(self) -> list[str]:
