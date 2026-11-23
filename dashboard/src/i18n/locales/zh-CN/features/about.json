@@ -1,17 +1,17 @@
 {
   "hero": {
-    "title": "AstrBot · 个人 Fork",
-    "subtitle": "由 Sakura520222 独立维护，基于 AstrBot 上游项目",
+    "title": "PyaBot",
+    "subtitle": "多平台 AI 助手框架，兼容 AstrBot 插件生态，由 Sakura520222 维护",
     "starButton": "Star 这个项目! 🌟",
     "issueButton": "提交 Issue"
   },
   "contributors": {
     "title": "贡献者",
     "description": "本项目由众多开源社区成员共同维护。感谢每一位贡献者的付出！",
-    "viewLink": "查看 AstrBot 贡献者"
+    "viewLink": "查看 PyaBot 贡献者"
   },
   "stats": {
     "title": "全球部署",
-    "license": "AstrBot 采用 AGPL v3 协议开源"
+    "license": "PyaBot 基于 AstrBot 上游项目，采用 AGPL v3 协议开源"
   }
 }

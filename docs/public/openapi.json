@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "AstrBot OpenAPI v1",
+    "title": "PyaBot OpenAPI v1",
     "version": "0.1.0",
-    "description": "Target REST contract for migrating AstrBot HTTP APIs to /api/v1. Dynamic AstrBot configuration payloads are intentionally modeled as open JSON objects because their schemas are provided at runtime by template endpoints. Developer API keys currently support these scopes only: bot, provider, persona, im, config, chat, data, file, plugin, mcp, skill, plus the sensitive config:edit_admin and chat:admin sub-scopes. The config scope also grants bot and provider access, but no parent scope grants a sensitive sub-scope.\n"
+    "description": "Target REST contract for migrating PyaBot HTTP APIs to /api/v1. Dynamic PyaBot configuration payloads are intentionally modeled as open JSON objects because their schemas are provided at runtime by template endpoints. Developer API keys currently support these scopes only: bot, provider, persona, im, config, chat, data, file, plugin, mcp, skill, plus the sensitive config:edit_admin and chat:admin sub-scopes. The config scope also grants bot and provider access, but no parent scope grants a sensitive sub-scope.\n"
   },
   "x-astrbot-scope-definitions": {
     "bot": {
@@ -41,8 +41,8 @@
       "description_zh": "调用对话能力，并管理 ChatUI 会话和项目。"
     },
     "chat:admin": {
-      "description": "Allow `username` to use a configured AstrBot administrator ID. This sub-scope must be granted explicitly.",
-      "description_zh": "允许 `username` 使用 AstrBot 中已配置的管理员 ID。该子权限必须显式授予。",
+      "description": "Allow `username` to use a configured PyaBot administrator ID. This sub-scope must be granted explicitly.",
+      "description_zh": "允许 `username` 使用 PyaBot 中已配置的管理员 ID。该子权限必须显式授予。",
       "parent": "chat",
       "sensitive": true
     },
@@ -70,7 +70,7 @@
   "servers": [
     {
       "url": "http://localhost:6185",
-      "description": "Local AstrBot server"
+      "description": "Local PyaBot server"
     }
   ],
   "security": [
@@ -7165,7 +7165,7 @@
     },
     "responses": {
       "Ok": {
-        "description": "Standard AstrBot success response",
+        "description": "Standard PyaBot success response",
         "content": {
           "application/json": {
             "schema": {
@@ -7748,7 +7748,7 @@
           },
           "username": {
             "type": "string",
-            "description": "Caller-declared WebChat sender/session owner. Configured AstrBot administrator IDs require the chat:admin API key sub-scope."
+            "description": "Caller-declared WebChat sender/session owner. Configured PyaBot administrator IDs require the chat:admin API key sub-scope."
           },
           "session_id": {
             "type": "string"

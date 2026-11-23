@@ -11,9 +11,9 @@ Fully compatible with the OpenAI API format — just change the API Base and Key
 
 ![Get an API Key](https://github.com/user-attachments/assets/d717f21b-2805-4aff-ac90-f5c98f17cb79)
 
-## Configure in AstrBot
+## Configure in PyaBot
 
-Open the AstrBot dashboard , click **Providers → Chat Completion → Add → OpenAI Compatible**.
+Open the PyaBot dashboard , click **Providers → Chat Completion → Add → OpenAI Compatible**.
 
 Fill in the following:
 
@@ -52,9 +52,9 @@ These models are completely free, great for development and testing:
 
 ## More Than Chat Models
 
-AIHubMix also supports the following capabilities, all configurable in AstrBot:
+AIHubMix also supports the following capabilities, all configurable in PyaBot:
 
-| Capability | AstrBot Config Location |
+| Capability | PyaBot Config Location |
 |------------|------------------------|
 | Speech-to-Text (STT) | Providers → Speech to Text → Add |
 | Text-to-Speech (TTS) | Providers → Text to Speech → Add |
@@ -65,4 +65,4 @@ Add a provider and select a model separately in each capability tab. You can reu
 
 ## Set as Default
 
-Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for AstrBot built-in AI.
+Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for PyaBot built-in AI.

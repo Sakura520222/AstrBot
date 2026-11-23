@@ -1,10 +1,10 @@
-# Connect AstrBot to WeChat Official Account Platform
+# Connect PyaBot to WeChat Official Account Platform
 
-AstrBot supports WeChat Official Account integration (version >= v3.5.8). After setup, you can chat with AstrBot directly in the WeChat Official Account chat interface.
+PyaBot supports WeChat Official Account integration (version >= v3.5.8). After setup, you can chat with PyaBot directly in the WeChat Official Account chat interface.
 
 ## Before You Start
 
-1. Open AstrBot Dashboard.
+1. Open PyaBot Dashboard.
 2. Click `Platforms` in the left sidebar.
 3. Click `Add Adapter`.
 4. Select `weixin_official_account`.
@@ -27,14 +27,14 @@ Open `Settings & Development` -> `Development Interface Management`.
 
 ![Development Interface Management](/images/81e5b89c0d6eaf5c.png)
 
-Copy AppID and AppSecret from WeChat platform to AstrBot fields `appid` and `secret`.
+Copy AppID and AppSecret from WeChat platform to PyaBot fields `appid` and `secret`.
 
 Open IP whitelist and add your public IP(s), one per line if multiple.
 
 In server configuration, click modify.
 
-- `Token`: create any string with length 3-32, and fill the same value in AstrBot `token`.
-- `EncodingAESKey`: click random generate and fill AstrBot `encoding_aes_key`.
+- `Token`: create any string with length 3-32, and fill the same value in PyaBot `token`.
+- `EncodingAESKey`: click random generate and fill PyaBot `encoding_aes_key`.
 
 Keep `Unified Webhook Mode (unified_webhook_mode)` enabled (recommended), then click `Save` in the creation dialog (or `Save changes` for an existing bot) and wait for the adapter to reload.
 
@@ -45,7 +45,7 @@ For `URL`:
 
 > [!NOTE]
 > WeChat Official Account callback supports only ports 80 or 443. You usually need a domain and reverse proxy:
-> - Unified mode enabled: forward to AstrBot port `6185`
+> - Unified mode enabled: forward to PyaBot port `6185`
 > - Unified mode disabled: forward to adapter port `6194`
 
 Set message encryption mode to `Security Mode`.
@@ -56,7 +56,7 @@ Wait a moment and click `Submit`. If configuration is correct, you will see succ
 
 In WeChat Official Account platform, open account profile and find your QR code.
 
-Scan it with WeChat, send `help`, and check whether AstrBot replies.
+Scan it with WeChat, send `help`, and check whether PyaBot replies.
 
 If it replies, integration is successful.
 
@@ -65,7 +65,7 @@ If it replies, integration is successful.
 
 ## Reverse Proxy (Custom API Base)
 
-AstrBot supports custom endpoint via `api_base_url` for environments without stable public IP.
+PyaBot supports custom endpoint via `api_base_url` for environments without stable public IP.
 
 ## Voice Input
 

@@ -5,22 +5,22 @@
     "evening": "こんばんは",
     "newYear": "あけましておめでとうございます！"
   },
-  "subtitle": "AstrBot へようこそ。今日の稼働状況を確認し、設定を進めましょう。",
+  "subtitle": "PyaBot へようこそ。今日の稼働状況を確認し、設定を進めましょう。",
   "announcement": {
     "title": "お知らせ"
   },
   "onboard": {
     "title": "クイックガイド",
-    "subtitle": "基本設定を完了して AstrBot を使い始めましょう。",
+    "subtitle": "基本設定を完了して PyaBot を使い始めましょう。",
     "step1Title": "AI モデルを設定",
-    "step1Desc": "AstrBot で使用する AI モデルを設定します。",
+    "step1Desc": "PyaBot で使用する AI モデルを設定します。",
     "step2Title": "プラットフォームボットを設定",
-    "step2Desc": "AstrBot を QQ、Lark、WeCom、Telegram などの IM プラットフォームに接続します。",
+    "step2Desc": "PyaBot を QQ、Lark、WeCom、Telegram などの IM プラットフォームに接続します。",
     "step3Title": "エージェントにコンピューターの使用を許可",
     "step3Desc": "エージェントによるこのコンピューターへのアクセスと使用を許可するか設定します。",
     "step3HelpTitle": "エージェントにコンピューターの使用を許可",
     "step3HelpItem1": "エージェントは、ユーザーごとに分離されたワークスペースディレクトリやスキルにアクセスし、より複雑なタスクを実行できます。",
-    "step3HelpItem2": "AstrBot 管理者の場合、エージェントには Shell コマンドや Python コードの実行、およびローカルのすべてのディレクトリへのアクセスも許可されます。",
+    "step3HelpItem2": "PyaBot 管理者の場合、エージェントには Shell コマンドや Python コードの実行、およびローカルのすべてのディレクトリへのアクセスも許可されます。",
     "step3HelpClose": "閉じる",
     "step3SelectLabel": "コンピューターへのアクセス権限",
     "step3Allow": "許可",
@@ -83,7 +83,7 @@
     "disk": "ディスク",
     "daysHours": "{days}日 {hours}時間",
     "hoursMinutes": "{hours}時間 {minutes}分",
-    "scope": "稼働時間は AstrBot プロセスの起動からの時間です。CPU とメモリはホスト全体、ディスクはデータディレクトリのあるファイルシステムの使用量です。",
+    "scope": "稼働時間は PyaBot プロセスの起動からの時間です。CPU とメモリはホスト全体、ディスクはデータディレクトリのあるファイルシステムの使用量です。",
     "unavailable": "リソース使用量を取得できません。ページを更新してください。"
   }
 }

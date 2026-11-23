@@ -222,7 +222,7 @@ class ShellInstallerTests(unittest.TestCase):
                 "install",
                 "--python",
                 "3.12",
-                "git+https://github.com/Sakura520222/AstrBot.git",
+                "git+https://github.com/Sakura520222/PyaBot.git",
                 "--default-index",
                 index,
             ],
@@ -245,8 +245,8 @@ class ShellInstallerTests(unittest.TestCase):
             "    Fish: source ~/.config/fish/config.fish\n"
             "    PowerShell: . $PROFILE\n\n"
             "  Then run these commands manually:\n"
-            "    astrbot init\n"
-            "    astrbot run\n",
+            "    pyabot init\n"
+            "    pyabot run\n",
             output,
         )
 
@@ -308,14 +308,14 @@ class ShellInstallerTests(unittest.TestCase):
             ["--language", "zh-CN", "--non-interactive"]
         )
         self.assertEqual(status, 9, output)
-        self.assertNotIn("AstrBot 安装完成", output)
-        self.assertNotIn("    astrbot init", output)
+        self.assertNotIn("PyaBot 安装完成", output)
+        self.assertNotIn("    pyabot init", output)
         self.assert_install(CHINA_INDEX, [PYTHON_MIRROR, ""])
 
     def test_english_menu_and_empty_defaults_when_piped(self):
         status, output = self.run_installer([], answers="\n\n", piped=True)
         self.assertEqual(status, 0, output)
-        self.assertIn("\n  🌌 AstrBot Installer\n  -----------------------", output)
+        self.assertIn("\n  🌌 PyaBot Installer\n  -----------------------", output)
         self.assertIn("    1. English\n    2. 简体中文\n    3. 日本語", output)
         self.assertIn("  1-3 [1]:", output)
         self.assertIn("    1. Mainland China accelerated download mirrors", output)
@@ -396,7 +396,7 @@ class ShellInstallerTests(unittest.TestCase):
         self.env["TEST_FAIL_ALL"] = "1"
         status, output = self.run_installer(["--non-interactive"], existing=False)
         self.assertEqual(status, 1, output)
-        self.assertNotIn("AstrBot has been installed", output)
+        self.assertNotIn("PyaBot has been installed", output)
         self.assertFalse((self.root / "uv-args").exists())
 
 

@@ -1,11 +1,11 @@
 # 接入 OneBot v11 协议实现
 
 > [!TIP]
-> 如果您打算将 AstrBot 接入 QQ，推荐使用 [QQ 官方机器人（WebSockets）](/platform/qqofficial/websockets)，由 QQ 官方推出，更稳定，支持一键扫码登录。
+> 如果您打算将 PyaBot 接入 QQ，推荐使用 [QQ 官方机器人（WebSockets）](/platform/qqofficial/websockets)，由 QQ 官方推出，更稳定，支持一键扫码登录。
 
 OneBot 是一个**聊天机器人应用接口标准**，旨在统一不同聊天平台上的机器人应用开发接口。
 
-AstrBot 支持接入所有适配了 OneBotv11 反向 Websockets（AstrBot 做服务器端）的机器人协议端。
+PyaBot 支持接入所有适配了 OneBotv11 反向 Websockets（PyaBot 做服务器端）的机器人协议端。
 
 下文给出一些常见的 OneBot v11 协议实现端项目。
 
@@ -16,7 +16,7 @@ AstrBot 支持接入所有适配了 OneBotv11 反向 Websockets（AstrBot 做服
 
 ## 1. 配置 OneBot v11
 
-1. 进入 AstrBot 的 WebUI
+1. 进入 PyaBot 的 WebUI
 2. 点击左边栏 `机器人`
 3. 点击机器人列表上方的 `创建机器人`
 4. 选择 `OneBot v11`
@@ -37,9 +37,9 @@ AstrBot 支持接入所有适配了 OneBotv11 反向 Websockets（AstrBot 做服
 
 一些注意点：
 
-1. 协议实现端需要支持 `反向 WebSocket` 实现，及 AstrBot 端作为服务端，实现端作为客户端。
+1. 协议实现端需要支持 `反向 WebSocket` 实现，及 PyaBot 端作为服务端，实现端作为客户端。
 2. `反向 WebSocket` 的 URL 为 `ws(s)://<your-host>:6199/ws`。
 
 ## 3. 验证
 
-前往 AstrBot WebUI 的 `数据与日志` -> `日志`，如果出现 ` aiocqhttp(OneBot v11) 适配器已连接。` 蓝色的日志，说明连接成功。如果没有，若干秒后出现` aiocqhttp 适配器已被关闭` 则为连接超时（失败），请检查配置是否正确。
+前往 PyaBot WebUI 的 `数据与日志` -> `日志`，如果出现 ` aiocqhttp(OneBot v11) 适配器已连接。` 蓝色的日志，说明连接成功。如果没有，若干秒后出现` aiocqhttp 适配器已被关闭` 则为连接超时（失败），请检查配置是否正确。

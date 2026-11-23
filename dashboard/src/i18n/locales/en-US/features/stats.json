@@ -30,7 +30,7 @@
     },
     "cpu": {
       "label": "CPU",
-      "note": "AstrBot CPU usage"
+      "note": "PyaBot CPU usage"
     },
     "memory": {
       "label": "Process Memory",

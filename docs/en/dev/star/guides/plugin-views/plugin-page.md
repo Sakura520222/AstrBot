@@ -8,7 +8,7 @@ Use `target="plugin_page"` for settings or dashboards that do not belong to a ch
 
 ## Create the view files {#directory-layout}
 
-Place the page assets under `views/<view_name>/`. AstrBot discovers `views/<view_name>/index.html`; directories without `index.html` are ignored.
+Place the page assets under `views/<view_name>/`. PyaBot discovers `views/<view_name>/index.html`; directories without `index.html` are ignored.
 
 Start with an existing plugin. `PLUGIN_NAME` must match `name` in its `metadata.yaml`.
 

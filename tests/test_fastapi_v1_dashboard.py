@@ -1420,11 +1420,11 @@ async def test_dashboard_static_dist_files_are_served(
     assert "/assets/index-demo.js" in page_response.text
     assert missing_response.status_code == 404
     assert missing_response.headers["content-type"].startswith("text/html")
-    assert "请先尝试重启 AstrBot" in missing_response.text
+    assert "请先尝试重启 PyaBot" in missing_response.text
     assert "<h2>手动安装</h2>" in missing_response.text
     assert "WebUI files are missing" in missing_response.text
     assert "Manual installation" in missing_response.text
-    assert "AstrBot-vx.x.x-dashboard.zip" in missing_response.text
+    assert "PyaBot-vx.x.x-dashboard.zip" in missing_response.text
     assert "index.html" in missing_response.text
     assert traversal_response.status_code == 404
     assert api_response.status_code == 404

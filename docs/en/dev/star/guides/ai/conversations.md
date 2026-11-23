@@ -28,7 +28,7 @@ message_id = await conversations.append_message(
 )
 ```
 
-`content` accepts text or a list of AstrBot `ContentPart` objects:
+`content` accepts text or a list of PyaBot `ContentPart` objects:
 
 ```py
 from astrbot.core.agent.message import ImageURLPart, TextPart

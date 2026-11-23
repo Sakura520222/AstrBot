@@ -4,7 +4,7 @@
   "tooltip": {
     "info": "函数调用和 MCP 是什么？",
     "marketplace": "浏览和安装来自社区的 MCP 服务器",
-    "serverConfig": "MCP 服务器(stdio)配置支持以下字段:\ncommand: 命令名称 (例如 python 或 uv)\nargs: 命令参数数组 (例如 [\"run\", \"server.py\"])\nenv: 环境变量对象 (例如 {\"api_key\": \"abc\"})\ncwd: 工作目录路径 (例如 /path/to/server)\nencoding: 输出编码 (默认 utf-8)\nencoding_error_handler: The text encoding error handler. Defaults to strict.\n其他字段请参考 MCP 文档\n⚠️ 如果您使用 Docker 部署 AstrBot, 请务必将 MCP 服务器装在 AstrBot 挂载好的 data 目录下"
+    "serverConfig": "MCP 服务器(stdio)配置支持以下字段:\ncommand: 命令名称 (例如 python 或 uv)\nargs: 命令参数数组 (例如 [\"run\", \"server.py\"])\nenv: 环境变量对象 (例如 {\"api_key\": \"abc\"})\ncwd: 工作目录路径 (例如 /path/to/server)\nencoding: 输出编码 (默认 utf-8)\nencoding_error_handler: The text encoding error handler. Defaults to strict.\n其他字段请参考 MCP 文档\n⚠️ 如果您使用 Docker 部署 PyaBot, 请务必将 MCP 服务器装在 PyaBot 挂载好的 data 目录下"
   },
   "tabs": {
     "local": "本地服务器",
@@ -23,22 +23,22 @@
       "useTemplateSse": "SSE 模板",
       "sync": "同步服务器"
     },
-  "empty": "暂无 MCP 服务器，点击 新增服务器 添加",
-  "searchPlaceholder": "搜索 MCP 服务器...",
-  "noSearchResult": "未找到匹配的 MCP 服务器",
-  "select": "选择",
-  "selectServer": "选择服务器 {name}",
-  "selectAll": "全选",
-  "clearSelection": "清除选择",
-  "deleteSelected": "删除已选择的 {count} 个",
-  "cancel": "取消",
-  "batchDeleteTitle": "批量删除 MCP 服务器",
-  "batchDeleteMessage": "确定要删除以下 {count} 个 MCP 服务器吗？此操作无法撤销。",
-  "batchDeleteConfirm": "删除 {count} 个服务器",
-  "batchDeleteSuccess": "已删除 {count} 个 MCP 服务器",
-  "batchDeletePartial": "已删除 {succeeded} 个，{failed} 个删除失败",
-  "status": {
-    "installed": "已安装",
+    "empty": "暂无 MCP 服务器，点击 新增服务器 添加",
+    "searchPlaceholder": "搜索 MCP 服务器...",
+    "noSearchResult": "未找到匹配的 MCP 服务器",
+    "select": "选择",
+    "selectServer": "选择服务器 {name}",
+    "selectAll": "全选",
+    "clearSelection": "清除选择",
+    "deleteSelected": "删除已选择的 {count} 个",
+    "cancel": "取消",
+    "batchDeleteTitle": "批量删除 MCP 服务器",
+    "batchDeleteMessage": "确定要删除以下 {count} 个 MCP 服务器吗？此操作无法撤销。",
+    "batchDeleteConfirm": "删除 {count} 个服务器",
+    "batchDeleteSuccess": "已删除 {count} 个 MCP 服务器",
+    "batchDeletePartial": "已删除 {succeeded} 个，{failed} 个删除失败",
+    "status": {
+      "installed": "已安装",
       "noTools": "无可用工具",
       "availableTools": "可用工具",
       "connected": "已连接",
@@ -128,7 +128,7 @@
       },
       "tips": {
         "timeoutConfig": "工具调用的超时时间请前往配置页面单独配置",
-        "transportRecommendation": "建议优先使用 Streamable HTTP 或 SSE 模式。stdio 模式会在 AstrBot 主机上启动本地进程，仅适合可信 MCP 服务器。"
+        "transportRecommendation": "建议优先使用 Streamable HTTP 或 SSE 模式。stdio 模式会在 PyaBot 主机上启动本地进程，仅适合可信 MCP 服务器。"
       }
     },
     "serverDetail": {

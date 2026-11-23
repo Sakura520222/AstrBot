@@ -80,7 +80,7 @@ async function exportLogs() {
     anchor.href = url;
     anchor.download =
       disposition.match(/filename="?([^";]+)"?/)?.[1] ||
-      "astrbot-diagnostics.zip";
+      "pyabot-diagnostics.zip";
     document.body.appendChild(anchor);
     anchor.click();
     anchor.remove();

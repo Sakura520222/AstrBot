@@ -36,5 +36,5 @@ async def test_help_keeps_enabled_commands_and_local_documentation(monkeypatch):
     text = "".join(component.text for component in result.chain)
     assert "/renamed" in text
     assert "/disabled" not in text
-    assert "https://astrbot.pyabunny.com/docs/" in text
+    assert "https://pyabot.pyabunny.com/docs/" in text
     assert result.use_t2i_ is False

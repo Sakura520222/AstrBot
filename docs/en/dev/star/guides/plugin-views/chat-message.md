@@ -1,7 +1,7 @@
 # Interactive message component
 
 > [!NOTE]
-> Currently supported only in AstrBot ChatUI.
+> Currently supported only in PyaBot ChatUI.
 
 Plugins can create HTML cards from commands, message handlers, UI callbacks, or local LLM tools. Creation is not limited to tool calls. Declare each card in `metadata.yaml`, then yield or return `event.view_result()`.
 

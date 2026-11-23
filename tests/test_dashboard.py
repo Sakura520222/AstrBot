@@ -346,7 +346,7 @@ def test_dashboard_uses_bundled_dist_when_data_dist_is_stale(
     )
     (bundled_dist / "assets").mkdir()
     (bundled_dist / "assets" / "distribution").write_text(
-        "Sakura520222/AstrBot", encoding="utf-8"
+        "Sakura520222/PyaBot", encoding="utf-8"
     )
     (bundled_dist / "assets" / "app.js").write_text(
         "export {};",
@@ -1385,8 +1385,8 @@ async def test_md5_login_failure_includes_upgrade_faq_hint(
         assert data["message"].startswith("Incorrect username or password.")
         failed_login_sleep.assert_awaited_once_with(3)
         assert "用户名或密码错误" in data["message"]
-        assert "https://astrbot.pyabunny.com/docs/en/faq.html" in data["message"]
-        assert "https://astrbot.pyabunny.com/docs/faq.html" in data["message"]
+        assert "https://pyabot.pyabunny.com/docs/en/faq.html" in data["message"]
+        assert "https://pyabot.pyabunny.com/docs/faq.html" in data["message"]
     finally:
         await _restore_dashboard_password_state(
             core_lifecycle_td,
@@ -3303,7 +3303,7 @@ def test_extract_dashboard_replaces_dist_only_after_validation(tmp_path: Path):
         )
         archive.writestr("dist/assets/new.js", "export {};")
         archive.writestr("dist/assets/version", "v9.9.9")
-        archive.writestr("dist/assets/distribution", "Sakura520222/AstrBot")
+        archive.writestr("dist/assets/distribution", "Sakura520222/PyaBot")
 
     _extract_package(archive_path, extract_path, expected_version="v9.9.9")
 
@@ -3345,7 +3345,7 @@ def test_extract_dashboard_keeps_existing_dist_when_validation_fails(
         if "new.js" in index_html:
             archive.writestr("dist/assets/new.js", "export {};")
         archive.writestr("dist/assets/version", version)
-        archive.writestr("dist/assets/distribution", "Sakura520222/AstrBot")
+        archive.writestr("dist/assets/distribution", "Sakura520222/PyaBot")
 
     with pytest.raises(RuntimeError, match=error):
         _extract_package(archive_path, extract_path, expected_version="v9.9.9")
@@ -3371,7 +3371,7 @@ def test_extract_dashboard_rolls_back_when_replacement_fails(
         )
         archive.writestr("dist/assets/new.js", "export {};")
         archive.writestr("dist/assets/version", "v9.9.9")
-        archive.writestr("dist/assets/distribution", "Sakura520222/AstrBot")
+        archive.writestr("dist/assets/distribution", "Sakura520222/PyaBot")
 
     original_replace = Path.replace
 
@@ -3406,7 +3406,7 @@ def test_extract_dashboard_preserves_backup_when_rollback_fails(
         )
         archive.writestr("dist/assets/new.js", "export {};")
         archive.writestr("dist/assets/version", "v9.9.9")
-        archive.writestr("dist/assets/distribution", "Sakura520222/AstrBot")
+        archive.writestr("dist/assets/distribution", "Sakura520222/PyaBot")
 
     original_replace = Path.replace
 
@@ -3446,7 +3446,7 @@ def test_extract_dashboard_preserves_backup_when_target_reappears(
         )
         archive.writestr("dist/assets/new.js", "export {};")
         archive.writestr("dist/assets/version", "v9.9.9")
-        archive.writestr("dist/assets/distribution", "Sakura520222/AstrBot")
+        archive.writestr("dist/assets/distribution", "Sakura520222/PyaBot")
 
     original_replace = Path.replace
 

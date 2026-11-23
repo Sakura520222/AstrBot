@@ -10,9 +10,9 @@ API 格式完全兼容 OpenAI，只需修改 API Base 和 Key 即可接入。**�
 2. 登录后在控制台 → API Keys 页面创建一个新的 Key
 ![获取 API Key](https://github.com/user-attachments/assets/d717f21b-2805-4aff-ac90-f5c98f17cb79)
 
-## 在 AstrBot 中配置
+## 在 PyaBot 中配置
 
-进入 AstrBot 管理面板，点击左栏 **模型提供商 → 对话 → 新增 → OpenAI Compatible**。
+进入 PyaBot 管理面板，点击左栏 **模型提供商 → 对话 → 新增 → OpenAI Compatible**。
 
 填写以下信息：
 
@@ -51,9 +51,9 @@ API 格式完全兼容 OpenAI，只需修改 API Base 和 Key 即可接入。**�
 
 ## 不只是聊天模型
 
-AIHubMix 同时支持以下能力，均可在 AstrBot 中配置：
+AIHubMix 同时支持以下能力，均可在 PyaBot 中配置：
 
-| 能力 | AstrBot 配置位置 |
+| 能力 | PyaBot 配置位置 |
 |------|-----------------|
 | 语音转文字 (STT) | 模型提供商 → 语音转文字 → 新增 |
 | 文字转语音 (TTS) | 模型提供商 → 文字转语音 → 新增 |
@@ -64,4 +64,4 @@ AIHubMix 同时支持以下能力，均可在 AstrBot 中配置：
 
 ## 设为默认
 
-进入「配置文件」，选择要使用的配置文件，在「AI」→「模型」中将「对话模型」设为刚添加的模型，点击右下角「保存配置」。此项用于 AstrBot 内置 AI。
+进入「配置文件」，选择要使用的配置文件，在「AI」→「模型」中将「对话模型」设为刚添加的模型，点击右下角「保存配置」。此项用于 PyaBot 内置 AI。

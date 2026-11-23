@@ -1,7 +1,7 @@
-# Deploy AstrBot with Kubernetes
+# Deploy PyaBot with Kubernetes
 
 > [!WARNING]
-> You can deploy AstrBot in a high-availability setup using Kubernetes (K8s), allowing it to automatically recover from failures.
+> You can deploy PyaBot in a high-availability setup using Kubernetes (K8s), allowing it to automatically recover from failures.
 >
 > Due to the current use of an SQLite database, this deployment does not support horizontal scaling with multiple replicas.
 >
@@ -16,11 +16,11 @@ Before you begin, make sure your Kubernetes cluster meets the following conditio
 
 ## Deployment Methods
 
-The manifests live in the `k8s/astrbot` directory and deploy only AstrBot. Deploy protocol implementations such as OneBot v11 separately and connect them to AstrBot.
+The manifests live in the `k8s/astrbot` directory and deploy only PyaBot. Deploy protocol implementations such as OneBot v11 separately and connect them to PyaBot.
 
 ---
 
-### Deploy AstrBot
+### Deploy PyaBot
 
 #### 1. Deploy
 
@@ -65,7 +65,7 @@ kubectl apply -f k8s/astrbot/02-deployment.yaml
 
 ### Pulling images
 
-Use `ghcr.io/sakura520222/astrbot:latest` for AstrBot. If pulling fails, check the node's connection to GHCR and configure a registry proxy appropriate for your cluster.
+Use `ghcr.io/sakura520222/pyabot:latest` for PyaBot. If pulling fails, check the node's connection to GHCR and configure a registry proxy appropriate for your cluster.
 
 ### Enable Docker Sandbox Code Executor
 
@@ -102,6 +102,6 @@ Edit the `02-deployment.yaml` file and add `volumes` and `volumeMounts` under `s
 
 ## 🎉 All Done!
 
-After deploying and exposing the service, you can access the AstrBot admin panel through the corresponding IP and port.
+After deploying and exposing the service, you can access the PyaBot admin panel through the corresponding IP and port.
 
 > New users must use the random password printed in the startup logs for the first login. Use the username shown in the logs (usually `astrbot`) and change it after logging in.

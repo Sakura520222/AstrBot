@@ -37,8 +37,8 @@ if ($ast.Extent.Text -notmatch '\$bootstrapText = ConvertFrom-Json @''' -or
     $ast.Extent.Text -notmatch '\$defaultLanguage = ''en-US''' -or
     $ast.Extent.Text -notmatch '\$Indent = ''  ''' -or
     $ast.Extent.Text -notmatch 'Write-Host "\$Indent\$Prefix    \$Message"' -or
-    $ast.Extent.Text -notmatch 'Write-Host "\$\(\$Indent\)\$\(\$Indent\)astrbot init"' -or
-    $ast.Extent.Text -notmatch 'Write-Host "\$\(\$Indent\)\$\(\$Indent\)astrbot run"' -or
+    $ast.Extent.Text -notmatch 'Write-Host "\$\(\$Indent\)\$\(\$Indent\)pyabot init"' -or
+    $ast.Extent.Text -notmatch 'Write-Host "\$\(\$Indent\)\$\(\$Indent\)pyabot run"' -or
     $ast.Extent.Text -notmatch 'if \(\$Language -eq ''zh-CN''\) \{ ''1'' \} else \{ ''2'' \}') {
     throw 'The bootstrap menu must remain ASCII-only, default to English, and select the source default by language.'
 }
@@ -119,7 +119,7 @@ try {
         $_[1] -eq 'install' -and
         $_[2] -eq '--python' -and
         $_[3] -eq '3.12' -and
-        $_[4] -eq 'git+https://github.com/Sakura520222/AstrBot.git' -and
+        $_[4] -eq 'git+https://github.com/Sakura520222/PyaBot.git' -and
         $_[5] -eq '--default-index' -and
         $_[6] -eq 'https://pypi.org/simple/'
     })

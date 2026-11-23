@@ -1,7 +1,7 @@
-# AstrBot 文档
+# PyaBot 文档
 
-- 官网：https://astrbot.pyabunny.com/
-- 文档：https://astrbot.pyabunny.com/docs/
+- 官网：https://pyabot.pyabunny.com/
+- 文档：https://pyabot.pyabunny.com/docs/
 - 中文内容：`zh/`；英文内容：`en/`。
 
 ## 构建
@@ -24,7 +24,7 @@ pnpm docs:build
 
 `.github/workflows/build-docs.yml` 构建并部署 `master` 到 GitHub Pages。PR 只验证构建。部署作业使用 `GITHUB_TOKEN` 与 OIDC 临时授权，仅需要 `pages: write`、`id-token: write`。
 
-仓库 Pages 构建源为 GitHub Actions，自定义域名为 `astrbot.pyabunny.com`。Cloudflare CNAME 指向 `sakura520222.github.io` 并开启代理，保持 **Full (strict)** 和 **Always Use HTTPS**。不要降低源站证书验证等级。
+仓库 Pages 构建源为 GitHub Actions，自定义域名为 `pyabot.pyabunny.com`。Cloudflare CNAME 指向 `sakura520222.github.io` 并开启代理，保持 **Full (strict)** 和 **Always Use HTTPS**。不要降低源站证书验证等级。
 
 ## 版本清单
 

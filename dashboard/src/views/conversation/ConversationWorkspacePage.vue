@@ -572,7 +572,7 @@ async function exportSelected() {
     const url = window.URL.createObjectURL(response.data);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `astrbot_conversations_${new Date()
+    link.download = `pyabot_conversations_${new Date()
       .toISOString()
       .replace(/[:.]/g, "-")}.jsonl`;
     document.body.appendChild(link);

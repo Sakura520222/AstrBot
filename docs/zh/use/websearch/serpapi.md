@@ -10,9 +10,9 @@
 2. 进入 [API Key 页面](https://serpapi.com/manage-api-key)，复制自己的 API Key。
 3. 在 SerpApi 账号中确认有可用的搜索额度。当前额度、计费和服务权限以 SerpApi 官网及账号信息为准。
 
-## 在 AstrBot 中配置
+## 在 PyaBot 中配置
 
-开始前，请确认聊天使用 AstrBot 内置 AI，且对话模型及其 API 支持工具调用。AstrBot 所在的服务器或容器需要能访问 `https://serpapi.com`。
+开始前，请确认聊天使用 PyaBot 内置 AI，且对话模型及其 API 支持工具调用。PyaBot 所在的服务器或容器需要能访问 `https://serpapi.com`。
 
 1. 打开侧边栏的 `配置文件`，选择聊天实际使用的配置文件。
 2. 进入 `AI → 能力 → 网页搜索`，打开 `启用网页搜索`。
@@ -24,7 +24,7 @@
 
 ## 支持的能力
 
-| 能力 | 使用的 SerpApi 接口 | AstrBot 返回的内容 |
+| 能力 | 使用的 SerpApi 接口 | PyaBot 返回的内容 |
 | --- | --- | --- |
 | 网页搜索 | [Google Search API](https://serpapi.com/search-api) | 第一页中的标题、来源链接和摘要，默认最多 5 条，可请求最多 10 条 |
 | 图片搜索 | [Google Images Light API](https://serpapi.com/google-images-light-api) | 图片直链、缩略图、来源页面及可用的尺寸信息，默认最多 5 张，可请求最多 10 张 |
@@ -43,7 +43,7 @@
 请搜索 AstrBot 的最新发布信息，说明版本号和主要变化，并附上来源链接。
 ```
 
-网页搜索返回标题、链接和摘要，不会自动读取网页全文。AstrBot 的 SerpApi 接入不提供网页正文提取工具；如果经常需要总结指定链接的正文，可在 [提供商对比](../websearch.md#选择搜索提供商) 中选择支持正文提取的服务。
+网页搜索返回标题、链接和摘要，不会自动读取网页全文。PyaBot 的 SerpApi 接入不提供网页正文提取工具；如果经常需要总结指定链接的正文，可在 [提供商对比](../websearch.md#选择搜索提供商) 中选择支持正文提取的服务。
 
 ### 图片搜索
 
@@ -79,7 +79,7 @@ Finance 接受 `AAPL:NASDAQ`、`.INX:INDEXSP`、`BTC-USD`、`EUR-USD` 等代码�
 
 ### Key 无效、额度不足或请求超时
 
-确认填写的是 SerpApi 的 Key，并检查账号剩余额度。在 `数据与日志 → 日志` 中查看具体错误；网络超时时，检查 AstrBot 所在环境能否访问 SerpApi API。通用排查步骤见 [网页搜索常见问题](../websearch.md#常见问题)。
+确认填写的是 SerpApi 的 Key，并检查账号剩余额度。在 `数据与日志 → 日志` 中查看具体错误；网络超时时，检查 PyaBot 所在环境能否访问 SerpApi API。通用排查步骤见 [网页搜索常见问题](../websearch.md#常见问题)。
 
 ### 没有调用图片、金融或学术搜索
 

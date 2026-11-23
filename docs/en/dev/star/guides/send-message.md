@@ -37,11 +37,11 @@ With this feature, you can store the `unified_msg_origin` and send messages when
 
 > [!TIP]
 > About unified_msg_origin.
-> `unified_msg_origin` is a string that records the unique ID of a session. AstrBot uses it to identify which messaging platform and which session it belongs to. This allows messages to be sent to the correct session when using `send_message`. For more about MessageChain, see the next section.
+> `unified_msg_origin` is a string that records the unique ID of a session. PyaBot uses it to identify which messaging platform and which session it belongs to. This allows messages to be sent to the correct session when using `send_message`. For more about MessageChain, see the next section.
 
 ## Rich Media Messages
 
-AstrBot supports sending rich media messages such as images, audio, videos, etc. Use `MessageChain` to construct messages.
+PyaBot supports sending rich media messages such as images, audio, videos, etc. Use `MessageChain` to construct messages.
 
 ```python
 import astrbot.api.message_components as Comp

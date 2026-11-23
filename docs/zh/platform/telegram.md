@@ -23,9 +23,9 @@
 
 如果需要在群聊中使用，需要关闭Bot的 [Privacy mode](https://core.telegram.org/bots/features#privacy-mode)，对 `BotFather` 发送  `/setprivacy` 命令，然后选择bot， 再选择 `Disable`。
 
-## 2. 配置 AstrBot
+## 2. 配置 PyaBot
 
-1. 进入 AstrBot 的管理面板
+1. 进入 PyaBot 的管理面板
 2. 点击左边栏 `机器人`
 3. 点击机器人列表上方的 `创建机器人`
 4. 选择 `telegram`
@@ -44,11 +44,11 @@ Telegram 平台支持流式输出。需要进入 `配置文件`，选择 Telegra
 
 ### 私聊流式输出
 
-在私聊中，AstrBot 使用 Telegram Bot API v9.3 新增的 `sendMessageDraft` API 实现流式输出。这种方式会在私聊界面展示一个「正在输入」的草稿预览动画，体验更接近「打字机」效果，且避免了传统方案的消息闪烁、推送通知干扰和 API 编辑频率限制等问题。
+在私聊中，PyaBot 使用 Telegram Bot API v9.3 新增的 `sendMessageDraft` API 实现流式输出。这种方式会在私聊界面展示一个「正在输入」的草稿预览动画，体验更接近「打字机」效果，且避免了传统方案的消息闪烁、推送通知干扰和 API 编辑频率限制等问题。
 
 ### 群聊流式输出
 
-在群聊中，由于 `sendMessageDraft` API 仅支持私聊，AstrBot 会自动回退到传统的 `send_message` + `edit_message_text` 方案。
+在群聊中，由于 `sendMessageDraft` API 仅支持私聊，PyaBot 会自动回退到传统的 `send_message` + `edit_message_text` 方案。
 
 :::warning
 `sendMessageDraft` 功能需要 `python-telegram-bot>=22.6`。

@@ -1,11 +1,11 @@
-# AstrBot CLI {#cli-commands}
+# PyaBot CLI {#cli-commands}
 
-The AstrBot CLI initializes instances, starts AstrBot, updates common config values, and manages plugins.
+The PyaBot CLI initializes instances, starts PyaBot, updates common config values, and manages plugins.
 
-If you install AstrBot with `uv`:
+If you install PyaBot with `uv`:
 
 ```bash
-uv tool install git+https://github.com/Sakura520222/AstrBot.git --python 3.12
+uv tool install git+https://github.com/Sakura520222/PyaBot.git --python 3.12
 ```
 
 `uv` creates the `astrbot` executable and puts it on `PATH`. You can inspect the path with:
@@ -23,35 +23,35 @@ where.exe astrbot
 :::
 
 > [!TIP]
-> Run the commands below from the AstrBot working directory.
+> Run the commands below from the PyaBot working directory.
 
 ## Quick Start
 
-Initialize the directory once, then start AstrBot:
+Initialize the directory once, then start PyaBot:
 
 ```bash
-astrbot init
-astrbot run
+pyabot init
+pyabot run
 ```
 
-`astrbot init` creates the data directories and configuration files required by AstrBot. After initialization, use `astrbot run` for later starts.
+`pyabot init` creates the data directories and configuration files required by PyaBot. After initialization, use `pyabot run` for later starts.
 
 ## Top-Level Commands
 
 | Command | Purpose |
 | --- | --- |
-| `astrbot init` | Initialize the current directory as an AstrBot working directory. |
-| `astrbot run` | Start AstrBot in the foreground. |
-| `astrbot conf` | Read or update common config values. |
-| `astrbot password` | Change the WebUI login password interactively. |
-| `astrbot plug` | Create, install, update, remove, or search plugins. |
-| `astrbot help` | Show CLI help. |
-| `astrbot --version` | Show the AstrBot CLI version. |
+| `pyabot init` | Initialize the current directory as a PyaBot working directory. |
+| `pyabot run` | Start PyaBot in the foreground. |
+| `pyabot conf` | Read or update common config values. |
+| `pyabot password` | Change the WebUI login password interactively. |
+| `pyabot plug` | Create, install, update, remove, or search plugins. |
+| `pyabot help` | Show CLI help. |
+| `pyabot --version` | Show the PyaBot CLI version. |
 
-## Start AstrBot
+## Start PyaBot
 
 ```bash
-astrbot run
+pyabot run
 ```
 
 Common options:
@@ -65,18 +65,18 @@ Common options:
 Examples:
 
 ```bash
-astrbot run --port 6185
-astrbot run --reload
-astrbot run --reset-password
+pyabot run --port 6185
+pyabot run --reload
+pyabot run --reset-password
 ```
 
-If you forget the WebUI login password, run this from the AstrBot working directory:
+If you forget the WebUI login password, run this from the PyaBot working directory:
 
 ```bash
-astrbot run --reset-password
+pyabot run --reset-password
 ```
 
-AstrBot regenerates the initial password during startup and prints it in startup logs. After logging in, change the password in the WebUI immediately.
+PyaBot regenerates the initial password during startup and prints it in startup logs. After logging in, change the password in the WebUI immediately.
 
 When starting directly from source, you can also run:
 
@@ -86,12 +86,12 @@ python main.py --reset-password
 
 ## Config
 
-`astrbot conf` reads and updates common config values.
+`pyabot conf` reads and updates common config values.
 
 ```bash
-astrbot conf get
-astrbot conf get dashboard.port
-astrbot conf set dashboard.port 6185
+pyabot conf get
+pyabot conf get dashboard.port
+pyabot conf set dashboard.port 6185
 ```
 
 Supported keys:
@@ -108,41 +108,41 @@ Supported keys:
 Changing the dashboard password writes the current password hashes automatically:
 
 ```bash
-astrbot conf set dashboard.password "new-password"
+pyabot conf set dashboard.password "new-password"
 ```
 
 You can also use the dedicated interactive password command:
 
 ```bash
-astrbot password
-astrbot password --username admin
+pyabot password
+pyabot password --username admin
 ```
 
 ## Plugins
 
-`astrbot plug` manages plugins under `data/plugins`.
+`pyabot plug` manages plugins under `data/plugins`.
 
 | Command | Purpose |
 | --- | --- |
-| `astrbot plug list` | List installed plugins. |
-| `astrbot plug list --all` | Also show uninstalled plugins. |
-| `astrbot plug search <QUERY>` | Search plugins. |
-| `astrbot plug install <NAME>` | Install a plugin. |
-| `astrbot plug update [NAME]` | Update one plugin, or all updatable plugins if no name is given. |
-| `astrbot plug remove <NAME>` | Remove an installed plugin. |
-| `astrbot plug new <NAME>` | Create a new plugin from the template. |
+| `pyabot plug list` | List installed plugins. |
+| `pyabot plug list --all` | Also show uninstalled plugins. |
+| `pyabot plug search <QUERY>` | Search plugins. |
+| `pyabot plug install <NAME>` | Install a plugin. |
+| `pyabot plug update [NAME]` | Update one plugin, or all updatable plugins if no name is given. |
+| `pyabot plug remove <NAME>` | Remove an installed plugin. |
+| `pyabot plug new <NAME>` | Create a new plugin from the template. |
 
 Use a GitHub proxy when installing or updating plugins:
 
 ```bash
-astrbot plug install example-plugin --proxy https://gh-proxy.example.com/
-astrbot plug update --proxy https://gh-proxy.example.com/
+pyabot plug install example-plugin --proxy https://gh-proxy.example.com/
+pyabot plug update --proxy https://gh-proxy.example.com/
 ```
 
 Creating a new plugin asks for the author, description, version, and repository URL:
 
 ```bash
-astrbot plug new my-plugin
+pyabot plug new my-plugin
 ```
 
 ## Help
@@ -150,20 +150,20 @@ astrbot plug new my-plugin
 Show general CLI help:
 
 ```bash
-astrbot help
+pyabot help
 ```
 
 Show help for a specific command:
 
 ```bash
-astrbot help run
-astrbot run --help
-astrbot help conf
-astrbot plug --help
+pyabot help run
+pyabot run --help
+pyabot help conf
+pyabot plug --help
 ```
 
 Show the version:
 
 ```bash
-astrbot --version
+pyabot --version
 ```

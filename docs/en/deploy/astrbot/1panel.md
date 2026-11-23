@@ -4,9 +4,9 @@ Create a project in the panel's container or Compose manager using the configura
 
 ~~~yaml
 services:
-  astrbot:
-    image: ghcr.io/sakura520222/astrbot:latest
-    container_name: astrbot
+  pyabot:
+    image: ghcr.io/sakura520222/pyabot:latest
+    container_name: pyabot
     restart: unless-stopped
     ports:
       - "6185:6185"

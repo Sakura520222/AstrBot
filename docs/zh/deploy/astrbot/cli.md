@@ -5,8 +5,8 @@
 ## 安装与启动
 
 ~~~bash
-git clone https://github.com/Sakura520222/AstrBot.git
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot.git
+cd PyaBot
 uv sync --locked --inexact
 uv run --no-sync main.py
 ~~~
@@ -17,7 +17,7 @@ uv run --no-sync main.py
 
 ## 更新
 
-先正常停止 AstrBot，备份整个 `data/` 目录，再执行：
+先正常停止 PyaBot，备份整个 `data/` 目录，再执行：
 
 ~~~bash
 git pull --ff-only origin master

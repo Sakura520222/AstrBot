@@ -23,9 +23,9 @@ After successful creation, `BotFather` will provide you with a `token`. Please k
 
 If you need to use the bot in group chats, you must disable the bot's [Privacy mode](https://core.telegram.org/bots/features#privacy-mode). Send the `/setprivacy` command to `BotFather`, select your bot, and then choose `Disable`.
 
-## 2. Configure AstrBot
+## 2. Configure PyaBot
 
-1. Enter the AstrBot admin panel
+1. Enter the PyaBot admin panel
 2. Click `Platforms` in the left sidebar
 3. Click `Add Adapter` above the bot list
 4. Select `telegram`
@@ -44,11 +44,11 @@ The Telegram platform supports streaming output. Open `Config`, select the confi
 
 ### Private Chat Streaming
 
-In private chats, AstrBot uses the `sendMessageDraft` API (added in Telegram Bot API v9.3) for streaming output. This displays a "typing" draft preview animation in the chat interface, creating a more natural "typewriter" effect. It avoids issues with the traditional approach such as message flickering, push notification interference, and API edit frequency limits.
+In private chats, PyaBot uses the `sendMessageDraft` API (added in Telegram Bot API v9.3) for streaming output. This displays a "typing" draft preview animation in the chat interface, creating a more natural "typewriter" effect. It avoids issues with the traditional approach such as message flickering, push notification interference, and API edit frequency limits.
 
 ### Group Chat Streaming
 
-In group chats, since the `sendMessageDraft` API only supports private chats, AstrBot automatically falls back to the traditional `send_message` + `edit_message_text` approach.
+In group chats, since the `sendMessageDraft` API only supports private chats, PyaBot automatically falls back to the traditional `send_message` + `edit_message_text` approach.
 
 :::warning
 `sendMessageDraft` requires `python-telegram-bot>=22.6`.

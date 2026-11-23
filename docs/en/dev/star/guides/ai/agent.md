@@ -16,7 +16,7 @@ run = await self.context.agent.run_turn(
 result = await run.result()
 ```
 
-`run_turn()` submits a turn without waiting for completion. Turns in the same session execute serially. `await run.result()` waits for execution, history persistence, and output handling. AstrBot sends replies by default; do not send `result.text` again.
+`run_turn()` submits a turn without waiting for completion. Turns in the same session execute serially. `await run.result()` waits for execution, history persistence, and output handling. PyaBot sends replies by default; do not send `result.text` again.
 
 Use `await run.cancel()` to stop execution. Cancelling a result waiter does not stop the turn.
 

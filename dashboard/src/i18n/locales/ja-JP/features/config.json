@@ -70,7 +70,7 @@
     "enable": "AI を有効化",
     "more": "その他の操作",
     "changeRunner": "実行方式を変更",
-    "localSettingsTitle": "AstrBot 組み込み AI",
+    "localSettingsTitle": "PyaBot 組み込み AI",
     "settingsSuffix": "設定",
     "tabs": {
       "model": "モデル",
@@ -107,8 +107,8 @@
     "runners": {
       "astrbot": {
         "title": "組み込み AI",
-        "summary": "モデル、ペルソナ、ナレッジベース、ツールなど、AstrBot の AI 機能を設定します。",
-        "description": "モデル、ペルソナ、ナレッジベース、ツールに対応した AstrBot 組み込み AI を使用します。"
+        "summary": "モデル、ペルソナ、ナレッジベース、ツールなど、PyaBot の AI 機能を設定します。",
+        "description": "モデル、ペルソナ、ナレッジベース、ツールに対応した PyaBot 組み込み AI を使用します。"
       },
       "dify": {
         "title": "Dify",
@@ -146,7 +146,7 @@
   },
   "configManagement": {
     "title": "設定ファイル管理",
-    "description": "AstrBot では、ボットごとに個別の設定ファイルを使用できます。デフォルトでは `default` 設定が使用されます。",
+    "description": "PyaBot では、ボットごとに個別の設定ファイルを使用できます。デフォルトでは `default` 設定が使用されます。",
     "newConfig": "設定ファイルを新規作成",
     "copyConfig": "設定ファイルをコピー",
     "editConfig": "設定ファイルを編集",
@@ -283,7 +283,7 @@
     "save": "Save changes",
     "emptyTitle": "A different setup for one session",
     "emptyHint": "Choose a chat to adjust its model, persona or plugins. Other settings follow its configuration profile.",
-    "aliasHint": "This alias is shared across AstrBot. Save changes in the editor to apply it.",
+    "aliasHint": "This alias is shared across PyaBot. Save changes in the editor to apply it.",
     "done": "Done",
     "groupHint": "Groups organize sessions for filtering and batch updates. Membership does not create configuration inheritance.",
     "members": "{count} sessions",

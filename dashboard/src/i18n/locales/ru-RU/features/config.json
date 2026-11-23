@@ -50,7 +50,7 @@
     "enable": "Включить ИИ",
     "more": "Другие действия",
     "changeRunner": "Изменить режим выполнения",
-    "localSettingsTitle": "Встроенный ИИ AstrBot",
+    "localSettingsTitle": "Встроенный ИИ PyaBot",
     "settingsSuffix": "Настройки",
     "tabs": {
       "model": "Модель",
@@ -87,8 +87,8 @@
     "runners": {
       "astrbot": {
         "title": "Встроенный ИИ",
-        "summary": "Настройте возможности ИИ AstrBot, включая модели, персоны, базы знаний и инструменты.",
-        "description": "Встроенный ИИ AstrBot поддерживает модели, персоны, базы знаний и инструменты."
+        "summary": "Настройте возможности ИИ PyaBot, включая модели, персоны, базы знаний и инструменты.",
+        "description": "Встроенный ИИ PyaBot поддерживает модели, персоны, базы знаний и инструменты."
       },
       "dify": {
         "title": "Dify",
@@ -146,7 +146,7 @@
   },
   "configManagement": {
     "title": "Управление конфигурациями",
-    "description": "AstrBot поддерживает несколько конфигураций для разных ботов. Если конфигурация не указана, используется конфигурация по умолчанию.",
+    "description": "PyaBot поддерживает несколько конфигураций для разных ботов. Если конфигурация не указана, используется конфигурация по умолчанию.",
     "newConfig": "Новая конфигурация",
     "copyConfig": "Копировать конфигурацию",
     "editConfig": "Изменить конфигурацию",
@@ -283,7 +283,7 @@
     "save": "Save changes",
     "emptyTitle": "A different setup for one session",
     "emptyHint": "Choose a chat to adjust its model, persona or plugins. Other settings follow its configuration profile.",
-    "aliasHint": "This alias is shared across AstrBot. Save changes in the editor to apply it.",
+    "aliasHint": "This alias is shared across PyaBot. Save changes in the editor to apply it.",
     "done": "Done",
     "groupHint": "Groups organize sessions for filtering and batch updates. Membership does not create configuration inheritance.",
     "members": "{count} sessions",

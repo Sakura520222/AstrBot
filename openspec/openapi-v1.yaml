@@ -1,10 +1,10 @@
 openapi: 3.1.0
 info:
-  title: AstrBot OpenAPI v1
+  title: PyaBot OpenAPI v1
   version: 0.1.0
   description: >
-    Target REST contract for migrating AstrBot HTTP APIs to /api/v1.
-    Dynamic AstrBot configuration payloads are intentionally modeled as open
+    Target REST contract for migrating PyaBot HTTP APIs to /api/v1.
+    Dynamic PyaBot configuration payloads are intentionally modeled as open
     JSON objects because their schemas are provided at runtime by template
     endpoints.
     Developer API keys currently support these scopes only: bot, provider,
@@ -37,8 +37,8 @@ x-astrbot-scope-definitions:
     description: Use chat capabilities and manage ChatUI sessions and projects.
     description_zh: 调用对话能力，并管理 ChatUI 会话和项目。
   "chat:admin":
-    description: Allow `username` to use a configured AstrBot administrator ID. This sub-scope must be granted explicitly.
-    description_zh: 允许 `username` 使用 AstrBot 中已配置的管理员 ID。该子权限必须显式授予。
+    description: Allow `username` to use a configured PyaBot administrator ID. This sub-scope must be granted explicitly.
+    description_zh: 允许 `username` 使用 PyaBot 中已配置的管理员 ID。该子权限必须显式授予。
     parent: chat
     sensitive: true
   data:
@@ -58,7 +58,7 @@ x-astrbot-scope-definitions:
     description_zh: 管理 Skills、Skill 压缩包、Skill 文件和 Shipyard Neo Skill 流程。
 servers:
   - url: http://localhost:6185
-    description: Local AstrBot server
+    description: Local PyaBot server
 
 security:
   - ApiKeyAuth: []
@@ -4662,8 +4662,8 @@ paths:
   /api/v1/stats/version:
     get:
       tags: [Stats]
-      summary: Get AstrBot version and runtime information
-      description: Runtime information is detected once at application startup. Restart AstrBot after installing sandbox dependencies to refresh it.
+      summary: Get PyaBot version and runtime information
+      description: Runtime information is detected once at application startup. Restart PyaBot after installing sandbox dependencies to refresh it.
       operationId: getVersion
       x-astrbot-scope: system
       responses:
@@ -4686,7 +4686,7 @@ paths:
   /api/v1/stats/versions:
     get:
       tags: [Stats]
-      summary: Get public WebUI and AstrBot versions
+      summary: Get public WebUI and PyaBot versions
       operationId: getPublicVersions
       security: []
       responses:
@@ -4841,7 +4841,7 @@ paths:
   /api/v1/system/restart:
     post:
       tags: [Stats]
-      summary: Restart AstrBot core
+      summary: Restart PyaBot core
       operationId: restartCore
       x-astrbot-scope: system
       responses:
@@ -5084,7 +5084,7 @@ paths:
   /api/v1/updates/core:
     post:
       tags: [Updates]
-      summary: Update AstrBot core
+      summary: Update PyaBot core
       operationId: updateCore
       x-astrbot-scope: system
       requestBody:
@@ -5699,13 +5699,13 @@ components:
 
   responses:
     Ok:
-      description: Standard AstrBot success response
+      description: Standard PyaBot success response
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/SuccessEnvelope"
     Error:
-      description: Standard AstrBot error response
+      description: Standard PyaBot error response
       content:
         application/json:
           schema:
@@ -5987,7 +5987,7 @@ components:
         memory:
           $ref: "#/components/schemas/StatsResourceUsage"
         disk:
-          description: Usage of the filesystem containing the AstrBot data directory, or null if unavailable.
+          description: Usage of the filesystem containing the PyaBot data directory, or null if unavailable.
           allOf:
             - $ref: "#/components/schemas/StatsResourceUsage"
           nullable: true
@@ -6021,7 +6021,7 @@ components:
       enum: [custom_rules, preferences, routing, cron_jobs, conversations, message_history, traces, stats]
     RuntimeInfo:
       type: object
-      description: The AstrBot backend runtime, including when running inside a container. Values are captured at application startup.
+      description: The PyaBot backend runtime, including when running inside a container. Values are captured at application startup.
       required: [os, arch, sandbox]
       properties:
         os:
@@ -6032,7 +6032,7 @@ components:
           description: Unmodified platform.machine() value, such as x86_64, AMD64, arm64, or aarch64. May be empty if unknown.
         sandbox:
           type: object
-          description: Local process sandbox startup check, captured when AstrBot starts. It does not verify DNS resolution or every permitted operation.
+          description: Local process sandbox startup check, captured when PyaBot starts. It does not verify DNS resolution or every permitted operation.
           required: [backend, status]
           properties:
             backend:
@@ -6044,7 +6044,7 @@ components:
               description: detected means the executable was found and a minimal workspace sandbox launched successfully; missing means the corresponding executable was not found; unavailable means it was found but sandbox startup failed; unsupported means this platform has no Local process sandbox backend. These identifiers are independent of the UI language.
             error:
               type: string
-              description: Bounded startup error detail, included when status is unavailable. Restart AstrBot after fixing the environment to refresh the check.
+              description: Bounded startup error detail, included when status is unavailable. Restart PyaBot after fixing the environment to refresh the check.
 
     SuccessEnvelope:
       type: object
@@ -6343,7 +6343,7 @@ components:
           description: UI locale for built-in LLM error messages. Omitted or unsupported locales fall back to zh-CN.
         username:
           type: string
-          description: Caller-declared WebChat sender/session owner. Configured AstrBot administrator IDs require the chat:admin API key sub-scope.
+          description: Caller-declared WebChat sender/session owner. Configured PyaBot administrator IDs require the chat:admin API key sub-scope.
         session_id:
           type: string
         conversation_id:

@@ -2056,7 +2056,7 @@ export const useExtensionPage = (initialTab = "installed") => {
         return {
           checked: true,
           supported: false,
-          message: `AstrBot ${currentVersion} does not satisfy plugin astrbot_version: ${normalizedSpec}`,
+          message: `PyaBot ${currentVersion} does not satisfy plugin version requirement: ${normalizedSpec}`,
         };
       }
     }

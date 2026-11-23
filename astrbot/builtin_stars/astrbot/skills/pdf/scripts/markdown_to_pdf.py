@@ -606,8 +606,8 @@ def convert_markdown_to_pdf(
         topMargin=20 * mm,
         bottomMargin=22 * mm,
         title=document_title,
-        author="AstrBot",
-        creator="AstrBot PDF Skill",
+        author="PyaBot",
+        creator="PyaBot PDF Skill",
     )
     document.build(story, onFirstPage=draw_footer, onLaterPages=draw_footer)
 
@@ -620,8 +620,8 @@ def convert_markdown_to_pdf(
     writer.add_metadata(
         {
             "/Title": document_title,
-            "/Author": "AstrBot",
-            "/Creator": "AstrBot PDF Skill",
+            "/Author": "PyaBot",
+            "/Creator": "PyaBot PDF Skill",
         }
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)

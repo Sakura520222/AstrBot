@@ -354,7 +354,7 @@ const openView = () => {
               label
               size="small"
             >
-              AstrBot: {{ astrbotVersionRequirement }}
+              PyaBot: {{ astrbotVersionRequirement }}
             </v-chip>
           </div>
 

@@ -8,10 +8,10 @@
           "subagents": {
             "enabled": {
               "description": "Enable Subagents",
-              "hint": "Allow AstrBot to create generic or specialized subagents when appropriate to complete tasks."
+              "hint": "Allow PyaBot to create generic or specialized subagents when appropriate to complete tasks."
             },
             "config_ids": {
-              "hint": "Configure specialized subagents with their own personas, toolsets, and other settings. Even without configuring any, AstrBot dynamically creates generic subagents when needed to complete tasks.",
+              "hint": "Configure specialized subagents with their own personas, toolsets, and other settings. Even without configuring any, PyaBot dynamically creates generic subagents when needed to complete tasks.",
               "description": "Specialized Agent Configurations"
             },
             "max_concurrent_agents": {
@@ -241,7 +241,7 @@
     },
     "persona": {
       "description": "ペルソナ",
-      "hint": "AstrBot にペルソナを設定します。",
+      "hint": "PyaBot にペルソナを設定します。",
       "agent": {
         "config": {
           "persona": {
@@ -262,7 +262,7 @@
     },
     "knowledgebase": {
       "description": "ナレッジベース",
-      "hint": "AstrBot の「外部の頭脳」です。",
+      "hint": "PyaBot の「外部の頭脳」です。",
       "kb_names": {
         "description": "ナレッジベース一覧",
         "hint": "複数選択できます。"
@@ -282,7 +282,7 @@
     },
     "websearch": {
       "description": "ウェブ検索",
-      "hint": "AstrBot がインターネットへアクセスし、最新情報を取得できるようにします。",
+      "hint": "PyaBot がインターネットへアクセスし、最新情報を取得できるようにします。",
       "provider_settings": {
         "web_search": {
           "description": "ウェブ検索を有効化"
@@ -371,7 +371,7 @@
     },
     "agent_computer_use": {
       "description": "コンピューター操作機能",
-      "hint": "AstrBot がローカル環境または隔離されたサンドボックス環境へアクセスし、より複雑なタスクを実行できるようにします。詳細：[Agent サンドボックス環境](https://astrbot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html)。",
+      "hint": "PyaBot がローカル環境または隔離されたサンドボックス環境へアクセスし、より複雑なタスクを実行できるようにします。詳細：[Agent サンドボックス環境](https://pyabot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html)。",
       "provider_settings": {
         "computer_use_runtime": {
           "description": "実行環境",
@@ -387,7 +387,7 @@
         },
         "computer_use_require_admin": {
           "description": "サンドボックスに管理者権限を必須にする",
-          "hint": "有効にすると、外部サンドボックスの利用に AstrBot 管理者権限が必要になります。「設定ファイル -> アクセス制御 -> 管理者 -> 管理者 ID」で管理者を追加できます。ボットに /sid コマンドを送信して ID を取得します。"
+          "hint": "有効にすると、外部サンドボックスの利用に PyaBot 管理者権限が必要になります。「設定ファイル -> アクセス制御 -> 管理者 -> 管理者 ID」で管理者を追加できます。ボットに /sid コマンドを送信して ID を取得します。"
         },
         "sandbox": {
           "booter": {
@@ -419,7 +419,7 @@
           },
           "cua_idle_timeout": {
             "description": "CUA アイドルタイムアウト（秒）",
-            "hint": "CUA サンドボックスのアイドルタイムアウト（秒）です。0 より大きい場合、セッションのアイドル時間がこの値に達すると AstrBot が CUA サンドボックスを自動的に終了します。0 は無効を示します。"
+            "hint": "CUA サンドボックスのアイドルタイムアウト（秒）です。0 より大きい場合、セッションのアイドル時間がこの値に達すると PyaBot が CUA サンドボックスを自動的に終了します。0 は無効を示します。"
           },
           "cua_telemetry_enabled": {
             "description": "CUA テレメトリ",
@@ -464,10 +464,10 @@
           "none": "すべてのファイルへのアクセスを禁止",
           "workspace": "制限されたワークスペース、一時ディレクトリ、スキルファイル。",
           "workspaceUnsupported": "このプラットフォームでは制限付きワークスペースのファイルアクセスを利用できません。",
-          "host": "AstrBot が動作する環境内のすべてのファイル。"
+          "host": "PyaBot が動作する環境内のすべてのファイル。"
         },
         "scopeDetails": {
-          "account": "1. AstrBot の実行アカウントに権限があるファイルにアクセスできます。",
+          "account": "1. PyaBot の実行アカウントに権限があるファイルにアクセスできます。",
           "docker": "2. Docker でデプロイした場合、コンテナ内およびマウントされたファイルのみが対象で、Docker ホストの全ファイルではありません。"
         },
         "roles": {
@@ -489,11 +489,11 @@
           "arch": "アーキテクチャ",
           "sandbox": "ローカル隔離",
           "windowsUnavailable": "{backend} · 準備未完了",
-          "windowsSetupHint": "設定を保存して AstrBot を再起動してください。管理者の承認を求められた場合は、サンドボックスの初期化を許可してください。",
+          "windowsSetupHint": "設定を保存して PyaBot を再起動してください。管理者の承認を求められた場合は、サンドボックスの初期化を許可してください。",
           "errorDetails": "診断の詳細を表示",
-          "unavailableHint": "サンドボックスの起動に失敗したため、制限付きの Shell/Python 実行とワークスペース内のファイル検索に影響があります。以下のエラーを参考に、システムのセキュリティポリシー（Linux の AppArmor やユーザー名前空間の制限など）またはコンテナの制限を確認し、修正後に AstrBot を再起動して再検査してください。",
+          "unavailableHint": "サンドボックスの起動に失敗したため、制限付きの Shell/Python 実行とワークスペース内のファイル検索に影響があります。以下のエラーを参考に、システムのセキュリティポリシー（Linux の AppArmor やユーザー名前空間の制限など）またはコンテナの制限を確認し、修正後に PyaBot を再起動して再検査してください。",
           "dialog": {
-            "intro": "macOS の Seatbelt または Linux の bubblewrap（bwrap）を利用して、AstrBot Agent の実行環境を安全に隔離し、AstrBot Agent を利用する各ユーザーのファイルアクセス範囲とネットワーク権限を制限することで、安全性を高めます。",
+            "intro": "macOS の Seatbelt または Linux の bubblewrap（bwrap）を利用して、PyaBot Agent の実行環境を安全に隔離し、PyaBot Agent を利用する各ユーザーのファイルアクセス範囲とネットワーク権限を制限することで、安全性を高めます。",
             "startupError": "起動エラーを確認",
             "documentation": "詳しい設定ドキュメントを見る"
           },
@@ -524,18 +524,18 @@
     },
     "proactive_capability": {
       "description": "プロアクティブ機能",
-      "hint": "AstrBot が指定時刻にタスクを自動実行し、結果を届けられるようにします。詳細：[プロアクティブエージェント](https://astrbot.pyabunny.com/docs/en/use/proactive-agent.html)。",
+      "hint": "PyaBot が指定時刻にタスクを自動実行し、結果を届けられるようにします。詳細：[プロアクティブエージェント](https://pyabot.pyabunny.com/docs/en/use/proactive-agent.html)。",
       "provider_settings": {
         "proactive_capability": {
           "add_cron_tools": {
             "description": "有効化",
-            "hint": "有効にすると、プロアクティブエージェントに必要なツールがエージェントへ渡されます。将来の指定時刻に行うことを AstrBot に伝えると、予定どおりにタスクを実行して結果を送信します。"
+            "hint": "有効にすると、プロアクティブエージェントに必要なツールがエージェントへ渡されます。将来の指定時刻に行うことを PyaBot に伝えると、予定どおりにタスクを実行して結果を送信します。"
           }
         }
       }
     },
     "truncate_and_compress": {
-      "hint": "AstrBot が作業メモリを管理する方法を設定します。詳細：[コンテキスト管理方式](https://astrbot.pyabunny.com/docs/en/use/context-compress.html)。",
+      "hint": "PyaBot が作業メモリを管理する方法を設定します。詳細：[コンテキスト管理方式](https://pyabot.pyabunny.com/docs/en/use/context-compress.html)。",
       "description": "コンテキスト管理方式",
       "agent": {
         "config": {
@@ -786,7 +786,7 @@
       },
       "discord_allow_bot_messages": {
         "description": "Bot メッセージの受信を許可",
-        "hint": "有効にすると、AstrBot が他の Discord Bot からのメッセージを受信します。メッセージ転送など、ボット間通信に適しています。デフォルトは無効です。"
+        "hint": "有効にすると、PyaBot が他の Discord Bot からのメッセージを受信します。メッセージ転送など、ボット間通信に適しています。デフォルトは無効です。"
       },
       "discord_command_register": {
         "description": "Discord コマンドを登録",
@@ -936,11 +936,11 @@
       },
       "telegram_command_auto_refresh": {
         "description": "コマンドの自動更新",
-        "hint": "有効にすると、AstrBot が実行中に Telegram コマンドを自動更新します。（この項目だけを設定しても機能しません）"
+        "hint": "有効にすると、PyaBot が実行中に Telegram コマンドを自動更新します。（この項目だけを設定しても機能しません）"
       },
       "telegram_command_register": {
         "description": "コマンド登録",
-        "hint": "有効にすると、AstrBot が Telegram コマンドを自動登録します。"
+        "hint": "有効にすると、PyaBot が Telegram コマンドを自動登録します。"
       },
       "telegram_command_register_interval": {
         "description": "コマンド自動更新間隔",
@@ -971,7 +971,7 @@
       },
       "unified_webhook_mode": {
         "description": "統合 Webhook モード",
-        "hint": "Webhook モードで AstrBot の統合 Webhook エントリーポイントを使用し、個別のポートを開く必要をなくします。コールバックアドレスは /api/v1/webhooks/platforms/{webhook_uuid} です。"
+        "hint": "Webhook モードで PyaBot の統合 Webhook エントリーポイントを使用し、個別のポートを開く必要をなくします。コールバックアドレスは /api/v1/webhooks/platforms/{webhook_uuid} です。"
       },
       "use_markdown": {
         "description": "プロアクティブメッセージで Markdown を使用",
@@ -1023,7 +1023,7 @@
       },
       "wpp_active_message_poll": {
         "description": "プロアクティブメッセージのポーリングを有効化",
-        "hint": "WeChat メッセージが AstrBot に適時同期されない場合にのみ有効にしてください。デフォルトは無効です。"
+        "hint": "WeChat メッセージが PyaBot に適時同期されない場合にのみ有効にしてください。デフォルトは無効です。"
       },
       "wpp_active_message_poll_interval": {
         "description": "プロアクティブメッセージのポーリング間隔",
@@ -1031,7 +1031,7 @@
       },
       "ws_reverse_host": {
         "description": "リバース WebSocket ホスト",
-        "hint": "AstrBot がサーバーとして動作します。"
+        "hint": "PyaBot がサーバーとして動作します。"
       },
       "ws_reverse_port": {
         "description": "リバース WebSocket ポート"
@@ -1159,7 +1159,7 @@
       },
       "disable_builtin_commands": {
         "description": "組み込みコマンドを無効化",
-        "hint": "help、sid、new など、AstrBot のすべての組み込みコマンドを無効にします。"
+        "hint": "help、sid、new など、PyaBot のすべての組み込みコマンドを無効にします。"
       }
     },
     "rate_limit": {
@@ -1425,7 +1425,7 @@
       },
       "t2i_endpoint": {
         "description": "テキスト画像化サービスの API アドレス",
-        "hint": "空欄の場合は AstrBot API サービスを使用します。"
+        "hint": "空欄の場合は PyaBot API サービスを使用します。"
       },
       "t2i_template": {
         "description": "テキスト画像化用カスタムテンプレート",
@@ -1487,11 +1487,11 @@
       },
       "callback_api_base": {
         "description": "外部からアクセス可能なコールバック API アドレス",
-        "hint": "外部サービスは、AstrBot が生成したコールバックリンク（ファイルダウンロードリンクなど）を通じて AstrBot バックエンドへアクセスする場合があります。AstrBot はデプロイ環境で外部から到達可能なホストアドレス（ホスト）を自動判定できないため、この設定で外部サービスから AstrBot へアクセスするアドレスを明示的に指定します。例: [http://localhost:6185](http://localhost:6185)、[https://example.com](https://example.com)。"
+        "hint": "外部サービスは、PyaBot が生成したコールバックリンク（ファイルダウンロードリンクなど）を通じて PyaBot バックエンドへアクセスする場合があります。PyaBot はデプロイ環境で外部から到達可能なホストアドレス（ホスト）を自動判定できないため、この設定で外部サービスから PyaBot へアクセスするアドレスを明示的に指定します。例: [http://localhost:6185](http://localhost:6185)、[https://example.com](https://example.com)。"
       },
       "disable_metrics": {
         "description": "匿名利用統計を無効化",
-        "hint": "この設定を有効にすると、AstrBot は匿名の利用統計データをアップロードしません。"
+        "hint": "この設定を有効にすると、PyaBot は匿名の利用統計データをアップロードしません。"
       },
       "dashboard": {
         "trust_proxy_headers": {
@@ -1685,7 +1685,7 @@
       },
       "custom_headers": {
         "description": "カスタムリクエストヘッダー",
-        "hint": "ここで追加したキーと値のペアは、AstrBot からプロバイダーへの HTTP リクエストにカスタムヘッダーとして付加されます。値は文字列である必要があります。"
+        "hint": "ここで追加したキーと値のペアは、PyaBot からプロバイダーへの HTTP リクエストにカスタムヘッダーとして付加されます。値は文字列である必要があります。"
       },
       "ollama_disable_thinking": {
         "description": "思考モードを無効化",
@@ -2041,7 +2041,10 @@
       "deepseek-tts-voice": {
         "description": "ボイス",
         "hint": "DeepSeek TTS のボイスです。対応する voice_id が API に送信されます。",
-        "labels": ["Stella（女性、デフォルト）", "Tide（男性）"]
+        "labels": [
+          "Stella（女性、デフォルト）",
+          "Tide（男性）"
+        ]
       },
       "deepseek-tts-filter-markdown": {
         "description": "Markdown をフィルター",
@@ -2218,7 +2221,7 @@
       },
       "auto_save_history": {
         "description": "Coze が会話履歴を管理",
-        "hint": "有効にすると、Coze が会話履歴を管理します。この場合、AstrBot にローカル保存されたコンテキストは参照専用となり、AstrBot のコンテキストに対する操作も反映されません。無効の場合は AstrBot がコンテキストを管理します。"
+        "hint": "有効にすると、Coze が会話履歴を管理します。この場合、PyaBot にローカル保存されたコンテキストは参照専用となり、PyaBot のコンテキストに対する操作も反映されません。無効の場合は PyaBot がコンテキストを管理します。"
       }
     }
   },

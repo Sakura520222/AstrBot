@@ -4,13 +4,13 @@
 
 If you haven't installed Dify yet, please refer to the [Dify Installation Documentation](https://docs.dify.ai/getting-started/install-self-hosted) to install it.
 
-## Configure Dify in AstrBot
+## Configure Dify in PyaBot
 
 In the WebUI, open **Config**, select the profile to edit, and open **AI**. Click **More actions** (`…`) beside the heading → **Change Execution Mode**, select **Dify**, read and check the reset acknowledgement, then click **Use This Mode**. Make sure **Enable AI** is on, then enter the connection settings on this page. Switching resets the current mode's configuration; see [Agent Runner](../../use/agent-runner.md).
 
 In Dify, one `API Key` uniquely corresponds to one Dify application. Therefore, you can configure different API keys in separate profiles to connect multiple Dify applications.
 
-AstrBot provides these **Application Type** options:
+PyaBot provides these **Application Type** options:
 
 - chat
 - chatflow
@@ -18,7 +18,7 @@ AstrBot provides these **Application Type** options:
 - workflow
 
 >[!TIP]
->Please ensure that the APP type you set in AstrBot matches the application type created in Dify.
+>Please ensure that the APP type you set in PyaBot matches the application type created in Dify.
 >![image](/images/9f1e633878207ce6.png)
 
 ### Chat and Agent Applications
@@ -39,16 +39,16 @@ Workflow applications receive input variables, execute the workflow, and output 
 
 ![image](/images/a83e8df68322edf5.png)
 
-For Workflow applications, AstrBot will attach two variables with each request:
+For Workflow applications, PyaBot will attach two variables with each request:
 
 - `astrbot_text_query`: Input variable name. This is the text content entered by the user.
 - `astrbot_session_id`: Session ID
 
 You can customize the input variable name in the configuration, which is the **Prompt Input Variable** field in the Dify settings.
 
-You need to modify the input variable name of your Workflow to adapt to AstrBot's input.
+You need to modify the input variable name of your Workflow to adapt to PyaBot's input.
 
-Finally, the Workflow will output a result. You can customize the variable name of this result, which is the **Workflow Output Variable** field in the Dify settings, with a default value of `astrbot_wf_output`. You need to configure this variable name in the output node of the Dify Workflow, otherwise AstrBot cannot parse it correctly.
+Finally, the Workflow will output a result. You can customize the variable name of this result, which is the **Workflow Output Variable** field in the Dify settings, with a default value of `astrbot_wf_output`. You need to configure this variable name in the output node of the Dify Workflow, otherwise PyaBot cannot parse it correctly.
 
 #### Create API Key
 
@@ -70,7 +70,7 @@ You can use the `/set` command to dynamically set input variables, as shown in t
 
 ![alt text](/images/c70dea73d7be08b2.png)
 
-After setting variables, AstrBot will attach the variables you set in the next request to Dify, flexibly adapting to your Workflow.
+After setting variables, PyaBot will attach the variables you set in the next request to Dify, flexibly adapting to your Workflow.
 
 ![alt text](/images/9eb2213fa4cc044e.png)
 

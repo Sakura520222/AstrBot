@@ -10,17 +10,17 @@ from astrbot.api.event import filter, AstrMessageEvent
 
 ## 消息与事件
 
-AstrBot 接收消息平台下发的消息，并将其封装为 `AstrMessageEvent` 对象，传递给插件进行处理。
+PyaBot 接收消息平台下发的消息，并将其封装为 `AstrMessageEvent` 对象，传递给插件进行处理。
 
 ![message-event](/images/6a471eba26e14429.svg)
 
 ### 消息事件
 
-`AstrMessageEvent` 是 AstrBot 的消息事件对象，其中存储了消息发送者、消息内容等信息。
+`AstrMessageEvent` 是 PyaBot 的消息事件对象，其中存储了消息发送者、消息内容等信息。
 
 ### 消息对象
 
-`AstrBotMessage` 是 AstrBot 的消息对象，其中存储了消息平台下发的消息具体内容，`AstrMessageEvent` 对象中包含一个 `message_obj` 属性用于获取该消息对象。
+`AstrBotMessage` 是 PyaBot 的消息对象，其中存储了消息平台下发的消息具体内容，`AstrMessageEvent` 对象中包含一个 `message_obj` 属性用于获取该消息对象。
 
 ```py{11}
 class AstrBotMessage:
@@ -66,7 +66,7 @@ class AstrBotMessage:
 - `Nodes`：合并转发消息中的多个节点
 - `Poke`：戳一戳消息段
 
-在 AstrBot 中，消息链表示为 `List[BaseMessageComponent]` 类型的列表。
+在 PyaBot 中，消息链表示为 `List[BaseMessageComponent]` 类型的列表。
 
 ## 指令
 
@@ -90,13 +90,13 @@ class MyPlugin(Star):
 ```
 
 > [!TIP]
-> 指令不能带空格，否则 AstrBot 会将其解析到第二个参数。可以使用下面的指令组功能，或者也使用监听器自己解析消息内容。
+> 指令不能带空格，否则 PyaBot 会将其解析到第二个参数。可以使用下面的指令组功能，或者也使用监听器自己解析消息内容。
 
 ## 带参指令
 
 ![command-with-param](/images/f96b40e595b1178f.svg)
 
-AstrBot 会自动帮你解析指令的参数。
+PyaBot 会自动帮你解析指令的参数。
 
 ```python
 @filter.command("add")
@@ -265,7 +265,7 @@ async def on_astrbot_loaded(self):
 
 #### 等待 LLM 请求时
 
-在 AstrBot 准备调用 LLM 但还未获取会话锁时，会触发 `on_waiting_llm_request` 钩子。
+在 PyaBot 准备调用 LLM 但还未获取会话锁时，会触发 `on_waiting_llm_request` 钩子。
 
 这个钩子适合用于发送"正在等待请求..."等用户反馈提示，亦或是在锁外及时获取LLM请求而不用等到锁被释放。
 
@@ -284,7 +284,7 @@ async def on_waiting_llm(self, event: AstrMessageEvent):
 
 > 这里不能使用 yield 来发送消息。如需发送，请直接使用 `event.send()` 方法。
 
-在 AstrBot 默认的执行流程中，在调用 LLM 前，会触发 `on_llm_request` 钩子。
+在 PyaBot 默认的执行流程中，在调用 LLM 前，会触发 `on_llm_request` 钩子。
 
 可以获取到 `ProviderRequest` 对象，可以对其进行修改。
 
@@ -312,7 +312,7 @@ async def my_custom_hook_1(
 > 对于每轮都会变化、内容量中小的提示词，优先通过 `req.extra_user_content_parts` 追加。它会作为额外的用户消息内容块放在本轮用户输入之后，更适合承载"当前时间""角色好感度""本轮相关记忆片段"等动态上下文：
 >
 > ```python
-> # AstrBot v4.30.0 之前的导入方式：
+> # PyaBot v4.30.0 之前的导入方式：
 > # from astrbot.core.agent.message import TextPart
 > from astrbot.api.agents import TextPart
 >
@@ -363,7 +363,7 @@ async def on_llm_resp(
 
 #### Agent 开始运行时
 
-> 适用于 AstrBot 版本 > v4.23.1
+> 适用于 PyaBot 版本 > v4.23.1
 
 在 Agent 开始运行时，会触发 `on_agent_begin` 钩子。
 
@@ -386,7 +386,7 @@ async def on_agent_begin(
 
 #### LLM 工具调用前
 
-> 适用于 AstrBot 版本 > v4.23.1
+> 适用于 PyaBot 版本 > v4.23.1
 
 在 Agent 准备调用 LLM 工具时，会触发 `on_using_llm_tool` 钩子。
 
@@ -413,7 +413,7 @@ async def on_using_llm_tool(
 
 #### LLM 工具调用后
 
-> 适用于 AstrBot 版本 > v4.23.1
+> 适用于 PyaBot 版本 > v4.23.1
 
 在 LLM 工具调用完成后，会触发 `on_llm_tool_respond` 钩子。
 

@@ -1,6 +1,6 @@
 # Plugin Market Specification
 
-This section lists published AstrBot plugin market JSON specifications.
+This section lists published PyaBot plugin market JSON specifications.
 
 ## Versions
 

@@ -14,7 +14,7 @@ User: Keen observation (明察秋毫)
 ...
 ```
 
-AstrBot provides out-of-the-box session control functionality:
+PyaBot provides out-of-the-box session control functionality:
 
 Follow-up input is routed by the core pipeline, rather than the built-in plugin's former `handle_session_control_agent` handler. A matching active waiter allows input without another mention or wake prefix. After whitelist, session-status, rate-limit, content-safety checks, and preprocessing, `ProcessStage` dispatches the input before ordinary plugin handlers or the Agent. Consumed input does not continue to those handlers; `@session_waiter` usage is unchanged.
 
@@ -111,7 +111,7 @@ Used by developers to control whether a session should end, and to retrieve mess
 
 ## Custom Session ID Filter
 
-By default, the AstrBot session controller uses `sender_id` (the sender's ID) as the identifier for distinguishing different sessions. If you want to treat an entire group as one session, you need to customize the session ID filter.
+By default, the PyaBot session controller uses `sender_id` (the sender's ID) as the identifier for distinguishing different sessions. If you want to treat an entire group as one session, you need to customize the session ID filter.
 
 ```py
 import astrbot.api.message_components as Comp

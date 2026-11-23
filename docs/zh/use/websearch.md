@@ -1,15 +1,15 @@
 # 网页搜索
 
-网页搜索让 AstrBot 内置 AI 在回答时调用搜索服务，获取新闻、产品更新、公开资料等信息。例如，让 Agent 查找某个软件的新版本、比较多个方案，或阅读一篇网页后总结要点。
+网页搜索让 PyaBot 内置 AI 在回答时调用搜索服务，获取新闻、产品更新、公开资料等信息。例如，让 Agent 查找某个软件的新版本、比较多个方案，或阅读一篇网页后总结要点。
 
 模型会先获取搜索结果，再结合结果组织回答。搜索能补充模型已有知识，但结果仍可能过时或不准确；对于重要信息，建议打开来源核对。
 
 ## 开始前需要准备什么
 
-- **使用 AstrBot 内置 AI**：在 `配置文件 → AI` 中启用 AI，执行方式选择 AstrBot 内置 AI。Dify、Coze 等第三方执行方式的搜索能力由对应服务配置。
+- **使用 PyaBot 内置 AI**：在 `配置文件 → AI` 中启用 AI，执行方式选择 PyaBot 内置 AI。Dify、Coze 等第三方执行方式的搜索能力由对应服务配置。
 - **支持工具调用的对话模型**：网页搜索通过函数调用（Function Calling / Tool Calling）运行。模型和接入它的 API 都需要支持工具调用。
 - **搜索服务**：选择一个提供商，按需申请 API Key。搜索服务的 Key 与对话模型的 Key 是两回事。
-- **网络连接**：AstrBot 所在的服务器或容器需要能访问所选服务的 API。
+- **网络连接**：PyaBot 所在的服务器或容器需要能访问所选服务的 API。
 
 网页搜索是内置工具，不需要另外安装搜索插件，也不需要开启“使用电脑能力”。“允许执行代码时联网”的设置针对代码执行，不控制网页搜索服务的请求。
 
@@ -29,7 +29,7 @@
 
 当前支持以下九种接入方式。先选一个完成配置即可，无需同时申请所有服务。
 
-| 提供商 | Key 申请入口 | AstrBot 提供的能力 |
+| 提供商 | Key 申请入口 | PyaBot 提供的能力 |
 | --- | --- | --- |
 | <span id="serpapi">[SerpApi](./websearch/serpapi.md)</span> | [SerpApi API Key](https://serpapi.com/manage-api-key) | Google 网页搜索、News 新闻、Images Light 图片搜索、Finance 金融查询、Scholar 学术搜索 |
 | <span id="deepseek">[DeepSeek Search API](./websearch/deepseek.md)</span> | [DeepSeek 开放平台](https://platform.deepseek.com/api_keys) / [搜索文档](https://api-docs.deepseek.com/zh-cn/guides/search) | 网页搜索、按 URL 提取网页正文 |
@@ -68,7 +68,7 @@ SerpApi 的详细说明与专属示例已移至 [网页搜索 → SerpApi](./web
 如果选择了支持正文提取的提供商，还可以发送：
 
 ```text
-请阅读这个网页并总结安装步骤：https://astrbot.pyabunny.com/docs/deploy/astrbot/docker.html
+请阅读这个网页并总结安装步骤：https://pyabot.pyabunny.com/docs/deploy/astrbot/docker.html
 ```
 
 是否调用搜索、使用什么关键词，以及是否继续读取网页，由模型决定。打开开关不代表每条消息都会联网。如果希望本次回答依据最新信息，可以在问题中明确要求“先搜索再回答”。
@@ -81,13 +81,13 @@ ChatUI 可展示部分搜索工具返回的来源引用，实际呈现还取决�
 
 先用“请先进行网页搜索，再回答……”测试，并检查：
 
-1. 消息使用的是刚刚修改的配置文件，AI 执行方式为 AstrBot 内置 AI。
+1. 消息使用的是刚刚修改的配置文件，AI 执行方式为 PyaBot 内置 AI。
 2. 对话模型及其 API 支持工具调用。
 3. Key 已保存，搜索服务仍有可用额度。
 
 ### 提示 Key 无效、额度不足或请求失败
 
-在 `数据与日志 → 日志` 中查看具体错误。`401`、`403` 常与 Key 或服务权限有关，`429` 常表示额度或频率限制；连接超时则应检查 AstrBot 所在环境到搜索 API 的网络连接。不要把对话模型的 Key 填入搜索服务的 Key 字段。
+在 `数据与日志 → 日志` 中查看具体错误。`401`、`403` 常与 Key 或服务权限有关，`429` 常表示额度或频率限制；连接超时则应检查 PyaBot 所在环境到搜索 API 的网络连接。不要把对话模型的 Key 填入搜索服务的 Key 字段。
 
 ### 搜索正常，但链接总结失败
 

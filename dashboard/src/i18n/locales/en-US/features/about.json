@@ -1,17 +1,17 @@
 {
   "hero": {
-    "title": "AstrBot",
-    "subtitle": "A project out of interests and loves ❤️",
+    "title": "PyaBot",
+    "subtitle": "Multi-platform AI assistant framework with AstrBot plugin compatibility",
     "starButton": "Star this project! 🌟",
     "issueButton": "Submit Issue"
   },
   "contributors": {
     "title": "Contributors",
     "description": "This project is maintained by many open source community members. Thanks to every contributor for their dedication!",
-    "viewLink": "View AstrBot Contributors"
+    "viewLink": "View PyaBot Contributors"
   },
   "stats": {
     "title": "Global Deployment",
-    "license": "AstrBot is open source under AGPL v3 license"
+    "license": "PyaBot is based on AstrBot and open source under AGPL v3 license"
   }
 } 

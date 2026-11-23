@@ -4,7 +4,7 @@
 
 | 配置项 | 值 |
 | --- | --- |
-| 镜像 | `ghcr.io/sakura520222/astrbot:latest` |
+| 镜像 | `ghcr.io/sakura520222/pyabot:latest` |
 | 容器端口 | `6185/tcp` |
 | 主机端口 | `6185` |
 | 容器数据目录 | `/AstrBot/data` |

@@ -28,10 +28,10 @@ class MyPlugin(Star):
 解释如下：
 
 - 插件需要继承 `Star` 类。
-- `Context` 类用于插件与 AstrBot Core 交互，可以由此调用 AstrBot Core 提供的各种 API。
+- `Context` 类用于插件与 PyaBot Core 交互，可以由此调用 PyaBot Core 提供的各种 API。
 - 具体的处理函数 `Handler` 在插件类中定义，如这里的 `helloworld` 函数。
-- `AstrMessageEvent` 是 AstrBot 的消息事件对象，存储了消息发送者、消息内容等信息。
-- `AstrBotMessage` 是 AstrBot 的消息对象，存储了消息平台下发的消息的具体内容。可以通过 `event.message_obj` 获取。
+- `AstrMessageEvent` 是 PyaBot 的消息事件对象，存储了消息发送者、消息内容等信息。
+- `AstrBotMessage` 是 PyaBot 的消息对象，存储了消息平台下发的消息的具体内容。可以通过 `event.message_obj` 获取。
 
 > [!TIP]
 >

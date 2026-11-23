@@ -6,7 +6,7 @@
   "page": {
     "title": "未来任务",
     "beta": "实验性",
-    "subtitle": "AstrBot 会在设定时间自动唤醒，完成任务后把结果投递回目标会话。",
+    "subtitle": "PyaBot 会在设定时间自动唤醒，完成任务后把结果投递回目标会话。",
     "proactive": {
       "link": "支持的消息平台",
       "supported": "主动发送结果仅支持以下您已配置的平台",
@@ -27,7 +27,7 @@
   },
   "platformDialog": {
     "title": "支持的消息平台",
-    "description": "只有以下平台支持主动推送消息。未来任务完成后，AstrBot 才能把结果投递回这些平台的目标会话。"
+    "description": "只有以下平台支持主动推送消息。未来任务完成后，PyaBot 才能把结果投递回这些平台的目标会话。"
   },
   "card": {
     "onceAt": "一次性 · {time}",
@@ -108,7 +108,7 @@
   "form": {
     "title": "新建任务",
     "editTitle": "编辑任务",
-    "chatHint": "你可以直接通过聊天的方式来让 AstrBot 创建未来任务，而不必在此添加。",
+    "chatHint": "你可以直接通过聊天的方式来让 PyaBot 创建未来任务，而不必在此添加。",
     "runOnce": "一次性任务",
     "name": "任务名称 *",
     "note": "任务需求 *",

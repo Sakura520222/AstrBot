@@ -1,6 +1,6 @@
 # IPv6 访问
 
-AstrBot 可以绑定 IPv6 地址。停止实例后，在 `data/cmd_config.json` 的 `dashboard` 配置中设置：
+PyaBot 可以绑定 IPv6 地址。停止实例后，在 `data/cmd_config.json` 的 `dashboard` 配置中设置：
 
 ~~~json
 {

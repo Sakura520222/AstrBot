@@ -47,6 +47,8 @@ astrbot/dashboard/dist/
 # AstrBot specific
 .astrbot
 .astrbot-tmp
+.pyabot
+pyabot.lock
 astrbot.lock
 
 # Other

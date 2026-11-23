@@ -1653,7 +1653,7 @@ class PluginService:
                     "warning_type": "astrbot_version_unsupported",
                     "can_ignore": True,
                 },
-                public_message="当前 AstrBot 版本不满足插件要求",
+                public_message="当前 PyaBot 版本不满足插件要求",
             ) from exc
         except GitUnavailableError as exc:
             raise PluginServiceError(str(exc), public_message=str(exc)) from exc
@@ -1741,7 +1741,7 @@ class PluginService:
                     "warning_type": "astrbot_version_unsupported",
                     "can_ignore": True,
                 },
-                public_message="当前 AstrBot 版本不满足插件要求",
+                public_message="当前 PyaBot 版本不满足插件要求",
             ) from exc
 
     async def install_plugin_upload_from_dashboard_form(

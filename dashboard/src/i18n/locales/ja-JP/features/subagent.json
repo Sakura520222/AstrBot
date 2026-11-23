@@ -25,7 +25,7 @@
     "totalAgents": "サブエージェント総数",
     "totalAgentsNote": "設定済みのサブエージェント数",
     "enabledAgents": "有効なエージェント",
-    "enabledAgentsNote": "AstrBot から呼び出せるサブエージェント",
+    "enabledAgentsNote": "PyaBot から呼び出せるサブエージェント",
     "mainOrchestration": "メインオーケストレーションの状態",
     "boundPersonas": "関連付け済みペルソナ",
     "boundPersonasNote": "ペルソナを関連付けたサブエージェント数"

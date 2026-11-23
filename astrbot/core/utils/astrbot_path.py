@@ -28,11 +28,20 @@ def get_astrbot_path() -> str:
 
 
 def get_astrbot_root() -> str:
-    """Return the AstrBot root directory."""
-    if path := os.environ.get("ASTRBOT_ROOT"):
+    """Return the PyaBot root directory.
+
+    Checks ``PYABOT_ROOT`` first and falls back to ``ASTRBOT_ROOT`` for
+    compatibility with existing AstrBot deployments and plugins.
+    """
+    if path := os.environ.get("PYABOT_ROOT") or os.environ.get("ASTRBOT_ROOT"):
         return os.path.realpath(path)
     if is_packaged_desktop_runtime():
-        return os.path.realpath(os.path.join(os.path.expanduser("~"), ".astrbot"))
+        home = Path.home()
+        pyabot_home = home / ".pyabot"
+        legacy_home = home / ".astrbot"
+        if pyabot_home.exists() or not legacy_home.exists():
+            return os.path.realpath(str(pyabot_home))
+        return os.path.realpath(str(legacy_home))
     return os.path.realpath(os.getcwd())
 
 

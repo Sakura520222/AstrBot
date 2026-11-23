@@ -34,17 +34,17 @@
       "subtitle": "現在および過去のバージョンの変更内容を確認します。"
     },
     "documentation": {
-      "subtitle": "AstrBot の公式ドキュメントを開きます。"
+      "subtitle": "PyaBot の公式ドキュメントを開きます。"
     },
     "faq": {
       "subtitle": "よくある質問とトラブルシューティングを確認します。"
     },
     "github": {
-      "subtitle": "AstrBot の GitHub リポジトリを開きます。"
+      "subtitle": "PyaBot の GitHub リポジトリを開きます。"
     }
   },
   "systemConfig": {
-    "restartRequired": "システム設定を保存しました。一部の設定は AstrBot の再起動後に反映されます。",
+    "restartRequired": "システム設定を保存しました。一部の設定は PyaBot の再起動後に反映されます。",
     "groups": {
       "runtime": {
         "title": "基本動作",
@@ -68,7 +68,7 @@
       }
     },
     "timePreview": {
-      "label": "AstrBot の現在時刻"
+      "label": "PyaBot の現在時刻"
     },
     "messages": {
       "loadFailed": "システム設定の読み込みに失敗しました",
@@ -80,12 +80,12 @@
     "title": "ネットワーク",
     "githubProxy": {
       "title": "GitHub プロキシアドレス",
-      "subtitle": "プラグインのダウンロードや AstrBot の更新に使用する GitHub プロキシアドレスを設定します。中国本土のネットワーク環境で有効です。カスタム入力は即時反映されます。各アドレスの安定性は保証されません。プラグインやプロジェクトの更新時にエラーが発生した場合は、まずプロキシアドレスが正常に利用できるか確認してください。",
+      "subtitle": "プラグインのダウンロードや PyaBot の更新に使用する GitHub プロキシアドレスを設定します。中国本土のネットワーク環境で有効です。カスタム入力は即時反映されます。各アドレスの安定性は保証されません。プラグインやプロジェクトの更新時にエラーが発生した場合は、まずプロキシアドレスが正常に利用できるか確認してください。",
       "label": "GitHub プロキシアドレスを選択"
     },
     "pypiMirror": {
       "title": "PyPI パッケージインデックス",
-      "subtitle": "AstrBot の Python 依存関係をインストールする際に使用する PyPI インデックスです。国内ミラーまたはカスタム URL を選択できます。変更は AstrBot の再起動後に反映されます。",
+      "subtitle": "PyaBot の Python 依存関係をインストールする際に使用する PyPI インデックスです。国内ミラーまたはカスタム URL を選択できます。変更は PyaBot の再起動後に反映されます。",
       "label": "PyPI ソースを選択",
       "custom": "カスタム",
       "customPlaceholder": "https://example.com/pypi/simple",
@@ -132,13 +132,13 @@
     "title": "システム",
     "restart": {
       "title": "再起動",
-      "subtitle": "AstrBot を再起動",
-      "confirm": "AstrBot を再起動しますか？再起動中は WebUI が一時的に利用できなくなります。",
+      "subtitle": "PyaBot を再起動",
+      "confirm": "PyaBot を再起動しますか？再起動中は WebUI が一時的に利用できなくなります。",
       "button": "再起動"
     },
     "backup": {
       "title": "データのバックアップと復元",
-      "subtitle": "AstrBot のすべてのデータをエクスポートまたはインポートして、新しいサーバーへ移行できます。",
+      "subtitle": "PyaBot のすべてのデータをエクスポートまたはインポートして、新しいサーバーへ移行できます。",
       "button": "バックアップ管理"
     },
     "cleanup": {
@@ -187,7 +187,7 @@
     },
     "diagnostics": {
       "title": "診断",
-      "subtitle": "診断パッケージを出力して AstrBot の問題を調査します。"
+      "subtitle": "診断パッケージを出力して PyaBot の問題を調査します。"
     }
   },
   "backup": {
@@ -233,7 +233,7 @@
       "processing": "インポート中…",
       "wait": "データを復元しています。しばらくお待ちください…",
       "completed": "インポートが完了しました",
-      "restartRequired": "データをインポートしました。すべての変更を反映するため、AstrBot をすぐに再起動することを推奨します。",
+      "restartRequired": "データをインポートしました。すべての変更を反映するため、PyaBot をすぐに再起動することを推奨します。",
       "restartNow": "今すぐ再起動",
       "failed": "インポートに失敗しました",
       "retry": "再試行",
@@ -247,7 +247,7 @@
         "minorDiffTitle": "⚠️ バージョン差異の警告",
         "minorDiffMessage": "マイナーバージョンが異なっていても通常はインポートできますが、データ構造が一部異なる可能性があります。\nインポートすると既存のすべてのデータが削除され、バックアップの内容で上書きされます。\n\n続行しますか？",
         "majorDiffTitle": "⛔ インポートできません",
-        "majorDiffMessage": "メジャーバージョンが異なります。メジャーバージョンをまたぐインポートはデータ破損の原因となる可能性があります。\n同じメジャーバージョンの AstrBot を使用してください。"
+        "majorDiffMessage": "メジャーバージョンが異なります。メジャーバージョンをまたぐインポートはデータ破損の原因となる可能性があります。\n同じメジャーバージョンの PyaBot を使用してください。"
       }
     },
     "list": {

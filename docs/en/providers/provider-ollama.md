@@ -19,18 +19,18 @@ After pulling is complete, use `ollama list` to view the models you have pulled.
 
 Then use `ollama run <model_name>` to run the model.
 
-## Configure AstrBot
+## Configure PyaBot
 
 Open **Providers → Chat Completion**, click **Add**, and select `Ollama`. The default API endpoint is `http://127.0.0.1:11434/v1`; adjust it to match your deployment.
 
 Enter the provider name and check the `API Base URL`. The template pre-fills `API Key` with `ollama`; replace it if your server requires a different key. Click **Save and Fetch Models**. Click `+` beside the desired model and make sure it is enabled. Alternatively, click **Save Configuration**, then **Custom Model** and enter the exact model ID. Use **Test Model** beside the configured model to check availability.
 
-Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for AstrBot built-in AI.
+Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for PyaBot built-in AI.
 
 ::: tip
 
-For Mac/Windows users deploying AstrBot with Docker Desktop, enter `http://host.docker.internal:11434/v1` for the API Base URL.\
-For Linux users deploying AstrBot with Docker, enter `http://172.17.0.1:11434/v1` for the API Base URL, or replace `172.17.0.1` with your public IP address (ensure that port 11434 is allowed by the host system).\
+For Mac/Windows users deploying PyaBot with Docker Desktop, enter `http://host.docker.internal:11434/v1` for the API Base URL.\
+For Linux users deploying PyaBot with Docker, enter `http://172.17.0.1:11434/v1` for the API Base URL, or replace `172.17.0.1` with your public IP address (ensure that port 11434 is allowed by the host system).\
 If Ollama is deployed using Docker, ensure that port 11434 is mapped to the host.
 
 :::

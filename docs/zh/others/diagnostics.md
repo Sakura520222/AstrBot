@@ -1,6 +1,6 @@
 # 异常诊断
 
-本文用于整理 AstrBot 出现异常时的通用排查方法。遇到问题时，先确定问题发生在哪个阶段，再收集对应日志；这样提交 Issue 时更容易复现和定位。
+本文用于整理 PyaBot 出现异常时的通用排查方法。遇到问题时，先确定问题发生在哪个阶段，再收集对应日志；这样提交 Issue 时更容易复现和定位。
 
 ## 常见问题类型
 
@@ -14,7 +14,7 @@
 
 WebUI 可访问时，进入 `数据与日志 → 日志` 查看实时日志。需要调整控制台或文件日志级别时，进入 `设置 → 常规 → 日志`，修改后保存。
 
-优先查看 AstrBot 主日志：
+优先查看 PyaBot 主日志：
 
 ```text
 data/logs/astrbot.log
@@ -61,7 +61,7 @@ data/logs/event_loop_watchdog.log.1
 Event loop lag detected: 18.432s (threshold 15.000s).
 ```
 
-如果事件循环长时间没有恢复，AstrBot 会把 Python 线程栈写入：
+如果事件循环长时间没有恢复，PyaBot 会把 Python 线程栈写入：
 
 ```text
 data/logs/event_loop_watchdog.log
@@ -74,7 +74,7 @@ data/logs/event_loop_watchdog.log
 提交问题时，请尽量提供以下信息：
 
 - 问题发生的大致时间点和时区。
-- AstrBot 版本、部署方式（Docker、源码部署、桌面客户端等）、操作系统。
+- PyaBot 版本、部署方式（Docker、源码部署、桌面客户端等）、操作系统。
 - 触发方式：启动、普通聊天、群聊、平台回调、定时任务、MCP 工具、插件功能等。
 - 影响范围：所有会话、某个平台、某个群、某个用户，还是某个插件。
 - `data/logs/astrbot.log` 中问题发生前后 1 到 3 分钟的日志。

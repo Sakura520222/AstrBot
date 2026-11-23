@@ -4,7 +4,7 @@ A Skill is a task manual for an Agent. It packages instructions, rules, template
 
 For example, a weekly-report Skill can explain how to group progress, blockers, and next steps into a consistent format. A spreadsheet Skill can describe data cleaning and file generation. The user describes a task; the Agent checks Skill names and descriptions, reads the relevant instructions, and loads supporting resources as needed.
 
-AstrBot has supported this Agent Skills format since v4.13.0. It is not limited to Claude models, but the model must understand the instructions. Reading files, calling tools, and running scripts also require the corresponding capabilities.
+PyaBot has supported this Agent Skills format since v4.13.0. It is not limited to Claude models, but the model must understand the instructions. Reading files, calling tools, and running scripts also require the corresponding capabilities.
 
 ## How Skills Differ from Tools {#key-features}
 
@@ -13,9 +13,9 @@ AstrBot has supported this Agent Skills format since v4.13.0. It is not limited 
 | Tool | A specific operation | Search the web, read a file, execute Python |
 | [MCP](/en/use/mcp) | Tools from an external service | Query calendars, search papers |
 | Skill | A task workflow and supporting resources | Write reports using a team template, analyze tables using defined rules |
-| [Plugin](/en/use/plugin) | AstrBot extensions | Register commands, handle messages, and optionally provide tools or Skills |
+| [Plugin](/en/use/plugin) | PyaBot extensions | Register commands, handle messages, and optionally provide tools or Skills |
 
-AstrBot first provides Skill names, descriptions, and file paths to the Agent. The Agent reads detailed content as needed rather than loading every file at the start. **Uploading a Skill does not install its software dependencies or grant permissions.** Configure any required Python packages, APIs, or tools separately.
+PyaBot first provides Skill names, descriptions, and file paths to the Agent. The Agent reads detailed content as needed rather than loading every file at the start. **Uploading a Skill does not install its software dependencies or grant permissions.** Configure any required Python packages, APIs, or tools separately.
 
 ## Upload Your First Skill {#uploading-skills-to-astrbot}
 
@@ -74,8 +74,8 @@ Save it as `weekly-report/SKILL.md`, archive it as `weekly-report.zip`, and uplo
 
 Open `Config → AI → Capabilities → Agent Computer Use`, choose a runtime, and save:
 
-- **Local:** the Agent uses file tools in AstrBot's runtime environment. Members and administrators follow separate local permission policies. Reading instructions can use workspace file access without code execution. Running Skill scripts additionally requires execution permission and their dependencies.
-- **Sandbox:** the Agent reads files and runs scripts in a separate environment. Configure the sandbox connection first. AstrBot attempts to synchronize local and plugin Skills to active sandboxes.
+- **Local:** the Agent uses file tools in PyaBot's runtime environment. Members and administrators follow separate local permission policies. Reading instructions can use workspace file access without code execution. Running Skill scripts additionally requires execution permission and their dependencies.
+- **Sandbox:** the Agent reads files and runs scripts in a separate environment. Configure the sandbox connection first. PyaBot attempts to synchronize local and plugin Skills to active sandboxes.
 - **None:** a Skill inventory may still reach the model, but Computer Use file and execution tools are unavailable. Reading the full instructions is not guaranteed, and Skill scripts cannot run. Configure Local or Sandbox for practical Skill use.
 
 See [Agent Sandbox](/en/use/astrbot-agent-sandbox) for file scopes, code execution, networking, and deployment. Skills do not bypass these restrictions or automatically grant regular members permission to execute code.
@@ -103,7 +103,7 @@ Plugin-provided Skills can be read but cannot be edited, downloaded, or deleted 
 
 ## Skill Sources and Priority
 
-AstrBot discovers Skills from these locations. Workspace Skills are available to the current request rather than the global management list:
+PyaBot discovers Skills from these locations. Workspace Skills are available to the current request rather than the global management list:
 
 | Source | Location or discovery method | Management |
 | --- | --- | --- |
@@ -116,7 +116,7 @@ A workspace path is usually `data/workspaces/<normalized_umo>/skills/<skill_name
 
 For duplicate names, request-time priority is **Workspace > Local > Plugin > Sandbox-only**. A workspace override applies only to the current request.
 
-A persona's explicit Skill list filters local, plugin, and sandbox Skills, **but not workspace Skills**. Explicitly selecting no Skills disables workspace Skills as well. When a local Skill has been synchronized to a sandbox, AstrBot treats it as the same Skill and uses its sandbox-readable path for sandbox requests.
+A persona's explicit Skill list filters local, plugin, and sandbox Skills, **but not workspace Skills**. Explicitly selecting no Skills disables workspace Skills as well. When a local Skill has been synchronized to a sandbox, PyaBot treats it as the same Skill and uses its sandbox-readable path for sandbox requests.
 
 ### Shipyard Neo Skills
 

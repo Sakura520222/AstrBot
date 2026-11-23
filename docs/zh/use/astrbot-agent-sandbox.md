@@ -2,16 +2,16 @@
 
 ## 这是什么？
 
-AstrBot 内置 AI 支持让 Agent 通过执行代码、读写文件等方式访问电脑环境。这在 AstrBot 内置 AI 中称为 “使用电脑能力”。
+PyaBot 内置 AI 支持让 Agent 通过执行代码、读写文件等方式访问电脑环境。这在 PyaBot 内置 AI 中称为 “使用电脑能力”。
 
 目前，“使用电脑能力” 支持两种运行环境：
 
-- 本机环境：让 AstrBot Agent 在 AstrBot **所在的本机环境**中**直接**执行代码和文件操作，**直接**访问本机环境内的文件和命令。利用 macOS 的 `Seatbelt` 或 Linux 的 `bubblewrap(bwrap)` 技术，可以在本机环境中为 AstrBot Agent 提供**受限的文件访问和执行能力**，以保护本机环境的安全性，限制机器人的不同用户使用 AstrBot Agent 时的文件访问范围和联网权限，获得一定的安全性保证。
-- 第三方沙箱环境：让 AstrBot Agent 在**独立的环境**中执行代码和文件操作，避免直接访问宿主机或 AstrBot 容器内的文件和命令。由于是独立环境，因此可以直接限制机器人的不同用户使用 AstrBot Agent 时的文件访问范围和联网权限，获得更高的安全性保证。由于是独立的环境，第三方沙箱环境通常也需要额外部署和配置，并对机器性能有更高要求。
+- 本机环境：让 PyaBot Agent 在 PyaBot **所在的本机环境**中**直接**执行代码和文件操作，**直接**访问本机环境内的文件和命令。利用 macOS 的 `Seatbelt` 或 Linux 的 `bubblewrap(bwrap)` 技术，可以在本机环境中为 PyaBot Agent 提供**受限的文件访问和执行能力**，以保护本机环境的安全性，限制机器人的不同用户使用 PyaBot Agent 时的文件访问范围和联网权限，获得一定的安全性保证。
+- 第三方沙箱环境：让 PyaBot Agent 在**独立的环境**中执行代码和文件操作，避免直接访问宿主机或 PyaBot 容器内的文件和命令。由于是独立环境，因此可以直接限制机器人的不同用户使用 PyaBot Agent 时的文件访问范围和联网权限，获得更高的安全性保证。由于是独立的环境，第三方沙箱环境通常也需要额外部署和配置，并对机器性能有更高要求。
 
 您可以在 `配置文件 -> AI -> 能力 -> 使用电脑能力` 中选择 “运行环境” 为 “本机环境” 或者 “第三方沙箱环境”。
 
-如果选择“本机环境”，AstrBot 会尝试在本机环境中启用隔离能力。隔离能力的可用性取决于操作系统、内核、账户权限和系统安全策略等因素。请参见下文的 [本机环境](#local-environment) 章节。
+如果选择“本机环境”，PyaBot 会尝试在本机环境中启用隔离能力。隔离能力的可用性取决于操作系统、内核、账户权限和系统安全策略等因素。请参见下文的 [本机环境](#local-environment) 章节。
 
 如果选择“第三方沙箱环境”，还需要选择对应的“沙箱环境驱动器”，并填写连接地址、访问令牌等配置。相见下文的 [第三方沙箱环境](#third-party-sandbox-environment) 章节。
 
@@ -19,18 +19,18 @@ AstrBot 内置 AI 支持让 Agent 通过执行代码、读写文件等方式访�
 
 在 `配置文件 -> AI -> 能力 -> 使用电脑能力` 中，将“运行环境”设为“本机环境”（`local`）。
 
-本质上，AstrBot 会通过提供给 Agent 一系列工具（Shell、Python、文件工具等）来让 Agent 访问本机环境。
+本质上，PyaBot 会通过提供给 Agent 一系列工具（Shell、Python、文件工具等）来让 Agent 访问本机环境。
 
 > [!NOTE]
-> 如果您通过 Docker 运行 AstrBot，此处的“本机环境”指的是 AstrBot Docker 容器内的 Linux 环境，而不是宿主机的环境。Docker 容器内的文件访问范围和联网权限仍然受限于 Docker 容器的配置。
+> 如果您通过 Docker 运行 PyaBot，此处的“本机环境”指的是 PyaBot Docker 容器内的 Linux 环境，而不是宿主机的环境。Docker 容器内的文件访问范围和联网权限仍然受限于 Docker 容器的配置。
 
 具体的权限支持按普通成员和管理员分别设置，以矩阵的形式展示，见下图。
 
 ![本地权限策略矩阵](./images/config-local-permissions-zh.jpg)
 
-当勾选 “允许执行代码” 时，AstrBot 会为 Agent 提供 `astrbot_execute_shell` 和 `astrbot_execute_python` 两个工具，以让 Agent 在本机环境中执行 Shell 和 Python 代码。
+当勾选 “允许执行代码” 时，PyaBot 会为 Agent 提供 `astrbot_execute_shell` 和 `astrbot_execute_python` 两个工具，以让 Agent 在本机环境中执行 Shell 和 Python 代码。
 
-当勾选 “允许联网” 时，AstrBot 会让 Agent 在执行 Shell/Python 时可以访问网络；否则，Agent 执行 Shell/Python 时会被限制网络访问。
+当勾选 “允许联网” 时，PyaBot 会让 Agent 在执行 Shell/Python 时可以访问网络；否则，Agent 执行 Shell/Python 时会被限制网络访问。
 
 > [!TIP]
 > 这里的 “允许联网” 不是指 [网页搜索](/use/websearch) 的搜索功能，而是指 Agent 在执行 Shell/Python 时是否可以通过类似 `curl`, `wget` 等工具访问网络。
@@ -40,14 +40,14 @@ AstrBot 内置 AI 支持让 Agent 通过执行代码、读写文件等方式访�
 - **关闭**：Agent 无法访问任何文件，文件工具不可用。
 - **工作区**：Agent 只能访问对应用户会话（按 UMO 来划分）的以下目录：
   - 工作区目录（在 `data/workspaces/<umo>/` 下）【**读写**】
-  - AstrBot 的临时目录（`data/temp/`）【**读写**】
+  - PyaBot 的临时目录（`data/temp/`）【**读写**】
   - 系统临时目录（`<系统临时目录>/.astrbot/`）【**读写**】
-  - AstrBot 提供给 Agent 的的技能（Skills）目录 (`data/skills/`) 【普通成员**只读**，管理员**读写**】
-  - AstrBot 插件提供的技能（Skills）目录 (`data/plugins/<插件名>/skills/`) 【**只读**】
-  - AstrBot 内置插件提供的技能（Skills）目录 (`<AstrBot 运行安装目录>/builtin_stars/<插件名>/skills/`) 【**只读**】
+  - PyaBot 提供给 Agent 的的技能（Skills）目录 (`data/skills/`) 【普通成员**只读**，管理员**读写**】
+  - PyaBot 插件提供的技能（Skills）目录 (`data/plugins/<插件名>/skills/`) 【**只读**】
+  - PyaBot 内置插件提供的技能（Skills）目录 (`<PyaBot 运行安装目录>/builtin_stars/<插件名>/skills/`) 【**只读**】
 - **整个环境**：Agent 可以访问本机环境内的**所有文件**，文件工具可以在整个环境中操作。
 
-AstrBot 为 Agent 提供的文件工具包括 `astrbot_file_read_tool`, `astrbot_file_write_tool`, `astrbot_file_edit_tool` 和 `astrbot_grep_tool`，分别对应文件的读取、写入、编辑和搜索功能。Agent 可以通过这些工具访问本机环境内的文件。
+PyaBot 为 Agent 提供的文件工具包括 `astrbot_file_read_tool`, `astrbot_file_write_tool`, `astrbot_file_edit_tool` 和 `astrbot_grep_tool`，分别对应文件的读取、写入、编辑和搜索功能。Agent 可以通过这些工具访问本机环境内的文件。
 
 新安装的 Windows、Linux 和 macOS 使用相同的默认权限：
 
@@ -76,9 +76,9 @@ AstrBot 为 Agent 提供的文件工具包括 `astrbot_file_read_tool`, `astrbot
 
 ### macOS 用户 {#local-macos}
 
-Seatbelt 是 macOS 的内置沙箱机制。AstrBot 在 macOS 上使用 `/usr/bin/sandbox-exec` 来调用 Seatbelt，从而限制 Agent 的文件访问范围和联网权限。macOS 通常自带 `/usr/bin/sandbox-exec`。
+Seatbelt 是 macOS 的内置沙箱机制。PyaBot 在 macOS 上使用 `/usr/bin/sandbox-exec` 来调用 Seatbelt，从而限制 Agent 的文件访问范围和联网权限。macOS 通常自带 `/usr/bin/sandbox-exec`。
 
-1. 在运行 AstrBot 的 Mac 上，确认系统工具存在：
+1. 在运行 PyaBot 的 Mac 上，确认系统工具存在：
 
    ```bash
    ls -l /usr/bin/sandbox-exec
@@ -90,17 +90,17 @@ Seatbelt 是 macOS 的内置沙箱机制。AstrBot 在 macOS 上使用 `/usr/bin
    /usr/bin/sandbox-exec -p '(version 1) (allow default)' /usr/bin/true
    ```
 
-   退出码为 `0` 表示这个简单检查通过；AstrBot 启动时还会用实际的工作区限制再检查一次。
+   退出码为 `0` 表示这个简单检查通过；PyaBot 启动时还会用实际的工作区限制再检查一次。
 
 如果系统没有提供该工具，或当前系统策略不允许使用，可以改为使用[第三方沙箱环境](#third-party-sandbox-environment)。
 
-如果 AstrBot 运行在 Mac 上的 Docker 容器中，请使用下面的 [Docker 用户](#local-docker)步骤。宿主机上的 Seatbelt 不会直接用于 Linux 容器内的进程。
+如果 PyaBot 运行在 Mac 上的 Docker 容器中，请使用下面的 [Docker 用户](#local-docker)步骤。宿主机上的 Seatbelt 不会直接用于 Linux 容器内的进程。
 
 ### Linux 用户 {#local-linux}
 
 [bubblewrap](https://github.com/containers/bubblewrap) 是 Linux 上的用户空间沙箱工具。
 
-AstrBot 使用 bubblewrap 的 `--size` 参数限制沙盒内的临时文件系统 `/tmp` 的容量，该参数需要 bubblewrap **0.7.0 或更高版本**。请检查是否安装了 bubblewrap、版本是否满足要求，并且可用：
+PyaBot 使用 bubblewrap 的 `--size` 参数限制沙盒内的临时文件系统 `/tmp` 的容量，该参数需要 bubblewrap **0.7.0 或更高版本**。请检查是否安装了 bubblewrap、版本是否满足要求，并且可用：
 
 ```bash
 command -v bwrap
@@ -131,38 +131,38 @@ sudo pacman -S bubblewrap
 
 如果启动失败：
 
-- **找不到 `bwrap`**：检查是否装在运行 AstrBot 的同一环境，以及进程启动时的 `PATH`。
+- **找不到 `bwrap`**：检查是否装在运行 PyaBot 的同一环境，以及进程启动时的 `PATH`。
 - **`Unknown option --size`**：将 bubblewrap 升级到 **0.7.0 或更高版本**，然后重新执行上述检查。
 - **`Operation not permitted` 或用户命名空间错误**：检查用户命名空间限制、AppArmor 和其他系统安全策略。可通过 `sysctl user.max_user_namespaces` 查看命名空间数量上限，通过 `sudo journalctl -k` 查看相关内核日志。
 - **AppArmor 拒绝**：按发行版要求为实际运行环境设置允许创建用户命名空间的策略。不要仅为通过检查而关闭整台机器的安全策略。
 - **容器部署**：继续阅读 [Docker 用户](#local-docker)，宿主机安装 `bwrap` 不能替代容器内安装。
 
-修复后重启 AstrBot。是否能使用工作区执行和联网控制，以 AstrBot 的启动检查结果为准，如果发现权限矩阵中出现了 `允许联网` 选项则说明本地隔离已成功启用。
+修复后重启 PyaBot。是否能使用工作区执行和联网控制，以 PyaBot 的启动检查结果为准，如果发现权限矩阵中出现了 `允许联网` 选项则说明本地隔离已成功启用。
 
 ### Docker 用户 {#local-docker}
 
-AstrBot 的 Docker 镜像本质上是一个 Linux 容器。
+PyaBot 的 Docker 镜像本质上是一个 Linux 容器。
 
-Docker 已提供容器级的隔离。在容器内，AstrBot 默认只能访问容器内的文件和挂载的卷，无法访问宿主机的文件系统。容器内的网络访问也受 Docker 网络配置限制。本地隔离是在容器内通过 bubblewrap 进一步限制**工作区文件访问和执行时联网**。如果只需要访问容器内和挂载的文件，可以继续使用“整个环境”。无需为了使用所有电脑能力而强制开启容器内的 bwrap。
+Docker 已提供容器级的隔离。在容器内，PyaBot 默认只能访问容器内的文件和挂载的卷，无法访问宿主机的文件系统。容器内的网络访问也受 Docker 网络配置限制。本地隔离是在容器内通过 bubblewrap 进一步限制**工作区文件访问和执行时联网**。如果只需要访问容器内和挂载的文件，可以继续使用“整个环境”。无需为了使用所有电脑能力而强制开启容器内的 bwrap。
 
 安装 bwrap 只是其中一步。在 Docker 容器中启用本地隔离能力的步骤**相对复杂**，**默认 Docker 部署不一定能启动它**，因为容器还受到宿主机的用户命名空间配置、seccomp、AppArmor 和容器权限限制。因此，如果需要隔离执行，建议使用 [第三方沙箱环境](#third-party-sandbox-environment)。如果仍需要在 Docker 容器中启用本地隔离，请自行参考网络上的资源，给容器配置 `seccomp` 等安全策略，允许容器内的 bwrap 创建用户命名空间。
 
 ### Windows 用户 {#local-windows}
 
-Windows 10/11（含家庭版）支持本机隔离，可以在本机环境中让 AstrBot 读写文件、执行代码。
+Windows 10/11（含家庭版）支持本机隔离，可以在本机环境中让 PyaBot 读写文件、执行代码。
 
 1. 打开 **配置文件 → AI → 能力 → 使用电脑能力**，将“运行环境”设为“本机环境”。
 2. 在“本地权限策略”中，为需要使用电脑能力的用户身份选择“工作区”。
 3. 需要运行代码时，勾选“允许执行代码”；需要在执行时访问网络，再勾选“允许执行环境联网”。仅需读写文件时，保持执行选项关闭即可。
-4. 保存配置并重启 AstrBot。重启过程中如果出现系统授权提示，选择“是”完成准备。准备完成后，后续启动通常无需再次确认。
+4. 保存配置并重启 PyaBot。重启过程中如果出现系统授权提示，选择“是”完成准备。准备完成后，后续启动通常无需再次确认。
 
 ![Windows 工作区模式（关闭联网）](/windows-sandbox/workspace-en.jpg)
 
-选择 **整个环境** 可按 AstrBot 运行账户的权限访问工作区外的文件，该范围下执行代码始终允许联网。如需控制执行时的联网权限，请选择 **工作区**。
+选择 **整个环境** 可按 PyaBot 运行账户的权限访问工作区外的文件，该范围下执行代码始终允许联网。如需控制执行时的联网权限，请选择 **工作区**。
 
 ![Windows 整个环境联网说明](/windows-sandbox/network-zh.png)
 
-如果看到沙盒准备提示或“未生效”标签，可以点击标签，或展开“查看诊断详情”了解原因。如果上次取消了系统授权提示，重新启动 AstrBot 后再完成授权即可。
+如果看到沙盒准备提示或“未生效”标签，可以点击标签，或展开“查看诊断详情”了解原因。如果上次取消了系统授权提示，重新启动 PyaBot 后再完成授权即可。
 
 ![Windows 沙盒初始化提示](/windows-sandbox/setup-zh.jpg)
 
@@ -170,14 +170,14 @@ Windows 10/11（含家庭版）支持本机隔离，可以在本机环境中让 
 
 ## 第三方沙箱环境 {#third-party-sandbox-environment}
 
-第三方沙箱环境是 AstrBot 提供的一种可选能力。它可以让 Agent 在**独立的环境**中执行代码和文件操作，避免直接访问宿主机或 AstrBot 容器内的文件和命令。目前支持的第三方沙箱环境驱动器包括：
+第三方沙箱环境是 PyaBot 提供的一种可选能力。它可以让 Agent 在**独立的环境**中执行代码和文件操作，避免直接访问宿主机或 PyaBot 容器内的文件和命令。目前支持的第三方沙箱环境驱动器包括：
 
 - **Shipyard Neo**：目前推荐使用的沙箱环境驱动器。它由 Bay、Ship、Gull 三部分组成，分别负责控制面 API、Python/Shell/文件系统能力和浏览器自动化能力。
 - **CUA**：面向电脑使用（Computer Use）的沙盒运行时。它可以直接创建一个 Linux、macOS、Windows、Android 等不同类型的沙盒，并暴露 Shell、截图、鼠标、键盘、文件系统等接口。
 - **Shipyard**：旧版沙箱环境驱动器，仍然保留，供兼容旧部署方案时参考。它由 Bay、Ship 两部分组成，分别负责控制面 API 和 Python/Shell/文件系统能力。
 
 > [!TIP]
-> 第三方沙箱能力仍处于技术预览阶段。遇到问题可在 [GitHub](https://github.com/Sakura520222/AstrBot/issues) 提交 issue。
+> 第三方沙箱能力仍处于技术预览阶段。遇到问题可在 [GitHub](https://github.com/Sakura520222/PyaBot/issues) 提交 issue。
 
 <span id="配置-astrbot-使用沙盒环境"></span>
 
@@ -202,16 +202,16 @@ Windows 10/11（含家庭版）支持本机隔离，可以在本机环境中让 
 - **Ship**：负责 Python / Shell / 文件系统能力
 - **Gull**：负责浏览器自动化能力
 
-对于 `Shipyard Neo`，工作区根目录固定为 `/workspace`。在 AstrBot 中调用文件系统工具时，应当传入**相对于工作区根目录**的路径，例如 `reports/result.txt`，而不是 `/workspace/reports/result.txt`。
+对于 `Shipyard Neo`，工作区根目录固定为 `/workspace`。在 PyaBot 中调用文件系统工具时，应当传入**相对于工作区根目录**的路径，例如 `reports/result.txt`，而不是 `/workspace/reports/result.txt`。
 
 > [!TIP]
-> `Shipyard Neo` 下浏览器能力并不是所有 profile 都有。只有 profile 支持 `browser` capability 时，AstrBot 才会挂载浏览器相关工具。典型 profile 如 `browser-python`。
+> `Shipyard Neo` 下浏览器能力并不是所有 profile 都有。只有 profile 支持 `browser` capability 时，PyaBot 才会挂载浏览器相关工具。典型 profile 如 `browser-python`。
 
 #### 单独部署 Shipyard Neo
 
-如果您准备长期使用 `Shipyard Neo`，更推荐将它**单独部署在一台资源更充足的机器上**，例如您的 homelab、局域网服务器，或独立云主机，然后再让 AstrBot 远程接入 Bay。
+如果您准备长期使用 `Shipyard Neo`，更推荐将它**单独部署在一台资源更充足的机器上**，例如您的 homelab、局域网服务器，或独立云主机，然后再让 PyaBot 远程接入 Bay。
 
-原因是：`Shipyard Neo` 在启用浏览器能力时需要运行较重的浏览器运行时。**对于资源紧张的云服务器**，把 AstrBot 和 `Shipyard Neo` 部署在同一台机器上，通常会让 CPU 和内存压力都比较大，稳定性和体验都不理想。
+原因是：`Shipyard Neo` 在启用浏览器能力时需要运行较重的浏览器运行时。**对于资源紧张的云服务器**，把 PyaBot 和 `Shipyard Neo` 部署在同一台机器上，通常会让 CPU 和内存压力都比较大，稳定性和体验都不理想。
 
 大致步骤如下：
 
@@ -225,9 +225,9 @@ docker compose up -d
 部署完成后：
 
 - Bay 默认监听在 `http://<your-host>:8114`
-- 在 AstrBot 控制台中选择 `Shipyard Neo` 驱动器
+- 在 PyaBot 控制台中选择 `Shipyard Neo` 驱动器
 - `Shipyard Neo API Endpoint` 填写对应地址，例如 `http://<your-host>:8114`
-- `Shipyard Neo Access Token` 填写 Bay API Key；如果 AstrBot 能访问 Bay 的 `credentials.json`，也可以留空让 AstrBot 自动发现
+- `Shipyard Neo Access Token` 填写 Bay API Key；如果 PyaBot 能访问 Bay 的 `credentials.json`，也可以留空让 PyaBot 自动发现
 
 #### 参考：`config.yaml` 完整示例（附说明）
 
@@ -433,7 +433,7 @@ gc:
 - **Session**：实际运行中的容器会话，可被停止或重建
 - **Cargo**：持久化工作区卷，挂载到 `/workspace`
 
-对 AstrBot 而言，当前会按请求的 `session_id` 维度缓存沙箱 booter；在主 Agent 默认流程下，这个 `session_id` 通常等于消息会话标识 `unified_msg_origin`。因此，同一消息会话的后续请求通常会继续复用同一个 Neo sandbox；如果沙箱失效，则会自动重建。
+对 PyaBot 而言，当前会按请求的 `session_id` 维度缓存沙箱 booter；在主 Agent 默认流程下，这个 `session_id` 通常等于消息会话标识 `unified_msg_origin`。因此，同一消息会话的后续请求通常会继续复用同一个 Neo sandbox；如果沙箱失效，则会自动重建。
 
 关于 TTL 与数据持久化的更详细说明，请参考下文的“关于 `Shipyard Neo Sandbox TTL`”与“关于沙盒环境的数据持久化”小节。
 
@@ -446,10 +446,10 @@ gc:
   - 单独部署时填写实际地址，例如 `http://<your-host>:8114`
 - `Shipyard Neo Access Token`
   - 填写 Bay API Key
-  - 如果是官方联合部署，且 AstrBot 能访问 Bay 的 `credentials.json`，可以留空自动发现
+  - 如果是官方联合部署，且 PyaBot 能访问 Bay 的 `credentials.json`，可以留空自动发现
 - `Shipyard Neo Profile`
   - 例如 `python-default`、`browser-python`
-  - 如果留空，AstrBot 会优先尝试选择能力更完整、且优先带有 `browser` capability 的 profile，失败时再回退到 `python-default`
+  - 如果留空，PyaBot 会优先尝试选择能力更完整、且优先带有 `browser` capability 的 profile，失败时再回退到 `python-default`
 - `Shipyard Neo Sandbox TTL`
   - sandbox 生命周期上限，默认值为 3600 秒（1 小时）
 
@@ -459,7 +459,7 @@ gc:
 
 - TTL 表示 sandbox 生命周期上限
 - profile 还会定义一个独立的空闲超时（`idle_timeout`）
-- AstrBot 发起能力调用时，通常会刷新空闲超时，而不是直接延长 TTL
+- PyaBot 发起能力调用时，通常会刷新空闲超时，而不是直接延长 TTL
 - `keepalive` 只会延长空闲超时，不会自动启动新的 session，也不会延长 TTL
 
 <span id="关于沙盒环境的数据持久化"></span>
@@ -488,14 +488,14 @@ Agent 可以在 CUA sandbox 中使用多种能力，请见下表：
 | 文件写入 | `astrbot_file_write_tool` | 创建或覆盖文件 |
 | 文件编辑 | `astrbot_file_edit_tool` | 替换文件中的指定文本 |
 | 文件搜索 | `astrbot_grep_tool` | 按模式搜索文件内容 |
-| 文件上传 | `astrbot_upload_file` | 将 AstrBot 所在环境的文件上传到沙箱 |
+| 文件上传 | `astrbot_upload_file` | 将 PyaBot 所在环境的文件上传到沙箱 |
 | 文件下载 | `astrbot_download_file` | 从沙箱下载文件，可发送给用户 |
 | 桌面截图 | `astrbot_cua_screenshot` | 获取截图，供模型查看或发送给用户 |
 | 鼠标点击 | `astrbot_cua_mouse_click` | 按坐标点击，支持指定鼠标按键 |
 | 键盘输入 | `astrbot_cua_keyboard_type` | 向当前焦点输入文本 |
 
 > [!WARNING]
-> CUA 是可选运行时，AstrBot 默认安装不会强制安装它。如果您选择了 `CUA` 但当前 AstrBot 的 Python 环境没有安装 `cua` 包，启动沙盒时会提示安装缺失。
+> CUA 是可选运行时，PyaBot 默认安装不会强制安装它。如果您选择了 `CUA` 但当前 PyaBot 的 Python 环境没有安装 `cua` 包，启动沙盒时会提示安装缺失。
 
 #### 何时选择 CUA
 
@@ -505,19 +505,19 @@ Agent 可以在 CUA sandbox 中使用多种能力，请见下表：
 - 需要测试不同 OS 镜像中的行为，例如 Linux、Windows、Android。
 - 已经在本机或云端部署好 CUA 运行环境。
 
-如果只是需要稳定的 Python/Shell/文件系统沙盒，且不需要桌面 GUI 操作，通常优先选择 `Shipyard Neo`。它与 AstrBot 的 workspace、Skills 同步和长期运行模式更贴合。
+如果只是需要稳定的 Python/Shell/文件系统沙盒，且不需要桌面 GUI 操作，通常优先选择 `Shipyard Neo`。它与 PyaBot 的 workspace、Skills 同步和长期运行模式更贴合。
 
 #### 安装 CUA 依赖
 
-您可以在 WebUI 的 “数据与日志” 页的 “日志” 中点击 “安装 Pip 库” 按钮，输入 `cua` 以安装 CUA 依赖。也可以按照下面的方式在 AstrBot 的 Python 环境中安装 CUA。
+您可以在 WebUI 的 “数据与日志” 页的 “日志” 中点击 “安装 Pip 库” 按钮，输入 `cua` 以安装 CUA 依赖。也可以按照下面的方式在 PyaBot 的 Python 环境中安装 CUA。
 
-- 如果您通过源码或虚拟环境运行 AstrBot，请在 AstrBot 使用的 Python 环境中安装 CUA：
+- 如果您通过源码或虚拟环境运行 PyaBot，请在 PyaBot 使用的 Python 环境中安装 CUA：
 
   ```bash
   pip install cua
   ```
 
-- 如果您使用 `uv` 管理 AstrBot 环境，可在 AstrBot 项目目录中执行：
+- 如果您使用 `uv` 管理 PyaBot 环境，可在 PyaBot 项目目录中执行：
 
   ```bash
   uv pip install cua
@@ -532,7 +532,7 @@ CUA 本身还依赖具体运行方式：
 
 具体宿主机要求、镜像支持情况和本地运行时安装方式，请参考 [CUA 官方文档](https://cua.ai/docs)。
 
-#### 在 AstrBot 中配置 CUA
+#### 在 PyaBot 中配置 CUA
 
 进入 WebUI：
 
@@ -546,7 +546,7 @@ CUA 本身还依赖具体运行方式：
 CUA 相关配置项包括：
 
 - `CUA Image`：要启动的 CUA 镜像。常见值为 `linux`、`macos`、`windows`、`android`。默认 `linux`。
-- `CUA OS Type`：镜像的操作系统类型。默认 `linux`。它会影响 AstrBot 对 POSIX Shell fallback 的判断。
+- `CUA OS Type`：镜像的操作系统类型。默认 `linux`。它会影响 PyaBot 对 POSIX Shell fallback 的判断。
 - `CUA Sandbox TTL`：沙盒生命周期，单位为秒。默认 `3600`。
 - `CUA Telemetry Enabled`：是否启用 CUA 侧遥测。默认关闭。
 - `CUA Local Runtime`：是否使用本地运行时。默认开启。关闭后会按 CUA SDK 的云端方式创建沙盒。
@@ -580,9 +580,9 @@ CUA API Key = <your-cua-api-key>
 #### 使用 CUA 时的注意事项
 
 - `linux` 镜像通常适合 Shell、Python、文件系统和桌面自动化测试。
-- 非 POSIX 镜像（如 `windows`、`android`）不一定支持 `sh`、`cat`、`ls`、`rm`、`base64` 等命令。AstrBot 对需要这些命令的 fallback 操作会返回明确错误。
+- 非 POSIX 镜像（如 `windows`、`android`）不一定支持 `sh`、`cat`、`ls`、`rm`、`base64` 等命令。PyaBot 对需要这些命令的 fallback 操作会返回明确错误。
 - 如果需要在 CUA sandbox 中打开浏览器或 GUI 程序，通常应使用 Shell 后台执行，例如显式传入 `background=true`，避免命令阻塞后续工具调用。
-- 直接把 sandbox 内的文件路径发送给用户通常不可行。应优先使用 AstrBot 的沙盒下载工具，将文件下载到 AstrBot 临时目录后再发送。
+- 直接把 sandbox 内的文件路径发送给用户通常不可行。应优先使用 PyaBot 的沙盒下载工具，将文件下载到 PyaBot 临时目录后再发送。
 - CUA 与 Shipyard Neo 的 workspace 语义不同。Shipyard Neo 固定使用 `/workspace`；CUA 的工作目录和文件路径取决于镜像与运行时。
 
 <span id="旧方案-shipyard"></span>
@@ -591,23 +591,23 @@ CUA API Key = <your-cua-api-key>
 
 以下内容为旧版 `Shipyard` 驱动器的部署与配置说明，仍然保留，供兼容旧部署方案时参考。
 
-#### 使用 Docker Compose 部署 AstrBot 和 Shipyard
+#### 使用 Docker Compose 部署 PyaBot 和 Shipyard
 
-如果您还没有部署 AstrBot，或者想更换为我们推荐的带沙盒环境的部署方式，推荐使用 Docker Compose 来部署 AstrBot，代码如下：
+如果您还没有部署 PyaBot，或者想更换为我们推荐的带沙盒环境的部署方式，推荐使用 Docker Compose 来部署 PyaBot，代码如下：
 
 ```bash
-git clone https://github.com/Sakura520222/AstrBot
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot
+cd PyaBot
 # 修改 compose-with-shipyard.yml 文件中的环境变量配置，例如 Shipyard 的 access token 等
 docker compose -f compose-with-shipyard.yml up -d
 docker pull soulter/shipyard-ship:latest
 ```
 
-这会启动一个包含 AstrBot 主程序和沙盒环境的 Docker Compose 服务。
+这会启动一个包含 PyaBot 主程序和沙盒环境的 Docker Compose 服务。
 
 #### 单独部署 Shipyard
 
-如果您已经部署了 AstrBot，但没有部署沙盒环境，可以单独部署 Shipyard。
+如果您已经部署了 PyaBot，但没有部署沙盒环境，可以单独部署 Shipyard。
 
 代码如下：
 
@@ -623,7 +623,7 @@ docker pull soulter/shipyard-ship:latest
 部署成功后，上述命令会启动一个 Shipyard 服务，默认监听在 `http://<your-host>:8156`。
 
 > [!TIP]
-> 如果您使用 Docker 部署 AstrBot，您也可以修改上面的 Compose 文件，将 Shipyard 的网络与 AstrBot 放在同一个 Docker 网络中，这样就不需要暴露 Shipyard 的端口到宿主机。
+> 如果您使用 Docker 部署 PyaBot，您也可以修改上面的 Compose 文件，将 Shipyard 的网络与 PyaBot 放在同一个 Docker 网络中，这样就不需要暴露 Shipyard 的端口到宿主机。
 
 #### 配置 Shipyard（旧方案）
 

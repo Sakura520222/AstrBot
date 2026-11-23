@@ -1,8 +1,8 @@
 # 发布插件到插件市场
 
-在编写完插件后，你可以选择将插件发布到 AstrBot 的插件市场，让更多用户使用你的插件。
+在编写完插件后，你可以选择将插件发布到 PyaBot 的插件市场，让更多用户使用你的插件。
 
-AstrBot 使用 GitHub 托管插件，因此你需要先将插件代码推送到之前创建的 GitHub 插件仓库中。
+PyaBot 使用 GitHub 托管插件，因此你需要先将插件代码推送到之前创建的 GitHub 插件仓库中。
 
 你可以前往 [AstrBot 插件发布页面](https://cloud.astrbot.app/publish) 发布你的插件，发布插件需要注册 AstrBot Cloud 账号。
 

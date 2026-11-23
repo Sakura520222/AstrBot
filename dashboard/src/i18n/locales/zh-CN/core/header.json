@@ -1,7 +1,7 @@
 {
-  "logoTitle": "AstrBot WebUI",
+  "logoTitle": "PyaBot WebUI",
   "version": {
-    "hasNewVersion": "AstrBot 有新版本！",
+    "hasNewVersion": "PyaBot 有新版本！",
     "dashboardHasNewVersion": "WebUI 有新版本！"
   },
   "buttons": {
@@ -17,7 +17,7 @@
   },
   "updateDialog": {
     "retry": "重试",
-    "title": "更新 AstrBot",
+    "title": "更新 PyaBot",
     "currentVersion": "当前版本",
     "status": {
       "checkFailed": "检查更新失败",
@@ -66,7 +66,7 @@
       "core": "下载项目代码",
       "dependencies": "正在更新依赖...",
       "restart": "正在准备重启...",
-      "restarting": "正在重启 AstrBot",
+      "restarting": "正在重启 PyaBot",
       "completed": "更新完成",
       "successReady": "更新成功",
       "autoReloadIn": "{seconds} 秒后自动刷新",
@@ -81,12 +81,12 @@
       "currentVersion": "当前版本：",
       "guideTitle": "跳转后建议：",
       "guideStep1": "根据你的系统架构下载对应安装包。",
-      "guideStep2": "完成安装后重启 AstrBot。",
+      "guideStep2": "完成安装后重启 PyaBot。",
       "guideStep3": "如果你使用 Docker，请优先使用镜像更新方式。"
     },
     "desktopApp": {
       "title": "更新桌面应用",
-      "message": "将检查并升级 AstrBot 桌面端程序。",
+      "message": "将检查并升级 PyaBot 桌面端程序。",
       "currentVersion": "当前版本：",
       "latestVersion": "最新版本：",
       "checking": "正在检查桌面应用更新...",
@@ -111,7 +111,7 @@
   "accountDialog": {
     "title": "修改账户",
     "securityWarning": "安全提醒: 请修改密码以确保账户安全",
-    "securityWarningMd5": "新的 AstrBot 版本强化了安全策略，请重新修改密码",
+    "securityWarningMd5": "新的 PyaBot 版本强化了安全策略，请重新修改密码",
     "securityWarningUpgrade": "检测到旧版本密码存储方式，请修改密码以完成安全升级",
     "form": {
       "currentPassword": "当前密码",

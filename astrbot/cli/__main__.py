@@ -1,4 +1,4 @@
-"""AstrBot CLI entry point"""
+"""PyaBot CLI entry point"""
 
 import sys
 
@@ -8,22 +8,22 @@ from . import __version__
 from .commands import conf, init, password, plug, run
 
 logo_tmpl = r"""
-     ___           _______.___________..______      .______     ______   .___________.
-    /   \         /       |           ||   _  \     |   _  \   /  __  \  |           |
-   /  ^  \       |   (----`---|  |----`|  |_)  |    |  |_)  | |  |  |  | `---|  |----`
-  /  /_\  \       \   \       |  |     |      /     |   _  <  |  |  |  |     |  |
- /  _____  \  .----)   |      |  |     |  |\  \----.|  |_)  | |  `--'  |     |  |
-/__/     \__\ |_______/       |__|     | _| `._____||______/   \______/      |__|
+.______   ____    ____  ___      .______     ______   .___________.
+|   _  \  \   \  /   / /   \     |   _  \   /  __  \  |           |
+|  |_)  |  \   \/   / /  ^  \    |  |_)  | |  |  |  | `---|  |----`
+|   ___/    \_    _/ /  /_\  \   |   _  <  |  |  |  |     |  |
+|  |          |  |  /  _____  \  |  |_)  | |  `--'  |     |  |
+| _|          |__| /__/     \__\ |______/   \______/      |__|
 """
 
 
 @click.group()
-@click.version_option(__version__, prog_name="AstrBot")
+@click.version_option(__version__, prog_name="PyaBot")
 def cli() -> None:
-    """The AstrBot CLI"""
+    """The PyaBot CLI"""
     click.echo(logo_tmpl)
-    click.echo("Welcome to AstrBot CLI!")
-    click.echo(f"AstrBot CLI version: {__version__}")
+    click.echo("Welcome to PyaBot CLI!")
+    click.echo(f"PyaBot CLI version: {__version__}")
 
 
 @click.command()

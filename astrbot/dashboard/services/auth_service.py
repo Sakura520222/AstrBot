@@ -81,24 +81,25 @@ OPEN_API_SCOPE_INCLUDES = {
 
 DASHBOARD_JWT_COOKIE_NAME = "astrbot_dashboard_jwt"
 DASHBOARD_JWT_COOKIE_MAX_AGE = 7 * 24 * 60 * 60
+PYABOT_SKIP_DEFAULT_PASSWORD_AUTH_ENV = "PYABOT_DASHBOARD_SKIP_DEFAULT_PASSWORD_AUTH"
 SKIP_DEFAULT_PASSWORD_AUTH_ENV = "ASTRBOT_DASHBOARD_SKIP_DEFAULT_PASSWORD_AUTH"
 SKIP_DEFAULT_PASSWORD_AUTH_ENV_OLD = "DASHBOARD_SKIP_DEFAULT_PASSWORD_AUTH"
 LOCAL_DASHBOARD_HOSTS = {"127.0.0.1", "localhost", "::1"}
 DEFAULT_PASSWORD_LOGIN_FAILURE_MESSAGE = (
-    "Login failed. If this is your first time using AstrBot, the old default "
+    "Login failed. If this is your first time using PyaBot, the old default "
     "astrbot password has been replaced by a random strong password printed in "
     "the startup logs. Check the initial password in the logs and try again. "
-    "Learn more: https://astrbot.pyabunny.com/docs/en/faq.html\n\n"
+    "Learn more: https://pyabot.pyabunny.com/docs/en/faq.html\n\n"
     "登录失败。如果您是初次使用，旧版默认 astrbot 密码已改为启动日志中输出的"
     "随机强密码。请使用日志中提供的的初始密码来登录。了解更多："
-    "https://astrbot.pyabunny.com/docs/faq.html"
+    "https://pyabot.pyabunny.com/docs/faq.html"
 )
 MD5_PASSWORD_LOGIN_FAILURE_MESSAGE = (
     "Incorrect username or password. If you cannot log in after upgrading "
-    "AstrBot even though the password is correct, see "
-    "https://astrbot.pyabunny.com/docs/en/faq.html\n\n"
-    "用户名或密码错误。如果你在升级 AstrBot 后遇到了密码正确但无法登录的情况，"
-    "请参考 https://astrbot.pyabunny.com/docs/faq.html"
+    "PyaBot even though the password is correct, see "
+    "https://pyabot.pyabunny.com/docs/en/faq.html\n\n"
+    "用户名或密码错误。如果你在升级 PyaBot 后遇到了密码正确但无法登录的情况，"
+    "请参考 https://pyabot.pyabunny.com/docs/faq.html"
 )
 TOTP_TRUSTED_DEVICE_COOKIE_NAME = _TOTP_TRUSTED_DEVICE_COOKIE_NAME
 TOTP_TRUSTED_DEVICE_MAX_AGE = _TOTP_TRUSTED_DEVICE_MAX_AGE
@@ -484,6 +485,7 @@ class AuthService:
             return False
         host = (
             os.environ.get("DASHBOARD_HOST")
+            or os.environ.get("PYABOT_DASHBOARD_HOST")
             or os.environ.get("ASTRBOT_DASHBOARD_HOST")
             or self.config["dashboard"].get("host", "")
         )
@@ -492,6 +494,8 @@ class AuthService:
     @staticmethod
     def env_flag_enabled(name: str) -> bool:
         value = os.environ.get(name)
+        if value is None and name == SKIP_DEFAULT_PASSWORD_AUTH_ENV:
+            value = os.environ.get(PYABOT_SKIP_DEFAULT_PASSWORD_AUTH_ENV)
         if value is None and name == SKIP_DEFAULT_PASSWORD_AUTH_ENV:
             value = os.environ.get(SKIP_DEFAULT_PASSWORD_AUTH_ENV_OLD)
         return str(value or "").strip().lower() in {"1", "true", "yes", "on"}

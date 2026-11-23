@@ -7,7 +7,7 @@ GitHub 文件或插件归档下载失败时，可以在 WebUI 的“系统设置
 GitHub 加速地址适用于按 URL 前缀转发请求的服务。例如代理地址为 `https://proxy.example`，文件请求会使用类似地址：
 
 ~~~text
-https://proxy.example/https://github.com/Sakura520222/AstrBot/releases/download/v4.29.3/AstrBot-v4.29.3-core.zip
+https://proxy.example/https://github.com/Sakura520222/PyaBot/releases/download/v4.29.3/PyaBot-v4.29.3-core.zip
 ~~~
 
 填写服务的基础地址，保存后重新尝试下载。具体支持的路径和请求类型以所用代理服务的文档为准。

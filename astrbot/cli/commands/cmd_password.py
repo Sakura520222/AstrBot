@@ -16,7 +16,7 @@ from .cmd_conf import (
     help="Optional dashboard username to set together with the new password.",
 )
 def password(username: str | None) -> None:
-    """Change the AstrBot dashboard password."""
+    """Change the PyaBot dashboard password."""
     config = _load_config()
 
     new_password = click.prompt(

@@ -2,11 +2,11 @@
   "title": "Extension Management",
   "subtitle": "Manage and configure system extensions",
   "tabs": {
-    "installedPlugins": "AstrBot Plugins",
+    "installedPlugins": "PyaBot Plugins",
     "installedMcpServers": "MCP",
     "skills": "Skills",
     "handlersOperation": "Manage Handlers",
-    "market": "AstrBot Plugin Market"
+    "market": "PyaBot Plugin Market"
   },
   "titles": {
     "installedAstrBotPlugins": "Installed"
@@ -134,7 +134,7 @@
       "stars": "Stars",
       "updatedAt": "Updated At",
       "tags": "Tags",
-      "astrbotVersion": "AstrBot Version Requirement",
+      "astrbotVersion": "PyaBot Version Requirement",
       "supportPlatforms": "Supported Platforms",
       "authorWebsite": "Author Website",
       "repository": "Repository"
@@ -229,7 +229,7 @@
       "supportPlatformsCount": "Supports {count} Platforms",
       "sectionTitle": "Install",
       "downloadSource": "The plugin package will be installed from:",
-      "repositorySecurityWarning": "AstrBot cannot guarantee the safety of plugins downloaded from a code repository. Install only if you trust the plugin source."
+      "repositorySecurityWarning": "PyaBot cannot guarantee the safety of plugins downloaded from a code repository. Install only if you trust the plugin source."
     },
     "update": {
       "title": "Update Extension",
@@ -245,7 +245,7 @@
     },
     "versionSupport": {
       "title": "Version Support Warning",
-      "message": "This plugin declares an AstrBot version range that does not match your current version. You can ignore this warning and continue installation, but it may not work correctly.",
+      "message": "This plugin declares an PyaBot version range that does not match your current version. You can ignore this warning and continue installation, but it may not work correctly.",
       "confirm": "Ignore Warning and Install",
       "cancel": "Cancel Installation"
     },
@@ -423,7 +423,7 @@
     "neoPayloadTitle": "Neo Payload",
     "neoPayloadFailed": "Failed to load payload",
     "runtimeNoneWarning": "Computer Use runtime is set to None; Skills may not run correctly because no runtime is enabled.",
-    "runtimeHint": "Set the Computer Use runtime to Local or Sandbox in settings so AstrBot can use your Skills. Workspace Skills are not shown on this page yet.",
+    "runtimeHint": "Set the Computer Use runtime to Local or Sandbox in settings so PyaBot can use your Skills. Workspace Skills are not shown on this page yet.",
     "neoRuntimeRequired": "Neo Skills are available only when runtime is sandbox and sandbox booter is shipyard_neo.",
     "sourceLocalOnly": "Local Skill",
     "sourceSandboxOnly": "Sandbox Preset Skill",
@@ -461,7 +461,7 @@
       "handlersCount": " handlers",
       "supportPlatform": "Supported Platform",
       "supportPlatformsCount": "Supports {count} Platforms",
-      "astrbotVersion": "AstrBot Version Requirement"
+      "astrbotVersion": "PyaBot Version Requirement"
     },
     "alt": {
       "logo": "logo",

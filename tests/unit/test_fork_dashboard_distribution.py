@@ -19,7 +19,7 @@ def test_upstream_assets_with_the_same_version_are_not_fork_assets(
     if distribution is not None:
         (assets / "distribution").write_text(distribution)
     assert not dashboard_assets._is_dist_compatible(tmp_path, VERSION)
-    (assets / "distribution").write_text("Sakura520222/AstrBot")
+    (assets / "distribution").write_text("Sakura520222/PyaBot")
     assert dashboard_assets._is_dist_compatible(tmp_path, VERSION)
 
 
@@ -37,7 +37,7 @@ async def test_same_version_upstream_assets_trigger_a_fork_download(
 
     async def download(**kwargs):
         calls.append(kwargs)
-        (assets / "distribution").write_text("Sakura520222/AstrBot")
+        (assets / "distribution").write_text("Sakura520222/PyaBot")
 
     monkeypatch.setattr(core_updater, "get_astrbot_data_path", lambda: str(tmp_path))
     monkeypatch.setattr(

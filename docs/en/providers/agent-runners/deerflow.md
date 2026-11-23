@@ -1,6 +1,6 @@
 # Connect to DeerFlow
 
-Starting from v4.19.2, AstrBot supports connecting to the [DeerFlow](https://github.com/bytedance/deer-flow) Agent Runner.
+Starting from v4.19.2, PyaBot supports connecting to the [DeerFlow](https://github.com/bytedance/deer-flow) Agent Runner.
 
 ## Preparation: Deploy DeerFlow
 
@@ -10,13 +10,13 @@ If you have not deployed DeerFlow yet, please complete installation and startup 
 - [DeerFlow Official Website](https://deerflow.tech/)
 - [DeerFlow Configuration Guide](https://github.com/bytedance/deer-flow/blob/main/backend/docs/CONFIGURATION.md)
 
-Make sure DeerFlow is running properly and that AstrBot can reach the DeerFlow gateway. By default, the DeerFlow gateway address is `http://127.0.0.1:2026`.
+Make sure DeerFlow is running properly and that PyaBot can reach the DeerFlow gateway. By default, the DeerFlow gateway address is `http://127.0.0.1:2026`.
 
 > [!TIP]
 > - `API Base URL` must start with `http://` or `https://`.
-> - If AstrBot and DeerFlow run in different containers or on different hosts, replace `127.0.0.1` with the actual reachable LAN address, hostname, or domain of your DeerFlow service.
+> - If PyaBot and DeerFlow run in different containers or on different hosts, replace `127.0.0.1` with the actual reachable LAN address, hostname, or domain of your DeerFlow service.
 
-## Configure DeerFlow in AstrBot
+## Configure DeerFlow in PyaBot
 
 In the WebUI, open **Config**, select the profile to edit, and open **AI**. Click **More actions** (`…`) beside the heading → **Change Execution Mode**, select **DeerFlow**, read and check the reset acknowledgement, then click **Use This Mode**. Make sure **Enable AI** is on, then enter the connection settings on this page. Switching resets the current mode's configuration; see [Agent Runner](../../use/agent-runner.md).
 
@@ -48,6 +48,6 @@ When all fields are complete, click **Save Configuration** at the bottom right. 
 If requests are not being executed through DeerFlow correctly, check the following first:
 
 - whether the DeerFlow service is running properly
-- whether `API Base URL` is reachable from the AstrBot environment
+- whether `API Base URL` is reachable from the PyaBot environment
 - whether the authentication settings are correct
 - whether `Assistant ID` matches an actual available assistant in DeerFlow

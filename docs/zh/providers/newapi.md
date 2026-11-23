@@ -2,7 +2,7 @@
 
 [New API](http://newapi.ai/) 是一个新一代大模型网关与 AI 资产管理系统，基于 One API 进行二次开发。该项目旨在提供一个统一的接口来管理和使用各种 AI 模型服务，包括但不限于 OpenAI、Anthropic、Gemini 和 Midjourney 等。
 
-AstrBot 支持接入 NewAPI 作为模型提供商，用户可以通过 NewAPI 来访问和使用各种 AI 模型服务。
+PyaBot 支持接入 NewAPI 作为模型提供商，用户可以通过 NewAPI 来访问和使用各种 AI 模型服务。
 
 ## 配置步骤
 
@@ -15,9 +15,9 @@ AstrBot 支持接入 NewAPI 作为模型提供商，用户可以通过 NewAPI �
 创建成功后，点击复制密钥按钮，复制生成的 API Key 密钥。
 
 ![copy-api-key](/images/0a26d81d4edfd7b8.png)
-### 在 AstrBot 中配置 NewAPI 服务提供商
+### 在 PyaBot 中配置 NewAPI 服务提供商
 
-打开 AstrBot 管理面板，进入「模型提供商」→「对话」，点击「新增」。
+打开 PyaBot 管理面板，进入「模型提供商」→「对话」，点击「新增」。
 
 NewAPI 完美地支持了 OpenAI Chat Completion 和 Responses 接口，选择 `OpenAI Compatible`（Chat Completion）或 `OpenAI Responses`，进入相应的提供商设置。
 
@@ -27,6 +27,6 @@ NewAPI 完美地支持了 OpenAI Chat Completion 和 Responses 接口，选择 `
 
 ### 应用服务提供商
 
-进入「配置文件」，选择要使用的配置文件，在「AI」→「模型」中将「对话模型」设为刚添加的模型，点击右下角「保存配置」。此项用于 AstrBot 内置 AI。
+进入「配置文件」，选择要使用的配置文件，在「AI」→「模型」中将「对话模型」设为刚添加的模型，点击右下角「保存配置」。此项用于 PyaBot 内置 AI。
 
-至此，您已经成功配置了 NewAPI 作为 AstrBot 的模型提供商。现在，您可以通过 AstrBot 来访问和使用 NewAPI 提供的各种 AI 模型服务了。
+至此，您已经成功配置了 NewAPI 作为 PyaBot 的模型提供商。现在，您可以通过 PyaBot 来访问和使用 NewAPI 提供的各种 AI 模型服务了。

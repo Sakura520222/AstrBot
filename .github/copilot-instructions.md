@@ -1,6 +1,6 @@
-# AstrBot Development Instructions
+# PyaBot Development Instructions
 
-AstrBot is a multi-platform LLM chatbot and development framework written in Python with a Vue.js dashboard. It supports multiple messaging platforms (QQ, Telegram, Discord, etc.) and various LLM providers (OpenAI, Anthropic, Google Gemini, etc.).
+PyaBot is a multi-platform LLM chatbot and development framework written in Python with a Vue.js dashboard. It supports multiple messaging platforms (QQ, Telegram, Discord, etc.) and various LLM providers (OpenAI, Anthropic, Google Gemini, etc.).
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
 
@@ -49,7 +49,7 @@ Always reference these instructions first and fallback to search or bash command
 - Pre-commit hooks enforce ruff formatting and linting
 
 ## Docker Support
-- Primary deployment method: `docker run -p 6185:6185 -v ./data:/AstrBot/data ghcr.io/sakura520222/astrbot:latest`
+- Primary deployment method: `docker run -p 6185:6185 -v ./data:/AstrBot/data ghcr.io/sakura520222/pyabot:latest`
 - Compose file available: `compose.yml`
 - Exposes ports: 6185 (WebUI), 6195 (WeChat), 6199 (QQ), etc.
 - Volume mount required: `./data:/AstrBot/data`

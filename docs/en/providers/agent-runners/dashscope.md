@@ -1,8 +1,8 @@
 # Connect to Alibaba Cloud Bailian Application
 
-Since v3.4.30, AstrBot supports connecting to Alibaba Cloud Bailian Application.
+Since v3.4.30, PyaBot supports connecting to Alibaba Cloud Bailian Application.
 
-## Configure Alibaba Cloud Bailian Application in AstrBot
+## Configure Alibaba Cloud Bailian Application in PyaBot
 
 On the [Alibaba Cloud Bailian Application](https://bailian.console.aliyun.com/app-center#/app-center) website, click to add a new application. Create an agent application, workflow application, or agent orchestration application according to your needs, and build the agent or workflow as required.
 
@@ -24,9 +24,9 @@ According to Alibaba Cloud Bailian Application, there are four application types
 - Agent Orchestration Application (agent-arrange)
 
 > [!TIP]
-> Multi-turn conversations are only supported for agent applications and dialog workflow applications. AstrBot will automatically attach conversation history for these two types of applications to support multi-turn conversations.
+> Multi-turn conversations are only supported for agent applications and dialog workflow applications. PyaBot will automatically attach conversation history for these two types of applications to support multi-turn conversations.
 
-Please ensure that the `Application Type` configured in AstrBot matches the application type created in Alibaba Cloud Bailian Application.
+Please ensure that the `Application Type` configured in PyaBot matches the application type created in Alibaba Cloud Bailian Application.
 
 Then fill in the Application ID in `Application ID` and the API KEY in `API Key`.
 
@@ -44,7 +44,7 @@ Use the `/set` command to dynamically set input variables, as shown in the figur
 
 ![alt text](/images/c70dea73d7be08b2.png)
 
-After setting variables, AstrBot will attach the variables you set in the next request to Alibaba Cloud Bailian Application, flexibly adapting to your Workflow.
+After setting variables, PyaBot will attach the variables you set in the next request to Alibaba Cloud Bailian Application, flexibly adapting to your Workflow.
 
 Of course, you can use the `/unset` command to cancel the variables you set. For example, `/unset name`
 

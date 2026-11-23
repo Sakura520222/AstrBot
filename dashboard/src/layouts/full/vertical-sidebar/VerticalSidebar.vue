@@ -248,7 +248,7 @@ function toggleSidebar() {
             <ChatUILogo class="dashboard-sidebar-brand-logo" />
           </button>
           <span class="dashboard-sidebar-brand-copy">
-            <span class="dashboard-sidebar-brand-name">AstrBot</span>
+            <span class="dashboard-sidebar-brand-name">PyaBot</span>
           </span>
         </div>
         <v-btn

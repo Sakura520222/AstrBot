@@ -11,7 +11,7 @@ Open **Config → AI → Capabilities → Subagents** in the target profile and 
 ## Configure a specialized agent
 
 1. Click **Configure Specialized Agents**, then **Create Agent**.
-2. Select the AstrBot runtime and enter a name and description. The description helps the main agent decide when to delegate.
+2. Select the PyaBot runtime and enter a name and description. The description helps the main agent decide when to delegate.
 3. Select a persona and chat model, or leave them empty to follow the main agent.
 4. Save, close the dialog, and select the agent under **Specialized Agent Configurations**.
 

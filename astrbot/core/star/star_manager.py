@@ -59,7 +59,7 @@ from .updater import PLUGIN_METADATA_FILENAMES, _PluginUpdater
 try:
     from watchfiles import PythonFilter, awatch
 except ImportError:
-    if os.getenv("ASTRBOT_RELOAD", "0") == "1":
+    if (os.getenv("PYABOT_RELOAD") or os.getenv("ASTRBOT_RELOAD") or "0") == "1":
         logger.warning(
             "watchfiles is not installed, so plugin hot reloading is unavailable."
         )
@@ -219,7 +219,7 @@ class PluginManager:
         """加载失败插件的信息，用于后续可能的热重载"""
 
         self.failed_plugin_info = ""
-        if os.getenv("ASTRBOT_RELOAD", "0") == "1":
+        if (os.getenv("PYABOT_RELOAD") or os.getenv("ASTRBOT_RELOAD") or "0") == "1":
             asyncio.create_task(self._watch_plugins_changes())
 
     async def _watch_plugins_changes(self) -> None:
@@ -557,7 +557,9 @@ class PluginManager:
                     else []
                 ),
                 astrbot_version=(
-                    metadata["astrbot_version"]
+                    metadata["pyabot_version"]
+                    if isinstance(metadata.get("pyabot_version"), str)
+                    else metadata["astrbot_version"]
                     if isinstance(metadata.get("astrbot_version"), str)
                     else None
                 ),
@@ -570,7 +572,9 @@ class PluginManager:
     @staticmethod
     def _load_plugin_i18n(plugin_path: str) -> dict[str, dict]:
         plugin_root = Path(plugin_path)
-        i18n_dir = plugin_root / ".astrbot-plugin" / "i18n"
+        i18n_dir = plugin_root / ".pyabot-plugin" / "i18n"
+        if not i18n_dir.is_dir():
+            i18n_dir = plugin_root / ".astrbot-plugin" / "i18n"
         if not i18n_dir.is_dir():
             return {}
 
@@ -697,13 +701,13 @@ class PluginManager:
         except InvalidVersion:
             return (
                 False,
-                f"Invalid current AstrBot version: {VERSION}. Cannot check plugin version range.",
+                f"Invalid current PyaBot version: {VERSION}. Cannot check plugin version range.",
             )
 
         if not specifier.contains(current_version, prereleases=True):
             return (
                 False,
-                f"AstrBot {VERSION} does not satisfy plugin astrbot_version: {normalized_spec}",
+                f"PyaBot {VERSION} does not satisfy plugin version requirement: {normalized_spec}",
             )
         return True, None
 

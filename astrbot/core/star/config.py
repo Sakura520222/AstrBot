@@ -1,4 +1,4 @@
-"""Deprecated config API; see https://astrbot.pyabunny.com/docs/dev/star/guides/plugin-config."""
+"""Deprecated config API; see https://pyabot.pyabunny.com/docs/dev/star/guides/plugin-config."""
 
 import json
 import os

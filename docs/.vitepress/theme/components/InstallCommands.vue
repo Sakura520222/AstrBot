@@ -2,8 +2,8 @@
 import { onMounted, ref } from 'vue'
 
 const commands = [
-  'git clone https://github.com/Sakura520222/AstrBot.git',
-  'cd AstrBot',
+  'git clone https://github.com/Sakura520222/PyaBot.git',
+  'cd PyaBot',
   'uv sync --locked --inexact',
   'uv run --no-sync main.py',
 ].join('\n')

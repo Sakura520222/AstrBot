@@ -14,14 +14,14 @@
 
 Proactive message push: Supported.
 
-## Create a QQ Bot in AstrBot with One-click QR Setup (Recommended)
+## Create a QQ Bot in PyaBot with One-click QR Setup (Recommended)
 
 ### Setup Flow
 
-1. In AstrBot WebUI, click `Platforms` in the left sidebar, then click `Add Adapter`.
+1. In PyaBot WebUI, click `Platforms` in the left sidebar, then click `Add Adapter`.
 2. Select `QQ Official Bot (WebSocket)`.
 3. Under `Choose setup method`, select `One-click QR setup`, click start, then scan the QR code with mobile QQ.
-4. After you confirm the QR binding, AstrBot automatically fills in `AppID` and `AppSecret`. Make sure `Enable` is checked, then click `Save`.
+4. After you confirm the QR binding, PyaBot automatically fills in `AppID` and `AppSecret`. Make sure `Enable` is checked, then click `Save`.
 5. Back on the QQ Open Platform page, click `Scan QR Code to Chat` next to your bot, then scan with your mobile QQ to start chatting.
 
 ### Use in Group Chats
@@ -66,7 +66,7 @@ Then configure QQ groups, private chat QQ accounts, and QQ channels as needed.
 
 After adding the bot where you need it, open `Development -> Development Settings`, then copy `appid` and `secret`.
 
-If you use AstrBot WebUI's `One-click QR setup`, you can skip this step. AstrBot fills in `appid` and `secret` automatically after QR binding succeeds.
+If you use PyaBot WebUI's `One-click QR setup`, you can skip this step. PyaBot fills in `appid` and `secret` automatically after QR binding succeeds.
 
 ### Add IP Whitelist
 
@@ -79,9 +79,9 @@ Open `Development -> Development Settings`, find IP whitelist, and add your serv
 >
 > In NAT environments without a public IP, the observed IP may change depending on your carrier. Use proxy/tunnel if needed.
 
-### Configure in AstrBot
+### Configure in PyaBot
 
-1. Open AstrBot Dashboard.
+1. Open PyaBot Dashboard.
 2. Click `Platforms` in the left sidebar.
 3. Click `Add Adapter`.
 4. Select `qq_official`.
@@ -90,7 +90,7 @@ Recommended: use `One-click QR setup`.
 
 1. Under `Choose setup method`, select `One-click QR setup`.
 2. Click start, then scan and confirm the QR code with mobile QQ.
-3. Wait until the page shows binding success. AstrBot fills in `appid` and `secret` automatically.
+3. Wait until the page shows binding success. PyaBot fills in `appid` and `secret` automatically.
 4. Adjust `ID`, `Enable group/C2C message list`, `Enable guild direct message`, and other options as needed, then click `Save`.
 
 If QR setup is unavailable, choose `Manual setup` and fill in:

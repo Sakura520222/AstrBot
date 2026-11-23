@@ -1,16 +1,16 @@
 <div align="center">
-  <img src="docs/public/logo.png" width="110" alt="AstrBot" />
-  <h1>AstrBot</h1>
-  <p>多平台 AI 助手，支持模型、插件、知识库与工具调用。</p>
-  <p><a href="https://astrbot.pyabunny.com/">官网</a> · <a href="https://astrbot.pyabunny.com/docs/">文档</a> · <a href="https://github.com/Sakura520222/AstrBot/releases">下载</a> · <a href="https://github.com/Sakura520222/AstrBot/issues">问题反馈</a></p>
+  <img src="docs/public/logo.png" width="110" alt="PyaBot" />
+  <h1>PyaBot</h1>
+  <p>多平台 AI 助手框架，兼容 AstrBot 插件生态，支持模型、插件、知识库与工具调用。</p>
+  <p><a href="https://pyabot.pyabunny.com/">官网</a> · <a href="https://pyabot.pyabunny.com/docs/">文档</a> · <a href="https://github.com/Sakura520222/PyaBot/releases">下载</a> · <a href="https://github.com/Sakura520222/PyaBot/issues">问题反馈</a></p>
 </div>
 
 ## 功能
 
 - 连接 Telegram、QQ、飞书、企业微信、Discord、Slack 等消息平台。
 - 配置模型服务，使用工具调用、Skills、MCP 和定时任务。
-- 使用 [DeepSeek 语音转文字](https://astrbot.pyabunny.com/docs/providers/deepseek-stt)和[文字转语音](https://astrbot.pyabunny.com/docs/providers/deepseek-tts)。
-- 安装插件，导入文档建立知识库。
+- 使用 [DeepSeek 语音转文字](https://pyabot.pyabunny.com/docs/providers/deepseek-stt)和[文字转语音](https://pyabot.pyabunny.com/docs/providers/deepseek-tts)。
+- 兼容 AstrBot 插件生态（支持 `pyabot.api` 与 `astrbot.api` 导入，支持 `pyabot_version` 与 `astrbot_version`），支持安装插件与导入文档建立知识库。
 - 通过 WebUI 管理聊天、机器人、配置、插件和运行日志。
 
 ## 源码运行
@@ -18,8 +18,8 @@
 需要 Git、[uv](https://docs.astral.sh/uv/) 和 Python 3.12+。
 
 ```bash
-git clone https://github.com/Sakura520222/AstrBot.git
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot.git
+cd PyaBot
 uv sync --locked --inexact
 uv run --no-sync main.py
 ```
@@ -34,9 +34,9 @@ uv run --no-sync main.py
 docker compose up -d
 ```
 
-Compose 使用 `ghcr.io/sakura520222/astrbot:latest`，将 `./data` 挂载到 `/AstrBot/data`。固定版本可使用 `ghcr.io/sakura520222/astrbot:4.29.4`。镜像支持 Linux amd64 和 arm64。
+Compose 使用 `ghcr.io/sakura520222/pyabot:latest`，将 `./data` 挂载到 `/AstrBot/data`。固定版本可使用 `ghcr.io/sakura520222/pyabot:4.30.0-beta.1`。镜像支持 Linux amd64 和 arm64。
 
-详见[源码部署](https://astrbot.pyabunny.com/docs/deploy/astrbot/cli)和 [Docker 部署](https://astrbot.pyabunny.com/docs/deploy/astrbot/docker)。
+详见[源码部署](https://pyabot.pyabunny.com/docs/deploy/astrbot/cli)和 [Docker 部署](https://pyabot.pyabunny.com/docs/deploy/astrbot/docker)。
 
 ## 开发
 

@@ -24,7 +24,7 @@ def _get_data_path() -> Path:
     base = get_astrbot_root()
     if not check_astrbot_root(base):
         raise click.ClickException(
-            f"{base} is not a valid AstrBot root directory. Use 'astrbot init' to initialize",
+            f"{base} is not a valid PyaBot root directory. Use 'pyabot init' to initialize",
         )
     return (base / "data").resolve()
 
@@ -85,7 +85,7 @@ def new(name: str) -> None:
     # Rewrite README.md
     with open(plug_path / "README.md", "w", encoding="utf-8") as f:
         f.write(
-            f"# {name}\n\n{desc}\n\n# Support\n\n[Documentation](https://astrbot-docs.pyabunny.com)\n"
+            f"# {name}\n\n{desc}\n\n# Support\n\n[Documentation](https://pyabot.pyabunny.com/docs/)\n"
         )
 
     # Rewrite main.py

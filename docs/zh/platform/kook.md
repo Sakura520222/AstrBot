@@ -28,9 +28,9 @@
 
   ![image](/images/57f1768b625dfd7b.png)
 
-## 在 AstrBot 配置
+## 在 PyaBot 配置
 
-1. 进入 AstrBot 的管理面板
+1. 进入 PyaBot 的管理面板
 2. 点击左边栏 `机器人`
 3. 点击机器人列表上方的 `创建机器人`
 4. 选择 `kook` 适配器

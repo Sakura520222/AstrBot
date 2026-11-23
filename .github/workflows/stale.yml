@@ -12,7 +12,7 @@ on:
 
 jobs:
   stale:
-    if: github.repository == 'Sakura520222/AstrBot'
+    if: github.repository == 'Sakura520222/PyaBot'
     runs-on: ubuntu-latest
     permissions:
       issues: write

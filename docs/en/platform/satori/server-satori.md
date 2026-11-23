@@ -1,7 +1,7 @@
 # Connect server-satori (Koishi)
 
 > [!TIP]
-> `server-satori` is a Koishi plugin that exposes Koishi as a Satori server, so AstrBot can connect to Koishi through Satori.
+> `server-satori` is a Koishi plugin that exposes Koishi as a Satori server, so PyaBot can connect to Koishi through Satori.
 
 ## Preparation
 
@@ -22,9 +22,9 @@ After enabling, `server-satori` serves Satori API under `/satori`.
 
 ![image](/images/adaf8645477acaa5.png)
 
-## Configure Satori Adapter in AstrBot
+## Configure Satori Adapter in PyaBot
 
-1. Open AstrBot Dashboard.
+1. Open PyaBot Dashboard.
 2. Click `Platforms`.
 3. Click `Add Adapter`.
 4. Select `satori`.
@@ -49,9 +49,9 @@ Click `Save`.
 
 ## Done
 
-AstrBot should now be connected to Koishi via `server-satori`.
+PyaBot should now be connected to Koishi via `server-satori`.
 
-Test by sending an AstrBot command (for example `/help`) in Koishi sandbox.
+Test by sending a PyaBot command (for example `/help`) in Koishi sandbox.
 
 ![image](/images/fe1b2832a6c0279d.png)
 

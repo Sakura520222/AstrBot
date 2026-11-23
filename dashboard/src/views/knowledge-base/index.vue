@@ -26,7 +26,7 @@
         variant="text"
         size="small"
         color="grey"
-        href="https://astrbot.pyabunny.com/docs/use/knowledge-base.html"
+        href="https://pyabot.pyabunny.com/docs/use/knowledge-base.html"
         target="_blank"
       />
     </div>

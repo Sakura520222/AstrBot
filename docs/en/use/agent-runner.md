@@ -1,22 +1,22 @@
 # Agent Execution Mode {#agent-runner}
 
-The Agent Runner is a component in AstrBot used to execute Agents.
+The Agent Runner is a component in PyaBot used to execute Agents.
 
-Starting from version v4.7.0, we have migrated three providers—Dify, Coze, and Alibaba Cloud Bailian Application—to the Agent Runner layer, reducing some conflicts with AstrBot's existing features. Rest assured, if you upgrade from an older version to v4.7.0, you don't need to take any action as AstrBot will automatically migrate for you. Later versions also added DeerFlow support as an Agent Runner provider.
+Starting from version v4.7.0, we have migrated three providers—Dify, Coze, and Alibaba Cloud Bailian Application—to the Agent Runner layer, reducing some conflicts with PyaBot's existing features. Rest assured, if you upgrade from an older version to v4.7.0, you don't need to take any action as PyaBot will automatically migrate for you. Later versions also added DeerFlow support as an Agent Runner provider.
 
-AstrBot currently supports five Agent Runners:
+PyaBot currently supports five Agent Runners:
 
-- AstrBot Built-in Agent Runner
+- PyaBot Built-in Agent Runner
 - Dify Agent Runner
 - Coze Agent Runner
 - Alibaba Cloud Bailian Application Agent Runner
 - DeerFlow Agent Runner
 
-By default, the AstrBot Built-in Agent Runner is the default runner.
+By default, the PyaBot Built-in Agent Runner is the default runner.
 
 ## Why Abstract the Agent Runner
 
-In earlier versions, platforms with "built-in Agent capabilities" like Dify, Coze, and Alibaba Cloud Bailian Application were integrated into AstrBot as regular Chat Providers. In practice, we found that they are fundamentally different from traditional Chat Providers that "only handle text completion". Forcing them into the same layer caused many design and usage conflicts. Therefore, starting from v4.7.0, we abstracted them into independent Agent Runners.
+In earlier versions, platforms with "built-in Agent capabilities" like Dify, Coze, and Alibaba Cloud Bailian Application were integrated into PyaBot as regular Chat Providers. In practice, we found that they are fundamentally different from traditional Chat Providers that "only handle text completion". Forcing them into the same layer caused many design and usage conflicts. Therefore, starting from v4.7.0, we abstracted them into independent Agent Runners.
 
 From an architectural perspective, you can understand it as:
 
@@ -31,11 +31,11 @@ An Agent Runner is typically a `loop` that receives user intent, context, and en
 
 ![image](/images/5dd07cb0abf3ba54.svg)
 
-Platforms like Dify, Coze, Bailian Application, and DeerFlow have this loop built-in. If you treat them as regular Chat Providers, it will conflict with AstrBot's built-in Agent Runner functionality.
+Platforms like Dify, Coze, Bailian Application, and DeerFlow have this loop built-in. If you treat them as regular Chat Providers, it will conflict with PyaBot's built-in Agent Runner functionality.
 
 ## Usage
 
-AstrBot uses its built-in AI by default. Select a chat model under **Config → AI → Model**, and configure personas, knowledge bases, and tools as needed.
+PyaBot uses its built-in AI by default. Select a chat model under **Config → AI → Model**, and configure personas, knowledge bases, and tools as needed.
 
 To connect an external application, select the execution mode and enter its connection settings directly in the current configuration profile:
 

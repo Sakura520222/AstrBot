@@ -12,11 +12,11 @@ const guides = [
 <template>
   <div class="site-home">
     <section class="masthead" aria-labelledby="site-title">
-      <h1 id="site-title">AstrBot</h1>
+      <h1 id="site-title">PyaBot</h1>
       <div class="intro">
-        <p>部署自己的聊天机器人，把你选的模型接入 QQ、Telegram、飞书等平台。</p>
+        <p>部署自己的多平台 AI 助手，把你选的模型接入 QQ、Telegram、飞书等平台，完整兼容 AstrBot 插件生态。</p>
         <div class="home-links">
-          <a class="install-link" href="/docs/deploy/astrbot/package">安装 AstrBot</a>
+          <a class="install-link" href="/docs/deploy/astrbot/package">安装 PyaBot</a>
           <a href="/docs/">阅读文档</a>
         </div>
       </div>
@@ -24,9 +24,9 @@ const guides = [
 
     <div class="product-row">
       <figure class="preview">
-        <a href="/images/plugin-views/context-workbench.jpg" aria-label="查看完整的 AstrBot ChatUI 截图">
+        <a href="/images/plugin-views/context-workbench.jpg" aria-label="查看完整的 PyaBot ChatUI 截图">
           <img src="/images/plugin-views/context-workbench.jpg" width="1281" height="769"
-            alt="AstrBot ChatUI 中的模型回复和上下文用量面板" fetchpriority="high" />
+            alt="PyaBot ChatUI 中的模型回复和上下文用量面板" fetchpriority="high" />
         </a>
         <figcaption><a href="/docs/use/webui">ChatUI 与上下文用量</a></figcaption>
       </figure>
@@ -56,8 +56,8 @@ const guides = [
     </section>
 
     <div class="release-row">
-      <a href="https://github.com/Sakura520222/AstrBot/releases">下载与版本说明</a>
-      <a href="https://github.com/Sakura520222/AstrBot/blob/master/LICENSE">AGPL-3.0</a>
+      <a href="https://github.com/Sakura520222/PyaBot/releases">下载与版本说明</a>
+      <a href="https://github.com/Sakura520222/PyaBot/blob/master/LICENSE">AGPL-3.0</a>
     </div>
   </div>
 </template>

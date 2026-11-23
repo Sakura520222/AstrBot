@@ -9,10 +9,16 @@ from astrbot.cli.commands import cmd_run
 def test_run_reset_password_sets_startup_env(monkeypatch, tmp_path):
     (tmp_path / ".astrbot").touch()
     monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv(cmd_run.PYABOT_DASHBOARD_RESET_PASSWORD_ENV, raising=False)
     monkeypatch.delenv(cmd_run.DASHBOARD_RESET_PASSWORD_ENV, raising=False)
     original_env = {
+        "PYABOT_CLI": os.environ.get("PYABOT_CLI"),
+        "PYABOT_ROOT": os.environ.get("PYABOT_ROOT"),
         "ASTRBOT_CLI": os.environ.get("ASTRBOT_CLI"),
         "ASTRBOT_ROOT": os.environ.get("ASTRBOT_ROOT"),
+        cmd_run.PYABOT_DASHBOARD_RESET_PASSWORD_ENV: os.environ.get(
+            cmd_run.PYABOT_DASHBOARD_RESET_PASSWORD_ENV
+        ),
         cmd_run.DASHBOARD_RESET_PASSWORD_ENV: os.environ.get(
             cmd_run.DASHBOARD_RESET_PASSWORD_ENV
         ),

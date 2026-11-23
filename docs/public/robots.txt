@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://astrbot.pyabunny.com/sitemap.xml
+Sitemap: https://pyabot.pyabunny.com/sitemap.xml

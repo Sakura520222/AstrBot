@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install AstrBot with uv on Linux / macOS / WSL. Compatible with Bash 3.2+.
+# Install PyaBot with uv on Linux / macOS / WSL. Compatible with Bash 3.2+.
 
 set -euo pipefail
 
@@ -78,7 +78,7 @@ if [ -z "$language" ]; then
   language='en-US'
   default_choice=1
   if [ "$can_prompt" -eq 1 ]; then
-    printf '\n%s%s🌌 AstrBot Installer%s\n%s%s-----------------------%s\n' "$indent" "$CYAN" "$NC" "$indent" "$GRAY" "$NC" >&2
+    printf '\n%s%s🌌 PyaBot Installer%s\n%s%s-----------------------%s\n' "$indent" "$CYAN" "$NC" "$indent" "$GRAY" "$NC" >&2
     printf '\n%sSelect language / 请选择语言 / 言語を選択してください\n%s  1. English\n%s  2. 简体中文\n%s  3. 日本語\n' "$indent" "$indent" "$indent" "$indent" >&2
     while :; do
       printf '%s1-3 [%s]: ' "$indent" "$default_choice" >&2
@@ -124,12 +124,12 @@ message() {
     zh-CN:MissingTools) format='需要 curl 或 wget 下载文件；安装压缩包还需要 tar 和 sha256sum 或 shasum。' ;;
     zh-CN:PathHint) format='uv 安装目录：%s。请确保新终端的 PATH 中包含此目录。' ;;
     zh-CN:UvFailed) format='uv 安装失败。请参考 https://docs.astral.sh/uv/getting-started/installation/' ;;
-    zh-CN:InstallingAstrBot) format='正在使用 Python 3.12 安装 AstrBot…' ;;
-    zh-CN:AstrBotFailed) format='AstrBot 安装失败（退出码 %s）。请检查上方的下载或依赖错误。' ;;
+    zh-CN:InstallingAstrBot) format='正在使用 Python 3.12 安装 PyaBot…' ;;
+    zh-CN:AstrBotFailed) format='PyaBot 安装失败（退出码 %s）。请检查上方的下载或依赖错误。' ;;
     zh-CN:PythonFallback) format='Python 镜像下载失败，正在切换到官方源重试…' ;;
     zh-CN:ReloadShell) format='请根据你使用的终端重新加载环境：' ;;
     zh-CN:RunCommands) format='重新加载后，请手动运行：' ;;
-    zh-CN:Installed) format='AstrBot 安装完成。' ;;
+    zh-CN:Installed) format='PyaBot 安装完成。' ;;
     en-US:ChooseSource) format='Select a download source' ;;
     en-US:China) format='Mainland China accelerated download mirrors' ;;
     en-US:Official) format='Official sources' ;;
@@ -154,12 +154,12 @@ message() {
     en-US:MissingTools) format='curl or wget is required to download files; archive installation also requires tar and sha256sum or shasum.' ;;
     en-US:PathHint) format='uv installation directory: %s. Ensure it is on PATH in new terminals.' ;;
     en-US:UvFailed) format='Failed to install uv. See https://docs.astral.sh/uv/getting-started/installation/' ;;
-    en-US:InstallingAstrBot) format='Installing AstrBot with Python 3.12...' ;;
-    en-US:AstrBotFailed) format='AstrBot installation failed (exit code %s). Check the download or dependency errors above.' ;;
+    en-US:InstallingAstrBot) format='Installing PyaBot with Python 3.12...' ;;
+    en-US:AstrBotFailed) format='PyaBot installation failed (exit code %s). Check the download or dependency errors above.' ;;
     en-US:PythonFallback) format='Python mirror failed; retrying with the official source...' ;;
     en-US:ReloadShell) format='Reload the environment for your shell:' ;;
     en-US:RunCommands) format='Then run these commands manually:' ;;
-    en-US:Installed) format='AstrBot has been installed.' ;;
+    en-US:Installed) format='PyaBot has been installed.' ;;
     ja-JP:ChooseSource) format='ダウンロード元を選択してください' ;;
     ja-JP:China) format='中国本土向け高速ダウンロードミラー' ;;
     ja-JP:Official) format='公式ソース' ;;
@@ -184,12 +184,12 @@ message() {
     ja-JP:MissingTools) format='ダウンロードには curl または wget が必要です。アーカイブのインストールには tar と sha256sum または shasum も必要です。' ;;
     ja-JP:PathHint) format='uv のインストール先：%s。新しいターミナルでも PATH に含まれていることを確認してください。' ;;
     ja-JP:UvFailed) format='uv のインストールに失敗しました。https://docs.astral.sh/uv/getting-started/installation/ を参照してください。' ;;
-    ja-JP:InstallingAstrBot) format='Python 3.12 で AstrBot をインストールしています…' ;;
-    ja-JP:AstrBotFailed) format='AstrBot のインストールに失敗しました（終了コード %s）。上記のダウンロードまたは依存関係のエラーを確認してください。' ;;
+    ja-JP:InstallingAstrBot) format='Python 3.12 で PyaBot をインストールしています…' ;;
+    ja-JP:AstrBotFailed) format='PyaBot のインストールに失敗しました（終了コード %s）。上記のダウンロードまたは依存関係のエラーを確認してください。' ;;
     ja-JP:PythonFallback) format='Python ミラーに失敗したため、公式ソースで再試行しています…' ;;
     ja-JP:ReloadShell) format='使用するシェルに合わせて環境を再読み込みしてください：' ;;
     ja-JP:RunCommands) format='その後、以下のコマンドを手動で実行してください：' ;;
-    ja-JP:Installed) format='AstrBot のインストールが完了しました。' ;;
+    ja-JP:Installed) format='PyaBot のインストールが完了しました。' ;;
     *) printf 'Unknown message: %s\n' "$key" >&2; return 1 ;;
   esac
   printf "$format\n" "$@"
@@ -419,12 +419,12 @@ fi
 info "$(message InstallingAstrBot)"
 # Use a valid working directory even if the caller's directory has been removed.
 # The subshell scopes Python mirror settings to this installation only.
-has git || { err "Git is required to install AstrBot."; exit 1; }
+has git || { err "Git is required to install PyaBot."; exit 1; }
 tool_install_exit_code=0
 (
   cd "${TMPDIR:-/tmp}" || exit 1
   UV_PYTHON_INSTALL_MIRROR="$python_install_mirror" \
-    uv tool install --python 3.12 git+https://github.com/Sakura520222/AstrBot.git --default-index "$pypi_index_url"
+    uv tool install --python 3.12 git+https://github.com/Sakura520222/PyaBot.git --default-index "$pypi_index_url"
 ) || tool_install_exit_code=$?
 if [ "$tool_install_exit_code" -ne 0 ] && [ -n "$python_install_mirror" ]; then
   warn "$(message PythonFallback)"
@@ -432,7 +432,7 @@ if [ "$tool_install_exit_code" -ne 0 ] && [ -n "$python_install_mirror" ]; then
   (
     cd "${TMPDIR:-/tmp}" || exit 1
     unset UV_PYTHON_INSTALL_MIRROR
-    uv tool install --python 3.12 git+https://github.com/Sakura520222/AstrBot.git --default-index "$pypi_index_url"
+    uv tool install --python 3.12 git+https://github.com/Sakura520222/PyaBot.git --default-index "$pypi_index_url"
   ) || tool_install_exit_code=$?
 fi
 if [ "$tool_install_exit_code" -ne 0 ]; then
@@ -446,5 +446,5 @@ printf '%s  Bash: source ~/.bashrc\n' "$indent"
 printf '%s  Zsh: source ~/.zshrc\n' "$indent"
 printf '%s  Fish: source ~/.config/fish/config.fish\n' "$indent"
 printf '%s  PowerShell: . $PROFILE\n' "$indent"
-printf '\n%s%s\n%s  astrbot init\n%s  astrbot run\n' \
+printf '\n%s%s\n%s  pyabot init\n%s  pyabot run\n' \
   "$indent" "$(message RunCommands)" "$indent" "$indent"

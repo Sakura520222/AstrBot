@@ -1,8 +1,8 @@
-# AstrBot 开发约定
+# PyaBot 开发约定
 
 ## 项目归属
 
-仓库为 `https://github.com/Sakura520222/AstrBot`。`origin` 指向本仓库，`upstream` 仅供显式同步，不得将本仓库改动推送到上游。保留 AstrBot 名称、标识、包名、命令、上游版权、许可证及历史记录。
+仓库为 `https://github.com/Sakura520222/PyaBot`。`origin` 指向本仓库，`upstream` 仅供显式同步，不得将本仓库改动推送到上游。对外品牌、发行包、CLI 主命令（`pyabot`）与 WebUI 使用 PyaBot；内部保留 `astrbot` 包路径、`astrbot` 命令别名与 `ASTRBOT_*` 环境变量回退以保持对 AstrBot 插件生态的完整兼容，并保留上游版权、许可证及历史记录。
 
 README、维护说明和 Release 说明优先使用中文；代码注释、日志、PR 标题和描述使用英文。提交和 PR 标题遵循 Conventional Commits。不得新增 `*_SUMMARY.md` 等任务报告，不提交密钥、运行数据、日志、数据库或 `.codegraph/`。
 
@@ -35,7 +35,7 @@ pnpm docs:dev
 pnpm docs:build
 ```
 
-后端默认端口 6185，WebUI 开发服务默认端口 3000。`data/` 保存框架配置、插件及配置、历史数据库和插件数据。更新、测试、发布不得清空或覆盖它；测试设置独立的 `ASTRBOT_ROOT`。使用 `uv sync --inexact` 保留插件额外依赖。
+后端默认端口 6185，WebUI 开发服务默认端口 3000。`data/` 保存框架配置、插件及配置、历史数据库和插件数据。更新、测试、发布不得清空或覆盖它；测试设置独立的 `PYABOT_ROOT`（兼容 `ASTRBOT_ROOT`）。使用 `uv sync --inexact` 保留插件额外依赖。
 
 ## 实现规则
 
@@ -50,11 +50,11 @@ pnpm docs:build
 
 ## 版本与兼容
 
-`pyproject.toml` 的 `[project].version` 与 `astrbot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从后者派生。版本号与上游基线对齐，当前为 4.30.0-beta.1。WebUI 构建从 `astrbot.__version__` 写入版本标记。
+`pyproject.toml` 的 `[project].version`、`astrbot.__version__` 与 `pyabot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从 `astrbot.__version__` 派生。版本号与上游基线对齐，当前为 4.30.0-beta.1。WebUI 构建从 `astrbot.__version__` 写入版本标记。
 
-插件声明的 `astrbot_version` 直接使用框架版本检查，不增加额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
+插件声明的 `pyabot_version` 与 `astrbot_version` 直接使用框架版本检查，不增加额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
 
-核心/WebUI 更新和下载使用本仓库。版本查询使用 `https://astrbot.pyabunny.com/releases.json`，由站点工作流从本仓库公开 Releases 生成。公共插件市场及第三方服务保留真实来源；历史 Issue、PR 等出处保留原始地址。前端处理更新错误时必须检查响应状态和数据，不能把 `data: null` 当成功响应。
+核心/WebUI 更新和下载使用本仓库。版本查询使用 `https://pyabot.pyabunny.com/releases.json`，由站点工作流从本仓库公开 Releases 生成。公共插件市场及第三方服务保留真实来源；历史 Issue、PR 等出处保留原始地址。前端处理更新错误时必须检查响应状态和数据，不能把 `data: null` 当成功响应。
 
 ## 检查
 
@@ -82,4 +82,4 @@ CI 按组件路径触发。文档和官网改动只运行相关构建与链接�
 
 PR 使用英文，说明问题、最终行为和相关验证，不写对话过程。发布完成并验证后清理短期发布分支。
 
-站点部署使用 `GITHUB_TOKEN` 与 OIDC 临时授权，部署作业仅授予 `pages: write` 和 `id-token: write`，无需长期部署密钥。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证。仓库 Pages 构建源为 GitHub Actions，自定义域名为 `astrbot.pyabunny.com`，Cloudflare DNS 的 CNAME 指向 `sakura520222.github.io` 并开启代理，保持 `Full (strict)` 和强制 HTTPS。
+站点部署使用 `GITHUB_TOKEN` 与 OIDC 临时授权，部署作业仅授予 `pages: write` 和 `id-token: write`，无需长期部署密钥。仅可信的 `master` 推送或手动运行执行部署；PR 只构建验证。仓库 Pages 构建源为 GitHub Actions，自定义域名为 `pyabot.pyabunny.com`，Cloudflare DNS 的 CNAME 指向 `sakura520222.github.io` 并开启代理，保持 `Full (strict)` 和强制 HTTPS。

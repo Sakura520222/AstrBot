@@ -35,7 +35,7 @@
           >
             <ChatUILogo v-if="!pairedNavigation" class="chat-sidebar-brand-logo" />
             <span class="chat-sidebar-brand-copy">
-              <span class="chat-sidebar-brand-name">{{ pairedNavigation ? t("core.navigation.chat") : "AstrBot" }}</span>
+              <span class="chat-sidebar-brand-name">{{ pairedNavigation ? t("core.navigation.chat") : "PyaBot" }}</span>
               <span v-if="!sidebarNavigation" class="chat-sidebar-brand-mode">ChatUI</span>
             </span>
           </div>

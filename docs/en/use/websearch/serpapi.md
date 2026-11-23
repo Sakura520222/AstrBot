@@ -10,9 +10,9 @@ This page covers SerpApi setup and usage. See [Web Search](../websearch.md) for 
 2. Open the [API key page](https://serpapi.com/manage-api-key) and copy your key.
 3. Check that your SerpApi account has search quota available. Refer to SerpApi's website and your account for current quotas, billing, and service access.
 
-## Configure AstrBot
+## Configure PyaBot
 
-Your conversation must use AstrBot Built-in AI, and both the chat model and its API must support tool calling. The server or container running AstrBot must be able to reach `https://serpapi.com`.
+Your conversation must use PyaBot Built-in AI, and both the chat model and its API must support tool calling. The server or container running PyaBot must be able to reach `https://serpapi.com`.
 
 1. Open `Config` in the sidebar and select the profile your conversation actually uses.
 2. Open `AI → Capabilities → Web Search` and turn on `Enable Web Search`.
@@ -24,7 +24,7 @@ These settings apply only to the selected profile. Multiple keys rotate, and aut
 
 ## Supported capabilities
 
-| Capability | SerpApi endpoint | Content returned by AstrBot |
+| Capability | SerpApi endpoint | Content returned by PyaBot |
 | --- | --- | --- |
 | Web search | [Google Search API](https://serpapi.com/search-api) | Titles, source URLs, and snippets from the first page; up to 5 results by default, with a requested maximum of 10 |
 | Image search | [Google Images Light API](https://serpapi.com/google-images-light-api) | Direct image URLs, thumbnails, source pages, and available dimensions; up to 5 images by default, with a requested maximum of 10 |
@@ -43,7 +43,7 @@ After saving, send the bot or ChatUI an explicit search request. The model choos
 Search for AstrBot's latest release. Give the version, summarize the main changes, and include source links.
 ```
 
-Web search returns titles, links, and snippets without automatically reading full pages. AstrBot's SerpApi integration does not provide a page extraction tool. If you often need to summarize a specific URL, choose a service with page extraction from the [provider comparison](../websearch.md#choose-a-search-provider).
+Web search returns titles, links, and snippets without automatically reading full pages. PyaBot's SerpApi integration does not provide a page extraction tool. If you often need to summarize a specific URL, choose a service with page extraction from the [provider comparison](../websearch.md#choose-a-search-provider).
 
 ### Image search
 
@@ -79,7 +79,7 @@ You can specify a publication year range and request up to 20 publications. Snip
 
 ### Invalid key, quota errors, or timeouts
 
-Confirm that you entered a SerpApi key and check your remaining account quota. Inspect the error under `Data & Logs → Logs`. For timeouts, check whether the AstrBot environment can reach the SerpApi API. See [Web Search troubleshooting](../websearch.md#troubleshooting) for general checks.
+Confirm that you entered a SerpApi key and check your remaining account quota. Inspect the error under `Data & Logs → Logs`. For timeouts, check whether the PyaBot environment can reach the SerpApi API. See [Web Search troubleshooting](../websearch.md#troubleshooting) for general checks.
 
 ### The model does not use image, finance, or academic search
 

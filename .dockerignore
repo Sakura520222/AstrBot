@@ -24,6 +24,8 @@ tests/
 .ruff_cache/
 .astrbot
 .astrbot-tmp
+.pyabot
+pyabot.lock
 astrbot.lock
 
 release-assets/

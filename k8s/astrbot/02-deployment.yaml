@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: astrbot
-          image: ghcr.io/sakura520222/astrbot:latest
+          image: ghcr.io/sakura520222/pyabot:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: TZ

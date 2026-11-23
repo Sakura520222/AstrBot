@@ -1676,7 +1676,7 @@ onMounted(async () => {
                     t("core.header.updateDialog.preReleaseWarning.description")
                   }}
                   <a
-                    href="https://github.com/Sakura520222/AstrBot/issues"
+                    href="https://github.com/Sakura520222/PyaBot/issues"
                     target="_blank"
                     class="text-decoration-none"
                   >

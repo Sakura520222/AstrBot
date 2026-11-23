@@ -1,6 +1,6 @@
 # Unified Webhook Mode
 
-Starting from v4.8.0, AstrBot supports Unified Webhook Mode (unified_webhook_mode). When this mode is enabled, all platform adapters that support it will use the same Webhook callback endpoint, simplifying reverse proxy and domain configuration. You no longer need to configure separate ports, domains, and reverse proxies for each bot adapter.
+Starting from v4.8.0, PyaBot supports Unified Webhook Mode (unified_webhook_mode). When this mode is enabled, all platform adapters that support it will use the same Webhook callback endpoint, simplifying reverse proxy and domain configuration. You no longer need to configure separate ports, domains, and reverse proxies for each bot adapter.
 
 Platform adapters that support Unified Webhook Mode include:
 
@@ -16,13 +16,13 @@ Platform adapters that support Unified Webhook Mode include:
 
 1. Have a domain (e.g., example.com) and a server with a public IP
 2. Configure DNS resolution (e.g., astrbot.example.com)
-3. Configure reverse proxy to forward requests from port 80 or 443 of your domain to AstrBot's WebUI port (default is 6185)
-4. Go to AstrBot's `Settings → General → Runtime Basics` and set the `Externally Reachable Callback URL` to your configured URL (e.g., https://astrbot.example.com). Click save and wait for restart.
+3. Configure reverse proxy to forward requests from port 80 or 443 of your domain to PyaBot's WebUI port (default is 6185)
+4. Go to PyaBot's `Settings → General → Runtime Basics` and set the `Externally Reachable Callback URL` to your configured URL (e.g., https://astrbot.example.com). Click save and wait for restart.
 
 When configuring each platform adapter afterwards, enable `Unified Webhook Mode (unified_webhook_mode)`.
 
 ![unified_webhook](/images/feff5c88bdef4e88.png)
 
-Once this mode is enabled, AstrBot will generate a unique Webhook callback URL for you. You just need to fill this URL into each platform's callback address field.
+Once this mode is enabled, PyaBot will generate a unique Webhook callback URL for you. You just need to fill this URL into each platform's callback address field.
 
 ![unified_webhook](/images/6969df239baeca9f.png)

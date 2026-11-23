@@ -4,9 +4,9 @@
 
 ~~~yaml
 services:
-  astrbot:
-    image: ghcr.io/sakura520222/astrbot:latest
-    container_name: astrbot
+  pyabot:
+    image: ghcr.io/sakura520222/pyabot:latest
+    container_name: pyabot
     restart: unless-stopped
     ports:
       - "6185:6185"

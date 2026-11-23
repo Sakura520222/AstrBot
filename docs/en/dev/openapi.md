@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# AstrBot HTTP API
+# PyaBot HTTP API
 
-Starting from v4.18.0, AstrBot provides API Key based HTTP APIs for programmatic access.
+Starting from v4.18.0, PyaBot provides API Key based HTTP APIs for programmatic access.
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ Every operation in the interactive reference also displays `Required scope: ...`
 
 **Chat**
 
-Interact with AstrBot's built-in Agent. Supports plugin calls, tool calls, and other capabilities — consistent with IM-side chat.
+Interact with PyaBot's built-in Agent. Supports plugin calls, tool calls, and other capabilities — consistent with IM-side chat.
 
 - `POST /api/v1/chat`: send chat message (SSE stream, server generates UUID when `session_id` is omitted)
 - `GET /api/v1/chat/sessions`: list sessions for a specific `username` with pagination
@@ -162,4 +162,4 @@ curl -N 'http://localhost:6185/api/v1/chat' \
 
 Use the interactive docs:
 
-- https://astrbot.pyabunny.com/docs/scalar.html
+- https://pyabot.pyabunny.com/docs/scalar.html

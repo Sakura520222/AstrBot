@@ -101,7 +101,7 @@
   },
   "messages": {
     "pluginNotAvailable": "プラグインがインストールされていないか、利用できません",
-    "pluginNotActivated": "astrbot_plugin_knowledge_base プラグインが有効になっていません。プラグイン管理ページで有効にしてから AstrBot を再起動してください。",
+    "pluginNotActivated": "astrbot_plugin_knowledge_base プラグインが有効になっていません。プラグイン管理ページで有効にしてから PyaBot を再起動してください。",
     "checkPluginFailed": "プラグインの確認に失敗しました",
     "installFailed": "インストールに失敗しました",
     "installPluginFailed": "プラグインのインストールに失敗しました",
