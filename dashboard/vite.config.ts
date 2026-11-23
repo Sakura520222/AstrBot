@@ -66,7 +66,7 @@ export default defineConfig(({ command }) => ({
       generateBundle() {
         const source = readFileSync(new URL('../astrbot/__init__.py', import.meta.url), 'utf8');
         const version = source.match(/^__version__\s*=\s*["']([^"']+)["']/m)?.[1];
-        if (!version) throw new Error('AstrBot version is missing.');
+        if (!version) throw new Error('PyaBot version is missing.');
         this.emitFile({ type: 'asset', fileName: 'assets/version', source: `v${version}\n` });
       },
     },

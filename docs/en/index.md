@@ -2,9 +2,9 @@
 title: Documentation
 ---
 
-# AstrBot documentation
+# PyaBot documentation
 
-Start with the [installation guide](/docs/en/deploy/astrbot/package). For an existing deployment, see the [release notes](https://github.com/Sakura520222/AstrBot/releases).
+Start with the [installation guide](/docs/en/deploy/astrbot/package). For an existing deployment, see the [release notes](https://github.com/Sakura520222/PyaBot/releases).
 
 - [Deployment](/docs/en/deploy/astrbot/cli) · source, [Docker](/docs/en/deploy/astrbot/docker), and server deployments
 - [Messaging platforms](/docs/en/platform/start) · QQ, Telegram, Lark, and other platforms

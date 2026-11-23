@@ -10,17 +10,17 @@ from astrbot.api.event import filter, AstrMessageEvent
 
 ## Messages and Events
 
-AstrBot receives messages delivered by messaging platforms and encapsulates them as `AstrMessageEvent` objects, which are then passed to plugins for processing.
+PyaBot receives messages delivered by messaging platforms and encapsulates them as `AstrMessageEvent` objects, which are then passed to plugins for processing.
 
 ![message-event](/images/864304bc7b5726ee.svg)
 
 ### Message Events
 
-`AstrMessageEvent` is AstrBot's message event object, which stores information about the message sender, message content, etc.
+`AstrMessageEvent` is PyaBot's message event object, which stores information about the message sender, message content, etc.
 
 ### Message Object
 
-`AstrBotMessage` is AstrBot's message object, which stores the specific content of messages delivered by the messaging platform. The `AstrMessageEvent` object contains a `message_obj` attribute to retrieve this message object.
+`AstrBotMessage` is PyaBot's message object, which stores the specific content of messages delivered by the messaging platform. The `AstrMessageEvent` object contains a `message_obj` attribute to retrieve this message object.
 
 ```py{11}
 class AstrBotMessage:
@@ -66,7 +66,7 @@ Additionally, the OneBot v11 platform (QQ personal accounts, etc.) also supports
 - `Nodes`: Multiple nodes in a forward message
 - `Poke`: Poke message segment
 
-In AstrBot, message chains are represented as lists of type `List[BaseMessageComponent]`.
+In PyaBot, message chains are represented as lists of type `List[BaseMessageComponent]`.
 
 ## Commands
 
@@ -90,13 +90,13 @@ class MyPlugin(Star):
 ```
 
 > [!TIP]
-> Commands cannot contain spaces, otherwise AstrBot will parse them as a second parameter. You can use the command group feature below, or use a listener to parse the message content yourself.
+> Commands cannot contain spaces, otherwise PyaBot will parse them as a second parameter. You can use the command group feature below, or use a listener to parse the message content yourself.
 
 ## Commands with Parameters
 
 ![command-with-param](/images/8ba4ef0e7b445574.svg)
 
-AstrBot will automatically parse command parameters for you.
+PyaBot will automatically parse command parameters for you.
 
 ```python
 @filter.command("add")
@@ -265,7 +265,7 @@ async def on_astrbot_loaded(self):
 
 #### On Waiting for LLM Request
 
-This hook is triggered when AstrBot is preparing to call the LLM but has not yet acquired the session lock.
+This hook is triggered when PyaBot is preparing to call the LLM but has not yet acquired the session lock.
 
 It is suitable for sending feedback such as "Waiting for request..." to the user, or for obtaining the LLM request outside the lock without waiting for it to be released.
 
@@ -282,7 +282,7 @@ async def on_waiting_llm(self, event: AstrMessageEvent):
 
 #### On LLM Request
 
-In AstrBot's default execution flow, the `on_llm_request` hook is triggered before calling the LLM.
+In PyaBot's default execution flow, the `on_llm_request` hook is triggered before calling the LLM.
 
 You can obtain the `ProviderRequest` object and modify it.
 
@@ -309,7 +309,7 @@ async def my_custom_hook_1(
 > For small or medium-sized dynamic prompts that change every round, prefer appending them through `req.extra_user_content_parts`. These parts are added after the current user input as extra user-message content, which is more suitable for dynamic context such as "current time", "character affinity", or "relevant memory snippets":
 >
 > ```python
-> # Before AstrBot v4.30.0:
+> # Before PyaBot v4.30.0:
 > # from astrbot.core.agent.message import TextPart
 > from astrbot.api.agents import TextPart
 >
@@ -362,7 +362,7 @@ async def on_llm_resp(
 
 #### On Agent Begin
 
-> Requires AstrBot version > v4.23.1
+> Requires PyaBot version > v4.23.1
 
 When the Agent starts running, the `on_agent_begin` hook is triggered.
 
@@ -385,7 +385,7 @@ async def on_agent_begin(
 
 #### Before LLM Tool Call
 
-> Requires AstrBot version > v4.23.1
+> Requires PyaBot version > v4.23.1
 
 When the Agent is about to call an LLM tool, the `on_using_llm_tool` hook is triggered.
 
@@ -412,7 +412,7 @@ async def on_using_llm_tool(
 
 #### After LLM Tool Call
 
-> Requires AstrBot version > v4.23.1
+> Requires PyaBot version > v4.23.1
 
 After the LLM tool call completes, the `on_llm_tool_respond` hook is triggered.
 

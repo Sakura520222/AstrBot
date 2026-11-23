@@ -1,14 +1,14 @@
 # Proactive Capabilities
 
-Proactive capabilities let AstrBot run tasks at scheduled times without waiting for another user message. For example: “Remind me to take a break in ten minutes,” or “Search for technology news every morning and send a summary to this group.” When triggered, the Agent follows the task instructions, calls its model and tools, and attempts to send results to the target conversation.
+Proactive capabilities let PyaBot run tasks at scheduled times without waiting for another user message. For example: “Remind me to take a break in ten minutes,” or “Search for technology news every morning and send a summary to this group.” When triggered, the Agent follows the task instructions, calls its model and tools, and attempts to send results to the target conversation.
 
-This is not continuous autonomous monitoring. Create a task first and keep AstrBot running. Search, file access, and other capabilities need their own configuration. Introduced in v4.14.0, this feature is still **experimental**.
+This is not continuous autonomous monitoring. Create a task first and keep PyaBot running. Search, file access, and other capabilities need their own configuration. Introduced in v4.14.0, this feature is still **experimental**.
 
 <span id="how-to-use"></span>
 
 ## Configure the prerequisites
 
-1. In **Config**, choose the profile used by the target conversation. Open **AI**, enable AI, and select **AstrBot Built-in AI**.
+1. In **Config**, choose the profile used by the target conversation. Open **AI**, enable AI, and select **PyaBot Built-in AI**.
 2. Confirm that the chat model works and supports tool calling.
 3. Open **AI → Capabilities → Proactive Agent**, enable it, and click **Save Configuration**. This provides the `future_task` tool for managing tasks through chat.
 4. Under **Extensions → Future Tasks**, click **Supported platforms** to check that the receiving platform is configured and supports proactive messaging.
@@ -21,7 +21,7 @@ Each profile can control whether its chat Agent receives the scheduling tool. **
 
 <span id="features"></span>
 
-In the private or group conversation that should receive the result, tell AstrBot:
+In the private or group conversation that should receive the result, tell PyaBot:
 
 ```text
 Remind me to take a break in ten minutes, just once.
@@ -41,7 +41,7 @@ You can also ask it to:
 - “Move my break reminder to 3 PM tomorrow.”
 - “Delete the news task I just created.”
 
-All group members can list **every task in the current group conversation**, including its creator. Regular members can only edit and delete tasks they created in that group. AstrBot admins can edit or delete any task in the current group, including WebUI or legacy tasks without a recorded creator. Editing preserves the task’s original creator, including when no creator was recorded. These permissions stay within the current conversation and do not allow access across groups. In private chats, listing, editing, and deletion remain limited to tasks created by the current sender in the current conversation.
+All group members can list **every task in the current group conversation**, including its creator. Regular members can only edit and delete tasks they created in that group. PyaBot admins can edit or delete any task in the current group, including WebUI or legacy tasks without a recorded creator. Editing preserves the task’s original creator, including when no creator was recorded. These permissions stay within the current conversation and do not allow access across groups. In private chats, listing, editing, and deletion remain limited to tasks created by the current sender in the current conversation.
 
 ## Create and manage tasks in the WebUI
 
@@ -56,7 +56,7 @@ Open **Extensions → Future Tasks** and click **New Task**. You do not need to 
 | Schedule | Choose one-off, interval, daily, weekly, monthly, or custom. |
 | Deliver to (optional) | Select an existing conversation. Leaving it empty allows execution but does not automatically deliver results to a user or group. |
 
-If no conversations appear, talk to AstrBot on the target platform first, then return to select it. The target is identified by a UMO (unified message origin), which includes the platform, message type, and conversation identifier.
+If no conversations appear, talk to PyaBot on the target platform first, then return to select it. The target is identified by a UMO (unified message origin), which includes the platform, message type, and conversation identifier.
 
 The list shows each schedule, delivery target, and next run. Search by name or content, or filter by target. Click a task to edit it, use its switch to disable scheduled execution, and use **More actions** for **Run now** or **Delete**. Hover over its timing information to see the last execution time and any recorded error.
 
@@ -83,7 +83,7 @@ Recurring schedules use the task's time zone. New WebUI tasks default to the tar
 
 The interval selector currently creates Cron calendar steps, rather than a timer measured from creation. For example, every two hours runs at even-numbered hours. Minute, hour, and day steps are capped at 59, 23, and 31 respectively; day steps across months are not a fixed elapsed duration. Monthly tasks on the 29th, 30th, or 31st do not run in months without that date.
 
-AstrBot must be online to execute tasks. Saved schedules are reloaded after a restart, but do not depend on it replaying every missed reminder. Start with a one-off task a few minutes ahead to check timing and delivery.
+PyaBot must be online to execute tasks. Saved schedules are reloaded after a restart, but do not depend on it replaying every missed reminder. Start with a one-off task a few minutes ahead to check timing and delivery.
 
 ## What a scheduled task can use
 
@@ -103,19 +103,19 @@ Execution and delivery are separate. Successful execution does not guarantee tha
 
 <span id="features-1"></span>
 
-AstrBot includes the `send_message_to_user` tool for text, images, voice recordings, videos, files, and mentions. The Agent can use it to send content it has generated or retrieved, including scheduled task results.
+PyaBot includes the `send_message_to_user` tool for text, images, voice recordings, videos, files, and mentions. The Agent can use it to send content it has generated or retrieved, including scheduled task results.
 
 The tool does not itself generate images or audio. Generation requires the appropriate model or tool. Files must be accessible to the Agent, and supported media types depend on the platform.
 
 ## Verification and troubleshooting
 
-Create a one-off task a few minutes ahead that sends a short test reminder. Confirm it appears in the list, verify the time, and keep AstrBot running until delivery. Test complex tasks in an ordinary conversation before scheduling them.
+Create a one-off task a few minutes ahead that sends a short test reminder. Confirm it appears in the list, verify the time, and keep PyaBot running until delivery. Test complex tasks in an ordinary conversation before scheduling them.
 
 | Problem | What to check |
 | --- | --- |
 | Agent says “scheduled” but the list is empty | Check the conversation's profile, Proactive Agent setting, tool-capable model, and whether `future_task` was actually called. |
 | Task exists at the wrong time | Check the profile, server/container, and browser time zones, then verify the displayed next run. |
-| Nothing runs at the scheduled time | Check the task switch, AstrBot uptime, model, and services. Look for task errors under **Data & Logs → Logs**. |
+| Nothing runs at the scheduled time | Check the task switch, PyaBot uptime, model, and services. Look for task errors under **Data & Logs → Logs**. |
 | Task ran but no message arrived | Check the delivery target, platform support, connection, and send permissions. No target means no automatic delivery. |
 | Search or file operations fail | Test those tools' configuration, dependencies, and permissions separately. Scheduling only wakes the Agent. |
 | A one-off task disappeared | Scheduled execution deletes it even on failure. Inspect logs for the outcome. |

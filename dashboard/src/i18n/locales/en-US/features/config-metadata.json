@@ -8,10 +8,10 @@
           "subagents": {
             "enabled": {
               "description": "Enable Subagents",
-              "hint": "Allow AstrBot to create generic or specialized subagents when appropriate to complete tasks."
+              "hint": "Allow PyaBot to create generic or specialized subagents when appropriate to complete tasks."
             },
             "config_ids": {
-              "hint": "Configure specialized subagents with their own personas, toolsets, and other settings. Even without configuring any, AstrBot dynamically creates generic subagents when needed to complete tasks.",
+              "hint": "Configure specialized subagents with their own personas, toolsets, and other settings. Even without configuring any, PyaBot dynamically creates generic subagents when needed to complete tasks.",
               "description": "Specialized Agent Configurations"
             },
             "max_concurrent_agents": {
@@ -50,78 +50,160 @@
     },
     "dify_runner": {
       "description": "Dify Configuration",
-      "agent": { "config": {
-        "dify_api_type": { "description": "Application Type" },
-        "dify_api_key": { "description": "API Key" },
-        "dify_api_base": { "description": "API Base URL" },
-        "dify_workflow_output_key": { "description": "Workflow Output Variable" },
-        "dify_query_input_key": { "description": "Prompt Input Variable" },
-        "variables": { "description": "Variables" },
-        "timeout": { "description": "Timeout (seconds)" },
-        "proxy": { "description": "Proxy URL" }
-      } }
+      "agent": {
+        "config": {
+          "dify_api_type": {
+            "description": "Application Type"
+          },
+          "dify_api_key": {
+            "description": "API Key"
+          },
+          "dify_api_base": {
+            "description": "API Base URL"
+          },
+          "dify_workflow_output_key": {
+            "description": "Workflow Output Variable"
+          },
+          "dify_query_input_key": {
+            "description": "Prompt Input Variable"
+          },
+          "variables": {
+            "description": "Variables"
+          },
+          "timeout": {
+            "description": "Timeout (seconds)"
+          },
+          "proxy": {
+            "description": "Proxy URL"
+          }
+        }
+      }
     },
     "coze_runner": {
       "description": "Coze Configuration",
-      "agent": { "config": {
-        "coze_api_key": { "description": "API Key" },
-        "bot_id": { "description": "Bot ID" },
-        "coze_api_base": { "description": "API Base URL" },
-        "auto_save_history": { "description": "Let Coze Manage Conversation History" },
-        "timeout": { "description": "Timeout (seconds)" },
-        "proxy": { "description": "Proxy URL" }
-      } }
+      "agent": {
+        "config": {
+          "coze_api_key": {
+            "description": "API Key"
+          },
+          "bot_id": {
+            "description": "Bot ID"
+          },
+          "coze_api_base": {
+            "description": "API Base URL"
+          },
+          "auto_save_history": {
+            "description": "Let Coze Manage Conversation History"
+          },
+          "timeout": {
+            "description": "Timeout (seconds)"
+          },
+          "proxy": {
+            "description": "Proxy URL"
+          }
+        }
+      }
     },
     "dashscope_runner": {
       "description": "Alibaba Cloud Bailian Application Configuration",
-      "agent": { "config": {
-        "dashscope_app_type": { "description": "Application Type" },
-        "dashscope_api_key": { "description": "API Key" },
-        "dashscope_app_id": { "description": "Application ID" },
-        "rag_options": {
-          "pipeline_ids": { "description": "Knowledge Base Pipeline IDs" },
-          "file_ids": { "description": "File IDs" },
-          "output_reference": { "description": "Include References" }
-        },
-        "variables": { "description": "Variables" },
-        "timeout": { "description": "Timeout (seconds)" },
-        "proxy": { "description": "Proxy URL" }
-      } }
+      "agent": {
+        "config": {
+          "dashscope_app_type": {
+            "description": "Application Type"
+          },
+          "dashscope_api_key": {
+            "description": "API Key"
+          },
+          "dashscope_app_id": {
+            "description": "Application ID"
+          },
+          "rag_options": {
+            "pipeline_ids": {
+              "description": "Knowledge Base Pipeline IDs"
+            },
+            "file_ids": {
+              "description": "File IDs"
+            },
+            "output_reference": {
+              "description": "Include References"
+            }
+          },
+          "variables": {
+            "description": "Variables"
+          },
+          "timeout": {
+            "description": "Timeout (seconds)"
+          },
+          "proxy": {
+            "description": "Proxy URL"
+          }
+        }
+      }
     },
     "deerflow_runner": {
       "description": "DeerFlow Configuration",
-      "agent": { "config": {
-        "deerflow_api_base": { "description": "API Base URL" },
-        "deerflow_api_key": { "description": "API Key" },
-        "deerflow_auth_header": { "description": "Authorization Header" },
-        "deerflow_assistant_id": { "description": "Assistant ID" },
-        "deerflow_model_name": { "description": "Model Name Override" },
-        "deerflow_thinking_enabled": { "description": "Enable Thinking Mode" },
-        "deerflow_plan_mode": { "description": "Enable Plan Mode" },
-        "deerflow_subagent_enabled": { "description": "Enable Subagents" },
-        "deerflow_max_concurrent_subagents": { "description": "Maximum Concurrent Subagents" },
-        "deerflow_recursion_limit": { "description": "Recursion Limit" },
-        "timeout": { "description": "Timeout (seconds)" },
-        "proxy": { "description": "Proxy URL" }
-      } }
+      "agent": {
+        "config": {
+          "deerflow_api_base": {
+            "description": "API Base URL"
+          },
+          "deerflow_api_key": {
+            "description": "API Key"
+          },
+          "deerflow_auth_header": {
+            "description": "Authorization Header"
+          },
+          "deerflow_assistant_id": {
+            "description": "Assistant ID"
+          },
+          "deerflow_model_name": {
+            "description": "Model Name Override"
+          },
+          "deerflow_thinking_enabled": {
+            "description": "Enable Thinking Mode"
+          },
+          "deerflow_plan_mode": {
+            "description": "Enable Plan Mode"
+          },
+          "deerflow_subagent_enabled": {
+            "description": "Enable Subagents"
+          },
+          "deerflow_max_concurrent_subagents": {
+            "description": "Maximum Concurrent Subagents"
+          },
+          "deerflow_recursion_limit": {
+            "description": "Recursion Limit"
+          },
+          "timeout": {
+            "description": "Timeout (seconds)"
+          },
+          "proxy": {
+            "description": "Proxy URL"
+          }
+        }
+      }
     },
     "ai": {
       "description": "Model",
       "hint": "Configure the built-in Agent's chat models and shared image caption and speech models.",
-      "agent": { "config": { "model": {
-        "provider_id": {
-          "description": "Chat Model",
-          "hint": "Uses the first model when left empty"
-        },
-        "fallback_provider_ids": {
-          "description": "Fallback Chat Models",
-          "hint": "Try these chat models in order when the primary model request fails."
-        },
-        "request_max_retries": {
-          "description": "Retries on Error",
-          "hint": "Maximum attempts for a single model request when retryable errors occur."
+      "agent": {
+        "config": {
+          "model": {
+            "provider_id": {
+              "description": "Chat Model",
+              "hint": "Uses the first model when left empty"
+            },
+            "fallback_provider_ids": {
+              "description": "Fallback Chat Models",
+              "hint": "Try these chat models in order when the primary model request fails."
+            },
+            "request_max_retries": {
+              "description": "Retries on Error",
+              "hint": "Maximum attempts for a single model request when retryable errors occur."
+            }
+          }
         }
-      } } },
+      },
       "provider_settings": {
         "default_image_caption_provider_id": {
           "description": "Image Caption Model",
@@ -160,21 +242,27 @@
     "persona": {
       "description": "Persona",
       "hint": "Set the default persona for AI conversations. Personas can be managed in the Persona tab.",
-      "agent": { "config": { "persona": {
-        "persona_id": { "description": "Default Persona" },
-        "safety_mode": {
-          "description": "Safety Mode",
-          "hint": "Guide the model toward safe content and away from harmful or sensitive topics."
-        },
-        "safety_mode_strategy": {
-          "description": "Safety Mode Strategy",
-          "hint": "Select how safety mode is applied."
+      "agent": {
+        "config": {
+          "persona": {
+            "persona_id": {
+              "description": "Default Persona"
+            },
+            "safety_mode": {
+              "description": "Safety Mode",
+              "hint": "Guide the model toward safe content and away from harmful or sensitive topics."
+            },
+            "safety_mode_strategy": {
+              "description": "Safety Mode Strategy",
+              "hint": "Select how safety mode is applied."
+            }
+          }
         }
-      } } }
+      }
     },
     "knowledgebase": {
       "description": "Knowledge Base",
-      "hint": "AstrBot's \"external brain\".",
+      "hint": "PyaBot's \"external brain\".",
       "kb_names": {
         "description": "Knowledge Base List",
         "hint": "Supports multiple selections"
@@ -194,7 +282,7 @@
     },
     "websearch": {
       "description": "Web Search",
-      "hint": "Enables AstrBot to access the internet and stay up to date.",
+      "hint": "Enables PyaBot to access the internet and stay up to date.",
       "provider_settings": {
         "web_search": {
           "description": "Enable Web Search"
@@ -283,19 +371,23 @@
     },
     "agent_computer_use": {
       "description": "Agent Computer Use",
-      "hint": "Allows the AstrBot to access and use your computer or an sandbox environment to perform more complex tasks. See: [Agent Sandbox Environment](https://astrbot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html).",
+      "hint": "Allows the PyaBot to access and use your computer or an sandbox environment to perform more complex tasks. See: [Agent Sandbox Environment](https://pyabot.pyabunny.com/docs/en/use/astrbot-agent-sandbox.html).",
       "provider_settings": {
         "computer_use_runtime": {
           "description": "Computer Use Runtime",
           "hint": "Environment the Agent is allowed to access.",
-          "labels": ["No environment", "Local machine", "Third-party sandbox"]
+          "labels": [
+            "No environment",
+            "Local machine",
+            "Third-party sandbox"
+          ]
         },
         "computer_use_local_permissions": {
           "description": "Local Permission Policies"
         },
         "computer_use_require_admin": {
           "description": "Require Admin Permission for Sandbox",
-          "hint": "When enabled, AstrBot admin permission is required to use remote sandbox capabilities. Add admins under Config -> Access Control -> Administrators -> Administrator IDs. Send /sid to the bot to get the ID."
+          "hint": "When enabled, PyaBot admin permission is required to use remote sandbox capabilities. Add admins under Config -> Access Control -> Administrators -> Administrator IDs. Send /sid to the bot to get the ID."
         },
         "sandbox": {
           "booter": {
@@ -327,7 +419,7 @@
           },
           "cua_idle_timeout": {
             "description": "CUA Idle Timeout",
-            "hint": "Idle timeout for CUA sandbox sessions in seconds. When greater than 0, AstrBot proactively shuts down an idle CUA sandbox after that amount of inactivity; 0 disables it."
+            "hint": "Idle timeout for CUA sandbox sessions in seconds. When greater than 0, PyaBot proactively shuts down an idle CUA sandbox after that amount of inactivity; 0 disables it."
           },
           "cua_telemetry_enabled": {
             "description": "CUA Telemetry",
@@ -372,10 +464,10 @@
           "none": "No file access allowed",
           "workspace": "Restricted workspace, temporary directories, and skill files.",
           "workspaceUnsupported": "Restricted workspace file access is unavailable on this platform.",
-          "host": "All files in the environment where AstrBot runs."
+          "host": "All files in the environment where PyaBot runs."
         },
         "scopeDetails": {
-          "account": "1. Access is limited to files permitted by the account running AstrBot.",
+          "account": "1. Access is limited to files permitted by the account running PyaBot.",
           "docker": "2. If deployed through Docker, only files inside the container and mounted files are accessible, not all files on the Docker host."
         },
         "roles": {
@@ -397,11 +489,11 @@
           "arch": "Architecture",
           "sandbox": "Local isolation",
           "windowsUnavailable": "{backend} · Not ready",
-          "windowsSetupHint": "Save the configuration and restart AstrBot. If prompted for administrator approval, allow it to initialize the sandbox.",
+          "windowsSetupHint": "Save the configuration and restart PyaBot. If prompted for administrator approval, allow it to initialize the sandbox.",
           "errorDetails": "View diagnostic details",
-          "unavailableHint": "Sandbox startup failed, affecting restricted Shell/Python execution and workspace file search. Use the error below to check system security policies (such as Linux AppArmor and user namespace restrictions) or container restrictions, then restart AstrBot to check again.",
+          "unavailableHint": "Sandbox startup failed, affecting restricted Shell/Python execution and workspace file search. Use the error below to check system security policies (such as Linux AppArmor and user namespace restrictions) or container restrictions, then restart PyaBot to check again.",
           "dialog": {
-            "intro": "Using Seatbelt on macOS or bubblewrap (bwrap) on Linux, AstrBot provides security isolation for Agent execution, restricting file access scope and network permissions for different users of AstrBot Agent to improve security.",
+            "intro": "Using Seatbelt on macOS or bubblewrap (bwrap) on Linux, PyaBot provides security isolation for Agent execution, restricting file access scope and network permissions for different users of PyaBot Agent to improve security.",
             "startupError": "View startup error",
             "documentation": "View detailed setup documentation"
           },
@@ -432,71 +524,84 @@
     },
     "proactive_capability": {
       "description": "Proactive Agent",
-      "hint": "AstrBot will wake up, run your tasks, and deliver the results to you. See [Proactive Agent](https://astrbot.pyabunny.com/docs/en/use/proactive-agent.html)",
+      "hint": "PyaBot will wake up, run your tasks, and deliver the results to you. See [Proactive Agent](https://pyabot.pyabunny.com/docs/en/use/proactive-agent.html)",
       "provider_settings": {
         "proactive_capability": {
           "add_cron_tools": {
             "description": "Enable",
-            "hint": "When enabled, related tools will be passed to the Agent to implement proactive Agent capabilities. You can tell AstrBot what to do at a future time, and it will be triggered on schedule to execute the task, and report the result back to you."
+            "hint": "When enabled, related tools will be passed to the Agent to implement proactive Agent capabilities. You can tell PyaBot what to do at a future time, and it will be triggered on schedule to execute the task, and report the result back to you."
           }
         }
       }
     },
     "truncate_and_compress": {
-      "hint": "[Context Management](https://astrbot.pyabunny.com/docs/en/use/context-compress.html)",
+      "hint": "[Context Management](https://pyabot.pyabunny.com/docs/en/use/context-compress.html)",
       "description": "Context Management Strategy",
-      "agent": { "config": { "compression": {
-        "max_turns": {
-          "description": "Max Turns Before Compression",
-          "hint": "Persistent conversation history is truncated or LLM-compressed by the strategy below only after it exceeds this many turns. Request-time contexts are also constrained by this value before sending. -1 means no turn-based limit."
-        },
-        "trim_turns": {
-          "description": "Turns to Discard When Limit Exceeded",
-          "hint": "When history exceeds 'Max Turns Before Compression' and LLM compression is unavailable, discard this many oldest turns at once. Request-time truncation also reuses this value."
-        },
-        "overflow_strategy": {
-          "description": "Compression Strategy",
-          "labels": [
-            "Truncate by Turns",
-            "Compress by LLM"
-          ],
-          "hint": "Strategy for handling model context limits."
-        },
-        "instruction": {
-          "description": "Context Compression Instruction",
-          "hint": "If empty, the default prompt will be used."
-        },
-        "keep_recent_ratio": {
-          "description": "Recent Context Token Ratio to Keep",
-          "hint": "Keep recent exact context by current context token ratio, from 0-0.3. 0.15 means keeping 15%; values above 0 keep at least the latest round."
-        },
-        "provider_id": {
-          "description": "Compression Model",
-          "hint": "The model used for context compression. Defaults to the current chat model."
-        },
-        "fallback_max_tokens": {
-          "description": "Fallback context window size",
-          "hint": "When max_context_tokens is 0 and the model is not in built-in metadata, use this value as the context window size. Default: 128000."
+      "agent": {
+        "config": {
+          "compression": {
+            "max_turns": {
+              "description": "Max Turns Before Compression",
+              "hint": "Persistent conversation history is truncated or LLM-compressed by the strategy below only after it exceeds this many turns. Request-time contexts are also constrained by this value before sending. -1 means no turn-based limit."
+            },
+            "trim_turns": {
+              "description": "Turns to Discard When Limit Exceeded",
+              "hint": "When history exceeds 'Max Turns Before Compression' and LLM compression is unavailable, discard this many oldest turns at once. Request-time truncation also reuses this value."
+            },
+            "overflow_strategy": {
+              "description": "Compression Strategy",
+              "labels": [
+                "Truncate by Turns",
+                "Compress by LLM"
+              ],
+              "hint": "Strategy for handling model context limits."
+            },
+            "instruction": {
+              "description": "Context Compression Instruction",
+              "hint": "If empty, the default prompt will be used."
+            },
+            "keep_recent_ratio": {
+              "description": "Recent Context Token Ratio to Keep",
+              "hint": "Keep recent exact context by current context token ratio, from 0-0.3. 0.15 means keeping 15%; values above 0 keep at least the latest round."
+            },
+            "provider_id": {
+              "description": "Compression Model",
+              "hint": "The model used for context compression. Defaults to the current chat model."
+            },
+            "fallback_max_tokens": {
+              "description": "Fallback context window size",
+              "hint": "When max_context_tokens is 0 and the model is not in built-in metadata, use this value as the context window size. Default: 128000."
+            }
+          }
         }
-      } } }
+      }
     },
     "others": {
       "description": "Other Settings",
-      "agent": { "config": { "misc": {
-        "max_steps": { "description": "Maximum Tool Call Rounds" },
-        "tool_schema_mode": {
-          "description": "Tool Schema Mode",
-          "hint": "Skills-like sends name/description first and re-queries for parameters; Full sends the complete schema in one step.",
-          "labels": ["Skills-like (two-stage)", "Full schema"]
-        },
-        "tool_call_timeout": {
-          "description": "Tool Call Timeout (seconds)"
-        },
-        "sanitize_context_by_modalities": {
-          "description": "Sanitize History by Modalities",
-          "hint": "When enabled, sanitizes contexts before each LLM request by removing image blocks and tool-call structures that the current provider's modalities do not support (this changes what the model sees)."
+      "agent": {
+        "config": {
+          "misc": {
+            "max_steps": {
+              "description": "Maximum Tool Call Rounds"
+            },
+            "tool_schema_mode": {
+              "description": "Tool Schema Mode",
+              "hint": "Skills-like sends name/description first and re-queries for parameters; Full sends the complete schema in one step.",
+              "labels": [
+                "Skills-like (two-stage)",
+                "Full schema"
+              ]
+            },
+            "tool_call_timeout": {
+              "description": "Tool Call Timeout (seconds)"
+            },
+            "sanitize_context_by_modalities": {
+              "description": "Sanitize History by Modalities",
+              "hint": "When enabled, sanitizes contexts before each LLM request by removing image blocks and tool-call structures that the current provider's modalities do not support (this changes what the model sees)."
+            }
+          }
         }
-      } } },
+      },
       "provider_settings": {
         "display_reasoning_text": {
           "description": "Display Reasoning Content",
@@ -681,11 +786,11 @@
       },
       "discord_allow_bot_messages": {
         "description": "Allow Bot Messages",
-        "hint": "When enabled, AstrBot will receive messages from other Discord bots. Useful for bot-to-bot communication scenarios (e.g., message forwarding). Disabled by default."
+        "hint": "When enabled, PyaBot will receive messages from other Discord bots. Useful for bot-to-bot communication scenarios (e.g., message forwarding). Disabled by default."
       },
       "discord_command_register": {
         "description": "Register Discord slash commands",
-        "hint": "When enabled, AstrBot will automatically register plugin commands as Discord slash commands"
+        "hint": "When enabled, PyaBot will automatically register plugin commands as Discord slash commands"
       },
       "discord_proxy": {
         "description": "Discord Proxy URL",
@@ -831,11 +936,11 @@
       },
       "telegram_command_auto_refresh": {
         "description": "Command Auto Refresh",
-        "hint": "When enabled, AstrBot automatically refreshes Telegram commands at runtime. (Setting this alone has no effect)"
+        "hint": "When enabled, PyaBot automatically refreshes Telegram commands at runtime. (Setting this alone has no effect)"
       },
       "telegram_command_register": {
         "description": "Command Registration",
-        "hint": "When enabled, AstrBot automatically registers Telegram commands."
+        "hint": "When enabled, PyaBot automatically registers Telegram commands."
       },
       "telegram_command_register_interval": {
         "description": "Command Auto Refresh Interval",
@@ -866,7 +971,7 @@
       },
       "unified_webhook_mode": {
         "description": "Unified Webhook Mode",
-        "hint": "When enabled, use AstrBot unified webhook entry without opening a separate port. Callback URL is /api/v1/webhooks/platforms/{webhook_uuid}."
+        "hint": "When enabled, use PyaBot unified webhook entry without opening a separate port. Callback URL is /api/v1/webhooks/platforms/{webhook_uuid}."
       },
       "use_markdown": {
         "description": "Use Markdown for Proactive Messages",
@@ -918,7 +1023,7 @@
       },
       "wpp_active_message_poll": {
         "description": "Enable Proactive Message Polling",
-        "hint": "Only enable if WeChat messages are not syncing to AstrBot on time. Disabled by default."
+        "hint": "Only enable if WeChat messages are not syncing to PyaBot on time. Disabled by default."
       },
       "wpp_active_message_poll_interval": {
         "description": "Proactive Message Poll Interval",
@@ -926,7 +1031,7 @@
       },
       "ws_reverse_host": {
         "description": "Reverse WebSocket Host",
-        "hint": "AstrBot acts as the server."
+        "hint": "PyaBot acts as the server."
       },
       "ws_reverse_port": {
         "description": "Reverse WebSocket Port"
@@ -1054,7 +1159,7 @@
       },
       "disable_builtin_commands": {
         "description": "Disable Built-in Commands",
-        "hint": "Disable all built-in AstrBot commands such as help, sid, new, etc."
+        "hint": "Disable all built-in PyaBot commands such as help, sid, new, etc."
       }
     },
     "rate_limit": {
@@ -1320,7 +1425,7 @@
       },
       "t2i_endpoint": {
         "description": "Text-to-Image Service API Endpoint",
-        "hint": "Uses AstrBot API service when empty"
+        "hint": "Uses PyaBot API service when empty"
       },
       "t2i_template": {
         "description": "Text-to-Image Custom Template",
@@ -1382,11 +1487,11 @@
       },
       "callback_api_base": {
         "description": "Externally Accessible Callback API Address",
-        "hint": "External services may access AstrBot's backend through callback links generated by AstrBot (such as file download links). Since AstrBot cannot automatically determine the externally accessible host address in the deployment environment, this configuration item is needed to explicitly specify how external services should access AstrBot's address. Examples: [http://localhost:6185](http://localhost:6185), [https://example.com](https://example.com), etc."
+        "hint": "External services may access PyaBot's backend through callback links generated by PyaBot (such as file download links). Since PyaBot cannot automatically determine the externally accessible host address in the deployment environment, this configuration item is needed to explicitly specify how external services should access PyaBot's address. Examples: [http://localhost:6185](http://localhost:6185), [https://example.com](https://example.com), etc."
       },
       "disable_metrics": {
         "description": "Disable Anonymous Usage Statistics",
-        "hint": "When disabled, AstrBot will not upload anonymous usage statistics."
+        "hint": "When disabled, PyaBot will not upload anonymous usage statistics."
       },
       "dashboard": {
         "trust_proxy_headers": {
@@ -1578,10 +1683,9 @@
           "Tool use"
         ]
       },
-
       "custom_headers": {
         "description": "Custom request headers",
-        "hint": "Key/value pairs added here are sent by AstrBot as custom HTTP headers to the provider. Values must be strings."
+        "hint": "Key/value pairs added here are sent by PyaBot as custom HTTP headers to the provider. Values must be strings."
       },
       "ollama_disable_thinking": {
         "description": "Disable thinking mode",
@@ -1937,7 +2041,10 @@
       "deepseek-tts-voice": {
         "description": "Voice",
         "hint": "DeepSeek TTS voice. The corresponding voice_id is sent to the API.",
-        "labels": ["Stella (female, default)", "Tide (male)"]
+        "labels": [
+          "Stella (female, default)",
+          "Tide (male)"
+        ]
       },
       "deepseek-tts-filter-markdown": {
         "description": "Filter Markdown",
@@ -2001,7 +2108,7 @@
       },
       "whisper_device": {
         "description": "Inference device",
-        "hint": "Whisper inference device. Apple Silicon can use mps; other environments should use cpu. If mps is selected but unavailable, AstrBot will fall back to cpu."
+        "hint": "Whisper inference device. Apple Silicon can use mps; other environments should use cpu. If mps is selected but unavailable, PyaBot will fall back to cpu."
       },
       "id": {
         "description": "ID"
@@ -2114,7 +2221,7 @@
       },
       "auto_save_history": {
         "description": "Conversation history managed by Coze",
-        "hint": "When enabled, Coze manages conversation history. AstrBot's locally saved context will not take effect (read-only), and operations on AstrBot context will not apply. If disabled, AstrBot manages the context."
+        "hint": "When enabled, Coze manages conversation history. PyaBot's locally saved context will not take effect (read-only), and operations on PyaBot context will not apply. If disabled, PyaBot manages the context."
       }
     }
   },

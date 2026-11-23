@@ -1,10 +1,10 @@
-# AstrBot Knowledge Base
+# PyaBot Knowledge Base
 
-A knowledge base lets AstrBot answer questions using material you provide. Upload product manuals, FAQs, course notes, or project documentation, and the Agent can retrieve relevant passages before composing an answer.
+A knowledge base lets PyaBot answer questions using material you provide. Upload product manuals, FAQs, course notes, or project documentation, and the Agent can retrieve relevant passages before composing an answer.
 
 For example, upload a community onboarding guide so the bot can answer “How do I join the project?” or “Where do I report a problem?” without putting the entire document in its persona prompt.
 
-This is retrieval-augmented generation (RAG). During upload, AstrBot extracts text, splits it into chunks, and builds an index. During chat, it retrieves relevant chunks and passes them to the chat model. Uploading documents does not train or fine-tune that model, and answers can still be incorrect.
+This is retrieval-augmented generation (RAG). During upload, PyaBot extracts text, splits it into chunks, and builds an index. During chat, it retrieves relevant chunks and passes them to the chat model. Uploading documents does not train or fine-tune that model, and answers can still be incorrect.
 
 ## Understand the three model roles
 
@@ -16,7 +16,7 @@ This is retrieval-augmented generation (RAG). During upload, AstrBot extracts te
 
 Embedding and chat models are configured separately. A model that only supports chat cannot be used as an embedding model. Start with one chat model and one embedding model; add reranking later if needed.
 
-This page covers AstrBot's current built-in knowledge base, available since 4.5.0. It does not require a knowledge base plugin.
+This page covers PyaBot's current built-in knowledge base, available since 4.5.0. It does not require a knowledge base plugin.
 
 ## Step 1: Configure an embedding model {#configuring-embedding-model}
 
@@ -27,7 +27,7 @@ This page covers AstrBot's current built-in knowledge base, available since 4.5.
 
 Current integrations include OpenAI-compatible services, Google Gemini, Ollama, Alibaba Cloud Model Studio, and NVIDIA embedding services. For `OpenAI Embedding`, use the service's API base URL and an embedding model name, not a chat model name.
 
-For local services such as Ollama, the endpoint must be reachable from the environment running AstrBot. In Docker, `localhost` points to the AstrBot container, not automatically to your host machine.
+For local services such as Ollama, the endpoint must be reachable from the environment running PyaBot. In Docker, `localhost` points to the PyaBot container, not automatically to your host machine.
 
 Vector dimensions must match the model's actual output. Vectors from different models are not interchangeable; consult the provider's model documentation if unsure.
 

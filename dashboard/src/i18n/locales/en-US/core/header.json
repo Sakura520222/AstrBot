@@ -1,7 +1,7 @@
 {
-  "logoTitle": "AstrBot Dashboard",
+  "logoTitle": "PyaBot Dashboard",
   "version": {
-    "hasNewVersion": "AstrBot has a new version!",
+    "hasNewVersion": "PyaBot has a new version!",
     "dashboardHasNewVersion": "WebUI has a new version!"
   },
   "buttons": {
@@ -17,7 +17,7 @@
   },
   "updateDialog": {
     "retry": "Retry",
-    "title": "Update AstrBot",
+    "title": "Update PyaBot",
     "currentVersion": "Current Version",
     "status": {
       "checkFailed": "Update check failed",
@@ -66,7 +66,7 @@
       "core": "Download project code",
       "dependencies": "Updating dependencies...",
       "restart": "Preparing restart...",
-      "restarting": "Restarting AstrBot",
+      "restarting": "Restarting PyaBot",
       "completed": "Update complete",
       "successReady": "Update successful",
       "autoReloadIn": "Refreshing automatically in {seconds}s",
@@ -74,19 +74,19 @@
       "failed": "Update failed"
     },
     "redirectConfirm": {
-      "title": "Leaving AstrBot",
+      "title": "Leaving PyaBot",
       "message": "You are about to open the GitHub Releases page. Continue?",
       "latestLabel": "Latest",
       "targetVersion": "Target version: ",
       "currentVersion": "Current version: ",
       "guideTitle": "Recommended after opening:",
       "guideStep1": "Download the installer that matches your OS and architecture.",
-      "guideStep2": "Install it and restart AstrBot.",
+      "guideStep2": "Install it and restart PyaBot.",
       "guideStep3": "If you use Docker, prefer the image update path."
     },
     "desktopApp": {
       "title": "Update Desktop App",
-      "message": "Check and upgrade the AstrBot desktop application.",
+      "message": "Check and upgrade the PyaBot desktop application.",
       "currentVersion": "Current version: ",
       "latestVersion": "Latest version: ",
       "checking": "Checking desktop app updates...",
@@ -111,7 +111,7 @@
   "accountDialog": {
     "title": "Modify Account",
     "securityWarning": "Security Reminder: Please change your password to secure your account",
-    "securityWarningMd5": "The new AstrBot version has improved security. Please change your password.",
+    "securityWarningMd5": "The new PyaBot version has improved security. Please change your password.",
     "securityWarningUpgrade": "MD5 password storage detected. Please change your password to complete the security upgrade.",
     "form": {
       "currentPassword": "Current Password",

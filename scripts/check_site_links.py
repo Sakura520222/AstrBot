@@ -61,7 +61,7 @@ for folder in ("astrbot", "dashboard/src", ".github/ISSUE_TEMPLATE"):
     )
 for path in sources:
     for match in re.finditer(
-        r"https://astrbot\.pyabunny\.com/[^\s<>\"'`)\]\\]*",
+        r"https://pyabot\.pyabunny\.com/[^\s<>\"'`)\]\\]*",
         path.read_text(encoding="utf-8"),
     ):
         links.append((path, match.group(0).rstrip(".,;:!?，。；：！？）】")))
@@ -75,11 +75,8 @@ for source, url in links:
         if source.is_relative_to(root)
         else source.relative_to(project).as_posix()
     )
-    parsed = urlsplit(urljoin("https://astrbot.pyabunny.com/" + source_name, url))
-    if (
-        parsed.scheme not in {"http", "https"}
-        or parsed.netloc != "astrbot.pyabunny.com"
-    ):
+    parsed = urlsplit(urljoin("https://pyabot.pyabunny.com/" + source_name, url))
+    if parsed.scheme not in {"http", "https"} or parsed.netloc != "pyabot.pyabunny.com":
         continue
     checked += 1
     target = (root / unquote(parsed.path).lstrip("/")).resolve()

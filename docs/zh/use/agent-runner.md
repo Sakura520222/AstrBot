@@ -1,22 +1,22 @@
 # Agent 执行方式 {#agent-执行器}
 
-Agent 执行器是 AstrBot 中用于执行 Agent 的组件。
+Agent 执行器是 PyaBot 中用于执行 Agent 的组件。
 
-在 v4.7.0 版本之后，我们将 Dify、Coze、阿里云百炼应用这三个提供商迁移到了 Agent 执行器层面，减少了与 AstrBot 目前功能的一些冲突。请放心，如果您从旧版本升级到 v4.7.0 版本，您无需进行任何操作，AstrBot 会自动为您迁移。此后，AstrBot 也新增了 DeerFlow Agent 执行器支持。
+在 v4.7.0 版本之后，我们将 Dify、Coze、阿里云百炼应用这三个提供商迁移到了 Agent 执行器层面，减少了与 PyaBot 目前功能的一些冲突。请放心，如果您从旧版本升级到 v4.7.0 版本，您无需进行任何操作，PyaBot 会自动为您迁移。此后，PyaBot 也新增了 DeerFlow Agent 执行器支持。
 
-AstrBot 目前支持五种 Agent 执行器：
+PyaBot 目前支持五种 Agent 执行器：
 
-- AstrBot 内置 Agent 执行器
+- PyaBot 内置 Agent 执行器
 - Dify Agent 执行器
 - Coze Agent 执行器
 - 阿里云百炼应用 Agent 执行器
 - DeerFlow Agent 执行器
 
-默认情况下，AstrBot 内置 Agent 执行器为默认执行器。
+默认情况下，PyaBot 内置 Agent 执行器为默认执行器。
 
 ## 为什么需要抽象出 Agent 执行器
 
-在早期版本中，Dify、Coze、阿里云百炼应用这类「自带 Agent 能力」的平台，是作为普通 Chat Provider 集成进 AstrBot 的。实践下来会发现，它们和传统「只负责补全文本」的 Chat Provider 有本质差异，强行放在同一层会带来很多设计和使用上的冲突。因此，从 v4.7.0 起，我们将它们抽象为独立的 Agent 执行器（Agent Runner）。
+在早期版本中，Dify、Coze、阿里云百炼应用这类「自带 Agent 能力」的平台，是作为普通 Chat Provider 集成进 PyaBot 的。实践下来会发现，它们和传统「只负责补全文本」的 Chat Provider 有本质差异，强行放在同一层会带来很多设计和使用上的冲突。因此，从 v4.7.0 起，我们将它们抽象为独立的 Agent 执行器（Agent Runner）。
 
 从架构上看，可以理解为：
 
@@ -31,11 +31,11 @@ Chat Provider 本质上是一个 `单轮补全接口`，输入 prompt + 历史�
 
 ![image](/images/5dd07cb0abf3ba54.svg)
 
-Dify、Coze、百炼应用、DeerFlow 等平台已经内置了这个循环，如果把它们当成普通 Chat Provider，会和 AstrBot 的内置 Agent 执行器功能冲突。
+Dify、Coze、百炼应用、DeerFlow 等平台已经内置了这个循环，如果把它们当成普通 Chat Provider，会和 PyaBot 的内置 Agent 执行器功能冲突。
 
 ## 使用
 
-默认使用 AstrBot 内置 AI，可在「配置文件」→「AI」→「模型」中选择对话模型，并配置人格、知识库和工具能力。
+默认使用 PyaBot 内置 AI，可在「配置文件」→「AI」→「模型」中选择对话模型，并配置人格、知识库和工具能力。
 
 接入第三方应用时，在当前配置文件内直接选择执行方式并填写连接参数：
 

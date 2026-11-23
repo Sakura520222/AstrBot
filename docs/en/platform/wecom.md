@@ -1,6 +1,6 @@
-# Connect AstrBot to WeCom
+# Connect PyaBot to WeCom
 
-AstrBot supports both WeCom Applications and WeCom Customer Service.
+PyaBot supports both WeCom Applications and WeCom Customer Service.
 
 ## Supported Basic Message Types
 
@@ -18,7 +18,7 @@ Proactive message push: Supported for WeCom Application. Not fully tested for We
 
 ## Before You Start
 
-1. Open AstrBot Dashboard.
+1. Open PyaBot Dashboard.
 2. Click `Platforms` in the left sidebar.
 3. Click `Add Adapter`.
 4. Select `wecom`.
@@ -28,12 +28,12 @@ A configuration dialog will appear. Keep it open and continue with the steps bel
 ## Method 1: WeCom Customer Service
 
 > [!NOTE]
-> 1. Requires AstrBot >= v3.5.7.
+> 1. Requires PyaBot >= v3.5.7.
 > 2. This method works directly inside WeChat.
 
 1. Open [WeCom Customer Service Console](https://kf.weixin.qq.com/) and sign in with WeCom QR login.
-2. Create a customer service account in `Customer Service Account`, then copy its **name** (not account ID) to AstrBot field `wechat_kf_account_name`.
-3. Go to [WeCom Enterprise Info](https://work.weixin.qq.com/wework_admin/frame#profile), copy `Corpid`, and fill AstrBot `corpid`.
+2. Create a customer service account in `Customer Service Account`, then copy its **name** (not account ID) to PyaBot field `wechat_kf_account_name`.
+3. Go to [WeCom Enterprise Info](https://work.weixin.qq.com/wework_admin/frame#profile), copy `Corpid`, and fill PyaBot `corpid`.
 4. Configure callback verification:
 
 - If this is your first customer service bot, open `Development Configuration`, click `Start` next to internal access.
@@ -41,24 +41,24 @@ A configuration dialog will appear. Keep it open and continue with the steps bel
 
 ![image](/images/1196c6d07cbac0ae.png)
 
-5. Click random generation buttons to get `Token` and `EncodingAESKey`, then fill AstrBot `token` and `encoding_aes_key`.
+5. Click random generation buttons to get `Token` and `EncodingAESKey`, then fill PyaBot `token` and `encoding_aes_key`.
 6. Keep `Unified Webhook Mode (unified_webhook_mode)` enabled, click `Save`, and wait for adapter reload.
 
 For callback URL:
 
-- If unified mode is enabled, AstrBot generates a unique webhook callback URL after save. Copy it from `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`.
+- If unified mode is enabled, PyaBot generates a unique webhook callback URL after save. Copy it from `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`.
 - If unified mode is disabled, use `http://<your-public-server-ip>:6195/callback/command`.
 
-> If unified mode is enabled, forward external requests to AstrBot port `6185`; otherwise forward to configured adapter port (default `6195`).
+> If unified mode is enabled, forward external requests to PyaBot port `6185`; otherwise forward to configured adapter port (default `6195`).
 
 Back in WeCom Customer Service callback settings, click `Complete`. If successful, status shows completed.
 
-7. In `Development Configuration`, get `Secret`, select your WeCom bot in AstrBot under `Platforms`, set `secret` in `Connection settings`, and click `Save changes`.
+7. In `Development Configuration`, get `Secret`, select your WeCom bot in PyaBot under `Platforms`, set `secret` in `Connection settings`, and click `Save changes`.
 
 > [!TIP]
 > Based on [#571](https://github.com/Soulter/AstrBot/issues/571), for newly registered enterprises, `corp_id` may take about 30 minutes to become valid.
 
-Then open `Data & Logs` -> `Logs` in AstrBot, where you should see logs asking you to open a WeChat scan link.
+Then open `Data & Logs` -> `Logs` in PyaBot, where you should see logs asking you to open a WeChat scan link.
 
 ```txt
 Please open the following link and scan with WeChat ...
@@ -72,7 +72,7 @@ Open the link, scan with WeChat, then send `help` in the customer service chat t
 
 Open: <https://work.weixin.qq.com/wework_admin/frame#apps>
 
-1. Click `My Company`, copy enterprise ID (`Corpid`), and fill AstrBot `corpid`.
+1. Click `My Company`, copy enterprise ID (`Corpid`), and fill PyaBot `corpid`.
 
 > [!TIP]
 > For newly registered enterprises, `corp_id` may take time to become valid. See [#571](https://github.com/Soulter/AstrBot/issues/571).
@@ -80,7 +80,7 @@ Open: <https://work.weixin.qq.com/wework_admin/frame#apps>
 ![image](/images/c0672bb804ebd27d.png)
 
 2. Create a custom app (`Custom App`) and fill name/avatar/visibility scope.
-3. Open the app, copy `Secret`, and fill AstrBot `secret`.
+3. Open the app, copy `Secret`, and fill PyaBot `secret`.
 
 ![image](/images/de46623f3719b134.png)
 
@@ -90,7 +90,7 @@ Open: <https://work.weixin.qq.com/wework_admin/frame#apps>
 
 ![image](/images/123482b7a91cdaa8.png)
 
-5. Generate `Token` and `EncodingAESKey`, fill AstrBot `token` and `encoding_aes_key`.
+5. Generate `Token` and `EncodingAESKey`, fill PyaBot `token` and `encoding_aes_key`.
 6. Keep `Unified Webhook Mode (unified_webhook_mode)` enabled (recommended), then click `Save` in the creation dialog (or `Save changes` for an existing bot) and wait for the adapter to reload.
 
 For callback URL:
@@ -110,17 +110,17 @@ Add your public IP and confirm.
 
 After the adapter reloads, return to API receive page and click save. If you see callback verification errors, re-check all required fields.
 
-If save succeeds, AstrBot can receive messages from WeCom.
+If save succeeds, PyaBot can receive messages from WeCom.
 
 ## Test
 
 In WeCom Workbench, open the app you just created and send `/help`.
 
-If AstrBot replies, integration is successful.
+If PyaBot replies, integration is successful.
 
 ## Reverse Proxy (Custom API Base)
 
-AstrBot supports custom WeCom endpoint (`api_base_url`) for environments without stable public IP.
+PyaBot supports custom WeCom endpoint (`api_base_url`) for environments without stable public IP.
 
 Set your custom endpoint in `api_base_url`.
 

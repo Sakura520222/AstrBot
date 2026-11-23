@@ -454,7 +454,7 @@ CONFIG_METADATA_2 = {
                         "type": "telegram",
                         "enable": True,
                         "telegram_token": "",
-                        "start_message": "Hello, I'm AstrBot!",
+                        "start_message": "Hello, I'm PyaBot!",
                         "telegram_api_base_url": "https://api.telegram.org/bot",
                         "telegram_file_base_url": "https://api.telegram.org/file/bot",
                         "telegram_command_register": True,
@@ -784,7 +784,7 @@ CONFIG_METADATA_2 = {
                     "wpp_active_message_poll": {
                         "description": "是否启用主动消息轮询",
                         "type": "bool",
-                        "hint": "只有当你发现微信消息没有按时同步到 AstrBot 时，才需要启用这个功能，默认不启用。",
+                        "hint": "只有当你发现微信消息没有按时同步到 PyaBot 时，才需要启用这个功能，默认不启用。",
                     },
                     "wpp_active_message_poll_interval": {
                         "description": "主动消息轮询间隔",
@@ -888,13 +888,13 @@ CONFIG_METADATA_2 = {
                     "telegram_command_register": {
                         "description": "命令注册",
                         "type": "bool",
-                        "hint": "启用后，AstrBot 将会自动注册 Telegram 命令。",
+                        "hint": "启用后，PyaBot 将会自动注册 Telegram 命令。",
                         "show_key": True,
                     },
                     "telegram_command_auto_refresh": {
                         "description": "命令自动刷新",
                         "type": "bool",
-                        "hint": "启用后，AstrBot 将会在运行时自动刷新 Telegram 命令。(单独设置此项无效)",
+                        "hint": "启用后，PyaBot 将会在运行时自动刷新 Telegram 命令。(单独设置此项无效)",
                         "show_key": True,
                     },
                     "telegram_command_register_interval": {
@@ -953,7 +953,7 @@ CONFIG_METADATA_2 = {
                     "ws_reverse_host": {
                         "description": "反向 Websocket 主机",
                         "type": "string",
-                        "hint": "AstrBot 将作为服务器端。",
+                        "hint": "PyaBot 将作为服务器端。",
                     },
                     "ws_reverse_port": {
                         "description": "反向 Websocket 端口",
@@ -1075,7 +1075,7 @@ CONFIG_METADATA_2 = {
                     "discord_allow_bot_messages": {
                         "description": "允许接收机器人消息",
                         "type": "bool",
-                        "hint": "启用后，AstrBot 将接收来自其他 Discord 机器人的消息。适用于机器人间通信场景（如消息转发）。默认关闭。",
+                        "hint": "启用后，PyaBot 将接收来自其他 Discord 机器人的消息。适用于机器人间通信场景（如消息转发）。默认关闭。",
                     },
                     "port": {
                         "description": "回调服务器端口",
@@ -1096,7 +1096,7 @@ CONFIG_METADATA_2 = {
                     "unified_webhook_mode": {
                         "description": "统一 Webhook 模式",
                         "type": "bool",
-                        "hint": "Webhook 模式下使用 AstrBot 统一 Webhook 入口，无需单独开启端口。回调地址为 /api/platform/webhook/{webhook_uuid}。",
+                        "hint": "Webhook 模式下使用 PyaBot 统一 Webhook 入口，无需单独开启端口。回调地址为 /api/platform/webhook/{webhook_uuid}。",
                     },
                     **PERSONAL_WECHAT_CONFIG_METADATA,
                     "webhook_uuid": {
@@ -1266,7 +1266,7 @@ CONFIG_METADATA_2 = {
                     "path_mapping": {
                         "type": "list",
                         "items": {"type": "string"},
-                        "hint": "此功能解决由于文件系统不一致导致路径不存在的问题。格式为 <原路径>:<映射路径>。如 `/app/.config/QQ:/var/lib/docker/volumes/xxxx/_data`。这样，当消息平台下发的事件中图片和语音路径以 `/app/.config/QQ` 开头时，开头被替换为 `/var/lib/docker/volumes/xxxx/_data`。这在 AstrBot 或者平台协议端使用 Docker 部署时特别有用。",
+                        "hint": "此功能解决由于文件系统不一致导致路径不存在的问题。格式为 <原路径>:<映射路径>。如 `/app/.config/QQ:/var/lib/docker/volumes/xxxx/_data`。这样，当消息平台下发的事件中图片和语音路径以 `/app/.config/QQ` 开头时，开头被替换为 `/var/lib/docker/volumes/xxxx/_data`。这在 PyaBot 或者平台协议端使用 Docker 部署时特别有用。",
                     },
                 },
             },
@@ -1560,7 +1560,7 @@ CONFIG_METADATA_2 = {
                         "timeout": 120,
                         "api_base": "https://router.shengsuanyun.com/api/v1",
                         "proxy": "",
-                        "custom_headers": {"X-Title": "AstrBot"},
+                        "custom_headers": {"X-Title": "PyaBot"},
                     },
                     "NVIDIA": {
                         "id": "nvidia",
@@ -2361,7 +2361,7 @@ CONFIG_METADATA_2 = {
                         "description": "自定义请求头",
                         "type": "dict",
                         "items": {},
-                        "hint": "此处添加的键值对将作为自定义 HTTP 请求头，附加到 AstrBot 发往模型服务商的请求中。值必须为字符串。",
+                        "hint": "此处添加的键值对将作为自定义 HTTP 请求头，附加到 PyaBot 发往模型服务商的请求中。值必须为字符串。",
                     },
                     "ollama_disable_thinking": {
                         "description": "关闭思考模式",
@@ -3153,7 +3153,7 @@ CONFIG_METADATA_2 = {
                     "auto_save_history": {
                         "description": "由 Coze 管理对话记录",
                         "type": "bool",
-                        "hint": "启用后，将由 Coze 进行对话历史记录管理, 此时 AstrBot 本地保存的上下文不会生效(仅供浏览), 对 AstrBot 的上下文进行的操作也不会生效。如果为禁用, 则使用 AstrBot 管理上下文。",
+                        "hint": "启用后，将由 Coze 进行对话历史记录管理, 此时 PyaBot 本地保存的上下文不会生效(仅供浏览), 对 PyaBot 的上下文进行的操作也不会生效。如果为禁用, 则使用 PyaBot 管理上下文。",
                     },
                 },
             },
@@ -3347,7 +3347,7 @@ CONFIG_METADATA_2 = {
             "disable_metrics": {
                 "description": "禁用匿名使用统计",
                 "type": "bool",
-                "hint": "禁用后，AstrBot 将不再上传匿名使用统计数据。",
+                "hint": "禁用后，PyaBot 将不再上传匿名使用统计数据。",
             },
             "log_level": {
                 "type": "string",
@@ -4005,9 +4005,9 @@ CONFIG_METADATA_3 = {
                         },
                     },
                     "provider_settings.computer_use_require_admin": {
-                        "description": "沙箱能力需要 AstrBot 管理员权限",
+                        "description": "沙箱能力需要 PyaBot 管理员权限",
                         "type": "bool",
-                        "hint": "开启后，需要 AstrBot 管理员权限才能调用远程沙箱能力。在配置文件 -> 访问控制 -> 管理员 -> 管理员 ID 中可添加管理员。给机器人发送 /sid 指令以获取 ID。",
+                        "hint": "开启后，需要 PyaBot 管理员权限才能调用远程沙箱能力。在配置文件 -> 访问控制 -> 管理员 -> 管理员 ID 中可添加管理员。给机器人发送 /sid 指令以获取 ID。",
                         "condition": {
                             "provider_settings.computer_use_runtime": "sandbox",
                         },
@@ -4081,7 +4081,7 @@ CONFIG_METADATA_3 = {
                     "provider_settings.sandbox.cua_idle_timeout": {
                         "description": "CUA Idle Timeout",
                         "type": "int",
-                        "hint": "Idle timeout for CUA sandbox sessions in seconds. When greater than 0, AstrBot proactively shuts down an idle CUA sandbox after that amount of inactivity; 0 disables it.",
+                        "hint": "Idle timeout for CUA sandbox sessions in seconds. When greater than 0, PyaBot proactively shuts down an idle CUA sandbox after that amount of inactivity; 0 disables it.",
                         "condition": {
                             "provider_settings.computer_use_runtime": "sandbox",
                             "provider_settings.sandbox.booter": "cua",
@@ -4198,12 +4198,12 @@ CONFIG_METADATA_3 = {
                 "items": {
                     "agent.config.subagents.enabled": {
                         "description": "启用子代理",
-                        "hint": "允许 AstrBot 在合适的时机创建通用或专用子代理完成任务。",
+                        "hint": "允许 PyaBot 在合适的时机创建通用或专用子代理完成任务。",
                         "type": "bool",
                     },
                     "agent.config.subagents.config_ids": {
                         "description": "专用 Agent 配置",
-                        "hint": "配置专用子代理（可指定人格、工具集等配置）。即使不配置，AstrBot 也会在需要的时候动态生成通用子代理完成任务。",
+                        "hint": "配置专用子代理（可指定人格、工具集等配置）。即使不配置，PyaBot 也会在需要的时候动态生成通用子代理完成任务。",
                         "type": "list",
                         "_special": "select_agent_configs",
                         "items": {"type": "string"},
@@ -4225,13 +4225,13 @@ CONFIG_METADATA_3 = {
             },
             "proactive_capability": {
                 "description": "主动型 Agent",
-                "hint": "https://astrbot.pyabunny.com/docs/use/proactive-agent.html",
+                "hint": "https://pyabot.pyabunny.com/docs/use/proactive-agent.html",
                 "type": "object",
                 "items": {
                     "provider_settings.proactive_capability.add_cron_tools": {
                         "description": "启用",
                         "type": "bool",
-                        "hint": "启用后，将会传递给 Agent 相关工具来实现主动型 Agent。你可以告诉 AstrBot 未来某个时间要做的事情，它将被定时触发然后执行任务。",
+                        "hint": "启用后，将会传递给 Agent 相关工具来实现主动型 Agent。你可以告诉 PyaBot 未来某个时间要做的事情，它将被定时触发然后执行任务。",
                     },
                 },
                 "condition": {
@@ -4562,7 +4562,7 @@ CONFIG_METADATA_3 = {
                     "disable_builtin_commands": {
                         "description": "禁用自带指令",
                         "type": "bool",
-                        "hint": "禁用所有 AstrBot 的自带指令，如 help, sid, new 等。",
+                        "hint": "禁用所有 PyaBot 的自带指令，如 help, sid, new 等。",
                         "collapsed": True,
                     },
                 },
@@ -5125,7 +5125,7 @@ CONFIG_METADATA_3_SYSTEM = {
                     "callback_api_base": {
                         "description": "对外可达的回调接口地址",
                         "type": "string",
-                        "hint": "外部服务可能会通过 AstrBot 生成的回调链接（如文件下载链接）访问 AstrBot 后端。由于 AstrBot 无法自动判断部署环境中对外可达的主机地址（host），因此需要通过此配置项显式指定 “外部服务如何访问 AstrBot” 的地址。如 http://localhost:6185，https://example.com 等。",
+                        "hint": "外部服务可能会通过 PyaBot 生成的回调链接（如文件下载链接）访问 PyaBot 后端。由于 PyaBot 无法自动判断部署环境中对外可达的主机地址（host），因此需要通过此配置项显式指定 “外部服务如何访问 PyaBot” 的地址。如 http://localhost:6185，https://example.com 等。",
                     },
                     "timezone": {
                         "description": "时区",

@@ -1,6 +1,6 @@
 # 接入 Coze
 
-AstrBot v4.2.1 之后的版本, 支持接入 [Coze](https://www.coze.cn/) 的 Agent 服务。
+PyaBot v4.2.1 之后的版本, 支持接入 [Coze](https://www.coze.cn/) 的 Agent 服务。
 
 ## 预备工作：准备 API Key
 
@@ -44,9 +44,9 @@ AstrBot v4.2.1 之后的版本, 支持接入 [Coze](https://www.coze.cn/) 的 Ag
 
 我们需要将 `bot_id` 记录下来, 后面会用到。
 
-## 在 AstrBot 中配置 Coze
+## 在 PyaBot 中配置 Coze
 
-完成了所有预备工作, 现在我们就可以在 AstrBot 中配置 Coze 了。
+完成了所有预备工作, 现在我们就可以在 PyaBot 中配置 Coze 了。
 
 在 WebUI 中打开「配置文件」，选择要修改的配置文件，进入「AI」。点击标题右侧「更多操作」（`…`）→「更换执行方式」，选择「Coze」，阅读并勾选配置重置提示后点击「使用此方式」。确保「启用 AI」已打开，然后在本页填写连接参数。切换会重置当前执行方式的配置，详情见 [Agent 执行器](../../use/agent-runner.md)。
 

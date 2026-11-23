@@ -4,7 +4,7 @@
 
 ### Dashboard returns 404
 
-Check the startup logs for WebUI resource errors. To install the UI manually, download `AstrBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/AstrBot/releases). Stop the instance, place the archive's `dist/` under `data/`, preserve other data, and restart. You can also [build the WebUI from source](/en/deploy/astrbot/cli#build-the-webui).
+Check the startup logs for WebUI resource errors. To install the UI manually, download `PyaBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/PyaBot/releases). Stop the instance, place the archive's `dist/` under `data/`, preserve other data, and restart. You can also [build the WebUI from source](/en/deploy/astrbot/cli#build-the-webui).
 
 ### First login
 
@@ -17,48 +17,48 @@ Reset the password interactively from the command line, then restart the instanc
 Source deployment, from the project directory:
 
 ```bash
-uv run --no-sync astrbot password
+uv run --no-sync pyabot password
 ```
 
 Docker:
 
 ```bash
-docker exec -it astrbot astrbot password
+docker exec -it pyabot pyabot password
 docker restart astrbot
 ```
 
 Script-installed tool environment:
 
 ```bash
-uv tool run astrbot password
+uv tool run pyabot password
 ```
 
 Add `--username <NEW-USERNAME>` to change the username too. These commands preserve configuration, plugins, and history.
 
-### Correct Password Cannot Log In After Upgrading AstrBot
+### Correct Password Cannot Log In After Upgrading PyaBot
 
-If you are sure the dashboard password is correct but still cannot log in after upgrading AstrBot, the old WebUI static files may be incompatible with the newer backend.
+If you are sure the dashboard password is correct but still cannot log in after upgrading PyaBot, the old WebUI static files may be incompatible with the newer backend.
 
 Solution:
 
-1. Stop AstrBot.
-2. Delete the `dist` folder under AstrBot's `data` directory: `AstrBot/data/dist`.
-3. Restart AstrBot.
+1. Stop PyaBot.
+2. Delete the `dist` folder under PyaBot's `data` directory: `PyaBot/data/dist`.
+3. Restart PyaBot.
 4. Access the dashboard in your browser. Press `Ctrl+Shift+R` or `Ctrl+F5` (or `Cmd+Shift+R` on macOS) to force refresh the page.
 
-After restart, AstrBot will reload or download WebUI files that match the current version.
+After restart, PyaBot will reload or download WebUI files that match the current version.
 
 ## Bot Core Related
 
-### How to Let AstrBot Control My Mac / Windows / Linux Computer?
+### How to Let PyaBot Control My Mac / Windows / Linux Computer?
 
-1. In the AstrBot WebUI, open `Config`, select the profile used by your bot, and go to `AI → Capabilities → Agent Computer Use`. Set `Computer Use Runtime` to `local`. This section requires the built-in AstrBot AI runner.
+1. In the PyaBot WebUI, open `Config`, select the profile used by your bot, and go to `AI → Capabilities → Agent Computer Use`. Set `Computer Use Runtime` to `local`. This section requires the built-in PyaBot AI runner.
 2. In the same profile, go to `Access Control → Administrators → Administrator IDs` and add your user ID (available through the `/sid` command).
 3. Click `Save Configuration` in the bottom-right corner.
 
 > [!TIP]
-> For security reasons, when runtime environment is set to `local`, AstrBot only allows AstrBot administrators to use computer capabilities by default.
-> You can select `sandbox` for the runtime environment, which allows all users to use computer capabilities (in an isolated sandbox). For more details, see [AstrBot Sandbox Environment](/en/use/astrbot-agent-sandbox.md)
+> For security reasons, when runtime environment is set to `local`, PyaBot only allows PyaBot administrators to use computer capabilities by default.
+> You can select `sandbox` for the runtime environment, which allows all users to use computer capabilities (in an isolated sandbox). For more details, see [PyaBot Sandbox Environment](/en/use/astrbot-agent-sandbox.md)
 
 ### Bot Cannot Chat in Group Conversations
 
@@ -95,7 +95,7 @@ This is because the provider's API returned empty text. Try the following steps:
 
 ![image](/images/3a147e44f3eb7d04.png)
 
-This is because the plugin's dependencies were not installed properly. Normally, AstrBot automatically installs plugin dependencies after installing the plugin, but installation may fail in the following situations:
+This is because the plugin's dependencies were not installed properly. Normally, PyaBot automatically installs plugin dependencies after installing the plugin, but installation may fail in the following situations:
 
 1. Network issues preventing dependency downloads
 2. Plugin author did not include a `requirements.txt` file
@@ -103,7 +103,7 @@ This is because the plugin's dependencies were not installed properly. Normally,
 
 Solution:
 
-Based on the error message, refer to the plugin's README to manually install dependencies. You can install dependencies in the AstrBot WebUI under `Data & Logs → Logs → Install pip Package`.
+Based on the error message, refer to the plugin's README to manually install dependencies. You can install dependencies in the PyaBot WebUI under `Data & Logs → Logs → Install pip Package`.
 
 Enter the package name in the dialog, optionally specify a PyPI repository URL, and click `Install`.
 

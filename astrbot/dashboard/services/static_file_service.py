@@ -62,29 +62,29 @@ class StaticFileService:
         "<body><main>"
         '<p class="status">404 · NOT FOUND</p>'
         "<h1>WebUI 文件缺失</h1>"
-        "<p>AstrBot 会在启动时检测并尝试下载 WebUI 文件。看到此页面说明下载失败或文件不完整，"
-        "请先尝试重启 AstrBot。</p>"
+        "<p>PyaBot 会在启动时检测并尝试下载 WebUI 文件。看到此页面说明下载失败或文件不完整，"
+        "请先尝试重启 PyaBot。</p>"
         "<h2>手动安装</h2>"
-        "<p>如果问题仍然存在，请前往 Releases 下载与当前 AstrBot 版本匹配的 "
-        "<code>AstrBot-vx.x.x-dashboard.zip</code>，解压后将 "
-        "<code>dist</code> 文件夹放入 <code>AstrBot/data/</code>。</p>"
-        '<a class="action" href="https://github.com/Sakura520222/AstrBot/releases">'
+        "<p>如果问题仍然存在，请前往 Releases 下载与当前 PyaBot 版本匹配的 "
+        "<code>PyaBot-vx.x.x-dashboard.zip</code>，解压后将 "
+        "<code>dist</code> 文件夹放入 <code>PyaBot/data/</code>。</p>"
+        '<a class="action" href="https://github.com/Sakura520222/PyaBot/releases">'
         "前往 Releases 下载</a>"
         '<section class="english" lang="en">'
         "<h2>WebUI files are missing</h2>"
-        "<p>AstrBot checks for WebUI files and attempts to download them at startup. "
+        "<p>PyaBot checks for WebUI files and attempts to download them at startup. "
         "If you see this page, the download failed or the files are incomplete. "
-        "Try restarting AstrBot first.</p>"
+        "Try restarting PyaBot first.</p>"
         "<h3>Manual installation</h3>"
         "<p>If the issue persists, open Releases and download "
-        "<code>AstrBot-vx.x.x-dashboard.zip</code> matching your current AstrBot version. "
+        "<code>PyaBot-vx.x.x-dashboard.zip</code> matching your current PyaBot version. "
         "Extract it and place the <code>dist</code> folder under "
-        "<code>AstrBot/data/</code>.</p>"
-        '<a class="action" href="https://github.com/Sakura520222/AstrBot/releases">'
+        "<code>PyaBot/data/</code>.</p>"
+        '<a class="action" href="https://github.com/Sakura520222/PyaBot/releases">'
         "Open Releases</a>"
         "</section>"
         '<p class="label">目录结构 / Directory structure</p>'
-        "<pre>AstrBot/\n└── data/\n    └── dist/\n        ├── index.html\n"
+        "<pre>PyaBot/\n└── data/\n    └── dist/\n        ├── index.html\n"
         "        └── assets/</pre>"
         '<p class="note">正在测试回调地址？看到此页面表示地址可达。<br>'
         '<span lang="en">Testing a callback URL? This page confirms that the URL is '

@@ -1,7 +1,7 @@
 # 工作台页面
 
 > [!NOTE]
-> 目前仅支持 AstrBot ChatUI。
+> 目前仅支持 PyaBot ChatUI。
 
 使用 `target="chat_workbench"` 在 ChatUI 右侧展示界面。文件预览可以由消息或工具打开；笔记、会话分析等常驻页面可以从工作台「＋」入口打开。
 

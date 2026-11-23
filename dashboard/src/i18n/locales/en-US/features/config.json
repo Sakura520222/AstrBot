@@ -50,7 +50,7 @@
     "enable": "Enable AI",
     "more": "More actions",
     "changeRunner": "Change Agent Runtime",
-    "localSettingsTitle": "AstrBot Built-in AI",
+    "localSettingsTitle": "PyaBot Built-in AI",
     "settingsSuffix": "Settings",
     "tabs": {
       "model": "Model",
@@ -87,8 +87,8 @@
     "runners": {
       "astrbot": {
         "title": "Built-in AI",
-        "summary": "Configure AstrBot's AI capabilities, including models, personas, knowledge bases, and tools.",
-        "description": "Use AstrBot's built-in AI with models, personas, knowledge bases, and tools."
+        "summary": "Configure PyaBot's AI capabilities, including models, personas, knowledge bases, and tools.",
+        "description": "Use PyaBot's built-in AI with models, personas, knowledge bases, and tools."
       },
       "dify": {
         "title": "Dify",
@@ -146,7 +146,7 @@
   },
   "configManagement": {
     "title": "Configuration Management",
-    "description": "AstrBot supports separate configuration files for different bots. The default configuration is used when none is specified.",
+    "description": "PyaBot supports separate configuration files for different bots. The default configuration is used when none is specified.",
     "newConfig": "New Configuration",
     "copyConfig": "Copy Configuration",
     "editConfig": "Edit Configuration",
@@ -283,7 +283,7 @@
     "save": "Save changes",
     "emptyTitle": "A different setup for one session",
     "emptyHint": "Choose a chat to adjust its model, persona or plugins. Other settings follow its configuration profile.",
-    "aliasHint": "This alias is shared across AstrBot. Save changes in the editor to apply it.",
+    "aliasHint": "This alias is shared across PyaBot. Save changes in the editor to apply it.",
     "done": "Done",
     "groupHint": "Groups organize sessions for filtering and batch updates. Membership does not create configuration inheritance.",
     "members": "{count} sessions",

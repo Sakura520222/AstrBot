@@ -2,7 +2,7 @@
 
 WeCom AI Bot is an official AI-friendly bot platform by WeCom. It can be used directly in one-on-one chats and internal group chats, and supports streaming responses.
 
-AstrBot supports this platform since v4.3.5.
+PyaBot supports this platform since v4.3.5.
 
 ## Supported Basic Message Types
 
@@ -28,11 +28,11 @@ Generate `Token` and `EncodingAESKey` using random generation, but do not click 
 
 ![Create AI Bot Account](/images/3d285bb6f4b27a04.png)
 
-## Configure AstrBot
+## Configure PyaBot
 
-1. Open AstrBot Dashboard, click `Platforms`, then click `+ Add Adapter`, choose `WeCom AI Bot`.
+1. Open PyaBot Dashboard, click `Platforms`, then click `+ Add Adapter`, choose `WeCom AI Bot`.
 
-2. Fill AstrBot fields with values from the WeCom AI Bot create page:
+2. Fill PyaBot fields with values from the WeCom AI Bot create page:
 
 - Bot name
 - `token`
@@ -44,13 +44,13 @@ Keep `Unified Webhook Mode (unified_webhook_mode)` enabled and click `Save`.
 
 3. Return to WeCom AI Bot create page and set `URL`:
 
-- If unified mode is enabled, AstrBot generates a unique callback URL after save. Copy it from `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`.
+- If unified mode is enabled, PyaBot generates a unique callback URL after save. Copy it from `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`.
 - If unified mode is disabled, use `http://IP:port/webhook/wecom-ai-bot`.
 
 > It is recommended to use a domain + reverse proxy + HTTPS. You can also use [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide/).
 
 4. Click `Create`. If successful, you will enter bot details page.
-If you see `Service did not respond correctly`, re-check AstrBot config and firewall rules.
+If you see `Service did not respond correctly`, re-check PyaBot config and firewall rules.
 
 ![Bot Details](/images/2cbc1207e4485629.png)
 
@@ -74,10 +74,10 @@ In WeCom client internal group chat, click Add Member -> AI Bot, select the bot 
 
 Send a message in private chat or group chat to talk to the bot.
 
-If you need typing-like streaming effect, enable `Streaming Reply` in AstrBot.
+If you need typing-like streaming effect, enable `Streaming Reply` in PyaBot.
 
 ![Streaming Reply](/images/c309653b07c26a7b.png)
 
 ## Help & Support
 
-Report setup problems in [GitHub Issues](https://github.com/Sakura520222/AstrBot/issues) with sanitized logs.
+Report setup problems in [GitHub Issues](https://github.com/Sakura520222/PyaBot/issues) with sanitized logs.

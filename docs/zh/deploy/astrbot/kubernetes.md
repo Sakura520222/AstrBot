@@ -1,9 +1,9 @@
-# 使用 Kubernetes 部署 AstrBot
+# 使用 Kubernetes 部署 PyaBot
 
 > [!WARNING]
-> 通过 Kubernetes (K8s) 可以将 AstrBot 以高可用的方式部署在集群环境中，当出现故障时可以自动拉起恢复。
+> 通过 Kubernetes (K8s) 可以将 PyaBot 以高可用的方式部署在集群环境中，当出现故障时可以自动拉起恢复。
 >
-> 由于 AstrBot 当前使用 SQLite 数据库，此部署方案不支持多副本水平扩展。
+> 由于 PyaBot 当前使用 SQLite 数据库，此部署方案不支持多副本水平扩展。
 >
 > 以下教程默认您的环境已安装并配置好 `kubectl`，且能够连接到您的 K8s 集群。
 
@@ -16,11 +16,11 @@
 
 ## 部署方式
 
-清单位于 `k8s/astrbot` 目录，只部署 AstrBot；OneBot v11 等协议实现端需单独部署后连接到 AstrBot。
+清单位于 `k8s/astrbot` 目录，只部署 PyaBot；OneBot v11 等协议实现端需单独部署后连接到 PyaBot。
 
 ---
 
-### 部署 AstrBot
+### 部署 PyaBot
 
 #### 1. 部署
 
@@ -65,7 +65,7 @@ kubectl apply -f k8s/astrbot/02-deployment.yaml
 
 ### 镜像拉取
 
-AstrBot 镜像使用 `ghcr.io/sakura520222/astrbot:latest`。拉取失败时，检查节点到 GHCR 的网络连接，并根据集群环境配置镜像拉取代理。
+PyaBot 镜像使用 `ghcr.io/sakura520222/pyabot:latest`。拉取失败时，检查节点到 GHCR 的网络连接，并根据集群环境配置镜像拉取代理。
 
 ### 启用 Docker 沙箱代码执行器
 
@@ -102,6 +102,6 @@ AstrBot 镜像使用 `ghcr.io/sakura520222/astrbot:latest`。拉取失败时，�
 
 ## 🎉 大功告成
 
-部署并暴露服务后，您就可以通过相应的 IP 和端口访问 AstrBot 管理面板了。
+部署并暴露服务后，您就可以通过相应的 IP 和端口访问 PyaBot 管理面板了。
 
 > 首次登录请使用启动日志中打印的随机初始密码（用户名通常为 `astrbot`）。登录后请立即修改密码。

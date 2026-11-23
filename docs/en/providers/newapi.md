@@ -2,7 +2,7 @@
 
 [NewAPI](http://newapi.ai/) is a next-generation LLM gateway and AI asset management system built on top of One API. It provides a unified interface for managing and using multiple AI model services, including OpenAI, Anthropic, Gemini, Midjourney, and more.
 
-AstrBot can integrate with NewAPI as a model provider, so you can access those model services through AstrBot.
+PyaBot can integrate with NewAPI as a model provider, so you can access those model services through PyaBot.
 
 ## Setup Steps
 
@@ -16,9 +16,9 @@ After creation, copy the generated API key.
 
 ![copy-api-key](/images/0a26d81d4edfd7b8.png)
 
-### 2. Configure NewAPI in AstrBot
+### 2. Configure NewAPI in PyaBot
 
-Open **Providers → Chat Completion** in the AstrBot WebUI and click **Add**.
+Open **Providers → Chat Completion** in the PyaBot WebUI and click **Add**.
 
 NewAPI fully supports OpenAI Chat Completion and Responses APIs, so select `OpenAI Compatible` (Chat Completion) or `OpenAI Responses` and open its provider settings.
 
@@ -31,6 +31,6 @@ Enter the provider name and `API Key`, check the `API Base URL`, then click **Sa
 
 ### 3. Apply the Provider
 
-Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for AstrBot built-in AI.
+Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for PyaBot built-in AI.
 
-You have now successfully configured NewAPI as an AstrBot model provider.
+You have now successfully configured NewAPI as a PyaBot model provider.

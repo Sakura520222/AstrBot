@@ -22,7 +22,7 @@ paru -S astrbot-git
 ```
 # 启动
 >[!TIP]
-> 你可以直接使用 astrbot init （首次运行）初始化
+> 你可以直接使用 pyabot init （首次运行）初始化
 > 使用astrbot run运行
 > 但是更加推荐使用systemctl启动，拥有自动重启，日志轮转等功能
 

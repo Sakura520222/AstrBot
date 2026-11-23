@@ -142,7 +142,7 @@ run_smoke_test() {
     fi
 
     if ! kill -0 "$app_pid" 2>/dev/null; then
-      echo "AstrBot process exited before becoming healthy." >&2
+      echo "PyaBot process exited before becoming healthy." >&2
       tail -n 60 "$smoke_log" || true
       rm -f "$smoke_log"
       return 1

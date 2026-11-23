@@ -8,7 +8,7 @@
 
 ## 创建视图文件 {#目录结构}
 
-将页面资源放在 `views/<view_name>/` 下。AstrBot 只扫描 `views/<view_name>/index.html`，没有 `index.html` 的目录会被忽略。
+将页面资源放在 `views/<view_name>/` 下。PyaBot 只扫描 `views/<view_name>/index.html`，没有 `index.html` 的目录会被忽略。
 
 示例基于已有插件，`PLUGIN_NAME` 必须与 `metadata.yaml` 中的 `name` 一致。
 

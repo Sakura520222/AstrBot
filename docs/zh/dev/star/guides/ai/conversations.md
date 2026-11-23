@@ -28,7 +28,7 @@ message_id = await conversations.append_message(
 )
 ```
 
-`content` 接受文本或 AstrBot 的 `ContentPart` 对象列表：
+`content` 接受文本或 PyaBot 的 `ContentPart` 对象列表：
 
 ```py
 from astrbot.core.agent.message import ImageURLPart, TextPart

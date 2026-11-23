@@ -5,8 +5,8 @@ Install Git, [uv](https://docs.astral.sh/uv/), and Python 3.12 or later.
 ## Install and start
 
 ~~~bash
-git clone https://github.com/Sakura520222/AstrBot.git
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot.git
+cd PyaBot
 uv sync --locked --inexact
 uv run --no-sync main.py
 ~~~
@@ -17,7 +17,7 @@ Continue with [platform setup](/en/platform/start) and [model setup](/en/provide
 
 ## Update
 
-Stop AstrBot normally and back up the entire `data/` directory, then run:
+Stop PyaBot normally and back up the entire `data/` directory, then run:
 
 ~~~bash
 git pull --ff-only origin master

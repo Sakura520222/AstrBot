@@ -28,7 +28,7 @@ your_plugin/
 
 语言文件名使用 WebUI 的 locale，例如 `zh-CN.json`、`en-US.json`。文件内容必须是 JSON object。
 
-当当前语言没有对应翻译、某个字段缺失，或语言文件不存在时，AstrBot 会回退到默认文案：
+当当前语言没有对应翻译、某个字段缺失，或语言文件不存在时，PyaBot 会回退到默认文案：
 
 - 插件名称、卡片短描述和描述回退到 `metadata.yaml` 中的 `display_name`、`short_desc`、`desc`。
 - 配置项文案回退到 `_conf_schema.json` 中的 `description`、`hint`、`labels`、`subtitles`。

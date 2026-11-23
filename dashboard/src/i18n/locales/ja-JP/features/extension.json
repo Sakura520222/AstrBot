@@ -134,7 +134,7 @@
       "stars": "Star 数",
       "updatedAt": "更新日時",
       "tags": "タグ",
-      "astrbotVersion": "AstrBot バージョン要件",
+      "astrbotVersion": "PyaBot バージョン要件",
       "supportPlatforms": "対応プラットフォーム",
       "authorWebsite": "開発者のウェブサイト",
       "repository": "リポジトリ"
@@ -229,7 +229,7 @@
       "supportPlatformsCount": "{count} 個のプラットフォームに対応",
       "sectionTitle": "インストール",
       "downloadSource": "次の場所からプラグインパッケージをインストールします：",
-      "repositorySecurityWarning": "AstrBot は、コードリポジトリからダウンロードしたプラグインの安全性を保証できません。信頼できる配布元であることを確認してからインストールしてください。"
+      "repositorySecurityWarning": "PyaBot は、コードリポジトリからダウンロードしたプラグインの安全性を保証できません。信頼できる配布元であることを確認してからインストールしてください。"
     },
     "update": {
       "title": "プラグインを更新",
@@ -245,7 +245,7 @@
     },
     "versionSupport": {
       "title": "バージョン互換性の警告",
-      "message": "このプラグインが指定する AstrBot のバージョン範囲は、現在のバージョンと一致しません。警告を無視してインストールを続行できますが、正常に動作しない可能性があります。",
+      "message": "このプラグインが指定する PyaBot のバージョン範囲は、現在のバージョンと一致しません。警告を無視してインストールを続行できますが、正常に動作しない可能性があります。",
       "confirm": "警告を無視してインストール",
       "cancel": "インストールをキャンセル"
     },
@@ -423,7 +423,7 @@
     "neoPayloadTitle": "Neo Payload の詳細",
     "neoPayloadFailed": "Payload の読み込みに失敗しました",
     "runtimeNoneWarning": "Computer Use の実行環境が「None」に設定されています。実行環境が有効になっていないため、エージェントがスキルを正しく実行できない可能性があります。",
-    "runtimeHint": "設定の「Computer Use」で実行環境を「local」または「sandbox」に設定すると、AstrBot が提供されたスキルを正常に使用できます。ワークスペーススキルは現在このページに表示されません。",
+    "runtimeHint": "設定の「Computer Use」で実行環境を「local」または「sandbox」に設定すると、PyaBot が提供されたスキルを正常に使用できます。ワークスペーススキルは現在このページに表示されません。",
     "neoRuntimeRequired": "Neo スキルは、実行環境が sandbox で、サンドボックスドライバーが shipyard_neo の場合にのみ利用できます。",
     "sourceLocalOnly": "ローカルスキル",
     "sourceSandboxOnly": "サンドボックスのプリセットスキル",
@@ -461,7 +461,7 @@
       "handlersCount": "件のハンドラー",
       "supportPlatform": "対応プラットフォーム",
       "supportPlatformsCount": "{count} 個のプラットフォームに対応",
-      "astrbotVersion": "AstrBot バージョン要件"
+      "astrbotVersion": "PyaBot バージョン要件"
     },
     "alt": {
       "logo": "ロゴ",

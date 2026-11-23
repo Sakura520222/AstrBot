@@ -5,11 +5,15 @@ from pathlib import Path
 import click
 from filelock import FileLock, Timeout
 
+PYABOT_DASHBOARD_INITIAL_PASSWORD_ENV = "PYABOT_DASHBOARD_INITIAL_PASSWORD"
 DASHBOARD_INITIAL_PASSWORD_ENV = "ASTRBOT_DASHBOARD_INITIAL_PASSWORD"
 
 
 def _initialize_config_from_env(astrbot_root: Path) -> None:
-    if DASHBOARD_INITIAL_PASSWORD_ENV not in os.environ:
+    if (
+        PYABOT_DASHBOARD_INITIAL_PASSWORD_ENV not in os.environ
+        and DASHBOARD_INITIAL_PASSWORD_ENV not in os.environ
+    ):
         return
 
     from astrbot.core.config.astrbot_config import AstrBotConfig
@@ -19,22 +23,23 @@ def _initialize_config_from_env(astrbot_root: Path) -> None:
 
 
 async def initialize_astrbot(astrbot_root: Path, yes: bool = False) -> None:
-    """Execute AstrBot initialization logic.
+    """Execute PyaBot initialization logic.
 
     Args:
-        astrbot_root: AstrBot root directory path.
+        astrbot_root: PyaBot root directory path.
         yes: Whether to skip the installation confirmation.
     """
+    dot_pyabot = astrbot_root / ".pyabot"
     dot_astrbot = astrbot_root / ".astrbot"
 
-    if not dot_astrbot.exists():
+    if not dot_pyabot.exists() and not dot_astrbot.exists():
         if yes or click.confirm(
-            f"Install AstrBot to this directory? {astrbot_root}",
+            f"Install PyaBot to this directory? {astrbot_root}",
             default=True,
             abort=True,
         ):
-            dot_astrbot.touch()
-            click.echo(f"Created {dot_astrbot}")
+            dot_pyabot.touch()
+            click.echo(f"Created {dot_pyabot}")
 
     paths = {
         "data": astrbot_root / "data",
@@ -53,23 +58,23 @@ async def initialize_astrbot(astrbot_root: Path, yes: bool = False) -> None:
 @click.command()
 @click.option("--yes", "-y", is_flag=True, help="Skip confirmation prompts")
 def init(yes: bool) -> None:
-    """Initialize AstrBot.
+    """Initialize PyaBot.
 
     Args:
         yes: Whether to skip confirmation prompts.
     """
     from ..utils import get_astrbot_root
 
-    click.echo("Initializing AstrBot...")
+    click.echo("Initializing PyaBot...")
 
     astrbot_root = get_astrbot_root()
-    lock_file = astrbot_root / "astrbot.lock"
+    lock_file = astrbot_root / "pyabot.lock"
     lock = FileLock(lock_file, timeout=5)
 
     try:
         with lock.acquire():
             asyncio.run(initialize_astrbot(astrbot_root, yes=yes))
-            click.echo("Done! You can now run 'astrbot run' to start AstrBot")
+            click.echo("Done! You can now run 'pyabot run' to start PyaBot")
     except Timeout:
         raise click.ClickException(
             "Cannot acquire lock file. Please check if another instance is running"

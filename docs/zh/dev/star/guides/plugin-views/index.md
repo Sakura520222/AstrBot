@@ -1,6 +1,6 @@
 # 插件可视化视图
 
-在插件中提供 HTML 界面，并通过 Bridge 与 AstrBot 通信。根据界面的使用位置选择 metadata 中的 `target`：
+在插件中提供 HTML 界面，并通过 Bridge 与 PyaBot 通信。根据界面的使用位置选择 metadata 中的 `target`：
 
 | 界面 | `target` | 适用场景 | 打开方式 |
 | --- | --- | --- | --- |

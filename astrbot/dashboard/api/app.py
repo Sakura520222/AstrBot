@@ -89,7 +89,7 @@ def create_dashboard_asgi_app(
     static_folder: str | None = None,
 ) -> FastAPI:
     app = FastAPI(
-        title="AstrBot OpenAPI",
+        title="PyaBot OpenAPI",
         version="1.0.0",
         openapi_url=f"{API_V1_PREFIX}/openapi.json",
         docs_url=f"{API_V1_PREFIX}/docs",

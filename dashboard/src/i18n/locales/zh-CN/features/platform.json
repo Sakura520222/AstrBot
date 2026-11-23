@@ -33,7 +33,7 @@
       "remove": "移除绑定",
       "noBindings": "暂无专属映射。",
       "advanced": "高级路由规则",
-      "advancedDescription": "使用 UMO pattern 批量匹配会话。规则按从上到下的顺序匹配，适合熟悉 AstrBot 会话来源格式的用户。",
+      "advancedDescription": "使用 UMO pattern 批量匹配会话。规则按从上到下的顺序匹配，适合熟悉 PyaBot 会话来源格式的用户。",
       "patternLabel": "UMO pattern",
       "patternPlaceholder": "例如 bot-id:GroupMessage:*",
       "addPattern": "添加规则",

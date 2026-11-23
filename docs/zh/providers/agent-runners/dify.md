@@ -4,13 +4,13 @@
 
 如果您还没有安装 Dify，请参考 [Dify 安装文档](https://docs.dify.ai/zh-hans/getting-started/install-self-hosted) 安装。
 
-## 在 AstrBot 中配置 Dify
+## 在 PyaBot 中配置 Dify
 
 在 WebUI 中打开「配置文件」，选择要修改的配置文件，进入「AI」。点击标题右侧「更多操作」（`…`）→「更换执行方式」，选择「Dify」，阅读并勾选配置重置提示后点击「使用此方式」。确保「启用 AI」已打开，然后在本页填写连接参数。切换会重置当前执行方式的配置，详情见 [Agent 执行器](../../use/agent-runner.md)。
 
 在 Dify 中，一个 `API Key` 唯一对应一个 Dify 应用。因此，您可以为不同配置文件填写不同的 API Key 来连接多个 Dify 应用。
 
-AstrBot 的「应用类型」选项包括：
+PyaBot 的「应用类型」选项包括：
 
 - chat
 - chatflow
@@ -18,7 +18,7 @@ AstrBot 的「应用类型」选项包括：
 - workflow
 
 >[!TIP]
->请确保你在 AstrBot 里设置的 APP 类型和 Dify 里面创建的应用的类型一致。
+>请确保你在 PyaBot 里设置的 APP 类型和 Dify 里面创建的应用的类型一致。
 >![image](/images/9f1e633878207ce6.png)
 
 ### Chat 和 Agent 应用
@@ -39,16 +39,16 @@ Workflow 应用接收输入变量，然后执行工作流，最后输出结果�
 
 ![image](/images/a83e8df68322edf5.png)
 
-对于 Workflow 应用，AstrBot 在每次请求时会附上两个变量:
+对于 Workflow 应用，PyaBot 在每次请求时会附上两个变量:
 
 - `astrbot_text_query`: 输入变量名。即用户输入的文本内容。
 - `astrbot_session_id`: 会话 ID
 
 你可以在配置中自定义输入变量名，即当前 Dify 设置中的「Prompt 输入变量名」。
 
-您需要修改您的 Workflow 的输入的变量名以适配 AstrBot 的输入。
+您需要修改您的 Workflow 的输入的变量名以适配 PyaBot 的输入。
 
-最终，Workflow 会输出一个结果，您可以自定义这个结果的变量名，即当前 Dify 设置中的「Workflow 输出变量名」，默认为  `astrbot_wf_output`。你需要在 Dify 的 Workflow 的输出节点中配置这个变量名，否则 AstrBot 无法正确解析。
+最终，Workflow 会输出一个结果，您可以自定义这个结果的变量名，即当前 Dify 设置中的「Workflow 输出变量名」，默认为  `astrbot_wf_output`。你需要在 Dify 的 Workflow 的输出节点中配置这个变量名，否则 PyaBot 无法正确解析。
 
 #### 创建 API Key
 
@@ -70,7 +70,7 @@ Workflow 应用接收输入变量，然后执行工作流，最后输出结果�
 
 ![alt text](/images/c70dea73d7be08b2.png)
 
-当设置变量后，AstrBot 会在下次向 Dify 请求时附上您设置的变量，以灵活适配您的 Workflow。
+当设置变量后，PyaBot 会在下次向 Dify 请求时附上您设置的变量，以灵活适配您的 Workflow。
     
 ![alt text](/images/9eb2213fa4cc044e.png)
 

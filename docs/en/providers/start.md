@@ -1,6 +1,6 @@
 # Connecting Model Services
 
-AstrBot supports the native API formats of OpenAI, Google GenAI, and Anthropic. You can connect any model service provider that conforms to one of these three API formats.
+PyaBot supports the native API formats of OpenAI, Google GenAI, and Anthropic. You can connect any model service provider that conforms to one of these three API formats.
 
 > [!NOTE]
 > If you are located in mainland China, we strongly recommend using **official model providers** or compliant providers that follow local laws and regulations, for example:
@@ -11,9 +11,9 @@ AstrBot supports the native API formats of OpenAI, Google GenAI, and Anthropic. 
 > - [Qwen](https://qwen.ai/apiplatform)
 > - [DeepSeek](https://deepseek.com/)
 >
-> These providers support the OpenAI API format. You can find the API Base URL and API Key from their documentation and fill them into AstrBot provider settings.
+> These providers support the OpenAI API format. You can find the API Base URL and API Key from their documentation and fill them into PyaBot provider settings.
 >
-> Please note that using non-compliant third-party model services may introduce availability, privacy, or legal risks. For details, see the [EULA](https://github.com/Sakura520222/AstrBot/blob/master/EULA.md).
+> Please note that using non-compliant third-party model services may introduce availability, privacy, or legal risks. For details, see the [EULA](https://github.com/Sakura520222/PyaBot/blob/master/EULA.md).
 
 For example, you may choose to connect model services provided by (but not limited to):
 
@@ -32,7 +32,7 @@ Using DeepSeek as an example, assuming you have registered and logged in to a De
 4. On the API documentation page, find the section about the "OpenAI-compatible interface" and note the API Base URL, for example `https://api.deepseek.com/v1`. (If there is no `/v1`, please add `/v1`.)
 5. Open **Providers → Chat Completion**, click **Add**, and select `DeepSeek`. For other OpenAI-compatible services, select `OpenAI Compatible`. Enter the provider name, `API Key`, and `API Base URL`.
 6. Click **Save and Fetch Models**, find the desired model, click `+`, and make sure it is enabled. If the model list cannot be fetched, click **Save Configuration**, then **Custom Model** and enter the model ID. Use **Test Model** beside the model to check connectivity.
-7. Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for AstrBot built-in AI.
+7. Open **Config**, select the profile to use, and go to **AI → Model**. Set **Chat Model** to the model you just added, then click **Save Configuration** at the bottom right. This setting is for PyaBot built-in AI.
 
 ## Using Environment Variables to Load Keys
 

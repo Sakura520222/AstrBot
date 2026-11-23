@@ -4,7 +4,7 @@
   "tooltip": {
     "info": "関数呼び出しと MCP とは？",
     "marketplace": "コミュニティの MCP サーバーを閲覧・インストール",
-    "serverConfig": "MCP サーバー（stdio）の設定では、次のフィールドを使用できます：\ncommand：コマンド名（例：python または uv）\nargs：コマンド引数の配列（例：[\"run\", \"server.py\"]）\nenv：環境変数オブジェクト（例：{\"api_key\": \"abc\"}）\ncwd：作業ディレクトリのパス（例：/path/to/server）\nencoding：出力エンコーディング（既定：utf-8）\nencoding_error_handler：テキストのエンコーディングエラー処理（既定：strict）\nその他のフィールドについては MCP ドキュメントを参照してください。\n⚠️ Docker で AstrBot をデプロイする場合は、AstrBot がマウントした data ディレクトリ内に MCP サーバーをインストールしてください。"
+    "serverConfig": "MCP サーバー（stdio）の設定では、次のフィールドを使用できます：\ncommand：コマンド名（例：python または uv）\nargs：コマンド引数の配列（例：[\"run\", \"server.py\"]）\nenv：環境変数オブジェクト（例：{\"api_key\": \"abc\"}）\ncwd：作業ディレクトリのパス（例：/path/to/server）\nencoding：出力エンコーディング（既定：utf-8）\nencoding_error_handler：テキストのエンコーディングエラー処理（既定：strict）\nその他のフィールドについては MCP ドキュメントを参照してください。\n⚠️ Docker で PyaBot をデプロイする場合は、PyaBot がマウントした data ディレクトリ内に MCP サーバーをインストールしてください。"
   },
   "tabs": {
     "local": "ローカルサーバー",
@@ -23,22 +23,22 @@
       "useTemplateSse": "SSE テンプレート",
       "sync": "サーバーを同期"
     },
-  "empty": "MCP サーバーがありません。「サーバーを追加」をクリックして追加してください",
-  "searchPlaceholder": "MCP サーバーを検索…",
-  "noSearchResult": "一致する MCP サーバーが見つかりません",
-  "select": "選択",
-  "selectServer": "サーバー {name} を選択",
-  "selectAll": "すべて選択",
-  "clearSelection": "選択を解除",
-  "deleteSelected": "選択した {count} 件を削除",
-  "cancel": "キャンセル",
-  "batchDeleteTitle": "MCP サーバーを削除",
-  "batchDeleteMessage": "選択した {count} 件の MCP サーバーを削除しますか？この操作は元に戻せません。",
-  "batchDeleteConfirm": "{count} 件を削除",
-  "batchDeleteSuccess": "{count} 件の MCP サーバーを削除しました",
-  "batchDeletePartial": "{succeeded} 件を削除しました（{failed} 件失敗）",
-  "status": {
-    "installed": "インストール済み",
+    "empty": "MCP サーバーがありません。「サーバーを追加」をクリックして追加してください",
+    "searchPlaceholder": "MCP サーバーを検索…",
+    "noSearchResult": "一致する MCP サーバーが見つかりません",
+    "select": "選択",
+    "selectServer": "サーバー {name} を選択",
+    "selectAll": "すべて選択",
+    "clearSelection": "選択を解除",
+    "deleteSelected": "選択した {count} 件を削除",
+    "cancel": "キャンセル",
+    "batchDeleteTitle": "MCP サーバーを削除",
+    "batchDeleteMessage": "選択した {count} 件の MCP サーバーを削除しますか？この操作は元に戻せません。",
+    "batchDeleteConfirm": "{count} 件を削除",
+    "batchDeleteSuccess": "{count} 件の MCP サーバーを削除しました",
+    "batchDeletePartial": "{succeeded} 件を削除しました（{failed} 件失敗）",
+    "status": {
+      "installed": "インストール済み",
       "noTools": "利用可能なツールがありません",
       "availableTools": "利用可能なツール",
       "connected": "接続済み",
@@ -128,7 +128,7 @@
       },
       "tips": {
         "timeoutConfig": "ツール呼び出しのタイムアウトは設定ページで個別に指定してください",
-        "transportRecommendation": "Streamable HTTP または SSE モードの使用を推奨します。stdio モードは AstrBot ホスト上でローカルプロセスを起動するため、信頼できる MCP サーバーにのみ使用してください。"
+        "transportRecommendation": "Streamable HTTP または SSE モードの使用を推奨します。stdio モードは PyaBot ホスト上でローカルプロセスを起動するため、信頼できる MCP サーバーにのみ使用してください。"
       }
     },
     "serverDetail": {

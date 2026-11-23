@@ -42,7 +42,7 @@ def test_website_feed_exports_only_public_release_fields(tmp_path, monkeypatch):
         )
     )
     monkeypatch.chdir(tmp_path)
-    monkeypatch.setenv("GH_REPO", "Sakura520222/AstrBot")
+    monkeypatch.setenv("GH_REPO", "Sakura520222/PyaBot")
     exec(compile(script, "workflow-release-feed", "exec"), {})
     feed = json.loads((tmp_path / "site-dist/releases.json").read_text())
     assert feed == [
@@ -51,7 +51,7 @@ def test_website_feed_exports_only_public_release_fields(tmp_path, monkeypatch):
             "tag_name": "v4.29.3",
             "published_at": "2026-10-30T18:13:51Z",
             "body": "",
-            "zipball_url": "https://github.com/Sakura520222/AstrBot/archive/refs/tags/v4.29.3.zip",
+            "zipball_url": "https://github.com/Sakura520222/PyaBot/archive/refs/tags/v4.29.3.zip",
             "prerelease": False,
         }
     ]

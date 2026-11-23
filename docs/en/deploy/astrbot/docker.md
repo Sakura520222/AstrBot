@@ -5,30 +5,30 @@ Install [Docker Engine](https://docs.docker.com/engine/install/) or [Docker Desk
 ## Compose
 
 ~~~bash
-git clone https://github.com/Sakura520222/AstrBot.git
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot.git
+cd PyaBot
 docker compose up -d
 ~~~
 
 Open `http://localhost:6185`, create an administrator account, and configure your bot. For remote access, replace `localhost` with the server address and configure the firewall and HTTPS.
 
-`compose.yml` uses `ghcr.io/sakura520222/astrbot:latest` and mounts the local `data/` directory at `/AstrBot/data`. Pin the image tag to `4.29.3` when needed. Images support Linux amd64 and arm64.
+`compose.yml` uses `ghcr.io/sakura520222/pyabot:latest` and mounts the local `data/` directory at `/AstrBot/data`. Pin the image tag to `4.29.3` when needed. Images support Linux amd64 and arm64.
 
 ## Run a container directly
 
 Linux and macOS:
 
 ~~~bash
-docker run -d --name astrbot --restart unless-stopped \
+docker run -d --name pyabot --restart unless-stopped \
   -p 6185:6185 -e TZ=Asia/Shanghai \
   -v "$PWD/data:/AstrBot/data" \
-  ghcr.io/sakura520222/astrbot:latest
+  ghcr.io/sakura520222/pyabot:latest
 ~~~
 
 Windows PowerShell:
 
 ~~~powershell
-docker run -d --name astrbot --restart unless-stopped -p 6185:6185 -e TZ=Asia/Shanghai -v "${PWD}/data:/AstrBot/data" ghcr.io/sakura520222/astrbot:latest
+docker run -d --name pyabot --restart unless-stopped -p 6185:6185 -e TZ=Asia/Shanghai -v "${PWD}/data:/AstrBot/data" ghcr.io/sakura520222/pyabot:latest
 ~~~
 
 Add adapter or sandbox ports as documented in their setup guides.
@@ -52,4 +52,4 @@ Container updates replace the image. Keep the existing data mount to preserve co
 
 ## Sandboxes
 
-Follow [Agent sandbox setup](/en/use/astrbot-agent-sandbox) for code execution. The repository's `compose-with-shipyard.yml` uses the same AstrBot image with a separately configured Shipyard service.
+Follow [Agent sandbox setup](/en/use/astrbot-agent-sandbox) for code execution. The repository's `compose-with-shipyard.yml` uses the same PyaBot image with a separately configured Shipyard service.

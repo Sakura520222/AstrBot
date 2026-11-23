@@ -2,15 +2,15 @@ import { defineConfig } from "vitepress";
 import { head } from "./config/head";
 
 export default defineConfig({
-  title: "AstrBot",
-  description: "AstrBot 部署、消息平台接入、模型配置、插件开发与使用文档",
+  title: "PyaBot",
+  description: "PyaBot 部署、消息平台接入、模型配置、插件开发与使用文档",
   head,
   rewrites: {
     "zh/:rest*": "docs/:rest*",
     "en/:rest*": "docs/en/:rest*",
   },
   sitemap: {
-    hostname: "https://astrbot.pyabunny.com/",
+    hostname: "https://pyabot.pyabunny.com/",
   },
   lastUpdated: true,
   ignoreDeadLinks: false,
@@ -45,7 +45,7 @@ export default defineConfig({
           },
           {
             text: "版本发布",
-            link: "https://github.com/Sakura520222/AstrBot/releases",
+            link: "https://github.com/Sakura520222/PyaBot/releases",
           },
           {
             text: "HTTP API",
@@ -58,7 +58,7 @@ export default defineConfig({
             text: "简介",
             items: [
               {
-                text: "关于 AstrBot",
+                text: "关于 PyaBot",
                 link: "/docs/what-is-astrbot",
               },
               {
@@ -313,7 +313,7 @@ export default defineConfig({
                 link: "/webui",
               },
               {
-                text: "AstrBot CLI",
+                text: "PyaBot CLI",
                 link: "/cli",
               },
               {
@@ -339,7 +339,7 @@ export default defineConfig({
                 ],
               },
               {
-                text: "AstrBot 内置 AI",
+                text: "PyaBot 内置 AI",
                 collapsed: false,
                 items: [
                   {
@@ -493,7 +493,7 @@ export default defineConfig({
                 link: "/plugin-platform-adapter",
               },
               {
-                text: "AstrBot HTTP API",
+                text: "PyaBot HTTP API",
                 link: "/openapi",
               },
               {
@@ -501,7 +501,7 @@ export default defineConfig({
                 link: "/openapi-scopes",
               },
               {
-                text: "AstrBot 配置文件",
+                text: "PyaBot 配置文件",
                 link: "/astrbot-config",
               },
             ],
@@ -539,14 +539,14 @@ export default defineConfig({
         },
         editLink: {
           pattern:
-            "https://github.com/Sakura520222/AstrBot/edit/master/docs/:path",
+            "https://github.com/Sakura520222/PyaBot/edit/master/docs/:path",
           text: "发现文档有问题？在 GitHub 上编辑此页",
         },
         logo: "/favicon.svg",
         socialLinks: [
           {
             icon: "github",
-            link: "https://github.com/Sakura520222/AstrBot",
+            link: "https://github.com/Sakura520222/PyaBot",
           },
         ],
         footer: {
@@ -571,7 +571,7 @@ export default defineConfig({
           },
           {
             text: "Releases",
-            link: "https://github.com/Sakura520222/AstrBot/releases",
+            link: "https://github.com/Sakura520222/PyaBot/releases",
           },
           {
             text: "HTTP API",
@@ -584,7 +584,7 @@ export default defineConfig({
             text: "Introduction",
             items: [
               {
-                text: "What is AstrBot",
+                text: "What is PyaBot",
                 link: "/docs/en/what-is-astrbot",
               },
               {
@@ -842,7 +842,7 @@ export default defineConfig({
                 link: "/webui",
               },
               {
-                text: "AstrBot CLI",
+                text: "PyaBot CLI",
                 link: "/cli",
               },
               {
@@ -868,7 +868,7 @@ export default defineConfig({
                 ],
               },
               {
-                text: "AstrBot Built-in AI",
+                text: "PyaBot Built-in AI",
                 collapsed: false,
                 items: [
                   {
@@ -1018,7 +1018,7 @@ export default defineConfig({
                 link: "/plugin-platform-adapter",
               },
               {
-                text: "AstrBot HTTP API",
+                text: "PyaBot HTTP API",
                 link: "/openapi",
               },
               {
@@ -1026,7 +1026,7 @@ export default defineConfig({
                 link: "/openapi-scopes",
               },
               {
-                text: "AstrBot Configuration File",
+                text: "PyaBot Configuration File",
                 link: "/astrbot-config",
               },
             ],
@@ -1060,14 +1060,14 @@ export default defineConfig({
         },
         editLink: {
           pattern:
-            "https://github.com/Sakura520222/AstrBot/edit/master/docs/:path",
+            "https://github.com/Sakura520222/PyaBot/edit/master/docs/:path",
           text: "Edit this page on GitHub",
         },
         logo: "/favicon.svg",
         socialLinks: [
           {
             icon: "github",
-            link: "https://github.com/Sakura520222/AstrBot",
+            link: "https://github.com/Sakura520222/PyaBot",
           },
         ],
         footer: {
@@ -1075,13 +1075,13 @@ export default defineConfig({
             'Maintained by Sakura520222 · Based on <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot</a> · AGPL-3.0-or-later',
         },
       },
-      title: "AstrBot documentation",
+      title: "PyaBot documentation",
       description:
-        "AstrBot deployment, configuration, messaging platforms, models, plugins, and tools.",
+        "PyaBot deployment, configuration, messaging platforms, models, plugins, and tools.",
     },
   },
   themeConfig: {
-    siteTitle: "AstrBot",
+    siteTitle: "PyaBot",
     logoLink: "/",
     i18nRouting: false,
     search: {

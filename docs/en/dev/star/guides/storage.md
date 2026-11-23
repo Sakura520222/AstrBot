@@ -3,9 +3,9 @@
 ## Simple KV Storage
 
 > [!TIP]
-> Requires AstrBot version >= 4.9.2.
+> Requires PyaBot version >= 4.9.2.
 
-Plugins can use AstrBot's simple key-value store to persist configuration or temporary data. The storage is scoped per plugin, so each plugin has its own isolated space.
+Plugins can use PyaBot's simple key-value store to persist configuration or temporary data. The storage is scoped per plugin, so each plugin has its own isolated space.
 
 ```py
 class Main(star.Star):

@@ -1003,6 +1003,8 @@ async def test_astrbot_updater_prefers_hosted_core_package(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
+    monkeypatch.delenv("PYABOT_CLI", raising=False)
+    monkeypatch.delenv("PYABOT_LAUNCHER", raising=False)
     monkeypatch.delenv("ASTRBOT_CLI", raising=False)
     monkeypatch.delenv("ASTRBOT_LAUNCHER", raising=False)
     monkeypatch.setenv("ASTRBOT_CORE_PACKAGE_BASE_URL", "https://cdn.example/core")
@@ -1024,7 +1026,7 @@ async def test_astrbot_updater_prefers_hosted_core_package(
     async def fake_download_file(url: str, path: str, progress_callback=None):  # noqa: ARG001
         calls.append(url)
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("AstrBot-v99.0.0/README.md", "hosted-core")
+            archive.writestr("PyaBot-v99.0.0/README.md", "hosted-core")
 
     monkeypatch.setattr(updater, "_fetch_release_info", fake_fetch_release_info)
     monkeypatch.setattr(updater, "_download_file", fake_download_file)
@@ -1037,7 +1039,7 @@ async def test_astrbot_updater_prefers_hosted_core_package(
 
     assert zip_path == tmp_path / "core.zip"
     assert zipfile.is_zipfile(zip_path)
-    assert calls == ["https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip"]
+    assert calls == ["https://cdn.example/core/v99.0.0/PyaBot-v99.0.0-core.zip"]
 
 
 @pytest.mark.asyncio
@@ -1045,6 +1047,8 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_fails(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
+    monkeypatch.delenv("PYABOT_CLI", raising=False)
+    monkeypatch.delenv("PYABOT_LAUNCHER", raising=False)
     monkeypatch.delenv("ASTRBOT_CLI", raising=False)
     monkeypatch.delenv("ASTRBOT_LAUNCHER", raising=False)
     monkeypatch.setenv("ASTRBOT_CORE_PACKAGE_BASE_URL", "https://cdn.example/core")
@@ -1082,7 +1086,7 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_fails(
     assert zip_path == tmp_path / "core.zip"
     assert zip_path.read_bytes() == b"github-core"
     assert calls == [
-        "https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip",
+        "https://cdn.example/core/v99.0.0/PyaBot-v99.0.0-core.zip",
         "https://github.example/archive.zip",
     ]
 
@@ -1092,6 +1096,8 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_is_not_zip(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
+    monkeypatch.delenv("PYABOT_CLI", raising=False)
+    monkeypatch.delenv("PYABOT_LAUNCHER", raising=False)
     monkeypatch.delenv("ASTRBOT_CLI", raising=False)
     monkeypatch.delenv("ASTRBOT_LAUNCHER", raising=False)
     monkeypatch.setenv("ASTRBOT_CORE_PACKAGE_BASE_URL", "https://cdn.example/core")
@@ -1117,7 +1123,7 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_is_not_zip(
             Path(path).write_bytes(b"not a zip")
             return
         with zipfile.ZipFile(path, "w") as archive:
-            archive.writestr("AstrBot-v99.0.0/README.md", "github-core")
+            archive.writestr("PyaBot-v99.0.0/README.md", "github-core")
 
     monkeypatch.setattr(updater, "_fetch_release_info", fake_fetch_release_info)
     monkeypatch.setattr(updater, "_download_file", fake_download_file)
@@ -1131,7 +1137,7 @@ async def test_astrbot_updater_falls_back_when_hosted_core_package_is_not_zip(
     assert zip_path == tmp_path / "core.zip"
     assert zipfile.is_zipfile(zip_path)
     assert calls == [
-        "https://cdn.example/core/v99.0.0/AstrBot-v99.0.0-core.zip",
+        "https://cdn.example/core/v99.0.0/PyaBot-v99.0.0-core.zip",
         "https://github.example/archive.zip",
     ]
 
@@ -1165,7 +1171,7 @@ async def test_download_dashboard_only_uses_the_personal_fork_release(
 
     assert zipfile.is_zipfile(zip_path)
     assert calls == [
-        "https://github.com/Sakura520222/AstrBot/releases/download/v99.0.0/AstrBot-v99.0.0-dashboard.zip",
+        "https://github.com/Sakura520222/PyaBot/releases/download/v99.0.0/PyaBot-v99.0.0-dashboard.zip",
     ]
 
 
@@ -1255,7 +1261,7 @@ async def test_empty_release_feed_has_no_update(
     updater = AstrBotUpdater()
     assert await updater.check_update(consider_prerelease) is None
     assert fake_async_client_state.requested_urls == [
-        "https://astrbot.pyabunny.com/releases.json"
+        "https://pyabot.pyabunny.com/releases.json"
     ]
 
 
@@ -1273,7 +1279,7 @@ async def test_release_feed_accepts_optional_github_names_and_notes(
             "tag_name": "v99.0.0",
             "published_at": "2026-10-31T00:00:00Z",
             "body": None,
-            "zipball_url": "https://github.com/Sakura520222/AstrBot/archive/v99.0.0.zip",
+            "zipball_url": "https://github.com/Sakura520222/PyaBot/archive/v99.0.0.zip",
         }
     ]
     monkeypatch.setattr(

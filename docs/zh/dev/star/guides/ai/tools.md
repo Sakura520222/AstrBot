@@ -39,9 +39,9 @@ class BilibiliTool(FunctionTool[AstrAgentContext]):
         return "1. 视频标题：如何使用AstrBot\n视频链接：xxxxxx"
 ```
 
-## 注册 Tool 到 AstrBot
+## 注册 Tool 到 PyaBot
 
-在上面定义好 Tool 之后，如果你需要实现的功能是让用户在使用 AstrBot 进行对话时自动调用该 Tool，那么你需要在插件的 __init__ 方法中将 Tool 注册到 AstrBot 中：
+在上面定义好 Tool 之后，如果你需要实现的功能是让用户在使用 PyaBot 进行对话时自动调用该 Tool，那么你需要在插件的 __init__ 方法中将 Tool 注册到 PyaBot 中：
 
 ```py
 class MyPlugin(Star):
@@ -66,7 +66,7 @@ class MyPlugin(Star):
 
 ### 通过装饰器定义 Tool 和注册 Tool
 
-除了上述的通过 `@dataclass` 定义 Tool 的方式之外，你也可以使用装饰器的方式注册 tool 到 AstrBot。请务必按照以下格式编写一个工具（包括函数注释，AstrBot 会解析该函数注释，请务必将注释格式写对）：
+除了上述的通过 `@dataclass` 定义 Tool 的方式之外，你也可以使用装饰器的方式注册 tool 到 PyaBot。请务必按照以下格式编写一个工具（包括函数注释，PyaBot 会解析该函数注释，请务必将注释格式写对）：
 
 ```py{3,4,5,6,7}
 @filter.llm_tool(name="get_weather")  # 如果 name 不填，将使用函数名

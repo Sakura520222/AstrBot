@@ -2,7 +2,7 @@
 
 > Introduced in v4.22.0.
 
-AstrBot supports connecting a personal WeChat account through the `Personal WeChat` adapter. This adapter is implemented on top of Tencent's official `openclaw-weixin` interface, uses QR-code login plus long polling, and does not require a Webhook callback URL.
+PyaBot supports connecting a personal WeChat account through the `Personal WeChat` adapter. This adapter is implemented on top of Tencent's official `openclaw-weixin` interface, uses QR-code login plus long polling, and does not require a Webhook callback URL.
 
 > [!NOTE]
 > Please upgrade your mobile WeChat to a recent version.
@@ -21,7 +21,7 @@ AstrBot supports connecting a personal WeChat account through the `Personal WeCh
 
 ## Create the Bot
 
-1. Open AstrBot WebUI.
+1. Open PyaBot WebUI.
 2. Click `Platforms` in the left sidebar.
 3. Click `Add Adapter` above the bot list.
 4. Select `Personal WeChat`.
@@ -42,26 +42,26 @@ Leave the remaining options at their default values unless you explicitly know y
 - `API Timeout (weixin_oc_api_timeout_ms)`
 
 > [!TIP]
-> `token` and `account_id` are saved automatically by AstrBot after QR login succeeds. You normally do not need to fill them manually.
+> `token` and `account_id` are saved automatically by PyaBot after QR login succeeds. You normally do not need to fill them manually.
 
 ## QR Login
 
-After you select `Personal WeChat`, AstrBot automatically requests a login QR code from WeChat and shows it directly in the create-bot dialog. Scan it with WeChat on your phone and confirm the login. When the QR area shows the login-success state, click `Save` to finish creating the bot.
+After you select `Personal WeChat`, PyaBot automatically requests a login QR code from WeChat and shows it directly in the create-bot dialog. Scan it with WeChat on your phone and confirm the login. When the QR area shows the login-success state, click `Save` to finish creating the bot.
 
-After login succeeds and the bot is saved, AstrBot will automatically persist the login state. On later restarts, if the session is still valid, you usually do not need to scan again.
+After login succeeds and the bot is saved, PyaBot will automatically persist the login state. On later restarts, if the session is still valid, you usually do not need to scan again.
 
 > [!NOTE]
 > If the QR code expires, close and reopen the create-bot dialog, or select `Personal WeChat` again to request a new QR code.
 
 ## Verification
 
-After login succeeds, send a message from WeChat. If AstrBot replies normally, the integration is working.
+After login succeeds, send a message from WeChat. If PyaBot replies normally, the integration is working.
 
 You can also watch `Data & Logs` -> `Logs` in the WebUI to confirm that the adapter has completed login and started polling messages.
 
 ## Media File Storage
 
-Received images, videos, files, and voice messages are downloaded and decrypted into AstrBot's local temporary directory:
+Received images, videos, files, and voice messages are downloaded and decrypted into PyaBot's local temporary directory:
 
 `data/temp`
 

@@ -4,7 +4,7 @@ outline: deep
 
 # 开发一个平台适配器
 
-AstrBot 支持以插件的形式接入平台适配器，你可以自行接入 AstrBot 没有的平台。如飞书、钉钉甚至是哔哩哔哩私信、Minecraft。
+PyaBot 支持以插件的形式接入平台适配器，你可以自行接入 PyaBot 没有的平台。如飞书、钉钉甚至是哔哩哔哩私信、Minecraft。
 
 我们以一个平台 `FakePlatform` 为例展开讲解。
 
@@ -188,7 +188,7 @@ class FakePlatformEvent(AstrMessageEvent):
 
 ## 媒体消息处理
 
-平台适配器不需要在每个平台里重复实现媒体解析逻辑。你只需要把平台消息转换成 AstrBot 的消息组件，组件里的 `file` / `url` 可以保存以下媒体引用：
+平台适配器不需要在每个平台里重复实现媒体解析逻辑。你只需要把平台消息转换成 PyaBot 的消息组件，组件里的 `file` / `url` 可以保存以下媒体引用：
 
 - 本地路径，例如 `/tmp/a.jpg`
 - 标准 `file:` URI，例如 `file:///tmp/a.jpg`
@@ -215,7 +215,7 @@ abm.message.append(Record(file=audio_url, url=audio_url))
 abm.message.append(Video(file=video_url, url=video_url))
 ```
 
-进入插件和 LLM 前，AstrBot 的预处理阶段会尽量把消息链里的媒体标准化：
+进入插件和 LLM 前，PyaBot 的预处理阶段会尽量把消息链里的媒体标准化：
 
 - `Image` 会通过统一媒体处理工具落地为本地文件，并在需要时转换为 JPEG。
 - `Record` 会落地为本地文件，并在需要时转换为 WAV。
@@ -236,7 +236,7 @@ elif isinstance(i, Video):
     await self.client.send_video(to=self.get_sender_id(), video_path=video_path)
 ```
 
-如果适配器自己下载了平台媒体并写入 AstrBot 临时目录，请在创建事件后把路径登记到事件上，避免事件结束后留下临时文件：
+如果适配器自己下载了平台媒体并写入 PyaBot 临时目录，请在创建事件后把路径登记到事件上，避免事件结束后留下临时文件：
 
 ```py
 message_event.track_temporary_local_file(temp_media_path)
@@ -253,7 +253,7 @@ class MyPlugin(Star):
         from .fake_platform_adapter import FakePlatformAdapter  # noqa
 ```
 
-搞好后，运行 AstrBot：
+搞好后，运行 PyaBot：
 
 ![image](/images/1c12ad7be69afb35.png)
 

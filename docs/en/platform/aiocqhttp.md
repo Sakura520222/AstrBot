@@ -1,11 +1,11 @@
 # Connect OneBot v11 Protocol Implementations
 
 > [!TIP]
-> If you plan to connect AstrBot to QQ, we recommend using [QQ Official Bot (WebSockets)](/en/platform/qqofficial/websockets). It is officially provided by QQ, offers greater stability, and supports one-click login by scanning a QR code.
+> If you plan to connect PyaBot to QQ, we recommend using [QQ Official Bot (WebSockets)](/en/platform/qqofficial/websockets). It is officially provided by QQ, offers greater stability, and supports one-click login by scanning a QR code.
 
 OneBot is a standardized bot application interface designed to unify bot development across different chat platforms, so developers can write business logic once and use it on multiple platforms.
 
-AstrBot supports all client implementations that implement OneBot v11 reverse WebSocket (AstrBot acts as the server).
+PyaBot supports all client implementations that implement OneBot v11 reverse WebSocket (PyaBot acts as the server).
 
 Common OneBot v11 implementation projects are listed below:
 
@@ -16,7 +16,7 @@ Please refer to each implementation project's deployment documentation.
 
 ## 1. Configure OneBot v11
 
-1. Open AstrBot's WebUI
+1. Open PyaBot's WebUI
 2. Click `Platforms` in the left sidebar
 3. Click `Add Adapter` above the bot list
 4. Select `OneBot v11`
@@ -37,10 +37,10 @@ Please refer to each protocol implementation project's deployment documentation.
 
 Notes:
 
-1. The implementation must support `Reverse WebSocket`, with AstrBot acting as the server and the implementation client as the client.
+1. The implementation must support `Reverse WebSocket`, with PyaBot acting as the server and the implementation client as the client.
 2. The reverse WebSocket URL is `ws(s)://<your-host>:6199/ws`.
 
 ## 3. Verify
 
-Go to `Data & Logs` -> `Logs` in the AstrBot WebUI. If a blue log appears saying `aiocqhttp(OneBot v11) adapter connected.`, the connection is successful.
+Go to `Data & Logs` -> `Logs` in the PyaBot WebUI. If a blue log appears saying `aiocqhttp(OneBot v11) adapter connected.`, the connection is successful.
 If after a few seconds you see `aiocqhttp adapter has been closed`, it means the connection timed out (failed). Please double-check your configuration.

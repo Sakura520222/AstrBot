@@ -1,13 +1,13 @@
 # 脚本安装
 
-需要先安装 Git。安装脚本使用 uv 创建 Python 3.12 环境，并从本仓库安装 AstrBot。
+需要先安装 Git。安装脚本使用 uv 创建 Python 3.12 环境，并从本仓库安装 PyaBot。
 
 ## Linux 与 macOS
 
 下载并查看脚本，然后执行：
 
 ~~~bash
-curl -fsSL https://astrbot.pyabunny.com/docs/install.sh -o install.sh
+curl -fsSL https://pyabot.pyabunny.com/docs/install.sh -o install.sh
 bash install.sh
 ~~~
 
@@ -16,7 +16,7 @@ bash install.sh
 ## Windows PowerShell
 
 ~~~powershell
-Invoke-WebRequest https://astrbot.pyabunny.com/docs/install.ps1 -OutFile install.ps1
+Invoke-WebRequest https://pyabot.pyabunny.com/docs/install.ps1 -OutFile install.ps1
 .\install.ps1
 ~~~
 
@@ -27,11 +27,11 @@ Invoke-WebRequest https://astrbot.pyabunny.com/docs/install.ps1 -OutFile install
 安装完成后，在运行目录执行：
 
 ```bash
-astrbot init
-astrbot run
+pyabot init
+pyabot run
 ```
 
-`astrbot init` 创建实例的数据目录，`astrbot run` 启动服务。按页面或日志中的提示完成账号设置。
+`pyabot init` 创建实例的数据目录，`pyabot run` 启动服务。按页面或日志中的提示完成账号设置。
 
 ## 数据与更新
 

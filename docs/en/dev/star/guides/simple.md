@@ -28,10 +28,10 @@ class MyPlugin(Star):
 Explanation:
 
 - Plugins must inherit from the `Star` class.
-- The `Context` class is used for plugin interaction with AstrBot Core, allowing you to call various APIs provided by AstrBot Core.
+- The `Context` class is used for plugin interaction with PyaBot Core, allowing you to call various APIs provided by PyaBot Core.
 - Specific handler functions are defined within the plugin class, such as the `helloworld` function here.
-- `AstrMessageEvent` is AstrBot's message event object, which stores information about the message sender, message content, etc.
-- `AstrBotMessage` is AstrBot's message object, which stores the specific content of messages delivered by the messaging platform. It can be accessed via `event.message_obj`.
+- `AstrMessageEvent` is PyaBot's message event object, which stores information about the message sender, message content, etc.
+- `AstrBotMessage` is PyaBot's message object, which stores the specific content of messages delivered by the messaging platform. It can be accessed via `event.message_obj`.
 
 > [!TIP]
 >

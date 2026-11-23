@@ -34,17 +34,17 @@
       "subtitle": "查看当前版本和历史版本的更新内容。"
     },
     "documentation": {
-      "subtitle": "打开 AstrBot 官方文档。"
+      "subtitle": "打开 PyaBot 官方文档。"
     },
     "faq": {
       "subtitle": "查看常见问题与排障说明。"
     },
     "github": {
-      "subtitle": "访问 AstrBot GitHub 仓库。"
+      "subtitle": "访问 PyaBot GitHub 仓库。"
     }
   },
   "systemConfig": {
-    "restartRequired": "系统配置已保存。部分配置需要重启 AstrBot 后才会生效。",
+    "restartRequired": "系统配置已保存。部分配置需要重启 PyaBot 后才会生效。",
     "groups": {
       "runtime": {
         "title": "基础运行",
@@ -68,7 +68,7 @@
       }
     },
     "timePreview": {
-      "label": "AstrBot 当前时间"
+      "label": "PyaBot 当前时间"
     },
     "messages": {
       "loadFailed": "加载系统配置失败",
@@ -80,12 +80,12 @@
     "title": "网络",
     "githubProxy": {
       "title": "GitHub 加速地址",
-      "subtitle": "设置下载插件或者更新 AstrBot 时所用的 GitHub 加速地址。这在中国大陆的网络环境有效。可以自定义，输入结果实时生效。所有地址均不保证稳定性，如果在更新插件/项目时出现报错，请首先检查加速地址是否能正常使用。",
+      "subtitle": "设置下载插件或者更新 PyaBot 时所用的 GitHub 加速地址。这在中国大陆的网络环境有效。可以自定义，输入结果实时生效。所有地址均不保证稳定性，如果在更新插件/项目时出现报错，请首先检查加速地址是否能正常使用。",
       "label": "选择 GitHub 加速地址"
     },
     "pypiMirror": {
       "title": "PyPI 软件仓库地址",
-      "subtitle": "安装 AstrBot 的 Python 依赖时使用的 PyPI 源。可选择国内镜像加速或自定义地址；修改后需重启 AstrBot 生效。",
+      "subtitle": "安装 PyaBot 的 Python 依赖时使用的 PyPI 源。可选择国内镜像加速或自定义地址；修改后需重启 PyaBot 生效。",
       "label": "选择 PyPI 源",
       "custom": "自定义",
       "customPlaceholder": "https://example.com/pypi/simple",
@@ -132,13 +132,13 @@
     "title": "系统",
     "restart": {
       "title": "重启",
-      "subtitle": "重启 AstrBot",
-      "confirm": "确定要重启 AstrBot 吗？重启期间 WebUI 会短暂不可用。",
+      "subtitle": "重启 PyaBot",
+      "confirm": "确定要重启 PyaBot 吗？重启期间 WebUI 会短暂不可用。",
       "button": "重启"
     },
     "backup": {
       "title": "数据备份与恢复",
-      "subtitle": "导出或导入 AstrBot 的所有数据，方便迁移到新服务器",
+      "subtitle": "导出或导入 PyaBot 的所有数据，方便迁移到新服务器",
       "button": "备份管理"
     },
     "cleanup": {
@@ -187,7 +187,7 @@
     },
     "diagnostics": {
       "title": "诊断",
-      "subtitle": "导出诊断包，帮助排查 AstrBot 运行问题。"
+      "subtitle": "导出诊断包，帮助排查 PyaBot 运行问题。"
     }
   },
   "backup": {
@@ -233,7 +233,7 @@
       "processing": "正在导入...",
       "wait": "请稍候，正在恢复数据...",
       "completed": "导入完成！",
-      "restartRequired": "数据已成功导入。建议立即重启 AstrBot 以使所有更改生效。",
+      "restartRequired": "数据已成功导入。建议立即重启 PyaBot 以使所有更改生效。",
       "restartNow": "立即重启",
       "failed": "导入失败",
       "retry": "重试",
@@ -247,7 +247,7 @@
         "minorDiffTitle": "⚠️ 版本差异警告",
         "minorDiffMessage": "小版本差异通常是兼容的，但可能存在少量数据结构变化。\n导入将会清空并覆盖现有的所有数据！\n\n是否确认继续导入？",
         "majorDiffTitle": "⛔ 无法导入",
-        "majorDiffMessage": "主版本号不同，跨主版本导入可能导致数据损坏。\n请使用相同主版本的 AstrBot 进行导入。"
+        "majorDiffMessage": "主版本号不同，跨主版本导入可能导致数据损坏。\n请使用相同主版本的 PyaBot 进行导入。"
       }
     },
     "list": {

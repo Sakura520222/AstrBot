@@ -18,7 +18,7 @@ def test_init_yes_skips_install_confirmation(monkeypatch, tmp_path):
     result = CliRunner().invoke(cmd_init.init, ["-y"])
 
     assert result.exit_code == 0, result.output
-    assert (tmp_path / ".astrbot").exists()
+    assert (tmp_path / ".pyabot").exists()
     assert (tmp_path / "data" / "config").is_dir()
     assert (tmp_path / "data" / "plugins").is_dir()
     assert (tmp_path / "data" / "temp").is_dir()

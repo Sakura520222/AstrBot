@@ -39,7 +39,7 @@ class BilibiliTool(FunctionTool[AstrAgentContext]):
         return "1. Video Title: How to Use AstrBot\nVideo Link: xxxxxx"
 ```
 
-## Registering Tools with AstrBot
+## Registering Tools with PyaBot
 
 Once a Tool is defined, if you want it to be automatically invoked during user conversations, register it in your plugin's `__init__` method:
 
@@ -66,7 +66,7 @@ class MyPlugin(Star):
 
 ### Registering Tools via Decorator
 
-Alternatively, you can use the `@filter.llm_tool` decorator to define and register a tool in one step. Make sure to follow the exact format below, including the docstring — AstrBot parses the docstring to generate the parameter schema:
+Alternatively, you can use the `@filter.llm_tool` decorator to define and register a tool in one step. Make sure to follow the exact format below, including the docstring — PyaBot parses the docstring to generate the parameter schema:
 
 ```py{3,4,5,6,7}
 @filter.llm_tool(name="get_weather")  # If name is omitted, the function name is used

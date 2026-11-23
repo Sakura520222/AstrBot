@@ -4,7 +4,7 @@ Use CasaOS custom application installation with these settings:
 
 | Setting | Value |
 | --- | --- |
-| Image | `ghcr.io/sakura520222/astrbot:latest` |
+| Image | `ghcr.io/sakura520222/pyabot:latest` |
 | Container port | `6185/tcp` |
 | Host port | `6185` |
 | Container data path | `/AstrBot/data` |

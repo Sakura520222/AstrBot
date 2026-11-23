@@ -1,8 +1,8 @@
 # Publishing Plugins to the Plugin Marketplace
 
-After completing your plugin development, you can choose to publish it to the AstrBot Plugin Marketplace, allowing more users to benefit from your work.
+After completing your plugin development, you can choose to publish it to the PyaBot Plugin Marketplace, allowing more users to benefit from your work.
 
-AstrBot uses GitHub to host plugins, so you'll need to push your plugin code to the GitHub plugin repository you created earlier.
+PyaBot uses GitHub to host plugins, so you'll need to push your plugin code to the GitHub plugin repository you created earlier.
 
 You can publish your plugin by visiting the [AstrBot Plugin Publish Page](https://cloud.astrbot.app/publish), You need to register an AstrBot Cloud account to publish plugins.
 

@@ -56,27 +56,27 @@ export function getPlatformIcon(name) {
  */
 export function getTutorialLink(platformType) {
   const tutorialMap = {
-    "qq_official_webhook": "https://astrbot.pyabunny.com/docs/platform/qqofficial/webhook.html",
-    "qq_official": "https://astrbot.pyabunny.com/docs/platform/qqofficial/websockets.html",
-    "aiocqhttp": "https://astrbot.pyabunny.com/docs/platform/aiocqhttp.html",
-    "wecom": "https://astrbot.pyabunny.com/docs/platform/wecom.html",
-    "weixin_oc": "https://astrbot.pyabunny.com/docs/platform/weixin_oc.html",
-    "wecom_ai_bot": "https://astrbot.pyabunny.com/docs/platform/wecom_ai_bot.html",
-    "lark": "https://astrbot.pyabunny.com/docs/platform/lark.html",
-    "telegram": "https://astrbot.pyabunny.com/docs/platform/telegram.html",
-    "dingtalk": "https://astrbot.pyabunny.com/docs/platform/dingtalk.html",
-    "weixin_official_account": "https://astrbot.pyabunny.com/docs/platform/weixin-official-account.html",
-    "discord": "https://astrbot.pyabunny.com/docs/platform/discord.html",
-    "slack": "https://astrbot.pyabunny.com/docs/platform/slack.html",
-    "kook": "https://astrbot.pyabunny.com/docs/platform/kook.html",
-    "vocechat": "https://astrbot.pyabunny.com/docs/platform/vocechat.html",
-    "satori": "https://astrbot.pyabunny.com/docs/platform/satori/guide.html",
-    "misskey": "https://astrbot.pyabunny.com/docs/platform/misskey.html",
-    "line": "https://astrbot.pyabunny.com/docs/platform/line.html",
-    "matrix": "https://astrbot.pyabunny.com/docs/platform/matrix.html",
-    "mattermost": "https://astrbot.pyabunny.com/docs/platform/mattermost.html",
+    "qq_official_webhook": "https://pyabot.pyabunny.com/docs/platform/qqofficial/webhook.html",
+    "qq_official": "https://pyabot.pyabunny.com/docs/platform/qqofficial/websockets.html",
+    "aiocqhttp": "https://pyabot.pyabunny.com/docs/platform/aiocqhttp.html",
+    "wecom": "https://pyabot.pyabunny.com/docs/platform/wecom.html",
+    "weixin_oc": "https://pyabot.pyabunny.com/docs/platform/weixin_oc.html",
+    "wecom_ai_bot": "https://pyabot.pyabunny.com/docs/platform/wecom_ai_bot.html",
+    "lark": "https://pyabot.pyabunny.com/docs/platform/lark.html",
+    "telegram": "https://pyabot.pyabunny.com/docs/platform/telegram.html",
+    "dingtalk": "https://pyabot.pyabunny.com/docs/platform/dingtalk.html",
+    "weixin_official_account": "https://pyabot.pyabunny.com/docs/platform/weixin-official-account.html",
+    "discord": "https://pyabot.pyabunny.com/docs/platform/discord.html",
+    "slack": "https://pyabot.pyabunny.com/docs/platform/slack.html",
+    "kook": "https://pyabot.pyabunny.com/docs/platform/kook.html",
+    "vocechat": "https://pyabot.pyabunny.com/docs/platform/vocechat.html",
+    "satori": "https://pyabot.pyabunny.com/docs/platform/satori/guide.html",
+    "misskey": "https://pyabot.pyabunny.com/docs/platform/misskey.html",
+    "line": "https://pyabot.pyabunny.com/docs/platform/line.html",
+    "matrix": "https://pyabot.pyabunny.com/docs/platform/matrix.html",
+    "mattermost": "https://pyabot.pyabunny.com/docs/platform/mattermost.html",
   }
-  return tutorialMap[platformType] || "https://astrbot.pyabunny.com/docs";
+  return tutorialMap[platformType] || "https://pyabot.pyabunny.com/docs";
 }
 
 /**

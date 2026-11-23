@@ -20,6 +20,8 @@ from astrbot.core.utils.migra_helper import migrate_config_on_load
 from .default import DEFAULT_CONFIG, DEFAULT_VALUE_MAP
 
 ASTRBOT_CONFIG_PATH = os.path.join(get_astrbot_data_path(), "cmd_config.json")
+PYABOT_DASHBOARD_INITIAL_PASSWORD_ENV = "PYABOT_DASHBOARD_INITIAL_PASSWORD"
+PYABOT_DASHBOARD_RESET_PASSWORD_ENV = "PYABOT_RESET_DASHBOARD_PASSWORD"
 DASHBOARD_INITIAL_PASSWORD_ENV = "ASTRBOT_DASHBOARD_INITIAL_PASSWORD"
 DASHBOARD_RESET_PASSWORD_ENV = "ASTRBOT_RESET_DASHBOARD_PASSWORD"
 logger = logging.getLogger("astrbot")
@@ -151,12 +153,16 @@ class AstrBotConfig(dict):
 
     @staticmethod
     def _consume_reset_dashboard_password_flag() -> bool:
-        raw_value = os.environ.pop(DASHBOARD_RESET_PASSWORD_ENV, "")
+        pyabot_value = os.environ.pop(PYABOT_DASHBOARD_RESET_PASSWORD_ENV, "")
+        legacy_value = os.environ.pop(DASHBOARD_RESET_PASSWORD_ENV, "")
+        raw_value = pyabot_value or legacy_value
         return raw_value.strip().lower() in {"1", "true", "yes", "on"}
 
     @staticmethod
     def _resolve_initial_dashboard_password() -> str:
-        env_password = os.environ.get(DASHBOARD_INITIAL_PASSWORD_ENV)
+        env_password = os.environ.get(PYABOT_DASHBOARD_INITIAL_PASSWORD_ENV)
+        if env_password is None:
+            env_password = os.environ.get(DASHBOARD_INITIAL_PASSWORD_ENV)
         if env_password is None:
             return generate_dashboard_password()
         validate_dashboard_password(env_password)

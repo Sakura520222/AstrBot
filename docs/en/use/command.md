@@ -1,6 +1,6 @@
 # Built-in Commands
 
-AstrBot commands are registered through the plugin system. To keep the core lightweight, only a small set of basic commands are loaded with AstrBot itself. Other management and extended commands have been moved into a separate plugin.
+PyaBot commands are registered through the plugin system. To keep the core lightweight, only a small set of basic commands are loaded with PyaBot itself. Other management and extended commands have been moved into a separate plugin.
 
 Use `/help` to view currently enabled commands.
 
@@ -12,9 +12,9 @@ Built-in command replies and command descriptions in `/help` use the session's s
 
 ## Core Built-in Commands
 
-The following commands are shipped with AstrBot and loaded by default:
+The following commands are shipped with PyaBot and loaded by default:
 
-- `/help`: View currently enabled commands and AstrBot version information.
+- `/help`: View currently enabled commands and PyaBot version information.
 - `/sid`: View current message source information, including UMO, user ID, platform ID, message type, and session ID. This is commonly used when configuring admins, allowlists, or routing rules.
 - `/name`: Set a display alias for the current UMO, which means one concrete group or private-chat message source on a platform, so it is easier to recognize in WebUI. This command requires admin permission.
 - `/reset`: Clear the context of the current conversation.
@@ -22,7 +22,7 @@ The following commands are shipped with AstrBot and loaded by default:
 - `/new`: Create and switch to a new conversation.
 - `/stats`: View token usage statistics for the current conversation.
 - `/provider`: View or switch LLM Provider. This command requires admin permission.
-- `/dashboard_update`: Update AstrBot WebUI. This command requires admin permission.
+- `/dashboard_update`: Update PyaBot WebUI. This command requires admin permission.
 - `/set`: Set a session variable, commonly used for Agent Runner input variables such as Dify, Coze, or DashScope.
 - `/unset`: Remove a session variable.
 
@@ -39,7 +39,7 @@ astrbot/builtin_stars/builtin_commands
 `/sid` shows information about the current message source. It mainly returns:
 
 - `UMO`: The unified message origin of the current message. It is commonly used for allowlists and per-session config routing.
-- `UID`: The sender's user ID. It is commonly used when adding AstrBot admins.
+- `UID`: The sender's user ID. It is commonly used when adding PyaBot admins.
 - `Bot ID`: The platform instance ID of the current bot.
 - `Message Type`: The message type, such as private chat or group chat.
 - `Session ID`: The platform-side session ID.
@@ -56,7 +56,7 @@ Common uses:
 
 `/name` sets a human-readable display alias for the current UMO. UMO stands for Unified Message Origin. It identifies one concrete message source in the form `platform ID:message type:session ID`, such as a QQ group, a Telegram group, or a private chat on a specific platform.
 
-Raw UMOs are often long and are not always easy to recognize at a glance. After setting `/name`, AstrBot shows this alias first in WebUI UMO lists, session source selectors, cron delivery targets, conversation data, and other places where administrators need to identify or select a target session. This reduces the chance of choosing the wrong source when configuring routing rules, cron delivery targets, or per-session rules.
+Raw UMOs are often long and are not always easy to recognize at a glance. After setting `/name`, PyaBot shows this alias first in WebUI UMO lists, session source selectors, cron delivery targets, conversation data, and other places where administrators need to identify or select a target session. This reduces the chance of choosing the wrong source when configuring routing rules, cron delivery targets, or per-session rules.
 
 `/name` also records the readable auto name provided by the current platform when available, such as a group name in group chats or a sender nickname/ID in private chats. This lets WebUI show a readable name even when no manual alias has been set.
 
@@ -67,9 +67,9 @@ Usage:
 
 Display rules:
 
-- If both alias and auto name exist, AstrBot displays `alias (auto name)`.
-- If only the auto name exists, AstrBot displays the auto name.
-- If neither exists, AstrBot displays the raw UMO.
+- If both alias and auto name exist, PyaBot displays `alias (auto name)`.
+- If only the auto name exists, PyaBot displays the auto name.
+- If neither exists, PyaBot displays the raw UMO.
 
 `/name` requires admin permission.
 
@@ -79,13 +79,13 @@ Both commands stop running tasks in the current session and clear the session's 
 
 `/reset`:
 
-- For AstrBot's built-in Agent Runner, clears the current conversation's context messages while preserving its conversation ID, title, persona, and token usage statistics.
+- For PyaBot's built-in Agent Runner, clears the current conversation's context messages while preserving its conversation ID, title, persona, and token usage statistics.
 - For third-party Agent Runners such as `dify`, `coze`, `dashscope`, and `deerflow`, clears the remote runner context while preserving the local conversation ID.
 - If there is no current conversation, returns a success message without creating a local conversation.
 
 `/new`:
 
-- For AstrBot's built-in Agent Runner, preserves the old conversation record, creates and selects a new local conversation, and inherits the current persona.
+- For PyaBot's built-in Agent Runner, preserves the old conversation record, creates and selects a new local conversation, and inherits the current persona.
 - For third-party Agent Runners, clears the remote runner context first, then creates and selects a new local conversation; old local conversation records remain available.
 
 DeerFlow also attempts to delete the old remote thread.
@@ -93,7 +93,7 @@ DeerFlow also attempts to delete the old remote thread.
 Permission notes:
 
 - In private chat, regular users can use it by default.
-- Group chats default to **Follow Conversation Isolation**: everyone can use the commands when **Isolate Conversation** is enabled and isolation is applied by the platform; otherwise, only AstrBot administrators can use them. Administrators are configured administrator IDs, not automatically detected group administrators. Platforms without isolation support retain the shared-group restriction.
+- Group chats default to **Follow Conversation Isolation**: everyone can use the commands when **Isolate Conversation** is enabled and isolation is applied by the platform; otherwise, only PyaBot administrators can use them. Administrators are configured administrator IDs, not automatically detected group administrators. Platforms without isolation support retain the shared-group restriction.
 - In WebUI, open **Extensions → Handlers → Command** and select **Show System Plugin Commands**. Configure `new` and `reset` individually using **Everyone**, **Administrators Only**, **Administrators Only in Group Chats**, or **Follow Conversation Isolation**. The selected permission applies across all configuration profiles. **Follow Conversation Isolation** evaluates isolation using the incoming message's profile; the other three choices remain fixed when isolation settings change.
 - **Administrators Only** restricts both private and group chats. **Administrators Only in Group Chats** allows everyone in private chats but requires administrator permission in groups.
 - With **Isolate Conversation** disabled, the command switches the conversation for the whole group; with isolation enabled and applied, it affects only the sender's conversation. Select **Everyone** to allow regular members to use the command in shared group conversations.
@@ -110,7 +110,7 @@ It does not clear conversation history and does not create a new conversation. I
 For the built-in Agent Runner, `/stop` asks the Agent Runner to stop the current task.  
 For third-party Agent Runners such as `dify`, `coze`, `dashscope`, and `deerflow`, `/stop` directly stops registered running tasks in the current session.
 
-If there are no running tasks in the current session, AstrBot will report that no task is running.
+If there are no running tasks in the current session, PyaBot will report that no task is running.
 
 ### `/stats`
 
@@ -123,7 +123,7 @@ It queries the database for all Provider call records in the current conversatio
 - Input tokens (other) — input tokens that were not cached and billed normally.
 - Output tokens — tokens generated by the model.
 
-If you are not in a conversation, AstrBot will prompt you to create one with `/new`.
+If you are not in a conversation, PyaBot will prompt you to create one with `/new`.
 
 ### `/provider`
 
@@ -176,6 +176,6 @@ Install or enable the `builtin_commands_extension` plugin if you need these exte
 
 ## Permission Notes
 
-Some commands require AstrBot admin permission, such as `/dashboard_update`, `/name`, `/op`, `/deop`, `/provider`, `/model`, and `/persona`.
+Some commands require PyaBot admin permission, such as `/dashboard_update`, `/name`, `/op`, `/deop`, `/provider`, `/model`, and `/persona`.
 
 You can use `/sid` to get a user ID, then add it in WebUI under `Config -> Access Control -> Administrators -> Administrator IDs`.

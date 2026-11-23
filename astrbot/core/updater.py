@@ -73,10 +73,10 @@ class AstrBotUpdater(_RepoZipUpdater):
         """
         super().__init__(verify=verify)
         self._main_path = get_astrbot_path()
-        self._release_api = "https://astrbot.pyabunny.com/releases.json"
-        self._repository_url = "https://github.com/Sakura520222/AstrBot"
+        self._release_api = "https://pyabot.pyabunny.com/releases.json"
+        self._repository_url = "https://github.com/Sakura520222/PyaBot"
         self._core_package_base_url = (
-            "https://github.com/Sakura520222/AstrBot/releases/download"
+            "https://github.com/Sakura520222/PyaBot/releases/download"
         )
 
     def _build_core_package_url(self, version: str | None) -> str | None:
@@ -92,13 +92,17 @@ class AstrBotUpdater(_RepoZipUpdater):
         if not version or not str(version).startswith("v"):
             return None
 
-        base_url = os.environ.get(
-            "ASTRBOT_CORE_PACKAGE_BASE_URL",
-            self._core_package_base_url,
+        base_url = (
+            os.environ.get("PYABOT_CORE_PACKAGE_BASE_URL")
+            if "PYABOT_CORE_PACKAGE_BASE_URL" in os.environ
+            else os.environ.get(
+                "ASTRBOT_CORE_PACKAGE_BASE_URL",
+                self._core_package_base_url,
+            )
         ).strip()
         if not base_url:
             return None
-        return f"{base_url.rstrip('/')}/{version}/AstrBot-{version}-core.zip"
+        return f"{base_url.rstrip('/')}/{version}/PyaBot-{version}-core.zip"
 
     async def check_update(
         self,
@@ -181,7 +185,7 @@ class AstrBotUpdater(_RepoZipUpdater):
             try:
                 await progress_callback(event)
             except Exception:
-                logger.exception("AstrBot update progress observer failed.")
+                logger.exception("PyaBot update progress observer failed.")
 
         async def dashboard_progress(payload: dict) -> None:
             await emit_progress(
@@ -196,7 +200,7 @@ class AstrBotUpdater(_RepoZipUpdater):
             await emit_progress(
                 "core",
                 "running",
-                "正在下载 AstrBot 项目代码...",
+                "正在下载 PyaBot 项目代码...",
                 45 + int(float(payload.get("percent") or 0) * 45),
                 payload,
             )
@@ -206,11 +210,11 @@ class AstrBotUpdater(_RepoZipUpdater):
         if not target_version or target_version == "latest":
             releases = await self._fetch_release_info(self._release_api)
             if not releases:
-                raise RuntimeError("No AstrBot release is available.")
+                raise RuntimeError("No PyaBot release is available.")
             target_release = releases[0]
             target_version = target_release["tag_name"]
             if self._compare_version(VERSION, target_version) >= 0:
-                raise RuntimeError("AstrBot is already up to date.")
+                raise RuntimeError("PyaBot is already up to date.")
         elif target_version.startswith("v"):
             releases = await self._fetch_release_info(self._release_api)
             target_release = next(
@@ -264,7 +268,7 @@ class AstrBotUpdater(_RepoZipUpdater):
             await emit_progress(
                 "core",
                 "running",
-                "正在下载 AstrBot 项目代码...",
+                "正在下载 PyaBot 项目代码...",
                 45,
             )
             await self._download_core_package(
@@ -378,7 +382,7 @@ class AstrBotUpdater(_RepoZipUpdater):
 
         if not _is_dist_compatible(data_dist_path, VERSION):
             raise RuntimeError(
-                f"Downloaded Dashboard is not compatible with AstrBot v{VERSION}"
+                f"Downloaded Dashboard is not compatible with PyaBot v{VERSION}"
             )
         return data_dist_path
 
@@ -391,7 +395,7 @@ class AstrBotUpdater(_RepoZipUpdater):
         progress_callback=None,
         release_data: dict | None = None,
     ) -> Path:
-        """Download an AstrBot core update package without applying it.
+        """Download a PyaBot core update package without applying it.
 
         Args:
             latest: Whether to download the latest release.
@@ -410,19 +414,24 @@ class AstrBotUpdater(_RepoZipUpdater):
 
         file_url = None
 
-        if os.environ.get("ASTRBOT_CLI") or os.environ.get("ASTRBOT_LAUNCHER"):
+        if (
+            os.environ.get("PYABOT_CLI")
+            or os.environ.get("PYABOT_LAUNCHER")
+            or os.environ.get("ASTRBOT_CLI")
+            or os.environ.get("ASTRBOT_LAUNCHER")
+        ):
             raise Exception(
-                "Error: You are running AstrBot via CLI, please use `pip` or `uv tool upgrade` to update AstrBot."
+                "Error: You are running PyaBot via CLI, please use `pip` or `uv tool upgrade` to update PyaBot."
             )  # 避免版本管理混乱
 
         target_version = None
         if latest:
             update_data = await self._fetch_release_info(self._release_api)
             if not update_data:
-                raise RuntimeError("No AstrBot release is available.")
+                raise RuntimeError("No PyaBot release is available.")
             latest_version = update_data[0]["tag_name"]
             if self._compare_version(VERSION, latest_version) >= 0:
-                raise Exception("AstrBot is already up to date.")
+                raise Exception("PyaBot is already up to date.")
             target_version = latest_version
             file_url = update_data[0]["zipball_url"]
         elif str(version).startswith("v"):
@@ -441,7 +450,7 @@ class AstrBotUpdater(_RepoZipUpdater):
                 raise Exception("The commit hash must be 40 characters long.")
             repository = GitHubRepository.parse(self._repository_url)
             file_url = repository.revision_archive_url(str(version))
-        logger.info(f"Preparing to update AstrBot Core to version {version}")
+        logger.info(f"Preparing to update PyaBot Core to version {version}")
 
         if proxy:
             proxy = proxy.removesuffix("/")
@@ -453,7 +462,7 @@ class AstrBotUpdater(_RepoZipUpdater):
         if hosted_package_url:
             try:
                 logger.info(
-                    "Attempting to download the AstrBot Core update package from "
+                    "Attempting to download the PyaBot Core update package from "
                     f"hosted storage first: {hosted_package_url}"
                 )
                 await self._download_file(
@@ -468,7 +477,7 @@ class AstrBotUpdater(_RepoZipUpdater):
                 return zip_path
             except Exception as exc:
                 logger.warning(
-                    "Failed to download the AstrBot Core update package from hosted "
+                    "Failed to download the PyaBot Core update package from hosted "
                     f"storage: {exc}. Falling back to the current update source."
                 )
 
@@ -480,7 +489,7 @@ class AstrBotUpdater(_RepoZipUpdater):
         return zip_path
 
     def _apply_core_package(self, zip_path: str | Path) -> None:
-        """Apply a previously downloaded AstrBot core update package.
+        """Apply a previously downloaded PyaBot core update package.
 
         Args:
             zip_path: Core update zip archive path.
@@ -492,5 +501,5 @@ class AstrBotUpdater(_RepoZipUpdater):
             Exception: If the archive cannot be extracted or applied.
         """
 
-        logger.info("AstrBot Core update package downloaded; extracting the archive.")
+        logger.info("PyaBot Core update package downloaded; extracting the archive.")
         self._extract_archive(str(zip_path), self._main_path)

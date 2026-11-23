@@ -13,9 +13,9 @@
 
 ### 报告问题
 
-如果您在使用 AstrBot 时遇到任何问题，请按照以下步骤报告：
+如果您在使用 PyaBot 时遇到任何问题，请按照以下步骤报告：
 
-1. **检查现有问题**：在提交新问题之前，请先检查 [Issues](https://github.com/AstrBotDevs/AstrBot/issues) 中是否已经存在类似的问题。
+1. **检查现有问题**：在提交新问题之前，请先检查 [Issues](https://github.com/Sakura520222/PyaBot/issues) 中是否已经存在类似的问题。
 2. **创建新问题**：如果没有类似的问题，请创建一个新问题。请确保提供以下信息：
    - 问题的简要描述
    - 重现问题的步骤
@@ -94,8 +94,8 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 ### Reporting Issues
 
-If you encounter any issues while using AstrBot, please follow these steps to report them:
-1. **Check Existing Issues**: Before submitting a new issue, please check if a similar issue already exists in the [Issues](https://github.com/AstrBotDevs/AstrBot/issues) section of the repository.
+If you encounter any issues while using PyaBot, please follow these steps to report them:
+1. **Check Existing Issues**: Before submitting a new issue, please check if a similar issue already exists in the [Issues](https://github.com/Sakura520222/PyaBot/issues) section of the repository.
 2. **Create a New Issue**: If no similar issue exists, please create a new issue. Make sure to provide the following information:
    - A brief description of the issue
    - Steps to reproduce the issue

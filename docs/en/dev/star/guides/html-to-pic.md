@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-AstrBot supports rendering text into images.
+PyaBot supports rendering text into images.
 
 ```python
 @filter.command("image")  # Register an /image command that accepts a text parameter.
@@ -24,7 +24,7 @@ async def on_aiocqhttp(self, event: AstrMessageEvent, text: str):
 
 If you find the default rendered images insufficiently aesthetic, you can use custom HTML templates to render images.
 
-AstrBot supports rendering text-to-image templates using `HTML + Jinja2`.
+PyaBot supports rendering text-to-image templates using `HTML + Jinja2`.
 
 ```py{7}
 # Custom Jinja2 template with CSS support

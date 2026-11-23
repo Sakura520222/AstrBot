@@ -6,7 +6,7 @@
   "page": {
     "title": "Future Task Management",
     "beta": "Experimental",
-    "subtitle": "AstrBot wakes up at the scheduled time, completes the task, and sends the result back to the target conversation.",
+    "subtitle": "PyaBot wakes up at the scheduled time, completes the task, and sends the result back to the target conversation.",
     "proactive": {
       "link": "Supported platforms",
       "supported": "Proactive delivery is available only on the configured platforms below",
@@ -27,7 +27,7 @@
   },
   "platformDialog": {
     "title": "Supported Platforms",
-    "description": "Only the following platforms support proactive message delivery. AstrBot can send future task results back only to target conversations on these platforms."
+    "description": "Only the following platforms support proactive message delivery. PyaBot can send future task results back only to target conversations on these platforms."
   },
   "card": {
     "onceAt": "One-off · {time}",
@@ -108,7 +108,7 @@
   "form": {
     "title": "New Task",
     "editTitle": "Edit Task",
-    "chatHint": "You can ask AstrBot in chat to create future tasks instead of adding them here.",
+    "chatHint": "You can ask PyaBot in chat to create future tasks instead of adding them here.",
     "runOnce": "One-off task",
     "name": "Task name *",
     "note": "Task requirements *",

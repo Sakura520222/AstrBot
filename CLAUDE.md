@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository
 
-AstrBot is a multi-platform LLM chatbot framework: an asyncio Python backend plus a Vue 3/Vuetify WebUI (`dashboard/`) and VitePress docs (`docs/` and `site/`). This is the Sakura520222 fork of AstrBotDevs/AstrBot; `origin` is this repo, `upstream` is sync-only.
+PyaBot is a multi-platform LLM chatbot framework with full AstrBot plugin compatibility: an asyncio Python backend (`astrbot/` runtime package + `pyabot/` import facade) plus a Vue 3/Vuetify WebUI (`dashboard/`) and VitePress docs (`docs/`). Repository is `Sakura520222/PyaBot` (based on `AstrBotDevs/AstrBot`); `origin` is this repo, `upstream` is sync-only.
 
 **AGENTS.md holds the binding development conventions** (fork policy, language rules, versioning, release process, CI behavior) — read it before making changes. The constraints most likely to bite:
 
@@ -91,4 +91,4 @@ Backend REST routes live in `astrbot/dashboard/api/`; the OpenAPI contract is `o
 - **Knowledge base** (`astrbot/core/knowledge_base/`): faiss + BM25 retrieval over imported documents.
 - **Agent layer**: `astrbot/core/agent/` (agent runners), `astrbot/core/astr_main_agent.py` (main chat agent assembly: personas, contexts, tools, KB), `astrbot/core/skills/`, `astrbot/core/subagent_orchestrator.py`.
 - **Cron** (`astrbot/core/cron/`): APScheduler-backed `CronJobManager`, jobs persisted in the DB.
-- **Update** (`astrbot/core/updater.py`, `zip_updater.py`): self-update from this repo's GitHub Releases; version manifest at `https://astrbot.pyabunny.com/releases.json`.
+- **Update** (`astrbot/core/updater.py`, `zip_updater.py`): self-update from this repo's GitHub Releases; version manifest at `https://pyabot.pyabunny.com/releases.json`.

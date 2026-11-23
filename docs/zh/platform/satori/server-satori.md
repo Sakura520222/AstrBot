@@ -1,7 +1,7 @@
 # 接入 server-satori (基于 Koishi)
 
 > [!TIP]
-> server-satori 是 Koishi 平台的一个插件，可以将 Koishi 作为 Satori 协议的服务端，让 AstrBot 通过 Satori 协议接入 koishi 响应消息。
+> server-satori 是 Koishi 平台的一个插件，可以将 Koishi 作为 Satori 协议的服务端，让 PyaBot 通过 Satori 协议接入 koishi 响应消息。
 
 ## 准备工作
 
@@ -21,9 +21,9 @@
 
 ![image](/images/adaf8645477acaa5.png)
 
-## 在 AstrBot 中配置 Satori 适配器
+## 在 PyaBot 中配置 Satori 适配器
 
-1. 进入 AstrBot 的管理面板
+1. 进入 PyaBot 的管理面板
 2. 点击左边栏 `机器人`
 3. 点击机器人列表上方的 `创建机器人`
 4. 选择 `satori`
@@ -50,9 +50,9 @@
 
 ## 🎉 大功告成
 
-此时，你的 AstrBot 应该已经通过 Satori 协议成功连接到了 Koishi 的 server-satori 插件。
+此时，你的 PyaBot 应该已经通过 Satori 协议成功连接到了 Koishi 的 server-satori 插件。
 
-在 Koishi 的沙盒里 向机器人发送 AstrBot的指令（例如：`/help`）进行测试，
+在 Koishi 的沙盒里 向机器人发送 PyaBot的指令（例如：`/help`）进行测试，
 
 如果成功回复，则配置成功。
 

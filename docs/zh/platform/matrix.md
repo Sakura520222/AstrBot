@@ -24,9 +24,9 @@ Matrix 是一个 IM 协议，有着丰富的服务端实现。
 
 ## 安装 astrbot_plugin_matrix_adapter 插件
 
-进入 AstrBot WebUI 的 `插件 → 插件市场`，搜索 `astrbot_plugin_matrix_adapter`，点击安装。
+进入 PyaBot WebUI 的 `插件 → 插件市场`，搜索 `astrbot_plugin_matrix_adapter`，点击安装。
 
-安装完成后，前往 `机器人` → `创建机器人` → 选择 Matrix（若选项缺失，尝试重启 AstrBot 或检查插件安装状态）。
+安装完成后，前往 `机器人` → `创建机器人` → 选择 Matrix（若选项缺失，尝试重启 PyaBot 或检查插件安装状态）。
 
 在弹出的配置对话框中点击 `启用`。
 

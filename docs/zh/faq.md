@@ -4,7 +4,7 @@
 
 ### 管理面板打开时遇到 404
 
-先查看启动日志中的 WebUI 资源检查结果。需要手动安装时，从[版本发布页](https://github.com/Sakura520222/AstrBot/releases)下载与框架版本匹配的 `AstrBot-v<版本>-dashboard.zip`，正常停止实例，将包内 `dist/` 放入 `data/`，保留其他数据，再启动。也可以按[源码部署](/deploy/astrbot/cli#构建-webui)构建 WebUI。
+先查看启动日志中的 WebUI 资源检查结果。需要手动安装时，从[版本发布页](https://github.com/Sakura520222/PyaBot/releases)下载与框架版本匹配的 `PyaBot-v<版本>-dashboard.zip`，正常停止实例，将包内 `dist/` 放入 `data/`，保留其他数据，再启动。也可以按[源码部署](/deploy/astrbot/cli#构建-webui)构建 WebUI。
 
 ### 首次登录
 
@@ -17,48 +17,48 @@
 源码部署，在项目目录执行：
 
 ```bash
-uv run --no-sync astrbot password
+uv run --no-sync pyabot password
 ```
 
 Docker 部署：
 
 ```bash
-docker exec -it astrbot astrbot password
+docker exec -it pyabot pyabot password
 docker restart astrbot
 ```
 
 脚本安装的工具环境：
 
 ```bash
-uv tool run astrbot password
+uv tool run pyabot password
 ```
 
 需要同时修改用户名时，添加 `--username <新用户名>`。这些命令保留框架配置、插件和历史数据。
 
-### 升级 AstrBot 后密码正确但无法登录
+### 升级 PyaBot 后密码正确但无法登录
 
-如果你确认管理面板密码正确，但升级 AstrBot 后仍然无法登录，可能是旧版 WebUI 静态文件缓存与新版后端不兼容。
+如果你确认管理面板密码正确，但升级 PyaBot 后仍然无法登录，可能是旧版 WebUI 静态文件缓存与新版后端不兼容。
 
 解决方案：
 
-1. 停止 AstrBot。
-2. 删除 AstrBot 的 `data` 目录下的 `dist` 文件夹，即 `AstrBot/data/dist`。
-3. 重新启动 AstrBot。
+1. 停止 PyaBot。
+2. 删除 PyaBot 的 `data` 目录下的 `dist` 文件夹，即 `PyaBot/data/dist`。
+3. 重新启动 PyaBot。
 4. 访问管理面板后按 `Ctrl+Shift+R` 或 `Ctrl+F5`（macOS 用户请按 `Cmd+Shift+R`）强制刷新页面。
 
-重启后，AstrBot 会重新加载或下载匹配当前版本的 WebUI 文件。
+重启后，PyaBot 会重新加载或下载匹配当前版本的 WebUI 文件。
 
-## AstrBot 使用相关
+## PyaBot 使用相关
 
-### 如何让 AstrBot 控制我的 Mac / Windows / Linux 电脑？
+### 如何让 PyaBot 控制我的 Mac / Windows / Linux 电脑？
 
-1. 在 AstrBot WebUI 的 `配置文件` 中选择机器人使用的配置文件，进入 `AI → 能力 → 使用电脑能力`，将 `运行环境` 设为 `local`。此处需要使用 AstrBot 内置 AI。
+1. 在 PyaBot WebUI 的 `配置文件` 中选择机器人使用的配置文件，进入 `AI → 能力 → 使用电脑能力`，将 `运行环境` 设为 `local`。此处需要使用 PyaBot 内置 AI。
 2. 在同一配置文件的 `访问控制 → 管理员 → 管理员 ID` 中添加你的用户 ID（可以通过 `/sid` 指令获取）。
 3. 点击右下角的 `保存配置` 按钮。
 
 > [!TIP]
-> AstrBot 为了安全起见，运行环境选择 `local` 时，默认仅允许 AstrBot 管理员使用电脑能力。
-> 运行环境可以选择 `sandbox`，此时所有用户都可以使用电脑能力（在一个隔离的沙箱中）。详情请看 [AstrBot 沙箱环境](/use/astrbot-agent-sandbox.md)
+> PyaBot 为了安全起见，运行环境选择 `local` 时，默认仅允许 PyaBot 管理员使用电脑能力。
+> 运行环境可以选择 `sandbox`，此时所有用户都可以使用电脑能力（在一个隔离的沙箱中）。详情请看 [PyaBot 沙箱环境](/use/astrbot-agent-sandbox.md)
 
 ### 机器人在群聊无法聊天
 
@@ -95,7 +95,7 @@ uv tool run astrbot password
 
 ![image](/images/3a147e44f3eb7d04.png)
 
-这个是因为插件依赖的库没有被正常安装。一般情况下，AstrBot 会在安装好插件后自动为插件安装依赖库，如果出现了以下情况可能造成安装失败：
+这个是因为插件依赖的库没有被正常安装。一般情况下，PyaBot 会在安装好插件后自动为插件安装依赖库，如果出现了以下情况可能造成安装失败：
 
 1. 网络问题导致依赖库无法下载
 2. 插件作者没有填写 `requirements.txt` 文件
@@ -103,7 +103,7 @@ uv tool run astrbot password
 
 解决方法：
 
-结合报错信息，参考插件的 README 手动安装依赖库。你可以在 AstrBot WebUI 的 `数据与日志 → 日志 → 安装 pip 库` 中安装依赖库。
+结合报错信息，参考插件的 README 手动安装依赖库。你可以在 PyaBot WebUI 的 `数据与日志 → 日志 → 安装 pip 库` 中安装依赖库。
 
 在弹窗中填写库名，按需填写 PyPI 软件仓库链接，然后点击 `安装`。
 
@@ -112,7 +112,7 @@ uv tool run astrbot password
 
 ## OneBot v11 实现端连接相关
 
-### 我明明按照文档的步骤做了，为什么协议实现端连不上 AstrBot？
+### 我明明按照文档的步骤做了，为什么协议实现端连不上 PyaBot？
 
 1. 如果你两个**全都**是使用 Docker 部署，请尝试在终端运行：
 

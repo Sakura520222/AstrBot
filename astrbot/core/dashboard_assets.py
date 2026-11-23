@@ -112,7 +112,7 @@ def _is_dist_compatible(dist_dir: str | Path, current_version: str) -> bool:
         )
     except (OSError, UnicodeError):
         return False
-    if distribution.strip() != "Sakura520222/AstrBot":
+    if distribution.strip() != "Sakura520222/PyaBot":
         return False
     return _is_dist_complete(dist_path) and _is_version_compatible(
         _read_dashboard_version(dist_path), current_version
@@ -323,12 +323,12 @@ async def _download_package(
     ensure_dir(zip_path.parent)
 
     package_url = (
-        "https://github.com/Sakura520222/AstrBot/releases/download/"
-        f"{version}/AstrBot-{version}-dashboard.zip"
+        "https://github.com/Sakura520222/PyaBot/releases/download/"
+        f"{version}/PyaBot-{version}-dashboard.zip"
     )
     if proxy:
         package_url = f"{proxy.rstrip('/')}/{package_url}"
-    logger.info("Downloading AstrBot WebUI from %s", package_url)
+    logger.info("Downloading PyaBot WebUI from %s", package_url)
     await download_file(
         package_url,
         str(zip_path),
@@ -390,7 +390,7 @@ def _extract_package(
         ):
             raise RuntimeError(
                 "Downloaded Dashboard distribution or version does not match "
-                f"AstrBot {expected_version}"
+                f"PyaBot {expected_version}"
             )
 
         if target_dist.exists() or target_dist.is_symlink():

@@ -33,7 +33,7 @@
       "remove": "Remove binding",
       "noBindings": "No session-specific configuration yet.",
       "advanced": "Advanced routing rules",
-      "advancedDescription": "Use UMO patterns to match multiple conversations. Rules are matched from top to bottom and are intended for users familiar with AstrBot message origins.",
+      "advancedDescription": "Use UMO patterns to match multiple conversations. Rules are matched from top to bottom and are intended for users familiar with PyaBot message origins.",
       "patternLabel": "UMO pattern",
       "patternPlaceholder": "For example, bot-id:GroupMessage:*",
       "addPattern": "Add rule",

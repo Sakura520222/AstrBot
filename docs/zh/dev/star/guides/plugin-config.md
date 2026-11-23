@@ -1,6 +1,6 @@
 # 插件配置
 
-在插件目录中定义 `_conf_schema.json`，AstrBot 会根据它生成 WebUI 配置表单，并把配置传给插件。
+在插件目录中定义 `_conf_schema.json`，PyaBot 会根据它生成 WebUI 配置表单，并把配置传给插件。
 
 ## 最小示例
 
@@ -509,4 +509,4 @@ self.config["greeting"] = "欢迎回来！"
 self.config.save_config()
 ```
 
-配置文件保存在 `data/config/<插件目录名>_config.json`。更新 `_conf_schema.json` 后重载插件，AstrBot 会为新增配置项补充默认值，并移除 Schema 中已删除的配置项。
+配置文件保存在 `data/config/<插件目录名>_config.json`。更新 `_conf_schema.json` 后重载插件，PyaBot 会为新增配置项补充默认值，并移除 Schema 中已删除的配置项。

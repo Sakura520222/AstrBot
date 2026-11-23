@@ -1,12 +1,12 @@
 [project]
-name = "AstrBot"
+name = "PyaBot"
 version = "4.30.0-beta.1"
-description = "AstrBot 多平台 AI 助手，支持模型、插件、知识库与工具调用"
+description = "PyaBot 多平台 AI 助手框架，兼容 AstrBot 插件生态，支持模型、插件、知识库与工具调用"
 readme = "README.md"
 license = { text = "AGPL-3.0-or-later" }
 requires-python = ">=3.12"
 
-keywords = ["AstrBot", "Agent", "Chatbot", "IM"]
+keywords = ["PyaBot", "AstrBot", "Agent", "Chatbot", "IM"]
 
 dependencies = [
   "aiocqhttp>=1.4.4",
@@ -87,14 +87,15 @@ dev = [
 ]
 
 [project.scripts]
+pyabot = "astrbot.cli.__main__:cli"
 astrbot = "astrbot.cli.__main__:cli"
 
 [project.urls]
-Repository = "https://github.com/Sakura520222/AstrBot"
-Homepage = "https://astrbot.pyabunny.com"
-Documentation = "https://astrbot.pyabunny.com/docs/"
-Issues = "https://github.com/Sakura520222/AstrBot/issues"
-Changelog = "https://github.com/Sakura520222/AstrBot/releases"
+Repository = "https://github.com/Sakura520222/PyaBot"
+Homepage = "https://pyabot.pyabunny.com"
+Documentation = "https://pyabot.pyabunny.com/docs/"
+Issues = "https://github.com/Sakura520222/PyaBot/issues"
+Changelog = "https://github.com/Sakura520222/PyaBot/releases"
 
 [tool.ruff]
 exclude = ["astrbot/core/utils/t2i/local_strategy.py", "astrbot/api/all.py", "tests"]
@@ -126,7 +127,7 @@ typeCheckingMode = "basic"
 pythonVersion = "3.10"
 reportMissingTypeStubs = false
 reportMissingImports = false
-include = ["astrbot"]
+include = ["astrbot", "pyabot"]
 exclude = ["dashboard", "node_modules", "dist", "data", "tests"]
 
 [tool.hatch.metadata]
@@ -138,11 +139,12 @@ artifacts = ["astrbot/dashboard/dist/**"]
 exclude = ["**/node_modules/**", "**/__pycache__/**", "/data/**", "/.venv*/**", "/site-dist/**"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["astrbot"]
+packages = ["astrbot", "pyabot"]
 
 [tool.hatch.build.targets.sdist]
 include = [
   "/astrbot",
+  "/pyabot",
   "/scripts/hatch_build.py",
   "/main.py",
   "/runtime_bootstrap.py",

@@ -1,6 +1,6 @@
 # Plugin Configuration
 
-Define `_conf_schema.json` in your plugin directory. AstrBot uses it to generate a WebUI form and passes the configuration to your plugin.
+Define `_conf_schema.json` in your plugin directory. PyaBot uses it to generate a WebUI form and passes the configuration to your plugin.
 
 ## Minimal example
 
@@ -509,4 +509,4 @@ self.config["greeting"] = "Welcome back!"
 self.config.save_config()
 ```
 
-Configuration is stored in `data/config/<plugin_directory_name>_config.json`. After updating `_conf_schema.json`, reload the plugin. AstrBot fills in defaults for new fields and removes fields that are no longer in the schema.
+Configuration is stored in `data/config/<plugin_directory_name>_config.json`. After updating `_conf_schema.json`, reload the plugin. PyaBot fills in defaults for new fields and removes fields that are no longer in the schema.

@@ -89,7 +89,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://astrbot.pyabunny.com
+      url: https://pyabot.pyabunny.com
     steps:
       - name: Deploy website to GitHub Pages
         id: deployment

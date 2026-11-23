@@ -6,7 +6,7 @@
 
 ## 基本
 
-AstrBot 支持将文字渲染成图片。
+PyaBot 支持将文字渲染成图片。
 
 ```python
 @filter.command("image")  # 注册一个 /image 指令，接收 text 参数。
@@ -22,7 +22,7 @@ async def on_aiocqhttp(self, event: AstrMessageEvent, text: str):
 
 如果你觉得上面渲染出来的图片不够美观，你可以使用自定义的 HTML 模板来渲染图片。
 
-AstrBot 支持使用 `HTML + Jinja2` 的方式来渲染文转图模板。
+PyaBot 支持使用 `HTML + Jinja2` 的方式来渲染文转图模板。
 
 ```py{7}
 # 自定义的 Jinja2 模板，支持 CSS

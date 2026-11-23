@@ -2,13 +2,13 @@
 layout: home
 markdownStyles: false
 pageClass: astrbot-homepage
-title: AstrBot
+title: PyaBot
 titleTemplate: false
-description: AstrBot 是自托管的聊天机器人框架，支持 QQ、Telegram、飞书等平台。
+description: PyaBot 是自托管的多平台 AI 助手框架，兼容 AstrBot 插件生态，支持 QQ、Telegram、飞书等平台。
 head:
   - - link
     - rel: canonical
-      href: https://astrbot.pyabunny.com/
+      href: https://pyabot.pyabunny.com/
 ---
 
 <script setup>

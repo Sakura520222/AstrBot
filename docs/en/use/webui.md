@@ -1,6 +1,6 @@
 # WebUI
 
-The AstrBot admin panel features plugin management, log viewing, visual configuration, statistics viewing, and more.
+The PyaBot admin panel features plugin management, log viewing, visual configuration, statistics viewing, and more.
 
 ## Navigation and Previous Entry Points
 
@@ -29,32 +29,32 @@ Old log, trace, conversation, and statistics URLs still redirect to the correspo
 
 ## Documentation Navigation
 
-The **Usage → Plugins** documentation group contains Plugins, MCP, and Skills. **Usage → AstrBot Built-in AI** contains Agent Sandbox, SubAgent Orchestration, Proactive Capabilities, Web Search, Knowledge Base, and Context Compression. Their URLs remain unchanged.
+The **Usage → Plugins** documentation group contains Plugins, MCP, and Skills. **Usage → PyaBot Built-in AI** contains Agent Sandbox, SubAgent Orchestration, Proactive Capabilities, Web Search, Knowledge Base, and Context Compression. Their URLs remain unchanged.
 
-The Usage sidebar order is WebUI, AstrBot CLI, Built-in Commands, Plugins, AstrBot Built-in AI, Custom Rules, Agent Execution Mode, and Unified Webhook Mode.
+The Usage sidebar order is WebUI, PyaBot CLI, Built-in Commands, Plugins, PyaBot Built-in AI, Custom Rules, Agent Execution Mode, and Unified Webhook Mode.
 
 | Previous documentation entry | Current documentation entry |
 | --- | --- |
 | Usage → Plugins, MCP, Skills | Usage → Plugins → Corresponding guide |
-| Usage → Agent Sandbox, SubAgent Orchestration, Proactive Tasks, Web Search, Knowledge Base, Auto Context Compression | Usage → AstrBot Built-in AI → Corresponding guide |
+| Usage → Agent Sandbox, SubAgent Orchestration, Proactive Tasks, Web Search, Knowledge Base, Auto Context Compression | Usage → PyaBot Built-in AI → Corresponding guide |
 | Usage → Tool Use / Function Calling | Removed; the Web Search guide explains the required function-calling capability directly |
 | Usage → Agent Runner | Usage → Agent Execution Mode (URL unchanged) |
-| Usage → CLI Commands | Usage → AstrBot CLI (URL unchanged) |
+| Usage → CLI Commands | Usage → PyaBot CLI (URL unchanged) |
 
 ## Accessing the Admin Panel
 
-After starting AstrBot, you can access the admin panel by visiting `http://localhost:6185` in your browser.
+After starting PyaBot, you can access the admin panel by visiting `http://localhost:6185` in your browser.
 
 > [!TIP]
-> - If you're deploying AstrBot on a cloud server, replace `localhost` with your server's IP address.
+> - If you're deploying PyaBot on a cloud server, replace `localhost` with your server's IP address.
 
 ## Login
 
-For first-time login, AstrBot generates a random initial password and prints it in startup logs. Please read the startup log line containing the WebUI credential and use that password to log in (username is usually `astrbot`).
+For first-time login, PyaBot generates a random initial password and prints it in startup logs. Please read the startup log line containing the WebUI credential and use that password to log in (username is usually `astrbot`).
 
 ## Two-Factor Authentication
 
-AstrBot WebUI supports TOTP (Time-based One-Time Password) based two-factor authentication.
+PyaBot WebUI supports TOTP (Time-based One-Time Password) based two-factor authentication.
 
 ### Enabling Two-Factor Authentication
 
@@ -79,7 +79,7 @@ To replace the TOTP secret, you can do so in the TOTP management window, where y
 
 ## ChatUI
 
-AstrBot includes a built-in ChatUI for talking to configured models directly in your browser.
+PyaBot includes a built-in ChatUI for talking to configured models directly in your browser.
 
 With the sidebar chat entry enabled under **System Settings → Appearance**, selecting **Chat** on desktop smoothly narrows the main navigation: labels fade out while icons and the logo move into the left rail, with the chat sidebar alongside it. The Chat icon becomes a **left arrow (Back to navigation)**. Select it to return to the previous page and restore the previous navigation width, or select any rail icon to navigate directly. The system settings button at the bottom of the rail is hidden in this mode; chat settings remain in the chat sidebar. Reduced-motion preferences disable the animation; narrow screens keep a single drawer.
 
@@ -149,12 +149,12 @@ The page title and section navigation stay fixed while only the settings pane on
 
 - `General`: timezone, external callback address, logs, and cache.
 - `Appearance`: theme colors.
-- `Network`: HTTP proxy, Python package sources, and GitHub proxy. For the address to use when AstrBot runs in Docker, see [Deploy with Docker](/en/deploy/astrbot/docker.md).
+- `Network`: HTTP proxy, Python package sources, and GitHub proxy. For the address to use when PyaBot runs in Docker, see [Deploy with Docker](/en/deploy/astrbot/docker.md).
 - `Security`: WebUI HTTPS, login rate limits, and TOTP.
 - `Maintenance`: backup, restore, diagnostic export, and restart.
 - `OpenAPI`: developer access keys.
 
-System configuration changes save automatically. Check for a successful save message and restart AstrBot if the page indicates that a restart is required.
+System configuration changes save automatically. Check for a successful save message and restart PyaBot if the page indicates that a restart is required.
 
 Backups under `Maintenance` include session aliases, model usage statistics, OpenAPI access keys, and MCP server configuration. Workspace files require a separate backup. TOTP trusted devices are excluded; replacing data from a backup clears existing device trust and requires device verification again. Older backups cannot recover data they did not include: export a new backup from the original instance before migrating. If a backup has no MCP configuration, the target instance's MCP configuration is kept.
 
@@ -164,7 +164,7 @@ Select `Extensions` in the sidebar. The top tabs are `Plugins`, `Skills`, `MCP S
 
 On either plugin list, you can also click `Install Plugin` (+) in the bottom right corner to manually install plugins via URL or file upload.
 
-> Due to the plugin update mechanism, the AstrBot Team cannot fully guarantee the security of plugins in the plugin market. Please carefully verify them. The AstrBot Team is not responsible for any losses caused by plugins.
+> Due to the plugin update mechanism, the PyaBot Team cannot fully guarantee the security of plugins in the plugin market. Please carefully verify them. The PyaBot Team is not responsible for any losses caused by plugins.
 
 ### Handling Plugin Load Failures
 
@@ -190,7 +190,7 @@ Use the `Conversations` tab to find and manage saved conversation records:
 
 ### Logs
 
-The `Logs` tab shows AstrBot runtime logs in real time. You can filter by log level and install missing Pip packages from this page. To view DEBUG logs, first set `Console Log Level` to `DEBUG` under `System Settings → General → Logs`.
+The `Logs` tab shows PyaBot runtime logs in real time. You can filter by log level and install missing Pip packages from this page. To view DEBUG logs, first set `Console Log Level` to `DEBUG` under `System Settings → General → Logs`.
 
 Click `Export diagnostics` and confirm the content and privacy notice to download a ZIP. It includes available disk and rotated logs, configured custom logs, up to 500 cached events, available trace history, configuration profiles and routes, plugin versions and status, environment details and a manifest. Existing data remains exportable when file logging or tracing is disabled; missing trace history is recorded without enabling tracing. Trace history is limited to the latest 50 traces and 16 MiB in total. Disk logs are limited to 256 MiB of source data, skipping individual files larger than 64 MiB and, in redacted mode, oversized lines. Truncation and missing items are recorded. Raw databases and plugin source code are excluded. The dialog enables `Redact credentials (recommended)` by default. Recognized credentials are masked, and public IPv4/IPv6 addresses use consistent aliases such as `[PUBLIC_IP_1]` across the bundle. Alternate spellings of the same address share an alias; protocols, ports, paths, local and other non-public addresses remain. No original-address mapping is included. Conversations and personal data may remain; review before sharing. Uncheck this option when diagnosis requires original values. This retains passwords, keys, tokens, public IPs and other sensitive data, and adds `raw` to the filename; share only privately with someone you trust. Reopening the dialog resets the option to enabled. Only authenticated dashboard administrators can download bundles; developer API keys are not accepted. The `Export diagnostics` button under `System Settings → Maintenance → Diagnostics` uses the same export. This settings entry was moved from `System Settings → General → Cache`.
 
@@ -245,7 +245,7 @@ Handler names also have a dotted underline. Hover to lazily fetch plugin details
 
 Streaming responses show one final aggregated response after delivery finishes, without intermediate chunks or protocol closing frames. Messages sent independently by tools or plugins during generation remain separate responses.
 
-Timeline chips show the runner name without an execution-mode prefix, using the profile page's labels (`local` uses the AstrBot built-in AI title), and plugin names (comma-separated in collapsed groups). Response ownership chips are removed: successful public sends through `event.send()` and `Context.send_message()` record message outlines without a source field. Context sends attach to the current event execution, without creating a new trace when none is active. Nested forwarding is recorded once; streaming keeps only its final aggregate and separate tool messages.
+Timeline chips show the runner name without an execution-mode prefix, using the profile page's labels (`local` uses the PyaBot built-in AI title), and plugin names (comma-separated in collapsed groups). Response ownership chips are removed: successful public sends through `event.send()` and `Context.send_message()` record message outlines without a source field. Context sends attach to the current event execution, without creating a new trace when none is active. Nested forwarding is recorded once; streaming keeps only its final aggregate and separate tool messages.
 
 Consecutive nodes of the same type are collapsed by default, such as "Call plugin" with an "Event listener" chip, with a record count and stacked icons. Click to expand or collapse the individual records. Different handler categories and records separated by another node type remain separate, preserving execution order. Collapsed groups still show error counts, and summary cards continue to count actual calls.
 
@@ -271,7 +271,7 @@ If release information is unavailable, the dialog shows an error with a Retry bu
 
 ## Replace the WebUI manually
 
-Download `AstrBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/AstrBot/releases). Stop the instance normally, place the archive's `dist/` under `data/`, preserve the remaining data, and restart. The `assets/version` and `assets/distribution` files identify the package version and source.
+Download `PyaBot-v<VERSION>-dashboard.zip` matching the framework version from [Releases](https://github.com/Sakura520222/PyaBot/releases). Stop the instance normally, place the archive's `dist/` under `data/`, preserve the remaining data, and restart. The `assets/version` and `assets/distribution` files identify the package version and source.
 
 ## Customizing WebUI Port
 

@@ -57,7 +57,7 @@ onMounted(async () => {
       <v-card-title>
         <div class="setup-header">
           <div class="setup-brand">
-            <img width="80" src="/favicon.svg" alt="AstrBot Logo">
+            <img width="80" src="/favicon.svg" alt="PyaBot Logo">
           </div>
           <div class="d-flex align-center gap-1">
             <LanguageSwitcher />

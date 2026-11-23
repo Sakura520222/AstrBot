@@ -2,9 +2,9 @@
 
 ## What Is an Agent Runner?
 
-An Agent Runner is the component in AstrBot that executes Agent capabilities and handles AI-related workflows.
+An Agent Runner is the component in PyaBot that executes Agent capabilities and handles AI-related workflows.
 
-AstrBot includes a powerful built-in Agent Runner. You can also integrate third-party Agent Runner services like Dify, Coze, Alibaba Bailian, and DeerFlow, or build your own.
+PyaBot includes a powerful built-in Agent Runner. You can also integrate third-party Agent Runner services like Dify, Coze, Alibaba Bailian, and DeerFlow, or build your own.
 
 If you already have a model provider that handles single requests, you still need an execution layer for multi-turn conversations, tool calling, and orchestration. That is exactly what an Agent Runner does.
 

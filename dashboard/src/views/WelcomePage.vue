@@ -167,9 +167,9 @@ const metrics = computed(() => [
   };
 }));
 const resources = [
-  { key: 'github', icon: 'mdi-github', href: 'https://github.com/Sakura520222/AstrBot/' },
-  { key: 'docs', icon: 'mdi-file-document-outline', href: 'https://astrbot.pyabunny.com/docs/' },
-  { key: 'feedback', icon: 'mdi-message-alert-outline', href: 'https://github.com/Sakura520222/AstrBot/issues' },
+  { key: 'github', icon: 'mdi-github', href: 'https://github.com/Sakura520222/PyaBot/' },
+  { key: 'docs', icon: 'mdi-file-document-outline', href: 'https://pyabot.pyabunny.com/docs/' },
+  { key: 'feedback', icon: 'mdi-message-alert-outline', href: 'https://github.com/Sakura520222/PyaBot/issues' },
 ];
 const onboardingSteps = computed(() => [
   { key: 'step1', completed: providerStepState.value === 'completed', action: openProviderDialog },

@@ -4,7 +4,7 @@
   "comingSoon": "この先は、また今度探索しましょう。",
   "page": {
     "title": "The Alkaid Project.",
-    "subtitle": "AstrBot Alpha プロジェクト",
+    "subtitle": "PyaBot Alpha プロジェクト",
     "navigation": {
       "knowledgeBase": "ナレッジベース（プラグイン）",
       "longTermMemory": "長期記憶レイヤー",
@@ -24,7 +24,7 @@
     "deprecated": "非推奨"
   },
   "sigma": {
-    "subtitle": "AstrBot 実験プロジェクト",
+    "subtitle": "PyaBot 実験プロジェクト",
     "visualization": "可視化",
     "filterUserId": "ユーザー ID で絞り込む",
     "filter": "絞り込む",

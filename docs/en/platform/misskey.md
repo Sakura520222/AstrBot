@@ -3,15 +3,15 @@
 > [!WARNING]
 >
 > 1. We recommend that before deploying a bot on a Misskey instance you don't manage, you should review the instance rules or seek approval from the instance administration or moderation team, and enable the `Bot` identifier for the bot account after deployment.
-> 2. This project is strictly prohibited from being used for any illegal purposes. If you intend to use AstrBot for illegal industries or activities, we explicitly oppose and refuse your use of this project.
+> 2. This project is strictly prohibited from being used for any illegal purposes. If you intend to use PyaBot for illegal industries or activities, we explicitly oppose and refuse your use of this project.
 
-## Create AstrBot Misskey Platform Adapter
+## Create PyaBot Misskey Platform Adapter
 
 Open `Platforms` in the WebUI, click `Add Adapter`, select `Misskey`, and fill in the connection details described below. Click `Save` when finished.
 
 ## Configure Platform Adapter Settings
 
-On the AstrBot Misskey platform adapter configuration page, we need to fill in the Misskey connection information and configure some adapter behaviors.
+On the PyaBot Misskey platform adapter configuration page, we need to fill in the Misskey connection information and configure some adapter behaviors.
 
 ::: tip Note
 Don't forget to click `Enable` before saving to activate the Misskey platform adapter!
@@ -33,12 +33,12 @@ This is the frontend address of the Misskey instance where your bot account is l
 
 ![Generate Misskey Account Token](/images/53df4c7df5dca069.png)
 
-3. On the access token configuration page that appears, give the token a name, such as `AstrBot`.
+3. On the access token configuration page that appears, give the token a name, such as `PyaBot`.
 
 4. Then we need to configure the relevant permissions for the token to allow the bot to interact with the Misskey instance.
 
 ::: tip Note
-If third-party AstrBot plugins you use require additional permissions, please refer to their documentation to add the corresponding permissions. If you fully trust the bot's deployment environment, you can temporarily enable all permissions to simplify debugging, but we still recommend limiting the bot's permissions in production environments.
+If third-party PyaBot plugins you use require additional permissions, please refer to their documentation to add the corresponding permissions. If you fully trust the bot's deployment environment, you can temporarily enable all permissions to simplify debugging, but we still recommend limiting the bot's permissions in production environments.
 :::
 
 ![Configure Access Token Permissions](/images/1bce67e608acc3d8.png)
@@ -54,7 +54,7 @@ If third-party AstrBot plugins you use require additional permissions, please re
 | View messages | Read direct messages and chat history | Receive and process user direct messages |
 | View reactions | View replies and reactions to posts | Handle user responses to bot messages |
 
-5. After completing the permission configuration, click "Done" to view the account access token. Copy the obtained token and paste it into the Access Token input box on the AstrBot configuration page.
+5. After completing the permission configuration, click "Done" to view the account access token. Copy the obtained token and paste it into the Access Token input box on the PyaBot configuration page.
 
 ![View Account Token](/images/4df95484020fe5c4.png)
 
@@ -84,7 +84,7 @@ Enabled by default. When enabled, the bot will respond to private chat messages 
 
 ## History Records
 
-Conversation history for individual users in chats and posts appears under `Data & Logs` -> `Conversations` in the AstrBot WebUI. Chat conversations use `chat:UserID` as the session ID, while traditional posts use `note:UserID`.
+Conversation history for individual users in chats and posts appears under `Data & Logs` -> `Conversations` in the PyaBot WebUI. Chat conversations use `chat:UserID` as the session ID, while traditional posts use `note:UserID`.
 
 ::: tip Where is the Misskey user's UserID?
 It can be found on the user's personal page in the `Raw` section. UserID is the unique key identifier for Misskey users within a single instance.

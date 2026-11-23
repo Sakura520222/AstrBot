@@ -2,16 +2,16 @@
 
 ## What is this?
 
-AstrBot's built-in AI lets the Agent access a computer environment by executing code, reading and writing files, and performing other operations. In AstrBot, this feature is called **Agent Computer Use**.
+PyaBot's built-in AI lets the Agent access a computer environment by executing code, reading and writing files, and performing other operations. In PyaBot, this feature is called **Agent Computer Use**.
 
 Agent Computer Use currently supports two runtime environments:
 
-- **Local environment**: AstrBot Agent executes code and file operations **directly in the environment running AstrBot**, accessing its files and commands. Using `Seatbelt` on macOS or `bubblewrap (bwrap)` on Linux, AstrBot can provide **restricted file access and code execution**, limiting file access scope and network permissions for different bot users to improve the security of the local environment.
-- **Third-party sandbox environment**: AstrBot Agent executes code and file operations in a **separate environment**, avoiding direct access to files and commands on the host or inside the AstrBot container. This separation can provide stronger isolation, with file access, networking, and isolation between users depending on the sandbox's capabilities and configuration. Third-party sandboxes usually require additional deployment and configuration, as well as more computing resources.
+- **Local environment**: PyaBot Agent executes code and file operations **directly in the environment running PyaBot**, accessing its files and commands. Using `Seatbelt` on macOS or `bubblewrap (bwrap)` on Linux, PyaBot can provide **restricted file access and code execution**, limiting file access scope and network permissions for different bot users to improve the security of the local environment.
+- **Third-party sandbox environment**: PyaBot Agent executes code and file operations in a **separate environment**, avoiding direct access to files and commands on the host or inside the PyaBot container. This separation can provide stronger isolation, with file access, networking, and isolation between users depending on the sandbox's capabilities and configuration. Third-party sandboxes usually require additional deployment and configuration, as well as more computing resources.
 
 Open **Config → AI → Capabilities → Agent Computer Use** and set **Computer Use Runtime** to **Local machine** or **Third-party sandbox**.
 
-For Local machine, AstrBot attempts to enable isolation in its runtime environment. Availability depends on the operating system, kernel, account permissions, and system security policies. See [Local environment](#local-environment) below.
+For Local machine, PyaBot attempts to enable isolation in its runtime environment. Availability depends on the operating system, kernel, account permissions, and system security policies. See [Local environment](#local-environment) below.
 
 For Third-party sandbox, also select a **Sandbox Driver** and configure its endpoint, access token, and other settings. See [Third-party sandbox environment](#third-party-sandbox-environment) below.
 
@@ -19,10 +19,10 @@ For Third-party sandbox, also select a **Sandbox Driver** and configure its endp
 
 Open **Config → AI → Capabilities → Agent Computer Use** and set **Computer Use Runtime** to **Local machine** (`local`).
 
-AstrBot gives the Agent a set of tools, including Shell, Python, and filesystem tools, to access the local environment.
+PyaBot gives the Agent a set of tools, including Shell, Python, and filesystem tools, to access the local environment.
 
 > [!NOTE]
-> If AstrBot runs in Docker, the local environment is the Linux environment inside the AstrBot container, rather than the Docker host. File and network access remain subject to the container's configuration.
+> If PyaBot runs in Docker, the local environment is the Linux environment inside the PyaBot container, rather than the Docker host. File and network access remain subject to the container's configuration.
 
 Permissions are configured separately for members and administrators in the matrix shown below.
 
@@ -40,14 +40,14 @@ Enabling **Allow network during execution** permits network access during Shell/
 - **Disabled**: The Agent cannot access files through local Computer Use tools; filesystem tools are unavailable.
 - **Workspace**: Filesystem tools are limited to the current user session's workspace (identified by UMO) and the following directories:
   - Workspace directory, under `data/workspaces/<normalized_umo>/`: **read/write**. ChatUI projects can also use a shared project workspace or a custom workspace.
-  - AstrBot temporary directory, `data/temp/`: **read/write**.
+  - PyaBot temporary directory, `data/temp/`: **read/write**.
   - Tool temporary directory, `<system temporary directory>/.astrbot/`: **read/write**.
   - Installed Agent skills, `data/skills/`: **read-only for members; read/write for administrators**.
   - Plugin-provided skills, `data/plugins/<plugin_name>/skills/`: **read-only**.
-  - Built-in plugin skills, `<AstrBot source or installation directory>/astrbot/builtin_stars/<plugin_name>/skills/`: **read-only**.
-- **Entire environment**: The Agent can access files throughout the local environment, subject to the permissions of the account running AstrBot.
+  - Built-in plugin skills, `<PyaBot source or installation directory>/astrbot/builtin_stars/<plugin_name>/skills/`: **read-only**.
+- **Entire environment**: The Agent can access files throughout the local environment, subject to the permissions of the account running PyaBot.
 
-AstrBot provides `astrbot_file_read_tool`, `astrbot_file_write_tool`, `astrbot_file_edit_tool`, and `astrbot_grep_tool` for file reading, writing, editing, and content searching, respectively. When restricted code execution is enabled, the isolation backend also exposes the system tools, libraries, and Python runtime needed to execute code.
+PyaBot provides `astrbot_file_read_tool`, `astrbot_file_write_tool`, `astrbot_file_edit_tool`, and `astrbot_grep_tool` for file reading, writing, editing, and content searching, respectively. When restricted code execution is enabled, the isolation backend also exposes the system tools, libraries, and Python runtime needed to execute code.
 
 New installations use the same default permissions on Windows, Linux, and macOS:
 
@@ -67,7 +67,7 @@ Saving configuration succeeds even when Local isolation is unavailable, includin
 
 - Code execution and execution network access are disabled. The saved file scope stays unchanged; workspace access never expands to the entire environment.
 - Policies that need no isolation, including workspace files without execution and entire-environment execution with networking, stay effective as configured. Explicitly disabled file access stays disabled.
-- Saved permissions are not overwritten. After restoring isolation and restarting AstrBot, tools use the saved execution policy again.
+- Saved permissions are not overwritten. After restoring isolation and restarting PyaBot, tools use the saved execution policy again.
 - The permission matrix preserves saved execution checkboxes and marks unavailable execution as **Inactive**. Hover over, focus, or select the **Inactive** badge to see the cause; the permission can still be unchecked. The LLM receives the explanation in rejected Shell, Python, and shell-session tool responses; it is not added to the system prompt. Missing dependencies, unsupported platforms, and startup failures have distinct messages; startup failures include the probe diagnostic.
 
 The permission matrix hides the network column when isolation is unavailable. The former isolation setup link in the bottom-left corner of the matrix has been removed; use the operating system and Docker instructions below instead.
@@ -84,9 +84,9 @@ The same rule applies to administrators and members. Role defaults apply only wh
 
 ### macOS users {#local-macos}
 
-Seatbelt is macOS's built-in sandbox mechanism. AstrBot uses `/usr/bin/sandbox-exec` to invoke Seatbelt and restrict the Agent's file access scope and network permissions. macOS normally includes `/usr/bin/sandbox-exec`.
+Seatbelt is macOS's built-in sandbox mechanism. PyaBot uses `/usr/bin/sandbox-exec` to invoke Seatbelt and restrict the Agent's file access scope and network permissions. macOS normally includes `/usr/bin/sandbox-exec`.
 
-1. On the Mac running AstrBot, check that the system tool exists:
+1. On the Mac running PyaBot, check that the system tool exists:
 
    ```bash
    ls -l /usr/bin/sandbox-exec
@@ -98,17 +98,17 @@ Seatbelt is macOS's built-in sandbox mechanism. AstrBot uses `/usr/bin/sandbox-e
    /usr/bin/sandbox-exec -p '(version 1) (allow default)' /usr/bin/true
    ```
 
-   Exit code `0` means this simple check passed. AstrBot also checks the actual workspace restrictions at startup.
+   Exit code `0` means this simple check passed. PyaBot also checks the actual workspace restrictions at startup.
 
 If the system does not provide the tool or its policies prevent using it, switch to a [third-party sandbox environment](#third-party-sandbox-environment).
 
-If AstrBot runs in Docker on a Mac, follow [Docker users](#local-docker) below. The host's Seatbelt is not used directly for processes inside a Linux container.
+If PyaBot runs in Docker on a Mac, follow [Docker users](#local-docker) below. The host's Seatbelt is not used directly for processes inside a Linux container.
 
 ### Linux users {#local-linux}
 
 [bubblewrap](https://github.com/containers/bubblewrap) is a userspace sandboxing tool for Linux.
 
-AstrBot uses bubblewrap's `--size` option to limit the size of the temporary filesystem `/tmp` inside the sandbox. This option requires bubblewrap **0.7.0 or later**. Check whether bubblewrap is installed, whether the version meets the requirement, and whether it can start:
+PyaBot uses bubblewrap's `--size` option to limit the size of the temporary filesystem `/tmp` inside the sandbox. This option requires bubblewrap **0.7.0 or later**. Check whether bubblewrap is installed, whether the version meets the requirement, and whether it can start:
 
 ```bash
 command -v bwrap
@@ -139,19 +139,19 @@ sudo pacman -S bubblewrap
 
 If startup fails:
 
-- **`bwrap` not found**: check that it is installed in the environment running AstrBot and is on the process's startup `PATH`.
+- **`bwrap` not found**: check that it is installed in the environment running PyaBot and is on the process's startup `PATH`.
 - **`Unknown option --size`**: upgrade bubblewrap to **0.7.0 or later**, then repeat the check above.
 - **`Operation not permitted` or user namespace errors**: inspect user namespace limits, AppArmor, and other system security policies. Use `sysctl user.max_user_namespaces` to check the namespace limit and `sudo journalctl -k` for relevant kernel logs.
 - **AppArmor denial**: follow your distribution's instructions to permit user namespace creation for the actual runtime. Do not disable security policies across the entire machine merely to pass the check.
 - **Container deployment**: follow [Docker users](#local-docker). Installing `bwrap` on the host does not install it inside the container.
 
-Restart AstrBot after fixing the environment. Its startup check determines whether Workspace execution and network control are available. If **Allow network during execution** appears in the permission matrix, local isolation has been enabled successfully.
+Restart PyaBot after fixing the environment. Its startup check determines whether Workspace execution and network control are available. If **Allow network during execution** appears in the permission matrix, local isolation has been enabled successfully.
 
 ### Docker users {#local-docker}
 
-AstrBot's Docker image runs as a Linux container.
+PyaBot's Docker image runs as a Linux container.
 
-Docker already provides container-level isolation. By default, AstrBot can access files inside the container and mounted volumes, rather than the host's entire filesystem. Network access is also subject to Docker's network configuration. Local isolation uses bubblewrap inside the container to further restrict **workspace file access and network access during execution**. If you only need container and mounted files, you can continue using Entire environment; bwrap is not required for every Computer Use deployment.
+Docker already provides container-level isolation. By default, PyaBot can access files inside the container and mounted volumes, rather than the host's entire filesystem. Network access is also subject to Docker's network configuration. Local isolation uses bubblewrap inside the container to further restrict **workspace file access and network access during execution**. If you only need container and mounted files, you can continue using Entire environment; bwrap is not required for every Computer Use deployment.
 
 Installing bwrap is only one part of the setup. Enabling local isolation inside Docker is **relatively complex**, and **default Docker deployments may not allow it to start**, because host user namespace settings, seccomp, AppArmor, and container permissions also apply. For isolated execution, consider a [third-party sandbox environment](#third-party-sandbox-environment). If you still need local isolation inside the container, consult guidance for your container platform and configure policies such as seccomp to permit the user namespaces required by bwrap.
 
@@ -162,15 +162,15 @@ Windows 10/11, including Home editions, supports local isolation for file access
 1. Open **Config → AI → Capabilities → Agent Computer Use** and set **Computer Use Runtime** to **Local machine**.
 2. Under **Local Permission Policies**, select **Workspace** for the role that needs computer access.
 3. Check **Allow code execution** to let that role run code. Check **Allow execution network access** if the code needs network access. Leave execution unchecked if only file access is needed.
-4. Save the configuration and restart AstrBot. If Windows asks for permission during startup, select **Yes** to complete setup. Later startups usually need no further confirmation.
+4. Save the configuration and restart PyaBot. If Windows asks for permission during startup, select **Yes** to complete setup. Later startups usually need no further confirmation.
 
 ![Windows workspace with networking disabled](/windows-sandbox/workspace-en.jpg)
 
-Select **Entire environment** to access files outside the workspace with the AstrBot account’s permissions. Execution networking is always enabled in this scope. Select **Workspace** to control execution network access.
+Select **Entire environment** to access files outside the workspace with the PyaBot account’s permissions. Execution networking is always enabled in this scope. Select **Workspace** to control execution network access.
 
 ![Windows entire-environment networking explanation](/windows-sandbox/network-en.png)
 
-If you see a sandbox setup message or an **Inactive** badge, select the badge or expand **View diagnostic details** to see the cause. If you previously declined the Windows permission prompt, restart AstrBot and approve it to complete setup.
+If you see a sandbox setup message or an **Inactive** badge, select the badge or expand **View diagnostic details** to see the cause. If you previously declined the Windows permission prompt, restart PyaBot and approve it to complete setup.
 
 ![Windows sandbox initialization prompt](/windows-sandbox/setup-zh.jpg)
 
@@ -178,14 +178,14 @@ On upgrade, a Windows member policy with file access, execution, and networking 
 
 ## Third-party sandbox environment {#third-party-sandbox-environment}
 
-Third-party sandboxes are an optional AstrBot capability. They let the Agent execute code and file operations in a **separate environment**, avoiding direct access to files and commands on the host or inside the AstrBot container. Supported sandbox drivers include:
+Third-party sandboxes are an optional PyaBot capability. They let the Agent execute code and file operations in a **separate environment**, avoiding direct access to files and commands on the host or inside the PyaBot container. Supported sandbox drivers include:
 
 - **Shipyard Neo**: The currently recommended driver. It consists of Bay, Ship, and Gull, providing the control-plane API, Python/Shell/filesystem capabilities, and browser automation, respectively.
 - **CUA**: A Computer Use sandbox runtime that can create Linux, macOS, Windows, Android, and other sandbox types and expose Shell, screenshot, mouse, keyboard, and filesystem interfaces.
 - **Shipyard**: The legacy driver, retained for compatibility with existing deployments. Bay provides the control-plane API, and Ship provides Python/Shell/filesystem capabilities.
 
 > [!TIP]
-> Third-party sandbox capabilities remain in technical preview. Report problems on [GitHub](https://github.com/Sakura520222/AstrBot/issues).
+> Third-party sandbox capabilities remain in technical preview. Report problems on [GitHub](https://github.com/Sakura520222/PyaBot/issues).
 
 <span id="configuring-astrbot-to-use-the-sandbox-environment"></span>
 
@@ -210,16 +210,16 @@ Resource limits depend on the driver and profile; there is no single CPU or memo
 - **Ship**: provides Python / Shell / filesystem capabilities
 - **Gull**: provides browser automation capabilities
 
-For `Shipyard Neo`, the workspace root is fixed at `/workspace`. When using filesystem tools in AstrBot, you should pass **paths relative to the workspace root**, for example `reports/result.txt`, not `/workspace/reports/result.txt`.
+For `Shipyard Neo`, the workspace root is fixed at `/workspace`. When using filesystem tools in PyaBot, you should pass **paths relative to the workspace root**, for example `reports/result.txt`, not `/workspace/reports/result.txt`.
 
 > [!TIP]
-> Browser capability is not available in every `Shipyard Neo` profile. AstrBot only mounts browser-related tools when the selected profile supports the `browser` capability. A typical example is `browser-python`.
+> Browser capability is not available in every `Shipyard Neo` profile. PyaBot only mounts browser-related tools when the selected profile supports the `browser` capability. A typical example is `browser-python`.
 
 #### Deploy Shipyard Neo Separately
 
-If you plan to use `Shipyard Neo` for the long term, it is generally better to **deploy it separately on a machine with more resources**, such as your homelab, a LAN server, or a dedicated cloud host, and then let AstrBot connect to Bay remotely.
+If you plan to use `Shipyard Neo` for the long term, it is generally better to **deploy it separately on a machine with more resources**, such as your homelab, a LAN server, or a dedicated cloud host, and then let PyaBot connect to Bay remotely.
 
-The reason is that `Shipyard Neo` can become fairly resource-heavy when browser capability is enabled, because it needs to run a full browser runtime. **On resource-constrained cloud servers**, deploying AstrBot and `Shipyard Neo` on the same machine usually puts significant pressure on CPU and memory, which can negatively affect both stability and overall experience.
+The reason is that `Shipyard Neo` can become fairly resource-heavy when browser capability is enabled, because it needs to run a full browser runtime. **On resource-constrained cloud servers**, deploying PyaBot and `Shipyard Neo` on the same machine usually puts significant pressure on CPU and memory, which can negatively affect both stability and overall experience.
 
 A basic deployment flow looks like this:
 
@@ -233,9 +233,9 @@ docker compose up -d
 After deployment:
 
 - Bay listens on `http://<your-host>:8114` by default
-- In the AstrBot console, choose the `Shipyard Neo` driver
+- In the PyaBot console, choose the `Shipyard Neo` driver
 - Set `Shipyard Neo API Endpoint` to the corresponding address, for example `http://<your-host>:8114`
-- Set `Shipyard Neo Access Token` to the Bay API key; if AstrBot can access Bay's `credentials.json`, you may also leave it empty and let AstrBot auto-discover it
+- Set `Shipyard Neo Access Token` to the Bay API key; if PyaBot can access Bay's `credentials.json`, you may also leave it empty and let PyaBot auto-discover it
 
 #### Reference: Full `config.yaml` Example (with Notes)
 
@@ -442,7 +442,7 @@ A practical way to think about this file:
 - **Session**: the actual running container session, which may be stopped or rebuilt
 - **Cargo**: the persistent workspace volume mounted at `/workspace`
 
-From AstrBot's perspective, the current implementation caches the sandbox booter by request `session_id`; in the default main-agent flow, this `session_id` usually equals the message-session identifier `unified_msg_origin`. As a result, follow-up requests from the same message session will usually continue using the same Neo sandbox; if the sandbox becomes unavailable, it will be rebuilt automatically.
+From PyaBot's perspective, the current implementation caches the sandbox booter by request `session_id`; in the default main-agent flow, this `session_id` usually equals the message-session identifier `unified_msg_origin`. As a result, follow-up requests from the same message session will usually continue using the same Neo sandbox; if the sandbox becomes unavailable, it will be rebuilt automatically.
 
 For more detailed explanations of TTL and persistence behavior, see the later sections on “`Shipyard Neo Sandbox TTL`” and “Data Persistence in the Sandbox Environment”.
 
@@ -455,10 +455,10 @@ If you choose `Shipyard Neo`, the main configuration items are:
   - For a separated deployment, use the actual address, such as `http://<your-host>:8114`
 - `Shipyard Neo Access Token`
   - Fill in the Bay API key
-  - For an official combined deployment where AstrBot can access Bay's `credentials.json`, you may leave it empty for automatic discovery
+  - For an official combined deployment where PyaBot can access Bay's `credentials.json`, you may leave it empty for automatic discovery
 - `Shipyard Neo Profile`
   - For example `python-default` or `browser-python`
-  - If left empty, AstrBot will try to choose a profile with richer capabilities, preferring one that includes the `browser` capability, and fall back to `python-default` if needed
+  - If left empty, PyaBot will try to choose a profile with richer capabilities, preferring one that includes the `browser` capability, and fall back to `python-default` if needed
 - `Shipyard Neo Sandbox TTL`
   - The upper lifetime limit of the sandbox, defaulting to 3600 seconds (1 hour)
 
@@ -468,7 +468,7 @@ In `Shipyard Neo`:
 
 - TTL represents the upper lifetime bound of the sandbox
 - The selected profile also defines a separate idle timeout (`idle_timeout`)
-- Capability calls from AstrBot usually refresh the idle timeout, rather than directly extending the TTL
+- Capability calls from PyaBot usually refresh the idle timeout, rather than directly extending the TTL
 - `keepalive` only extends the idle timeout; it does not automatically start a new session and does not extend the TTL
 
 <span id="about-data-persistence-in-the-sandbox-environment"></span>
@@ -499,14 +499,14 @@ The Agent can use the following tools in a CUA sandbox. Actual availability depe
 | File writing | `astrbot_file_write_tool` | Create or overwrite files |
 | File editing | `astrbot_file_edit_tool` | Replace specified text in files |
 | File searching | `astrbot_grep_tool` | Search file contents by pattern |
-| File upload | `astrbot_upload_file` | Upload files from the environment running AstrBot to the sandbox |
+| File upload | `astrbot_upload_file` | Upload files from the environment running PyaBot to the sandbox |
 | File download | `astrbot_download_file` | Download files from the sandbox, optionally sending them to the user |
 | Desktop screenshot | `astrbot_cua_screenshot` | Capture a screenshot for model inspection or send it to the user |
 | Mouse click | `astrbot_cua_mouse_click` | Click at coordinates with a specified mouse button |
 | Keyboard input | `astrbot_cua_keyboard_type` | Type text into the currently focused control |
 
 > [!WARNING]
-> CUA is optional and is not installed by default with AstrBot. If you select CUA without installing the `cua` package in AstrBot's Python environment, sandbox startup reports the missing dependency.
+> CUA is optional and is not installed by default with PyaBot. If you select CUA without installing the `cua` package in PyaBot's Python environment, sandbox startup reports the missing dependency.
 
 #### When to choose CUA
 
@@ -516,11 +516,11 @@ Choose CUA when you:
 - Need to test behavior across OS images, such as Linux, Windows, and Android.
 - Already have a local or cloud CUA runtime deployed.
 
-If you only need a reliable Python/Shell/filesystem sandbox without desktop GUI interaction, prefer Shipyard Neo. It fits AstrBot's workspace, Skills synchronization, and long-running usage more closely.
+If you only need a reliable Python/Shell/filesystem sandbox without desktop GUI interaction, prefer Shipyard Neo. It fits PyaBot's workspace, Skills synchronization, and long-running usage more closely.
 
 #### Install CUA dependencies
 
-In the WebUI, open **Data & Logs → Logs**, click **Install Pip Package**, and enter `cua` to install the dependency. You can also install it directly in AstrBot's Python environment:
+In the WebUI, open **Data & Logs → Logs**, click **Install Pip Package**, and enter `cua` to install the dependency. You can also install it directly in PyaBot's Python environment:
 
 - For source or virtual-environment deployments:
 
@@ -528,7 +528,7 @@ In the WebUI, open **Data & Logs → Logs**, click **Install Pip Package**, and 
   pip install cua
   ```
 
-- For AstrBot environments managed with `uv`, run this in the project directory:
+- For PyaBot environments managed with `uv`, run this in the project directory:
 
   ```bash
   uv pip install cua
@@ -543,7 +543,7 @@ CUA also has requirements specific to its runtime:
 
 See the [CUA documentation](https://cua.ai/docs) for host requirements, supported images, and local runtime installation.
 
-#### Configure CUA in AstrBot
+#### Configure CUA in PyaBot
 
 Open **Config → AI → Capabilities → Agent Computer Use**, then set:
 
@@ -553,7 +553,7 @@ Open **Config → AI → Capabilities → Agent Computer Use**, then set:
 CUA settings include:
 
 - `CUA Image`: The image to launch, commonly `linux`, `macos`, `windows`, or `android`. Default: `linux`.
-- `CUA OS Type`: The image's operating system. Default: `linux`. This determines whether AstrBot can use POSIX Shell fallbacks.
+- `CUA OS Type`: The image's operating system. Default: `linux`. This determines whether PyaBot can use POSIX Shell fallbacks.
 - `CUA Sandbox TTL`: Sandbox lifetime in seconds. Default: `3600`.
 - `CUA Telemetry Enabled`: Whether CUA telemetry is enabled. Disabled by default.
 - `CUA Local Runtime`: Whether to use the local runtime. Enabled by default. Disable it to use the CUA SDK's cloud runtime.
@@ -587,9 +587,9 @@ CUA API Key = <your-cua-api-key>
 #### Notes on using CUA
 
 - The `linux` image is generally suitable for Shell, Python, filesystem, and desktop automation tests.
-- Non-POSIX images, such as `windows` and `android`, may not support commands such as `sh`, `cat`, `ls`, `rm`, or `base64`. AstrBot returns explicit errors for fallback operations that require unavailable commands.
+- Non-POSIX images, such as `windows` and `android`, may not support commands such as `sh`, `cat`, `ls`, `rm`, or `base64`. PyaBot returns explicit errors for fallback operations that require unavailable commands.
 - To open a browser or GUI application in the sandbox, use Shell background execution where supported, for example `background=true`, to avoid blocking subsequent tool calls.
-- Sending a sandbox file path directly to the user usually does not work. Use AstrBot's sandbox download tool to download the file into AstrBot's temporary directory before sending it.
+- Sending a sandbox file path directly to the user usually does not work. Use PyaBot's sandbox download tool to download the file into PyaBot's temporary directory before sending it.
 - CUA and Shipyard Neo have different workspace semantics. Shipyard Neo uses a fixed `/workspace` root; CUA's working directory and paths depend on the image and runtime.
 
 <span id="legacy-option-shipyard"></span>
@@ -598,23 +598,23 @@ CUA API Key = <your-cua-api-key>
 
 The following content describes the older `Shipyard` driver. It is kept for compatibility with existing legacy deployments.
 
-#### Deploying AstrBot and Shipyard with Docker Compose
+#### Deploying PyaBot and Shipyard with Docker Compose
 
-If you have not deployed AstrBot yet, or want to use the older recommended deployment method with sandbox support, you can still deploy AstrBot with Docker Compose using the following commands:
+If you have not deployed PyaBot yet, or want to use the older recommended deployment method with sandbox support, you can still deploy PyaBot with Docker Compose using the following commands:
 
 ```bash
-git clone https://github.com/Sakura520222/AstrBot
-cd AstrBot
+git clone https://github.com/Sakura520222/PyaBot
+cd PyaBot
 # Modify the environment variables in compose-with-shipyard.yml, such as the Shipyard access token
 docker compose -f compose-with-shipyard.yml up -d
 docker pull soulter/shipyard-ship:latest
 ```
 
-This starts a Docker Compose stack containing the AstrBot main program and the sandbox environment.
+This starts a Docker Compose stack containing the PyaBot main program and the sandbox environment.
 
 #### Deploying Shipyard Separately
 
-If AstrBot is already deployed but the sandbox environment is not, you can deploy Shipyard separately.
+If PyaBot is already deployed but the sandbox environment is not, you can deploy Shipyard separately.
 
 ```bash
 mkdir astrbot-shipyard
@@ -628,7 +628,7 @@ docker pull soulter/shipyard-ship:latest
 After successful deployment, Shipyard listens on `http://<your-host>:8156` by default.
 
 > [!TIP]
-> If you deploy AstrBot with Docker, you can also place Shipyard on the same Docker network as AstrBot so you do not need to expose Shipyard's port to the host.
+> If you deploy PyaBot with Docker, you can also place Shipyard on the same Docker network as PyaBot so you do not need to expose Shipyard's port to the host.
 
 #### Configuring Shipyard (Legacy)
 

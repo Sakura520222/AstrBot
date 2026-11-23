@@ -1,7 +1,7 @@
 # 消息交互组件
 
 > [!NOTE]
-> 目前仅支持 AstrBot ChatUI。
+> 目前仅支持 PyaBot ChatUI。
 
 插件可以在聊天消息里创建自定义 HTML 卡片。命令、消息事件处理器、UI 回调和本地 LLM 工具都可以返回同一种 `event.view_result()`，不要求先经过 tool call。
 

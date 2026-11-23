@@ -427,7 +427,8 @@ class AstrBotDashboard:
         path: str,
     ) -> JSONResponse | None:
         if (
-            os.environ.get("ASTRBOT_TEST_MODE") != "true"
+            os.environ.get("PYABOT_TEST_MODE") != "true"
+            and os.environ.get("ASTRBOT_TEST_MODE") != "true"
             and path in _RATE_LIMITED_ENDPOINTS
         ):
             rl_config = self.config.get("dashboard", {}).get("auth_rate_limit", {})
@@ -569,16 +570,19 @@ class AstrBotDashboard:
     ) -> tuple[bool, dict[str, str]]:
         cert_file = (
             os.environ.get("DASHBOARD_SSL_CERT")
+            or os.environ.get("PYABOT_DASHBOARD_SSL_CERT")
             or os.environ.get("ASTRBOT_DASHBOARD_SSL_CERT")
             or ssl_config.get("cert_file", "")
         )
         key_file = (
             os.environ.get("DASHBOARD_SSL_KEY")
+            or os.environ.get("PYABOT_DASHBOARD_SSL_KEY")
             or os.environ.get("ASTRBOT_DASHBOARD_SSL_KEY")
             or ssl_config.get("key_file", "")
         )
         ca_certs = (
             os.environ.get("DASHBOARD_SSL_CA_CERTS")
+            or os.environ.get("PYABOT_DASHBOARD_SSL_CA_CERTS")
             or os.environ.get("ASTRBOT_DASHBOARD_SSL_CA_CERTS")
             or ssl_config.get("ca_certs", "")
         )
@@ -631,11 +635,13 @@ class AstrBotDashboard:
         # password gate can be waived.
         port = (
             os.environ.get("DASHBOARD_PORT")
+            or os.environ.get("PYABOT_DASHBOARD_PORT")
             or os.environ.get("ASTRBOT_DASHBOARD_PORT")
             or dashboard_config.get("port", 6185)
         )
         host = (
             os.environ.get("DASHBOARD_HOST")
+            or os.environ.get("PYABOT_DASHBOARD_HOST")
             or os.environ.get("ASTRBOT_DASHBOARD_HOST")
             or dashboard_config.get("host", "0.0.0.0")
         )
@@ -645,6 +651,7 @@ class AstrBotDashboard:
             ssl_config = {}
         ssl_enable = _parse_env_bool(
             os.environ.get("DASHBOARD_SSL_ENABLE")
+            or os.environ.get("PYABOT_DASHBOARD_SSL_ENABLE")
             or os.environ.get("ASTRBOT_DASHBOARD_SSL_ENABLE"),
             bool(ssl_config.get("enable", False)),
         )
@@ -679,7 +686,7 @@ class AstrBotDashboard:
                 f"错误：端口 {port} 已被占用\n"
                 f"占用信息: \n           {process_info}\n"
                 f"请确保：\n"
-                f"1. 没有其他 AstrBot 实例正在运行\n"
+                f"1. 没有其他 PyaBot 实例正在运行\n"
                 f"2. 端口 {port} 没有被其他程序占用\n"
                 f"3. 如需使用其他端口，请修改配置文件",
             )
@@ -692,7 +699,7 @@ class AstrBotDashboard:
             webui_status = (
                 f"WebUI is NOT ready: static files are missing at {self.data_path}"
             )
-        parts = [f"\n ✨✨✨\n  AstrBot v{VERSION} {webui_status}\n\n"]
+        parts = [f"\n ✨✨✨\n  PyaBot v{VERSION} {webui_status}\n\n"]
         parts.append(f"   ➜  Local: {scheme}://localhost:{port}\n")
         for ip in ip_addr:
             parts.append(f"   ➜  Network: {scheme}://{ip}:{port}\n")
@@ -732,4 +739,4 @@ class AstrBotDashboard:
 
     async def shutdown_trigger(self) -> None:
         await self.shutdown_event.wait()
-        logger.info("AstrBot WebUI 已经被关闭")
+        logger.info("PyaBot WebUI 已经被关闭")

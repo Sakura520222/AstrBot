@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# AstrBot 插件开发指南 🌠
+# PyaBot 插件开发指南 🌠
 
-欢迎来到 AstrBot 插件开发指南！本章节将引导您如何开发 AstrBot 插件。在我们开始之前，希望你能具备以下基础知识：
+欢迎来到 PyaBot 插件开发指南！本章节将引导您如何开发 PyaBot 插件。在我们开始之前，希望你能具备以下基础知识：
 
 1. 有一定的 Python 编程经验。
 2. 有一定的 Git、GitHub 使用经验。
@@ -15,7 +15,7 @@ outline: deep
 
 ### 获取插件模板
 
-1. 打开 AstrBot 插件模板: [helloworld](https://github.com/Soulter/helloworld)
+1. 打开 PyaBot 插件模板: [helloworld](https://github.com/Soulter/helloworld)
 2. 点击右上角的 `Use this template`
 3. 然后点击 `Create new repository`。
 4. 在 `Repository name` 处填写您的插件名。插件名格式:
@@ -27,21 +27,21 @@ outline: deep
 
 ### 克隆项目到本地
 
-克隆 AstrBot 项目本体和刚刚创建的插件仓库到本地。
+克隆 PyaBot 项目本体和刚刚创建的插件仓库到本地。
 
 ```bash
-git clone https://github.com/Sakura520222/AstrBot
+git clone https://github.com/Sakura520222/PyaBot
 mkdir -p AstrBot/data/plugins
-cd AstrBot/data/plugins
+cd PyaBot/data/plugins
 git clone 插件仓库地址
 ```
 
-然后，使用 `VSCode` 打开 `AstrBot` 项目。找到 `data/plugins/<你的插件名字>` 目录。
+然后，使用 `VSCode` 打开 `PyaBot` 项目。找到 `data/plugins/<你的插件名字>` 目录。
 
 更新 `metadata.yaml` 文件，填写插件的元数据信息。
 
 > [!WARNING]
-> 请务必修改此文件，AstrBot 识别插件元数据依赖于 `metadata.yaml` 文件。
+> 请务必修改此文件，PyaBot 识别插件元数据依赖于 `metadata.yaml` 文件。
 
 ### 设置插件 Logo（可选）
 
@@ -65,7 +65,7 @@ short_desc: 一句话介绍你的插件。
 
 ### 随插件提供 Skills（可选）
 
-插件可以在自己的目录下提供 `skills/` 文件夹。AstrBot 加载插件后会自动把其中合法的 Skill 纳入 Skill Manager，来源会显示为对应插件。
+插件可以在自己的目录下提供 `skills/` 文件夹。PyaBot 加载插件后会自动把其中合法的 Skill 纳入 Skill Manager，来源会显示为对应插件。
 
 推荐一个插件包含多个 Skill 时使用以下结构：
 
@@ -122,9 +122,9 @@ support_platforms:
 - `matrix`
 - `mattermost`
 
-### 声明 AstrBot 版本范围（Optional）
+### 声明 PyaBot 版本范围（Optional）
 
-你可以在 `metadata.yaml` 中新增 `astrbot_version` 字段，声明插件要求的 AstrBot 版本范围。格式与 `pyproject.toml` 依赖版本约束一致（PEP 440），且不要加 `v` 前缀。
+你可以在 `metadata.yaml` 中新增 `astrbot_version` 字段，声明插件要求的 PyaBot 版本范围。格式与 `pyproject.toml` 依赖版本约束一致（PEP 440），且不要加 `v` 前缀。
 
 ```yaml
 astrbot_version: ">=4.16,<5"
@@ -140,28 +140,28 @@ astrbot_version: ">=4.16,<5"
 
 - `>=4.17.0`
 
-当当前 AstrBot 版本不满足该范围时，插件会被阻止加载并提示版本不兼容。
+当当前 PyaBot 版本不满足该范围时，插件会被阻止加载并提示版本不兼容。
 在 WebUI 安装插件时，你可以选择“无视警告，继续安装”来跳过这个检查。
 
 ### 调试插件
 
-AstrBot 采用在运行时注入插件的机制。因此，在调试插件时，需要启动 AstrBot 本体。
+PyaBot 采用在运行时注入插件的机制。因此，在调试插件时，需要启动 PyaBot 本体。
 
-您可以使用 AstrBot 的热重载功能简化开发流程。
+您可以使用 PyaBot 的热重载功能简化开发流程。
 
-插件的代码修改后，在 AstrBot WebUI 的 `插件` 页找到自己的插件，点击插件卡片上的刷新图标（`重载插件`）。
+插件的代码修改后，在 PyaBot WebUI 的 `插件` 页找到自己的插件，点击插件卡片上的刷新图标（`重载插件`）。
 
 如果插件因为代码错误等原因加载失败，可以在同一页面的 `加载失败插件` 列表中点击对应插件的 `重载` 按钮。
 
 ### 插件依赖管理
 
-目前 AstrBot 对插件的依赖管理使用 `pip` 自带的 `requirements.txt` 文件。如果你的插件需要依赖第三方库，请务必在插件目录下创建 `requirements.txt` 文件并写入所使用的依赖库，以防止用户在安装你的插件时出现依赖未找到(Module Not Found)的问题。
+目前 PyaBot 对插件的依赖管理使用 `pip` 自带的 `requirements.txt` 文件。如果你的插件需要依赖第三方库，请务必在插件目录下创建 `requirements.txt` 文件并写入所使用的依赖库，以防止用户在安装你的插件时出现依赖未找到(Module Not Found)的问题。
 
 > `requirements.txt` 的完整格式可以参考 [pip 官方文档](https://pip.pypa.io/en/stable/reference/requirements-file-format/)。
 
 ## 开发原则
 
-感谢您为 AstrBot 生态做出贡献，开发插件请遵守以下原则，这也是良好的编程习惯。
+感谢您为 PyaBot 生态做出贡献，开发插件请遵守以下原则，这也是良好的编程习惯。
 
 - 功能需经过测试。
 - 需包含良好的注释。

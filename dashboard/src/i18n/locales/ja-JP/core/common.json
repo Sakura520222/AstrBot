@@ -48,18 +48,18 @@
     "cancelButton": "キャンセル"
   },
   "restart": {
-    "waiting": "AstrBot の再起動を待っています…",
+    "waiting": "PyaBot の再起動を待っています…",
     "maxRetriesReached": "ステータスの確認回数が上限に達しました。手動で確認してください。"
   },
   "upgradeRecovery": {
     "title": "アップグレードが完了していません",
-    "description": "WebUI は {dashboardVersion} に更新されていますが、AstrBot Core はまだ {coreVersion} です。通常、アップグレード中にページを更新したことで再起動処理が中断された場合に発生します。再起動しても解決しない場合は、AstrBot のランタイムディレクトリにある data/dist フォルダーを削除してから、AstrBot を再起動してください。",
+    "description": "WebUI は {dashboardVersion} に更新されていますが、PyaBot Core はまだ {coreVersion} です。通常、アップグレード中にページを更新したことで再起動処理が中断された場合に発生します。再起動しても解決しない場合は、PyaBot のランタイムディレクトリにある data/dist フォルダーを削除してから、PyaBot を再起動してください。",
     "hint": "アップグレードを完了するにはバックエンドを再起動してください。再起動後、ページは自動的に更新されます。",
     "restartButton": "今すぐバックエンドを再起動",
     "laterButton": "後で対応",
     "restarting": "バックエンドの再起動を要求しています…",
     "waiting": "再起動を開始しました。バックエンドの復旧を待っています…",
-    "failed": "再起動の要求に失敗しました。AstrBot を手動で再起動してください。"
+    "failed": "再起動の要求に失敗しました。PyaBot を手動で再起動してください。"
   },
   "readme": {
     "title": "プラグインのドキュメント",

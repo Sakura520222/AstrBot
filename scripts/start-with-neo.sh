@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ──────────────────────────────────────────────────────────────
-# start-with-neo.sh — 一键启动 Shipyard Neo Bay + AstrBot
+# start-with-neo.sh — 一键启动 Shipyard Neo Bay + PyaBot
 #
 # Usage:
 #   bash scripts/start-with-neo.sh            # 默认 Bay :8114
@@ -257,7 +257,7 @@ print_astrbot_config_hint() {
         echo -e "  ${YELLOW}$BAY_API_KEY${NC}"
         echo ""
     fi
-    echo -e "  ${CYAN}AstrBot Dashboard 配置指引：${NC}"
+    echo -e "  ${CYAN}PyaBot Dashboard 配置指引：${NC}"
     echo -e "  1. Config → AI → Capabilities → Agent Computer Use"
     echo -e "     • Computer Use Runtime → ${YELLOW}沙箱${NC}"
     echo -e "     • 沙箱环境驱动器        → ${YELLOW}Shipyard Neo${NC}"
@@ -273,7 +273,7 @@ print_astrbot_config_hint() {
 
 # ── 启动 AstrBot ──────────────────────────────────────────────
 start_astrbot() {
-    log "Starting AstrBot..."
+    log "Starting PyaBot..."
     cd "$ASTRBOT_DIR"
     uv run main.py
 }
@@ -282,7 +282,7 @@ start_astrbot() {
 main() {
     echo ""
     echo -e "${CYAN}╔══════════════════════════════════════════╗${NC}"
-    echo -e "${CYAN}║   Shipyard Neo + AstrBot Quick Start    ║${NC}"
+    echo -e "${CYAN}║   Shipyard Neo + PyaBot Quick Start    ║${NC}"
     echo -e "${CYAN}╚══════════════════════════════════════════╝${NC}"
     echo ""
 

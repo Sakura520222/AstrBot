@@ -83,7 +83,7 @@ def _load_config() -> dict[str, Any]:
     root = get_astrbot_root()
     if not check_astrbot_root(root):
         raise click.ClickException(
-            f"{root} is not a valid AstrBot root directory. Use 'astrbot init' to initialize",
+            f"{root} is not a valid PyaBot root directory. Use 'pyabot init' to initialize",
         )
 
     config_path = root / "data" / "cmd_config.json"

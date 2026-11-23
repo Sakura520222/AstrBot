@@ -134,7 +134,7 @@
       "stars": "Star数",
       "updatedAt": "更新时间",
       "tags": "标签",
-      "astrbotVersion": "AstrBot 版本要求",
+      "astrbotVersion": "PyaBot 版本要求",
       "supportPlatforms": "支持平台",
       "authorWebsite": "作者网站",
       "repository": "仓库"
@@ -229,7 +229,7 @@
       "supportPlatformsCount": "支持 {count} 个平台",
       "sectionTitle": "安装",
       "downloadSource": "将从以下位置安装插件包体：",
-      "repositorySecurityWarning": "AstrBot 不能保证从代码仓库下载的插件的安全性。请确认你信任该插件来源后再安装。"
+      "repositorySecurityWarning": "PyaBot 不能保证从代码仓库下载的插件的安全性。请确认你信任该插件来源后再安装。"
     },
     "update": {
       "title": "更新插件",
@@ -245,7 +245,7 @@
     },
     "versionSupport": {
       "title": "版本兼容性警告",
-      "message": "该插件声明的 AstrBot 版本范围与当前版本不匹配。你可以无视警告继续安装，但可能无法正常运行。",
+      "message": "该插件声明的 PyaBot 版本范围与当前版本不匹配。你可以无视警告继续安装，但可能无法正常运行。",
       "confirm": "无视警告，继续安装",
       "cancel": "取消安装"
     },
@@ -423,7 +423,7 @@
     "neoPayloadTitle": "Neo Payload 详情",
     "neoPayloadFailed": "读取 Payload 失败",
     "runtimeNoneWarning": "Computer Use 运行环境为无，技能可能无法正确被 Agent 运行，因为没有启用运行环境。",
-    "runtimeHint": "需要在配置的“使用电脑能力”中将运行环境设置为“local”或“sandbox”，才能让 AstrBot 正常使用你提供的技能。工作区技能暂不在此页面显示。",
+    "runtimeHint": "需要在配置的“使用电脑能力”中将运行环境设置为“local”或“sandbox”，才能让 PyaBot 正常使用你提供的技能。工作区技能暂不在此页面显示。",
     "neoRuntimeRequired": "Neo 技能仅在运行环境为 sandbox 且沙箱驱动为 shipyard_neo 时可用。",
     "sourceLocalOnly": "本地技能",
     "sourceSandboxOnly": "Sandbox 预置技能",
@@ -461,7 +461,7 @@
       "handlersCount": "个行为",
       "supportPlatform": "支持平台",
       "supportPlatformsCount": "支持 {count} 个平台",
-      "astrbotVersion": "AstrBot 版本要求"
+      "astrbotVersion": "PyaBot 版本要求"
     },
     "alt": {
       "logo": "logo",

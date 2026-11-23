@@ -1,7 +1,7 @@
 # Workbench page
 
 > [!NOTE]
-> Currently supported only in AstrBot ChatUI.
+> Currently supported only in PyaBot ChatUI.
 
 Use `target="chat_workbench"` to display an interface beside the conversation. Open file previews from messages or tools, or register resident pages such as notes and session analytics in the workbench **+** entry.
 

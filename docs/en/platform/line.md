@@ -37,9 +37,9 @@ How to get them:
 
 ![](/images/ee3b79929bd1d6db.png)
 
-## Configure AstrBot
+## Configure PyaBot
 
-1. Open the AstrBot admin panel
+1. Open the PyaBot admin panel
 2. Click `Platforms` in the left sidebar
 3. Click `Add Adapter`
 4. Select `line`
@@ -50,7 +50,7 @@ Fill in these fields:
 - `Enable`: Checked
 - `LINE Channel Access Token`: your `channel_access_token`
 - `LINE Channel Secret`: your `channel_secret`
-- `LINE Bot User ID`: optional; if empty, AstrBot uses webhook `destination`
+- `LINE Bot User ID`: optional; if empty, PyaBot uses webhook `destination`
 
 Click Save.
 
@@ -68,7 +68,7 @@ Then in LINE Developers Console:
 4. Enable `Use webhook`
 
 > [!TIP]
-> If AstrBot is not publicly reachable, set up a public domain and reverse proxy first so LINE can access your webhook URL.
+> If PyaBot is not publicly reachable, set up a public domain and reverse proxy first so LINE can access your webhook URL.
 
 ## Test
 

@@ -1,15 +1,15 @@
 # Web Search
 
-Web Search lets AstrBot's built-in AI call a search service while answering questions. It can find news, product updates, and public reference material—for example, check a software release, compare options, or read a web page and summarize it.
+Web Search lets PyaBot's built-in AI call a search service while answering questions. It can find news, product updates, and public reference material—for example, check a software release, compare options, or read a web page and summarize it.
 
 The model retrieves results and then uses them to compose its answer. Search supplements the model's existing knowledge, but results can still be outdated or inaccurate. Open the sources to verify important information.
 
 ## What you need
 
-- **AstrBot Built-in AI**: Enable AI under `Config → AI` and select AstrBot Built-in AI as the execution mode. Search for third-party modes such as Dify or Coze is configured in the corresponding service.
+- **PyaBot Built-in AI**: Enable AI under `Config → AI` and select PyaBot Built-in AI as the execution mode. Search for third-party modes such as Dify or Coze is configured in the corresponding service.
 - **A chat model with tool calling**: Both the model and the API used to access it must support Function Calling / Tool Calling.
 - **A search service**: Choose a provider and obtain an API key if required. Search keys and chat model keys are separate credentials.
-- **Network access**: The server or container running AstrBot must be able to reach the selected service's API.
+- **Network access**: The server or container running PyaBot must be able to reach the selected service's API.
 
 Search uses built-in tools. You do not need a search plugin or Computer Use. The network permission for executing code applies to code execution, not to requests to search services.
 
@@ -27,9 +27,9 @@ These settings belong to the selected profile. Changing `default` does not enabl
 
 ## Choose a search provider
 
-AstrBot supports nine providers. Configure one to start; you do not need an account with every service.
+PyaBot supports nine providers. Configure one to start; you do not need an account with every service.
 
-| Provider | Get a key | Capabilities available in AstrBot |
+| Provider | Get a key | Capabilities available in PyaBot |
 | --- | --- | --- |
 | <span id="serpapi">[SerpApi](./websearch/serpapi.md)</span> | [SerpApi API key](https://serpapi.com/manage-api-key) | Google web search, News, Images Light, Finance, and Scholar |
 | <span id="deepseek">[DeepSeek Search API](./websearch/deepseek.md)</span> | [DeepSeek Platform](https://platform.deepseek.com/api_keys) / [Search Docs](https://api-docs.deepseek.com/guides/search) | Web search and page content extraction from a URL |
@@ -68,7 +68,7 @@ Find the official bubblewrap documentation and explain what problems it helps so
 With a provider that supports page extraction, you can also ask:
 
 ```text
-Read this page and summarize its installation steps: https://astrbot.pyabunny.com/docs/en/deploy/astrbot/docker.html
+Read this page and summarize its installation steps: https://pyabot.pyabunny.com/docs/en/deploy/astrbot/docker.html
 ```
 
 The model decides whether to search, which keywords to use, and whether to read a page afterward. Enabling search does not make every message access the internet. Ask it to “search first, then answer” when you need current information.
@@ -81,13 +81,13 @@ ChatUI can display source references returned by some search tools. The result d
 
 Test with “Please perform a web search before answering…” and check that:
 
-1. The conversation uses the profile you edited, with AstrBot Built-in AI selected.
+1. The conversation uses the profile you edited, with PyaBot Built-in AI selected.
 2. The chat model and its API support tool calling.
 3. The key was saved and the search service has quota remaining.
 
 ### Invalid key, quota, or request errors
 
-Check the error under `Data & Logs → Logs`. `401` and `403` commonly indicate key or service permission problems; `429` commonly indicates a quota or rate limit. For timeouts, check connectivity from the AstrBot environment to the search API. Do not enter your chat model key in a search key field.
+Check the error under `Data & Logs → Logs`. `401` and `403` commonly indicate key or service permission problems; `429` commonly indicates a quota or rate limit. For timeouts, check connectivity from the PyaBot environment to the search API. Do not enter your chat model key in a search key field.
 
 ### Search works, but summarizing a link fails
 

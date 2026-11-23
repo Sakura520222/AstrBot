@@ -149,7 +149,7 @@ async def main_async(webui_dir_arg: str | None) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="AstrBot")
+    parser = argparse.ArgumentParser(description="PyaBot")
     parser.add_argument(
         "--webui-dir",
         type=str,

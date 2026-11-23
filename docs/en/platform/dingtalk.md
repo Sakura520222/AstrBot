@@ -16,15 +16,15 @@ Proactive message push: Supported.
 
 ## Create and Configure the App
 
-DingTalk supports two setup methods: one-click QR creation in AstrBot, or manually creating an app in DingTalk Open Platform.
+DingTalk supports two setup methods: one-click QR creation in PyaBot, or manually creating an app in DingTalk Open Platform.
 
 ### Option 1: One-click QR Creation
 
-AstrBot version requirement: >= v4.25.0.
+PyaBot version requirement: >= v4.25.0.
 
-Open AstrBot Dashboard -> `Platforms` -> `Add Adapter`, then select `DingTalk`.
+Open PyaBot Dashboard -> `Platforms` -> `Add Adapter`, then select `DingTalk`.
 
-Under `Creation Method`, select `One-click QR setup`, scan the QR code with the DingTalk mobile app, then create or bind a bot on the DingTalk authorization page. After creation succeeds, AstrBot automatically fills in `ClientID` and `ClientSecret`. Click `Save` to finish.
+Under `Creation Method`, select `One-click QR setup`, scan the QR code with the DingTalk mobile app, then create or bind a bot on the DingTalk authorization page. After creation succeeds, PyaBot automatically fills in `ClientID` and `ClientSecret`. Click `Save` to finish.
 
 After QR creation succeeds, continue checking the event subscription, version release, and group installation steps below.
 
@@ -46,11 +46,11 @@ After confirming all settings, click Publish.
 
 Go to Credentials & Basic Information, then copy `ClientID` and `ClientSecret`.
 
-## Connect in AstrBot
+## Connect in PyaBot
 
-Open AstrBot Dashboard -> `Platforms` -> `Add Adapter`, then create a DingTalk adapter.
+Open PyaBot Dashboard -> `Platforms` -> `Add Adapter`, then create a DingTalk adapter.
 
-If you want AstrBot to create the app for you, select `One-click QR setup` and complete the scan. If you already created the app yourself, select `Manual setup`, fill in `ClientID` and `ClientSecret`, then click Save. AstrBot will request authorization from DingTalk Open Platform automatically.
+If you want PyaBot to create the app for you, select `One-click QR setup` and complete the scan. If you already created the app yourself, select `Manual setup`, fill in `ClientID` and `ClientSecret`, then click Save. PyaBot will request authorization from DingTalk Open Platform automatically.
 
 Back in DingTalk Open Platform, open Event Subscriptions, select `Stream mode push`, and click Save. If successful, you will see a connected status.
 

@@ -1,6 +1,6 @@
 # Plugin views
 
-Build HTML interfaces in your plugin and connect them to AstrBot through the Bridge. Choose `target` in metadata based on where users work with the interface:
+Build HTML interfaces in your plugin and connect them to PyaBot through the Bridge. Choose `target` in metadata based on where users work with the interface:
 
 | Interface | `target` | Use cases | How it opens |
 | --- | --- | --- | --- |

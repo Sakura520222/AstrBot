@@ -4,7 +4,7 @@ outline: deep
 
 # Developing a Platform Adapter
 
-AstrBot supports integrating platform adapters in plugin form, allowing you to connect platforms that AstrBot does not natively support — such as Lark, DingTalk, Bilibili private messages, or even Minecraft.
+PyaBot supports integrating platform adapters in plugin form, allowing you to connect platforms that PyaBot does not natively support — such as Lark, DingTalk, Bilibili private messages, or even Minecraft.
 
 We will use a platform called `FakePlatform` as an example.
 
@@ -195,7 +195,7 @@ class FakePlatformEvent(AstrMessageEvent):
 
 ## Media Message Handling
 
-Platform adapters do not need to reimplement media parsing for every platform. Convert the platform message into AstrBot message components, and put the media reference in the component's `file` / `url` field. The supported reference forms are:
+Platform adapters do not need to reimplement media parsing for every platform. Convert the platform message into PyaBot message components, and put the media reference in the component's `file` / `url` field. The supported reference forms are:
 
 - Local path, such as `/tmp/a.jpg`
 - Standard `file:` URI, such as `file:///tmp/a.jpg`
@@ -222,7 +222,7 @@ abm.message.append(Record(file=audio_url, url=audio_url))
 abm.message.append(Video(file=video_url, url=video_url))
 ```
 
-Before plugins and LLM providers see the event, AstrBot's preprocess stage tries to normalize media in the message chain:
+Before plugins and LLM providers see the event, PyaBot's preprocess stage tries to normalize media in the message chain:
 
 - `Image` is materialized through the shared media utilities and converted to JPEG when needed.
 - `Record` is materialized through the shared media utilities and converted to WAV when needed.
@@ -243,7 +243,7 @@ elif isinstance(i, Video):
     await self.client.send_video(to=self.get_sender_id(), video_path=video_path)
 ```
 
-If the adapter downloads platform media into AstrBot's temporary directory by itself, register the path on the event after creating it so the file does not remain after the event finishes:
+If the adapter downloads platform media into PyaBot's temporary directory by itself, register the path on the event after creating it so the file does not remain after the event finishes:
 
 ```py
 message_event.track_temporary_local_file(temp_media_path)
@@ -260,7 +260,7 @@ class MyPlugin(Star):
         from .fake_platform_adapter import FakePlatformAdapter  # noqa
 ```
 
-Once set up, run AstrBot:
+Once set up, run PyaBot:
 
 ![image](/images/1c12ad7be69afb35.png)
 

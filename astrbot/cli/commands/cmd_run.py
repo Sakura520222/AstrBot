@@ -9,11 +9,12 @@ from filelock import FileLock, Timeout
 
 from ..utils import check_astrbot_root, check_dashboard, get_astrbot_root
 
+PYABOT_DASHBOARD_RESET_PASSWORD_ENV = "PYABOT_RESET_DASHBOARD_PASSWORD"
 DASHBOARD_RESET_PASSWORD_ENV = "ASTRBOT_RESET_DASHBOARD_PASSWORD"
 
 
 async def run_astrbot(astrbot_root: Path) -> None:
-    """Run AstrBot"""
+    """Run PyaBot."""
     from astrbot.core import LogBroker, LogManager, db_helper, logger
     from astrbot.core.initial_loader import InitialLoader
 
@@ -29,7 +30,7 @@ async def run_astrbot(astrbot_root: Path) -> None:
 
 
 @click.option("--reload", "-r", is_flag=True, help="Auto-reload plugins")
-@click.option("--port", "-p", help="AstrBot Dashboard port", required=False, type=str)
+@click.option("--port", "-p", help="PyaBot Dashboard port", required=False, type=str)
 @click.option(
     "--reset-password",
     is_flag=True,
@@ -37,16 +38,18 @@ async def run_astrbot(astrbot_root: Path) -> None:
 )
 @click.command()
 def run(reload: bool, port: str | None, reset_password: bool) -> None:
-    """Run AstrBot"""
+    """Run PyaBot."""
     try:
+        os.environ["PYABOT_CLI"] = "1"
         os.environ["ASTRBOT_CLI"] = "1"
         astrbot_root = get_astrbot_root()
 
         if not check_astrbot_root(astrbot_root):
             raise click.ClickException(
-                f"{astrbot_root} is not a valid AstrBot root directory. Use 'astrbot init' to initialize",
+                f"{astrbot_root} is not a valid PyaBot root directory. Use 'pyabot init' to initialize",
             )
 
+        os.environ["PYABOT_ROOT"] = str(astrbot_root)
         os.environ["ASTRBOT_ROOT"] = str(astrbot_root)
         sys.path.insert(0, str(astrbot_root))
 
@@ -55,17 +58,19 @@ def run(reload: bool, port: str | None, reset_password: bool) -> None:
 
         if reload:
             click.echo("Plugin auto-reload enabled")
+            os.environ["PYABOT_RELOAD"] = "1"
             os.environ["ASTRBOT_RELOAD"] = "1"
 
         if reset_password:
+            os.environ[PYABOT_DASHBOARD_RESET_PASSWORD_ENV] = "1"
             os.environ[DASHBOARD_RESET_PASSWORD_ENV] = "1"
 
-        lock_file = astrbot_root / "astrbot.lock"
+        lock_file = astrbot_root / "pyabot.lock"
         lock = FileLock(lock_file, timeout=5)
         with lock.acquire():
             asyncio.run(run_astrbot(astrbot_root))
     except KeyboardInterrupt:
-        click.echo("AstrBot has been shut down.")
+        click.echo("PyaBot has been shut down.")
     except Timeout:
         raise click.ClickException(
             "Cannot acquire lock file. Please check if another instance is running"

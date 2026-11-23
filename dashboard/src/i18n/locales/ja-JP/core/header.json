@@ -1,7 +1,7 @@
 {
-  "logoTitle": "AstrBot WebUI",
+  "logoTitle": "PyaBot WebUI",
   "version": {
-    "hasNewVersion": "AstrBot の新しいバージョンがあります！",
+    "hasNewVersion": "PyaBot の新しいバージョンがあります！",
     "dashboardHasNewVersion": "WebUI の新しいバージョンがあります！"
   },
   "buttons": {
@@ -17,7 +17,7 @@
   },
   "updateDialog": {
     "retry": "再試行",
-    "title": "AstrBot を更新",
+    "title": "PyaBot を更新",
     "currentVersion": "現在のバージョン",
     "status": {
       "checkFailed": "更新の確認に失敗しました",
@@ -66,7 +66,7 @@
       "core": "プロジェクトコードをダウンロード",
       "dependencies": "依存関係を更新しています…",
       "restart": "再起動を準備しています…",
-      "restarting": "AstrBot を再起動しています",
+      "restarting": "PyaBot を再起動しています",
       "completed": "更新が完了しました",
       "successReady": "更新に成功しました",
       "autoReloadIn": "{seconds} 秒後にページを自動的に再読み込みします",
@@ -81,12 +81,12 @@
       "currentVersion": "現在のバージョン：",
       "guideTitle": "ページを開いた後の手順：",
       "guideStep1": "OS とアーキテクチャに対応するインストーラーをダウンロードします。",
-      "guideStep2": "インストール後に AstrBot を再起動します。",
+      "guideStep2": "インストール後に PyaBot を再起動します。",
       "guideStep3": "Docker を使用している場合は、イメージを更新する方法を優先してください。"
     },
     "desktopApp": {
       "title": "デスクトップアプリを更新",
-      "message": "AstrBot デスクトップアプリの更新を確認し、アップグレードします。",
+      "message": "PyaBot デスクトップアプリの更新を確認し、アップグレードします。",
       "currentVersion": "現在のバージョン：",
       "latestVersion": "最新バージョン：",
       "checking": "デスクトップアプリの更新を確認しています…",
@@ -111,7 +111,7 @@
   "accountDialog": {
     "title": "アカウント設定",
     "securityWarning": "セキュリティ上の注意：アカウントを保護するため、パスワードを変更してください",
-    "securityWarningMd5": "新しいバージョンの AstrBot ではセキュリティが強化されています。パスワードを変更してください。",
+    "securityWarningMd5": "新しいバージョンの PyaBot ではセキュリティが強化されています。パスワードを変更してください。",
     "securityWarningUpgrade": "旧形式で保存されたパスワードが検出されました。セキュリティのアップグレードを完了するには、パスワードを変更してください。",
     "form": {
       "currentPassword": "現在のパスワード",

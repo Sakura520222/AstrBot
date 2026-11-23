@@ -141,7 +141,7 @@ Manage configuration profiles, system configuration, and shared configuration, e
 
 Use chat capabilities and manage ChatUI sessions and projects.
 
-- **Sensitive sub-scope `chat:admin`:** Allow `username` to use a configured AstrBot administrator ID. This sub-scope must be granted explicitly.
+- **Sensitive sub-scope `chat:admin`:** Allow `username` to use a configured PyaBot administrator ID. This sub-scope must be granted explicitly.
 
 | Method | Endpoint | Conditional sensitive sub-scope |
 | --- | --- | --- |

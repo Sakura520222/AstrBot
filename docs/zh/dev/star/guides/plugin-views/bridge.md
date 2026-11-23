@@ -357,7 +357,7 @@ try {
 
 ## 亮暗主题
 
-AstrBot 会把当前主题同步给插件视图。bridge SDK 会维护 `<html>` 的 `data-theme` 属性：
+PyaBot 会把当前主题同步给插件视图。bridge SDK 会维护 `<html>` 的 `data-theme` 属性：
 
 - 亮色模式：`<html data-theme="light">`
 - 暗色模式：`<html data-theme="dark">`
@@ -464,7 +464,7 @@ bridge.onContext(render);
 <img src="./assets/logo.svg" alt="" />
 ```
 
-AstrBot 通过路径令牌（path token）为视图资源鉴权：入口配置接口返回的 `content_path` 形如 `/api/v1/plugins/<插件>/views/<视图>/_t/<令牌>/`，页面内的相对路径会沿该前缀自然解析并继承令牌，内容按原样返回、不做重写。令牌与 Dashboard 会话同寿命，且只作用于对应插件的对应视图。
+PyaBot 通过路径令牌（path token）为视图资源鉴权：入口配置接口返回的 `content_path` 形如 `/api/v1/plugins/<插件>/views/<视图>/_t/<令牌>/`，页面内的相对路径会沿该前缀自然解析并继承令牌，内容按原样返回、不做重写。令牌与 Dashboard 会话同寿命，且只作用于对应插件的对应视图。
 
 不要手动拼接内容 URL，不要自行追加 `asset_token`，也不要依赖 `..` 逃逸视图根目录。旧版 `/api/plugin/page/content/...?asset_token=...` 形式已被移除。
 

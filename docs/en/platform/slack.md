@@ -1,6 +1,6 @@
 # Connecting to Slack
 
-## Create AstrBot Slack Platform Adapter
+## Create PyaBot Slack Platform Adapter
 
 Navigate to the `Platforms` page, click `Add Adapter`, find Slack and click to enter the Slack configuration page.
 
@@ -16,7 +16,7 @@ Slack supports two connection methods: `Webhook` and `Socket`. If you don't have
 
 ![image](/images/edc0d2fface48f83.png)
 
-4. In the Basic Information page on the left sidebar, find App-Level Tokens and click "Generate Token and Scopes". Enter any Token Name, click Add Scope, select `connections:write`, then click "Generate". Click Copy and paste the result into the app_token field on the AstrBot configuration page.
+4. In the Basic Information page on the left sidebar, find App-Level Tokens and click "Generate Token and Scopes". Enter any Token Name, click Add Scope, select `connections:write`, then click "Generate". Click Copy and paste the result into the app_token field on the PyaBot configuration page.
 
 ![image](/images/9eb574b948e079a8.png)
 
@@ -65,12 +65,12 @@ After successfully creating the platform adapter, return to the Slack settings. 
 
 If you're using Webhook mode:
 
-- If `Unified Webhook Mode` is enabled, after clicking save, AstrBot will automatically generate a unique Webhook callback URL for you. You can find it under `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`. Enter this URL in the `Request URL` field.
+- If `Unified Webhook Mode` is enabled, after clicking save, PyaBot will automatically generate a unique Webhook callback URL for you. You can find it under `Data & Logs → Logs`, or select the bot in `Platforms` and click `View Webhook URL`. Enter this URL in the `Request URL` field.
 
 - If `Unified Webhook Mode` is not enabled, enter `https://your-domain/astrbot-slack-webhook/callback` in the `Request URL` field.
 
 > [!TIP]
-> In Webhook mode, you need to first set up your domain with your DNS provider, then use reverse proxy software to forward requests to port `6185` on the AstrBot server (if Unified Webhook Mode is enabled) or the port specified in your configuration (if Unified Webhook Mode is not enabled). Alternatively, you can use Cloudflare Tunnel. For detailed tutorials, please refer to online resources; this tutorial will not cover these in detail.
+> In Webhook mode, you need to first set up your domain with your DNS provider, then use reverse proxy software to forward requests to port `6185` on the PyaBot server (if Unified Webhook Mode is enabled) or the port specified in your configuration (if Unified Webhook Mode is not enabled). Alternatively, you can use Cloudflare Tunnel. For detailed tutorials, please refer to online resources; this tutorial will not cover these in detail.
 
 After enabling, under Subscribe to bot events below, click Add Bot User Event and add the following events:
 
@@ -92,4 +92,4 @@ After adding the events, click `Save Changes` at the bottom of the page to save 
 
 Enter the Slack workspace you just added, navigate to the channel where you want to use the bot, then @ mention the app you just created. Click the Add button in the message subsequently sent by Slackbot to add it to the workspace. Then, @ mention the app and type `/help`. If it responds successfully, the test is successful.
 
-If you have any questions, please [submit an Issue](https://github.com/Sakura520222/AstrBot/issues).
+If you have any questions, please [submit an Issue](https://github.com/Sakura520222/PyaBot/issues).

@@ -37,9 +37,9 @@
 
 ![](/images/ee3b79929bd1d6db.png)
 
-## 配置 AstrBot
+## 配置 PyaBot
 
-1. 进入 AstrBot 管理面板
+1. 进入 PyaBot 管理面板
 2. 点击左侧 `机器人`
 3. 点击 `+ 创建机器人`
 4. 选择 `line`
@@ -55,7 +55,7 @@
 
 ## 配置回调地址（统一 Webhook）
 
-LINE 适配器仅支持 AstrBot 统一 Webhook 模式。
+LINE 适配器仅支持 PyaBot 统一 Webhook 模式。
 
 保存后，在 `机器人` 页选中刚创建的机器人，点击 `查看 Webhook 链接`，复制 URL。
 
@@ -67,7 +67,7 @@ LINE 适配器仅支持 AstrBot 统一 Webhook 模式。
 4. 打开 `Use webhook`
 
 > [!TIP]
-> 如果你的 AstrBot 不在公网，请先配置好可公网访问的域名与反向代理，确保 LINE 可以访问该 Webhook URL。
+> 如果你的 PyaBot 不在公网，请先配置好可公网访问的域名与反向代理，确保 LINE 可以访问该 Webhook URL。
 
 ## 测试
 

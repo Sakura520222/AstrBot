@@ -82,9 +82,9 @@ class HelpCommand:
         )
 
         msg_parts = [
-            f"AstrBot v{VERSION}(WebUI: {dashboard_version})",
+            f"PyaBot v{VERSION}(WebUI: {dashboard_version})",
             commands_section,
-            "文档：https://astrbot.pyabunny.com/docs/",
+            "文档：https://pyabot.pyabunny.com/docs/",
         ]
         msg = "\n".join(msg_parts)
 

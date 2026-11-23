@@ -33,7 +33,7 @@
       "remove": "紐付けを解除",
       "noBindings": "セッション固有の設定はありません。",
       "advanced": "高度なルーティングルール",
-      "advancedDescription": "UMO pattern を使用して複数の会話を一括で照合します。ルールは上から順に照合され、AstrBot の会話ソース形式に詳しいユーザー向けです。",
+      "advancedDescription": "UMO pattern を使用して複数の会話を一括で照合します。ルールは上から順に照合され、PyaBot の会話ソース形式に詳しいユーザー向けです。",
       "patternLabel": "UMO pattern",
       "patternPlaceholder": "例：bot-id:GroupMessage:*",
       "addPattern": "ルールを追加",

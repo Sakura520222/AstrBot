@@ -1,6 +1,6 @@
 # Connecting to Discord
 
-## Create AstrBot Discord Platform Adapter
+## Create PyaBot Discord Platform Adapter
 
 Open `Platforms` in the WebUI, click `Add Adapter`, and select `Discord`. Fill in the following settings, then click `Save` after obtaining the token.
 
@@ -8,7 +8,7 @@ Open `Platforms` in the WebUI, click `Add Adapter`, and select `Discord`. Fill i
 - Enable: Check to enable this adapter
 - Bot Token: Token obtained after creating an App in Discord (see below)
 - Discord Proxy Address: If you need to use a proxy to access Discord, you can enter the proxy address here (optional)
-- Auto-register Plugin Commands as Discord Slash Commands: When checked, AstrBot will automatically register commands from installed plugins as Discord slash commands for user convenience.
+- Auto-register Plugin Commands as Discord Slash Commands: When checked, PyaBot will automatically register commands from installed plugins as Discord slash commands for user convenience.
 
 ## Create an App in Discord
 
@@ -68,4 +68,4 @@ Open `Config`, select the configuration profile used by the bot, click the searc
 
 - If you're stuck at the final step and the bot is not online, please ensure your server can directly connect to Discord
 
-If you have any questions, please [submit an Issue](https://github.com/Sakura520222/AstrBot/issues).
+If you have any questions, please [submit an Issue](https://github.com/Sakura520222/PyaBot/issues).

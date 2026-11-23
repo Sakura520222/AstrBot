@@ -1,6 +1,6 @@
 #Requires -Version 5.1
 
-# Install AstrBot with uv on Windows PowerShell.
+# Install PyaBot with uv on Windows PowerShell.
 [CmdletBinding()]
 param(
     # Invoke-Expression validates omitted string parameters as empty values.
@@ -29,13 +29,13 @@ $Indent = '  '
 # with any system encoding, while downloaded UTF-8 scripts also work without a BOM.
 $bootstrapText = ConvertFrom-Json @'
 {
-    "InstallerTitle": "\ud83c\udf0c AstrBot Installer",
+    "InstallerTitle": "\ud83c\udf0c PyaBot Installer",
     "LanguagePrompt": "Select language / \u8bf7\u9009\u62e9\u8bed\u8a00 / \u8a00\u8a9e\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044",
     "Chinese": "\u7b80\u4f53\u4e2d\u6587",
     "English": "English",
     "Japanese": "\u65e5\u672c\u8a9e",
     "NextStepsEnglish": "Next, run these commands:",
-    "NextStepsChinese": "\u63a5\u4e0b\u6765\u53ef\u4ee5\u4f9d\u6b21\u6267\u884c\u4ee5\u4e0b\u6307\u4ee4\u6765\u521d\u59cb\u5316\u548c\u542f\u52a8 AstrBot\uff1a",
+    "NextStepsChinese": "\u63a5\u4e0b\u6765\u53ef\u4ee5\u4f9d\u6b21\u6267\u884c\u4ee5\u4e0b\u6307\u4ee4\u6765\u521d\u59cb\u5316\u548c\u542f\u52a8 PyaBot\uff1a",
     "NextStepsJapanese": "\u6b21\u306b\u3001\u4ee5\u4e0b\u3092\u9806\u756a\u306b\u5b9f\u884c\u3057\u3066\u304f\u3060\u3055\u3044\uff1a",
     "PythonFallbackEnglish": "Python mirror failed; retrying with the official source...",
     "PythonFallbackChinese": "Python \u955c\u50cf\u4e0b\u8f7d\u5931\u8d25\uff0c\u6b63\u5728\u5207\u6362\u5230\u5b98\u65b9\u6e90\u91cd\u8bd5\u2026",
@@ -90,9 +90,9 @@ $messages = ConvertFrom-Json @'
         "InvalidChecksum": "uv \u538b\u7f29\u5305 SHA256 \u6821\u9a8c\u5931\u8d25\u3002",
         "MissingBinaries": "uv \u538b\u7f29\u5305\u4e2d\u7f3a\u5c11 uv.exe \u6216 uvx.exe\u3002",
         "UvFailed": "uv \u5b89\u88c5\u5931\u8d25\u3002\u8bf7\u53c2\u8003 https://docs.astral.sh/uv/getting-started/installation/",
-        "InstallingAstrBot": "\u6b63\u5728\u4f7f\u7528 Python 3.12 \u5b89\u88c5 AstrBot\u2026",
-        "AstrBotFailed": "AstrBot \u5b89\u88c5\u5931\u8d25\uff08\u9000\u51fa\u7801 {0}\uff09\u3002\u8bf7\u68c0\u67e5\u4e0a\u65b9\u7684\u4e0b\u8f7d\u6216\u4f9d\u8d56\u9519\u8bef\u3002",
-        "Installed": "AstrBot \u5b89\u88c5\u5b8c\u6210\u3002",
+        "InstallingAstrBot": "\u6b63\u5728\u4f7f\u7528 Python 3.12 \u5b89\u88c5 PyaBot\u2026",
+        "AstrBotFailed": "PyaBot \u5b89\u88c5\u5931\u8d25\uff08\u9000\u51fa\u7801 {0}\uff09\u3002\u8bf7\u68c0\u67e5\u4e0a\u65b9\u7684\u4e0b\u8f7d\u6216\u4f9d\u8d56\u9519\u8bef\u3002",
+        "Installed": "PyaBot \u5b89\u88c5\u5b8c\u6210\u3002",
         "ReloadShell": "\u8bf7\u6839\u636e\u4f60\u4f7f\u7528\u7684\u7ec8\u7aef\u91cd\u65b0\u52a0\u8f7d\u73af\u5883\uff1a",
         "RunCommands": "\u91cd\u65b0\u52a0\u8f7d\u540e\uff0c\u8bf7\u624b\u52a8\u8fd0\u884c\uff1a"
     },
@@ -121,9 +121,9 @@ $messages = ConvertFrom-Json @'
         "InvalidChecksum": "uv archive SHA256 verification failed.",
         "MissingBinaries": "The uv archive is missing uv.exe or uvx.exe.",
         "UvFailed": "Failed to install uv. See https://docs.astral.sh/uv/getting-started/installation/",
-        "InstallingAstrBot": "Installing AstrBot with Python 3.12...",
-        "AstrBotFailed": "AstrBot installation failed (exit code {0}). Check the download or dependency errors above.",
-        "Installed": "AstrBot has been installed.",
+        "InstallingAstrBot": "Installing PyaBot with Python 3.12...",
+        "AstrBotFailed": "PyaBot installation failed (exit code {0}). Check the download or dependency errors above.",
+        "Installed": "PyaBot has been installed.",
         "ReloadShell": "Reload the environment for your shell:",
         "RunCommands": "Then run these commands manually:"
     },
@@ -152,9 +152,9 @@ $messages = ConvertFrom-Json @'
         "InvalidChecksum": "uv \u30a2\u30fc\u30ab\u30a4\u30d6\u306e SHA256 \u691c\u8a3c\u306b\u5931\u6557\u3057\u307e\u3057\u305f\u3002",
         "MissingBinaries": "uv \u30a2\u30fc\u30ab\u30a4\u30d6\u306b uv.exe \u307e\u305f\u306f uvx.exe \u304c\u3042\u308a\u307e\u305b\u3093\u3002",
         "UvFailed": "uv \u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u306b\u5931\u6557\u3057\u307e\u3057\u305f\u3002https://docs.astral.sh/uv/getting-started/installation/ \u3092\u53c2\u7167\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
-        "InstallingAstrBot": "Python 3.12 \u3067 AstrBot \u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3057\u3066\u3044\u307e\u3059\u2026",
-        "AstrBotFailed": "AstrBot \u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u306b\u5931\u6557\u3057\u307e\u3057\u305f\uff08\u7d42\u4e86\u30b3\u30fc\u30c9 {0}\uff09\u3002\u4e0a\u8a18\u306e\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9\u307e\u305f\u306f\u4f9d\u5b58\u95a2\u4fc2\u306e\u30a8\u30e9\u30fc\u3092\u78ba\u8a8d\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
-        "Installed": "AstrBot \u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u304c\u5b8c\u4e86\u3057\u307e\u3057\u305f\u3002",
+        "InstallingAstrBot": "Python 3.12 \u3067 PyaBot \u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3057\u3066\u3044\u307e\u3059\u2026",
+        "AstrBotFailed": "PyaBot \u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u306b\u5931\u6557\u3057\u307e\u3057\u305f\uff08\u7d42\u4e86\u30b3\u30fc\u30c9 {0}\uff09\u3002\u4e0a\u8a18\u306e\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9\u307e\u305f\u306f\u4f9d\u5b58\u95a2\u4fc2\u306e\u30a8\u30e9\u30fc\u3092\u78ba\u8a8d\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "Installed": "PyaBot \u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u304c\u5b8c\u4e86\u3057\u307e\u3057\u305f\u3002",
         "ReloadShell": "\u4f7f\u7528\u3059\u308b\u30b7\u30a7\u30eb\u306b\u5408\u308f\u305b\u3066\u74b0\u5883\u3092\u518d\u8aad\u307f\u8fbc\u307f\u3057\u3066\u304f\u3060\u3055\u3044\uff1a",
         "RunCommands": "\u305d\u306e\u5f8c\u3001\u4ee5\u4e0b\u306e\u30b3\u30de\u30f3\u30c9\u3092\u624b\u52d5\u3067\u5b9f\u884c\u3057\u3066\u304f\u3060\u3055\u3044\uff1a"
     }
@@ -444,7 +444,7 @@ if ($PythonInstallMirror) {
 }
 
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-    throw "Git is required to install AstrBot."
+    throw "Git is required to install PyaBot."
 }
 
 $previousPythonMirror = $env:UV_PYTHON_INSTALL_MIRROR
@@ -452,7 +452,7 @@ try {
     if ($PythonInstallMirror) { $env:UV_PYTHON_INSTALL_MIRROR = $PythonInstallMirror }
     Info $Text.InstallingAstrBot
     $toolInstallExitCode = Invoke-UvToolInstall -ArgumentList @(
-        'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/AstrBot.git', '--default-index', $PypiIndexUrl
+        'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/PyaBot.git', '--default-index', $PypiIndexUrl
     )
     if ($toolInstallExitCode -ne 0 -and $PythonInstallMirror) {
         $pythonFallback = switch ($Language) {
@@ -463,7 +463,7 @@ try {
         Warn $pythonFallback
         $env:UV_PYTHON_INSTALL_MIRROR = $null
         $toolInstallExitCode = Invoke-UvToolInstall -ArgumentList @(
-            'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/AstrBot.git', '--default-index', $PypiIndexUrl
+            'tool', 'install', '--python', '3.12', 'git+https://github.com/Sakura520222/PyaBot.git', '--default-index', $PypiIndexUrl
         )
     }
     if ($toolInstallExitCode -ne 0) {
@@ -478,8 +478,8 @@ try {
     Write-Host "$($Indent)  Fish: source ~/.config/fish/config.fish"
     Write-Host "$($Indent)  PowerShell: . `$PROFILE"
     Write-Host "`n$Indent$($Text.RunCommands)"
-    Write-Host "$($Indent)$($Indent)astrbot init" -ForegroundColor Cyan
-    Write-Host "$($Indent)$($Indent)astrbot run" -ForegroundColor Cyan
+    Write-Host "$($Indent)$($Indent)pyabot init" -ForegroundColor Cyan
+    Write-Host "$($Indent)$($Indent)pyabot run" -ForegroundColor Cyan
 } finally {
     $env:UV_PYTHON_INSTALL_MIRROR = $previousPythonMirror
 }

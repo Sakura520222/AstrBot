@@ -1,14 +1,14 @@
 version: '3.8'
 
 services:
-  astrbot:
-    image: ghcr.io/sakura520222/astrbot:latest
-    container_name: astrbot
+  pyabot:
+    image: ghcr.io/sakura520222/pyabot:latest
+    container_name: pyabot
     restart: always
     security_opt:
       - no-new-privileges:true
     ports:
-      - "6185:6185" # AstrBot WebUI
+      - "6185:6185" # PyaBot WebUI
       - "6199:6199" # Optional. OneBot v11 WebSocket port
     environment:
       - TZ=Asia/Shanghai

@@ -165,7 +165,7 @@ onMounted(async () => {
     <v-card class="login-card" elevation="1">
       <v-card-title>
         <div class="d-flex justify-space-between align-center w-100">
-          <img width="80" src="/favicon.svg" alt="AstrBot Logo">
+          <img width="80" src="/favicon.svg" alt="PyaBot Logo">
           <div class="d-flex align-center gap-1">
             <LanguageSwitcher />
             <v-divider vertical class="mx-1"
@@ -266,7 +266,7 @@ onMounted(async () => {
         </v-card-text>
         <v-card-actions class="version-dialog-actions">
           <v-btn
-            href="https://astrbot.pyabunny.com/docs/faq.html"
+            href="https://pyabot.pyabunny.com/docs/faq.html"
             target="_blank"
             rel="noopener noreferrer"
             variant="text"

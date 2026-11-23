@@ -8,10 +8,10 @@
           "subagents": {
             "enabled": {
               "description": "启用子代理",
-              "hint": "允许 AstrBot 在合适的时机创建通用或专用子代理完成任务。"
+              "hint": "允许 PyaBot 在合适的时机创建通用或专用子代理完成任务。"
             },
             "config_ids": {
-              "hint": "配置专用子代理（可指定人格、工具集等配置）。即使不配置，AstrBot 也会在需要的时候动态生成通用子代理完成任务。",
+              "hint": "配置专用子代理（可指定人格、工具集等配置）。即使不配置，PyaBot 也会在需要的时候动态生成通用子代理完成任务。",
               "description": "专用 Agent 配置"
             },
             "max_concurrent_agents": {
@@ -52,14 +52,30 @@
       "description": "Dify 配置",
       "agent": {
         "config": {
-          "dify_api_type": { "description": "应用类型" },
-          "dify_api_key": { "description": "API Key" },
-          "dify_api_base": { "description": "API Base URL" },
-          "dify_workflow_output_key": { "description": "Workflow 输出变量名" },
-          "dify_query_input_key": { "description": "Prompt 输入变量名" },
-          "variables": { "description": "变量" },
-          "timeout": { "description": "超时时间（秒）" },
-          "proxy": { "description": "代理地址" }
+          "dify_api_type": {
+            "description": "应用类型"
+          },
+          "dify_api_key": {
+            "description": "API Key"
+          },
+          "dify_api_base": {
+            "description": "API Base URL"
+          },
+          "dify_workflow_output_key": {
+            "description": "Workflow 输出变量名"
+          },
+          "dify_query_input_key": {
+            "description": "Prompt 输入变量名"
+          },
+          "variables": {
+            "description": "变量"
+          },
+          "timeout": {
+            "description": "超时时间（秒）"
+          },
+          "proxy": {
+            "description": "代理地址"
+          }
         }
       }
     },
@@ -67,12 +83,24 @@
       "description": "Coze 配置",
       "agent": {
         "config": {
-          "coze_api_key": { "description": "API Key" },
-          "bot_id": { "description": "Bot ID" },
-          "coze_api_base": { "description": "API Base URL" },
-          "auto_save_history": { "description": "由 Coze 管理对话记录" },
-          "timeout": { "description": "超时时间（秒）" },
-          "proxy": { "description": "代理地址" }
+          "coze_api_key": {
+            "description": "API Key"
+          },
+          "bot_id": {
+            "description": "Bot ID"
+          },
+          "coze_api_base": {
+            "description": "API Base URL"
+          },
+          "auto_save_history": {
+            "description": "由 Coze 管理对话记录"
+          },
+          "timeout": {
+            "description": "超时时间（秒）"
+          },
+          "proxy": {
+            "description": "代理地址"
+          }
         }
       }
     },
@@ -80,17 +108,35 @@
       "description": "阿里云百炼应用配置",
       "agent": {
         "config": {
-          "dashscope_app_type": { "description": "应用类型" },
-          "dashscope_api_key": { "description": "API Key" },
-          "dashscope_app_id": { "description": "应用 ID" },
-          "rag_options": {
-            "pipeline_ids": { "description": "知识库 Pipeline ID" },
-            "file_ids": { "description": "文件 ID" },
-            "output_reference": { "description": "输出引用" }
+          "dashscope_app_type": {
+            "description": "应用类型"
           },
-          "variables": { "description": "变量" },
-          "timeout": { "description": "超时时间（秒）" },
-          "proxy": { "description": "代理地址" }
+          "dashscope_api_key": {
+            "description": "API Key"
+          },
+          "dashscope_app_id": {
+            "description": "应用 ID"
+          },
+          "rag_options": {
+            "pipeline_ids": {
+              "description": "知识库 Pipeline ID"
+            },
+            "file_ids": {
+              "description": "文件 ID"
+            },
+            "output_reference": {
+              "description": "输出引用"
+            }
+          },
+          "variables": {
+            "description": "变量"
+          },
+          "timeout": {
+            "description": "超时时间（秒）"
+          },
+          "proxy": {
+            "description": "代理地址"
+          }
         }
       }
     },
@@ -98,18 +144,42 @@
       "description": "DeerFlow 配置",
       "agent": {
         "config": {
-          "deerflow_api_base": { "description": "API Base URL" },
-          "deerflow_api_key": { "description": "API Key" },
-          "deerflow_auth_header": { "description": "Authorization Header" },
-          "deerflow_assistant_id": { "description": "Assistant ID" },
-          "deerflow_model_name": { "description": "模型名称覆盖" },
-          "deerflow_thinking_enabled": { "description": "启用思考模式" },
-          "deerflow_plan_mode": { "description": "启用计划模式" },
-          "deerflow_subagent_enabled": { "description": "启用子智能体" },
-          "deerflow_max_concurrent_subagents": { "description": "子智能体最大并发数" },
-          "deerflow_recursion_limit": { "description": "递归深度上限" },
-          "timeout": { "description": "超时时间（秒）" },
-          "proxy": { "description": "代理地址" }
+          "deerflow_api_base": {
+            "description": "API Base URL"
+          },
+          "deerflow_api_key": {
+            "description": "API Key"
+          },
+          "deerflow_auth_header": {
+            "description": "Authorization Header"
+          },
+          "deerflow_assistant_id": {
+            "description": "Assistant ID"
+          },
+          "deerflow_model_name": {
+            "description": "模型名称覆盖"
+          },
+          "deerflow_thinking_enabled": {
+            "description": "启用思考模式"
+          },
+          "deerflow_plan_mode": {
+            "description": "启用计划模式"
+          },
+          "deerflow_subagent_enabled": {
+            "description": "启用子智能体"
+          },
+          "deerflow_max_concurrent_subagents": {
+            "description": "子智能体最大并发数"
+          },
+          "deerflow_recursion_limit": {
+            "description": "递归深度上限"
+          },
+          "timeout": {
+            "description": "超时时间（秒）"
+          },
+          "proxy": {
+            "description": "代理地址"
+          }
         }
       }
     },
@@ -171,11 +241,13 @@
     },
     "persona": {
       "description": "人格",
-      "hint": "赋予 AstrBot 人格。",
+      "hint": "赋予 PyaBot 人格。",
       "agent": {
         "config": {
           "persona": {
-            "persona_id": { "description": "默认采用的人格" },
+            "persona_id": {
+              "description": "默认采用的人格"
+            },
             "safety_mode": {
               "description": "健康模式",
               "hint": "引导模型输出健康、安全的内容，避免有害或敏感话题。"
@@ -190,7 +262,7 @@
     },
     "knowledgebase": {
       "description": "知识库",
-      "hint": "AstrBot 的 “外置大脑”。",
+      "hint": "PyaBot 的 “外置大脑”。",
       "kb_names": {
         "description": "知识库列表",
         "hint": "支持多选"
@@ -210,7 +282,7 @@
     },
     "websearch": {
       "description": "网页搜索",
-      "hint": "让 AstrBot 能够访问互联网，获悉时讯。",
+      "hint": "让 PyaBot 能够访问互联网，获悉时讯。",
       "provider_settings": {
         "web_search": {
           "description": "启用网页搜索"
@@ -299,19 +371,23 @@
     },
     "agent_computer_use": {
       "description": "使用电脑能力",
-      "hint": "让 AstrBot 访问和使用本机环境或者隔离的沙盒环境，以执行更复杂的任务。详见: [Agent 沙盒环境](https://astrbot.pyabunny.com/docs/use/astrbot-agent-sandbox.html)。",
+      "hint": "让 PyaBot 访问和使用本机环境或者隔离的沙盒环境，以执行更复杂的任务。详见: [Agent 沙盒环境](https://pyabot.pyabunny.com/docs/use/astrbot-agent-sandbox.html)。",
       "provider_settings": {
         "computer_use_runtime": {
           "description": "运行环境",
           "hint": "允许 Agent 访问的环境。",
-          "labels": ["不允许任何环境", "本机环境", "第三方沙箱环境"]
+          "labels": [
+            "不允许任何环境",
+            "本机环境",
+            "第三方沙箱环境"
+          ]
         },
         "computer_use_local_permissions": {
           "description": "本地权限策略"
         },
         "computer_use_require_admin": {
-          "description": "沙箱能力需要 AstrBot 管理员权限",
-          "hint": "开启后，需要 AstrBot 管理员权限才能调用远程沙箱能力。在配置文件 -> 访问控制 -> 管理员 -> 管理员 ID 中可添加管理员。给机器人发送 /sid 指令以获取 ID。"
+          "description": "沙箱能力需要 PyaBot 管理员权限",
+          "hint": "开启后，需要 PyaBot 管理员权限才能调用远程沙箱能力。在配置文件 -> 访问控制 -> 管理员 -> 管理员 ID 中可添加管理员。给机器人发送 /sid 指令以获取 ID。"
         },
         "sandbox": {
           "booter": {
@@ -343,7 +419,7 @@
           },
           "cua_idle_timeout": {
             "description": "CUA 空闲超时(秒)",
-            "hint": "CUA 沙箱空闲超时时间（秒）。大于 0 时，AstrBot 会在会话空闲达到该时长后主动关闭 CUA 沙箱；0 表示禁用。"
+            "hint": "CUA 沙箱空闲超时时间（秒）。大于 0 时，PyaBot 会在会话空闲达到该时长后主动关闭 CUA 沙箱；0 表示禁用。"
           },
           "cua_telemetry_enabled": {
             "description": "CUA 遥测",
@@ -388,10 +464,10 @@
           "none": "不允许访问任何文件",
           "workspace": "受限的工作区、临时目录和技能文件。",
           "workspaceUnsupported": "当前系统不支持受限工作区文件访问。",
-          "host": "AstrBot 所在运行环境的所有文件。"
+          "host": "PyaBot 所在运行环境的所有文件。"
         },
         "scopeDetails": {
-          "account": "1. 可访问 AstrBot 运行账户有权限访问的文件。",
+          "account": "1. 可访问 PyaBot 运行账户有权限访问的文件。",
           "docker": "2. 如果通过 Docker 部署，则仅可访问容器内及挂载的文件，并非宿主机全部文件。"
         },
         "roles": {
@@ -413,11 +489,11 @@
           "arch": "架构",
           "sandbox": "本地隔离",
           "windowsUnavailable": "{backend} · 尚未就绪",
-          "windowsSetupHint": "请保存配置并重启 AstrBot；如出现管理员授权提示，请允许以完成沙盒初始化。",
+          "windowsSetupHint": "请保存配置并重启 PyaBot；如出现管理员授权提示，请允许以完成沙盒初始化。",
           "errorDetails": "查看诊断详情",
-          "unavailableHint": "沙箱启动失败，受限 Shell/Python 执行及工作区文件搜索会受到影响。请根据下方错误检查系统安全策略（如 Linux 的 AppArmor、用户命名空间限制）或容器限制，修复后重启 AstrBot 重新检测。",
+          "unavailableHint": "沙箱启动失败，受限 Shell/Python 执行及工作区文件搜索会受到影响。请根据下方错误检查系统安全策略（如 Linux 的 AppArmor、用户命名空间限制）或容器限制，修复后重启 PyaBot 重新检测。",
           "dialog": {
-            "intro": "利用 macOS 的 Seatbelt 或 Linux 的 bubblewrap（bwrap）技术，为 AstrBot Agent 的执行提供安全隔离，以限制不同用户使用 AstrBot Agent 时的文件访问范围和联网权限，获得更高的安全性。",
+            "intro": "利用 macOS 的 Seatbelt 或 Linux 的 bubblewrap（bwrap）技术，为 PyaBot Agent 的执行提供安全隔离，以限制不同用户使用 PyaBot Agent 时的文件访问范围和联网权限，获得更高的安全性。",
             "startupError": "查看启动错误",
             "documentation": "查看详细配置文档"
           },
@@ -448,18 +524,18 @@
     },
     "proactive_capability": {
       "description": "主动型能力",
-      "hint": "让 AstrBot 能够在某一时刻自动唤醒，帮你完成任务。详见: [主动型 Agent](https://astrbot.pyabunny.com/docs/use/proactive-agent.html)。",
+      "hint": "让 PyaBot 能够在某一时刻自动唤醒，帮你完成任务。详见: [主动型 Agent](https://pyabot.pyabunny.com/docs/use/proactive-agent.html)。",
       "provider_settings": {
         "proactive_capability": {
           "add_cron_tools": {
             "description": "启用",
-            "hint": "启用后，将会传递给 Agent 相关工具来实现主动型 Agent。你可以告诉 AstrBot 未来某个时间要做的事情，它将被定时触发然后执行任务，然后将结果发送给你。"
+            "hint": "启用后，将会传递给 Agent 相关工具来实现主动型 Agent。你可以告诉 PyaBot 未来某个时间要做的事情，它将被定时触发然后执行任务，然后将结果发送给你。"
           }
         }
       }
     },
     "truncate_and_compress": {
-      "hint": "AstrBot 如何管理工作记忆。详见: [上下文管理策略](https://astrbot.pyabunny.com/docs/use/context-compress.html)。",
+      "hint": "PyaBot 如何管理工作记忆。详见: [上下文管理策略](https://pyabot.pyabunny.com/docs/use/context-compress.html)。",
       "description": "上下文管理策略",
       "agent": {
         "config": {
@@ -474,7 +550,10 @@
             },
             "overflow_strategy": {
               "description": "压缩策略",
-              "labels": ["按对话轮数截断", "由 LLM 压缩上下文"],
+              "labels": [
+                "按对话轮数截断",
+                "由 LLM 压缩上下文"
+              ],
               "hint": "模型上下文超限时的处理策略。"
             },
             "instruction": {
@@ -502,11 +581,16 @@
       "agent": {
         "config": {
           "misc": {
-            "max_steps": { "description": "工具调用轮数上限" },
+            "max_steps": {
+              "description": "工具调用轮数上限"
+            },
             "tool_schema_mode": {
               "description": "工具调用模式",
               "hint": "skills-like 先下发工具名称与描述，再下发参数；full 一次性下发完整参数。",
-              "labels": ["Skills-like（两阶段）", "Full（完整参数）"]
+              "labels": [
+                "Skills-like（两阶段）",
+                "Full（完整参数）"
+              ]
             },
             "tool_call_timeout": {
               "description": "工具调用超时时间(秒)"
@@ -702,7 +786,7 @@
       },
       "discord_allow_bot_messages": {
         "description": "允许接收机器人消息",
-        "hint": "启用后，AstrBot 将接收来自其他 Discord 机器人的消息。适用于机器人间通信场景（如消息转发）。默认关闭。"
+        "hint": "启用后，PyaBot 将接收来自其他 Discord 机器人的消息。适用于机器人间通信场景（如消息转发）。默认关闭。"
       },
       "discord_command_register": {
         "description": "注册 Discord 指令",
@@ -852,11 +936,11 @@
       },
       "telegram_command_auto_refresh": {
         "description": "命令自动刷新",
-        "hint": "启用后，AstrBot 将会在运行时自动刷新 Telegram 命令。(单独设置此项无效)"
+        "hint": "启用后，PyaBot 将会在运行时自动刷新 Telegram 命令。(单独设置此项无效)"
       },
       "telegram_command_register": {
         "description": "命令注册",
-        "hint": "启用后，AstrBot 将会自动注册 Telegram 命令。"
+        "hint": "启用后，PyaBot 将会自动注册 Telegram 命令。"
       },
       "telegram_command_register_interval": {
         "description": "命令自动刷新间隔",
@@ -887,7 +971,7 @@
       },
       "unified_webhook_mode": {
         "description": "统一 Webhook 模式",
-        "hint": "Webhook 模式下使用 AstrBot 统一 Webhook 入口，无需单独开启端口。回调地址为 /api/v1/webhooks/platforms/{webhook_uuid}。"
+        "hint": "Webhook 模式下使用 PyaBot 统一 Webhook 入口，无需单独开启端口。回调地址为 /api/v1/webhooks/platforms/{webhook_uuid}。"
       },
       "use_markdown": {
         "description": "主动消息使用 Markdown",
@@ -939,7 +1023,7 @@
       },
       "wpp_active_message_poll": {
         "description": "是否启用主动消息轮询",
-        "hint": "只有当你发现微信消息没有按时同步到 AstrBot 时，才需要启用这个功能，默认不启用。"
+        "hint": "只有当你发现微信消息没有按时同步到 PyaBot 时，才需要启用这个功能，默认不启用。"
       },
       "wpp_active_message_poll_interval": {
         "description": "主动消息轮询间隔",
@@ -947,7 +1031,7 @@
       },
       "ws_reverse_host": {
         "description": "反向 Websocket 主机",
-        "hint": "AstrBot 将作为服务器端。"
+        "hint": "PyaBot 将作为服务器端。"
       },
       "ws_reverse_port": {
         "description": "反向 Websocket 端口"
@@ -1075,7 +1159,7 @@
       },
       "disable_builtin_commands": {
         "description": "禁用自带指令",
-        "hint": "禁用所有 AstrBot 自带指令,如 help, sid, new 等"
+        "hint": "禁用所有 PyaBot 自带指令,如 help, sid, new 等"
       }
     },
     "rate_limit": {
@@ -1341,7 +1425,7 @@
       },
       "t2i_endpoint": {
         "description": "文本转图像服务 API 地址",
-        "hint": "为空时使用 AstrBot API 服务"
+        "hint": "为空时使用 PyaBot API 服务"
       },
       "t2i_template": {
         "description": "文本转图像自定义模版",
@@ -1403,11 +1487,11 @@
       },
       "callback_api_base": {
         "description": "对外可达的回调接口地址",
-        "hint": "外部服务可能会通过 AstrBot 生成的回调链接(如文件下载链接)访问 AstrBot 后端。由于 AstrBot 无法自动判断部署环境中对外可达的主机地址(host),因此需要通过此配置项显式指定外部服务如何访问 AstrBot 的地址。如 [http://localhost:6185](http://localhost:6185),[https://example.com](https://example.com) 等。"
+        "hint": "外部服务可能会通过 PyaBot 生成的回调链接(如文件下载链接)访问 PyaBot 后端。由于 PyaBot 无法自动判断部署环境中对外可达的主机地址(host),因此需要通过此配置项显式指定外部服务如何访问 PyaBot 的地址。如 [http://localhost:6185](http://localhost:6185),[https://example.com](https://example.com) 等。"
       },
       "disable_metrics": {
         "description": "禁用匿名使用统计",
-        "hint": "禁用后，AstrBot 将不再上传匿名使用统计数据。"
+        "hint": "禁用后，PyaBot 将不再上传匿名使用统计数据。"
       },
       "dashboard": {
         "trust_proxy_headers": {
@@ -1599,10 +1683,9 @@
           "工具使用"
         ]
       },
-
       "custom_headers": {
         "description": "自定义请求头",
-        "hint": "此处添加的键值对将作为自定义 HTTP 请求头，附加到 AstrBot 发往模型服务商的请求中。值必须为字符串。"
+        "hint": "此处添加的键值对将作为自定义 HTTP 请求头，附加到 PyaBot 发往模型服务商的请求中。值必须为字符串。"
       },
       "ollama_disable_thinking": {
         "description": "关闭思考模式",
@@ -1958,7 +2041,10 @@
       "deepseek-tts-voice": {
         "description": "音色",
         "hint": "DeepSeek TTS 音色，实际请求使用对应的 voice_id。",
-        "labels": ["海星（女声，默认）", "暗潮（男声）"]
+        "labels": [
+          "海星（女声，默认）",
+          "暗潮（男声）"
+        ]
       },
       "deepseek-tts-filter-markdown": {
         "description": "过滤 Markdown",
@@ -2135,7 +2221,7 @@
       },
       "auto_save_history": {
         "description": "由 Coze 管理对话记录",
-        "hint": "启用后，将由 Coze 进行对话历史记录管理, 此时 AstrBot 本地保存的上下文不会生效(仅供浏览), 对 AstrBot 的上下文进行的操作也不会生效。如果为禁用, 则使用 AstrBot 管理上下文。"
+        "hint": "启用后，将由 Coze 进行对话历史记录管理, 此时 PyaBot 本地保存的上下文不会生效(仅供浏览), 对 PyaBot 的上下文进行的操作也不会生效。如果为禁用, 则使用 PyaBot 管理上下文。"
       }
     }
   },

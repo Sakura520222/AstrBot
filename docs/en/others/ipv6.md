@@ -1,6 +1,6 @@
 # IPv6 access
 
-AstrBot can bind to an IPv6 address. Stop the instance and set these fields in the `dashboard` section of `data/cmd_config.json`:
+PyaBot can bind to an IPv6 address. Stop the instance and set these fields in the `dashboard` section of `data/cmd_config.json`:
 
 ~~~json
 {

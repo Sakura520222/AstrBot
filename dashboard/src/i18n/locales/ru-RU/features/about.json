@@ -1,7 +1,7 @@
 ﻿{
     "hero": {
-        "title": "AstrBot",
-        "subtitle": "Проект, рожденный из интереса и любви ❤️",
+        "title": "PyaBot",
+        "subtitle": "Мультиплатформенный AI-фреймворк с совместимостью с плагинами AstrBot",
         "starButton": "Star этот проект! 🌟",
         "issueButton": "Сообщить об ошибке"
     },
@@ -12,6 +12,6 @@
     },
     "stats": {
         "title": "Глобальное развертывание",
-        "license": "AstrBot распространяется по лицензии AGPL v3"
+        "license": "PyaBot основан на AstrBot и распространяется по лицензии AGPL v3"
     }
 }

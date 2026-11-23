@@ -1,6 +1,6 @@
 # Connect to Coze
 
-AstrBot v4.2.1 and later versions support connecting to [Coze](https://www.coze.cn/) Agent service.
+PyaBot v4.2.1 and later versions support connecting to [Coze](https://www.coze.cn/) Agent service.
 
 ## Preparation: Get API Key
 
@@ -44,9 +44,9 @@ Then the `bot_id` is the string of numbers after `bot/` in the URL: `75532486748
 
 We need to record the `bot_id` for later use.
 
-## Configure Coze in AstrBot
+## Configure Coze in PyaBot
 
-After completing all the preparation work, we can now configure Coze in AstrBot.
+After completing all the preparation work, we can now configure Coze in PyaBot.
 
 In the WebUI, open **Config**, select the profile to edit, and open **AI**. Click **More actions** (`…`) beside the heading → **Change Execution Mode**, select **Coze**, read and check the reset acknowledgement, then click **Use This Mode**. Make sure **Enable AI** is on, then enter the connection settings on this page. Switching resets the current mode's configuration; see [Agent Runner](../../use/agent-runner.md).
 

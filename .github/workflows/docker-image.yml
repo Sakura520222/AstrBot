@@ -28,7 +28,7 @@ jobs:
       - name: Prepare bundled WebUI and image names
         shell: bash
         run: |
-          unzip -q "release-assets/AstrBot-${RELEASE_TAG}-dashboard.zip" -d release-assets/unpacked
+          unzip -q "release-assets/PyaBot-${RELEASE_TAG}-dashboard.zip" -d release-assets/unpacked
           mkdir -p astrbot/dashboard/dist
           cp -a release-assets/unpacked/dist/. astrbot/dashboard/dist/
           image="ghcr.io/${GITHUB_REPOSITORY,,}"
