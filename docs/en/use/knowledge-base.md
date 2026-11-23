@@ -25,7 +25,7 @@ This page covers PyaBot's current built-in knowledge base, available since 4.5.0
 3. Enter the service's API endpoint, API key, model name, vector dimensions, and other required settings.
 4. Save and make sure the provider is available.
 
-Current integrations include OpenAI-compatible services, Google Gemini, Ollama, Alibaba Cloud Model Studio, and NVIDIA embedding services. For `OpenAI Embedding`, use the service's API base URL and an embedding model name, not a chat model name.
+Current integrations include OpenAI-compatible services, Google Gemini, Ollama, Alibaba Cloud Model Studio, Volcengine, and NVIDIA embedding services. For `OpenAI Embedding`, use the service's API base URL and an embedding model name, not a chat model name.
 
 For local services such as Ollama, the endpoint must be reachable from the environment running PyaBot. In Docker, `localhost` points to the PyaBot container, not automatically to your host machine.
 
