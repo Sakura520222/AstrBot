@@ -1,13 +1,52 @@
 import json
 import os
+import re
 import shutil
 import subprocess
+import zipfile
 from pathlib import Path
 
 import pytest
 import yaml
 
+from astrbot.core import dashboard_assets
+from astrbot.core.updater import AstrBotUpdater
+
 ROOT = Path(__file__).resolve().parents[1]
+
+
+@pytest.mark.asyncio
+async def test_release_archives_match_runtime_download_names(monkeypatch, tmp_path):
+    """Fresh installs and updates must download exactly the archives built by CI."""
+    workflow = yaml.safe_load((ROOT / ".github/workflows/release.yml").read_text())
+    step = next(
+        item
+        for item in workflow["jobs"]["release"]["steps"]
+        if item.get("name") == "Build source and WebUI archives"
+    )
+    archives = set(
+        re.findall(r"[A-Za-z]+-\$\{RELEASE_TAG\}-(?:core|dashboard)\.zip", step["run"])
+    )
+    assert len(archives) == 2
+    tag = "v9.9.9"
+    calls: list[str] = []
+
+    async def fake_download_file(url: str, path: str, **_kwargs) -> None:
+        calls.append(url)
+        with zipfile.ZipFile(path, "w") as archive:
+            archive.writestr("dist/index.html", "dashboard")
+
+    monkeypatch.delenv("PYABOT_CORE_PACKAGE_BASE_URL", raising=False)
+    monkeypatch.delenv("ASTRBOT_CORE_PACKAGE_BASE_URL", raising=False)
+    monkeypatch.setattr(dashboard_assets, "download_file", fake_download_file)
+
+    await dashboard_assets._download_package(
+        path=str(tmp_path / "dashboard.zip"), version=tag, extract=False
+    )
+    core_url = AstrBotUpdater()._build_core_package_url(tag)
+
+    downloaded = {url.rsplit("/", 1)[-1] for url in [*calls, core_url]}
+    assert downloaded == {name.replace("${RELEASE_TAG}", tag) for name in archives}
 
 
 def test_website_feed_exports_only_public_release_fields(tmp_path, monkeypatch):
