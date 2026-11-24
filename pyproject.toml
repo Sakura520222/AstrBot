@@ -1,6 +1,6 @@
 [project]
 name = "PyaBot"
-version = "4.30.0-beta.1"
+version = "4.30.0-beta.2"
 description = "PyaBot 多平台 AI 助手框架，兼容 AstrBot 插件生态，支持模型、插件、知识库与工具调用"
 readme = "README.md"
 license = { text = "AGPL-3.0-or-later" }

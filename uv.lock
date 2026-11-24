@@ -2530,7 +2530,7 @@ wheels = [
 
 [[package]]
 name = "pyabot"
-version = "4.30.0b1"
+version = "4.30.0b2"
 source = { editable = "." }
 dependencies = [
     { name = "aiocqhttp" },
