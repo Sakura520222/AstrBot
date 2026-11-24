@@ -45,22 +45,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # macOS startup smoke check runs in unit_tests.yml so a push or PR only
+        # requests one capacity-constrained hosted macOS arm64 runner.
         os:
           - ubuntu-latest
-          - macos-latest
           - windows-latest
         python-version:
           - '3.12'
           - '3.13'
           - '3.14'
-        exclude:
-          # Hosted macOS arm64 runners are capacity constrained and queued jobs
-          # are cancelled without ever being assigned a runner. Linux and
-          # Windows keep the full Python matrix.
-          - os: macos-latest
-            python-version: '3.13'
-          - os: macos-latest
-            python-version: '3.14'
 
     steps:
       - name: Checkout

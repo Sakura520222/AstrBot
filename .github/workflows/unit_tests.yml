@@ -90,6 +90,11 @@ jobs:
             bash ./scripts/run_pytests_ci.sh ./tests
           fi
 
+      - name: Run macOS startup smoke test
+        if: runner.os == 'macOS'
+        timeout-minutes: 2
+        run: uv run --no-sync python scripts/smoke_startup_check.py
+
       - name: Upload coverage
         if: runner.os == 'Linux' && github.repository == 'AstrBotDevs/AstrBot'
         uses: codecov/codecov-action@v7
