@@ -53,6 +53,14 @@ jobs:
           - '3.12'
           - '3.13'
           - '3.14'
+        exclude:
+          # Hosted macOS arm64 runners are capacity constrained and queued jobs
+          # are cancelled without ever being assigned a runner. Linux and
+          # Windows keep the full Python matrix.
+          - os: macos-latest
+            python-version: '3.13'
+          - os: macos-latest
+            python-version: '3.14'
 
     steps:
       - name: Checkout
