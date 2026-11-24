@@ -140,7 +140,7 @@ export type ChatRequest = {
      */
     locale?: string;
     /**
-     * Caller-declared WebChat sender/session owner. Configured AstrBot administrator IDs require the chat:admin API key sub-scope.
+     * Caller-declared WebChat sender/session owner. Configured PyaBot administrator IDs require the chat:admin API key sub-scope.
      */
     username?: string;
     session_id?: string;
@@ -637,7 +637,7 @@ export type ReorderRequest = {
 };
 
 /**
- * The AstrBot backend runtime, including when running inside a container. Values are captured at application startup.
+ * The PyaBot backend runtime, including when running inside a container. Values are captured at application startup.
  */
 export type RuntimeInfo = {
     /**
@@ -649,7 +649,7 @@ export type RuntimeInfo = {
      */
     arch: string;
     /**
-     * Local process sandbox startup check, captured when AstrBot starts. It does not verify DNS resolution or every permitted operation.
+     * Local process sandbox startup check, captured when PyaBot starts. It does not verify DNS resolution or every permitted operation.
      */
     sandbox: {
         backend: ('bubblewrap' | 'seatbelt' | 'appcontainer') | null;
@@ -658,7 +658,7 @@ export type RuntimeInfo = {
          */
         status: 'detected' | 'missing' | 'unavailable' | 'unsupported';
         /**
-         * Bounded startup error detail, included when status is unavailable. Restart AstrBot after fixing the environment to refresh the check.
+         * Bounded startup error detail, included when status is unavailable. Restart PyaBot after fixing the environment to refresh the check.
          */
         error?: string;
     };
@@ -730,7 +730,7 @@ export type StatsSystemResources = {
     cpu_percent: number;
     memory: StatsResourceUsage;
     /**
-     * Usage of the filesystem containing the AstrBot data directory, or null if unavailable.
+     * Usage of the filesystem containing the PyaBot data directory, or null if unavailable.
      */
     disk: ((StatsResourceUsage) | null);
 };

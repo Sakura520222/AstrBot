@@ -2750,8 +2750,8 @@ export const getProviderTokenStats = <ThrowOnError extends boolean = false>(opti
 };
 
 /**
- * Get AstrBot version and runtime information
- * Runtime information is detected once at application startup. Restart AstrBot after installing sandbox dependencies to refresh it.
+ * Get PyaBot version and runtime information
+ * Runtime information is detected once at application startup. Restart PyaBot after installing sandbox dependencies to refresh it.
  */
 export const getVersion = <ThrowOnError extends boolean = false>(options?: OptionsLegacyParser<unknown, ThrowOnError>) => {
     return (options?.client ?? client).get<GetVersionResponse, GetVersionError, ThrowOnError>({
@@ -2761,7 +2761,7 @@ export const getVersion = <ThrowOnError extends boolean = false>(options?: Optio
 };
 
 /**
- * Get public WebUI and AstrBot versions
+ * Get public WebUI and PyaBot versions
  */
 export const getPublicVersions = <ThrowOnError extends boolean = false>(options?: OptionsLegacyParser<unknown, ThrowOnError>) => {
     return (options?.client ?? client).get<GetPublicVersionsResponse, GetPublicVersionsError, ThrowOnError>({
@@ -2873,7 +2873,7 @@ export const cleanupStorage = <ThrowOnError extends boolean = false>(options?: O
 };
 
 /**
- * Restart AstrBot core
+ * Restart PyaBot core
  */
 export const restartCore = <ThrowOnError extends boolean = false>(options?: OptionsLegacyParser<unknown, ThrowOnError>) => {
     return (options?.client ?? client).post<RestartCoreResponse, RestartCoreError, ThrowOnError>({
@@ -3053,7 +3053,7 @@ export const listReleases = <ThrowOnError extends boolean = false>(options?: Opt
 };
 
 /**
- * Update AstrBot core
+ * Update PyaBot core
  */
 export const updateCore = <ThrowOnError extends boolean = false>(options?: OptionsLegacyParser<UpdateCoreData, ThrowOnError>) => {
     return (options?.client ?? client).post<UpdateCoreResponse, UpdateCoreError, ThrowOnError>({
