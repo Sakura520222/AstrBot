@@ -12,7 +12,7 @@ PyaBot is a multi-platform LLM chatbot framework with full AstrBot plugin compat
 - KISS and minimal correct changes; extract a helper only when the same logic repeats 3+ times or inline code exceeds ~50 lines. New docstrings in Google format.
 - Runtime paths come from `astrbot.core.utils.astrbot_path` (supports `ASTRBOT_ROOT` override) — never hardcode user directories. Stay cross-platform (Windows/macOS/Linux, Arm64/x86).
 - `data/` is live user state (framework config, plugins, databases). Never wipe, overwrite, or commit it; tests use a separate `ASTRBOT_ROOT`.
-- Version triple must match: `[project].version` in `pyproject.toml` == `astrbot.__version__`; `astrbot.core.config.default.VERSION` derives from it. Versions align with the upstream baseline (currently 4.29.3).
+- Version triple must match: `[project].version` in `pyproject.toml` == `astrbot.__version__`; `astrbot.core.config.default.VERSION` derives from it. Versions follow the upstream baseline (upstream 4.30.0-beta.1; this repo's current release is 4.30.0-beta.2).
 - `.github/copilot-instructions.md` is partly stale (npm/Node 20/Python 3.10 era) — prefer AGENTS.md and README.md when they conflict.
 
 The repo has a CodeGraph index (`.codegraph/`): query `codegraph_explore` before grep/read loops when locating or understanding code.

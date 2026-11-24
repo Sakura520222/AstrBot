@@ -50,7 +50,7 @@ pnpm docs:build
 
 ## 版本与兼容
 
-`pyproject.toml` 的 `[project].version`、`astrbot.__version__` 与 `pyabot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从 `astrbot.__version__` 派生。版本号与上游基线对齐，当前为 4.30.0-beta.1。WebUI 构建从 `astrbot.__version__` 写入版本标记。
+`pyproject.toml` 的 `[project].version`、`astrbot.__version__` 与 `pyabot.__version__` 必须一致；`astrbot.core.config.default.VERSION` 从 `astrbot.__version__` 派生。版本号跟随上游基线，当前为 4.30.0-beta.2（上游基线 4.30.0-beta.1 加本仓库自有改动）。WebUI 构建从 `astrbot.__version__` 写入版本标记。
 
 插件声明的 `pyabot_version` 与 `astrbot_version` 直接使用框架版本检查，不增加额外兼容版本。更新上游基线需验证现有插件和数据兼容性。
 
