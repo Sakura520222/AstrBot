@@ -34,7 +34,7 @@ uv run --no-sync main.py
 docker compose up -d
 ```
 
-Compose 使用 `ghcr.io/sakura520222/pyabot:latest`，将 `./data` 挂载到 `/AstrBot/data`。固定版本可使用 `ghcr.io/sakura520222/pyabot:4.30.0-beta.1`。镜像支持 Linux amd64 和 arm64。
+Compose 使用 `ghcr.io/sakura520222/pyabot:latest`，将 `./data` 挂载到 `/AstrBot/data`。固定版本可使用 `ghcr.io/sakura520222/pyabot:4.30.0-beta.2`。镜像支持 Linux amd64 和 arm64。
 
 详见[源码部署](https://pyabot.pyabunny.com/docs/deploy/astrbot/cli)和 [Docker 部署](https://pyabot.pyabunny.com/docs/deploy/astrbot/docker)。
 
@@ -58,7 +58,7 @@ WebUI 开发端口为 3000。运行自行构建的 WebUI：`uv run --no-sync mai
 
 ## 更新与发布
 
-源码版本跟随上游，目前为 `4.30.0-beta.1`。版本列表由站点的公开清单提供，下载包和镜像发布到本仓库的 GitHub Releases 与 GHCR。
+源码版本目前为 `4.30.0-beta.2`，基于上游 `4.30.0-beta.1`。版本列表由站点的公开清单提供，下载包和镜像发布到本仓库的 GitHub Releases 与 GHCR。
 
 发布变更合并到 `master` 后，推送对应的 `v*` 标签。GitHub Actions 构建核心与 WebUI ZIP、Python 分发包、SHA256 校验文件和容器镜像，并刷新站点版本清单。官网与文档由 GitHub Actions 自动部署。
 
